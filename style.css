@@ -1,8 +1,13 @@
+/* =========================
+   RESET E FONTE
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 body {
@@ -11,71 +16,164 @@ body {
   line-height: 1.6;
 }
 
+/* =========================
+   HEADER E MENU FIXO
+========================= */
 header {
-  background: 
-    url("images/capa.jpg") center/cover no-repeat;
+  background: url("../images/capa.jpg") center/cover no-repeat;
   color: white;
-  padding: 80px 20px;
+  padding: 120px 20px 80px 20px;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 header p {
   margin: 15px 0;
+  font-size: 1.2rem;
 }
 
+/* MENU FIXO */
+header nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 61, 98, 0.95);
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #38ada9;
+}
+
+/* BOTÃO */
 .btn {
   display: inline-block;
   background: white;
   color: #0a3d62;
-  padding: 10px 20px;
+  padding: 12px 25px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   border-radius: 5px;
+  margin-top: 15px;
+  transition: all 0.3s;
 }
 
+.btn:hover {
+  background: #38ada9;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* =========================
+   SEÇÕES
+========================= */
 section {
-  padding: 50px 20px;
-  max-width: 900px;
+  padding: 60px 20px;
+  max-width: 1000px;
   margin: auto;
 }
 
 section h2 {
   color: #0a3d62;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 ul li {
   margin-bottom: 10px;
 }
 
+/* =========================
+   PORTFÓLIO
+========================= */
 .projeto {
   background: white;
-  padding: 20px;
-  margin-bottom: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
   border-left: 5px solid #38ada9;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-footer {
-  background: #0a3d62;
-  color: white;
-  text-align: center;
-  padding: 15px;
+.projeto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+
+/* =========================
+   CARDS DE SERVIÇOS
+========================= */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
 .card {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #0a3d62;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+
+  header nav {
+    flex-direction: column;
+  }
+
+  header nav a {
+    margin: 10px 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
