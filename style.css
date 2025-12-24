@@ -177,4 +177,24 @@ footer {
   }
 }
 
+/* =========================
+   IMAGENS NOS CARDS
+========================= */
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* evita que a imagem ultrapasse o card */
+}
+
+.card img {
+  width: 100%;
+  height: 180px; /* ajuste conforme a altura desejada */
+  object-fit: cover; /* cobre o card sem distorcer */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+
+
 
