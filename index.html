@@ -2,302 +2,262 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>EngeVision | Engenharia Elétrica</title>
+  <title>EngeVision | Engenharia Elétrica e Soluções em Energia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Empresa especializada em engenharia elétrica, projetos, eficiência energética e transição energética.">
+  
   <!-- Fonte Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  
   <!-- CSS principal -->
   <link rel="stylesheet" href="style.css">
-</head>
-
-
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --azul-base: #0B1020;
-      --azul-tecnico: #1F4FD8;
-      --amarelo: #F2B705;
-      --branco: #FFFFFF;
-      --cinza: #B0B6C3;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--azul-base);
-      color: var(--branco);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(
-        rgba(11,16,32,0.75),
-        rgba(11,16,32,0.75)
-      ),
-      url("images/capa.jpg") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      padding: 80px 10%;
-    }
-
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .hero h2 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--cinza);
-      margin-bottom: 40px;
-    }
-
-    <div class="hero">
-  <div class="hero-content">
-
-    <!-- LOGO -->
-    <img src="images/logo.jpeg" alt="EngeVision Engenharia Elétrica" class="logo">
-
-    <div class="slogan">Engineering the power behind the future</div>
-
-    <h1>Engenharia elétrica aplicada à energia</h1>
-    <h2>Projetos, execução e soluções técnicas para sistemas elétricos modernos e eficientes.</h2>
-
-  </div>
-</div>
-
-
-    .slogan {
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      color: var(--amarelo);
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    /* SEÇÕES */
-    section {
-      padding: 80px 10%;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 24px;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: "";
-      width: 60px;
-      height: 3px;
-      background-color: var(--amarelo);
-      display: block;
-      margin-top: 10px;
-    }
-
-    /* QUEM SOMOS */
-    .quem-somos p {
-      max-width: 800px;
-      color: var(--cinza);
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      border: 1px solid var(--amarelo);
-      color: var(--amarelo);
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: var(--amarelo);
-      color: var(--azul-base);
-    }
-
-    /* ATUAÇÃO */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background-color: #11162b;
-      padding: 40px 30px;
-      border-left: 4px solid transparent;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-left: 4px solid var(--amarelo);
-      background-color: #141a35;
-    }
-
-    .card h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    /* TRANSIÇÃO ENERGÉTICA */
-    .transicao p {
-      max-width: 900px;
-      color: var(--cinza);
-    }
-
-    /* CTA */
-    .cta {
-      background-color: #0f1530;
-      text-align: center;
-    }
-
-    .cta h2 {
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
-
-    /* RESPONSIVO */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero h2 {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
+  
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-content">
-      <div class="slogan">Engineering the power behind the future</div>
-      <h1>Engenharia elétrica aplicada à energia</h1>
-      <h2>Projetos, execução e soluções técnicas para sistemas elétricos modernos e eficientes.</h2>
+  <!-- HEADER PROFISSIONAL -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#hero" class="logo-link">
+          <img src="images/logo.jpeg" alt="EngeVision Engenharia Elétrica" class="logo">
+        </a>
+        
+        <ul class="nav-menu">
+          <li><a href="#quem-somos">Quem Somos</a></li>
+          <li><a href="#atuacao">Atuação</a></li>
+          <li><a href="#transicao">Transição Energética</a></li>
+          <li><a href="#contato" class="nav-btn">Contato</a></li>
+        </ul>
+        
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
     </div>
-  </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <!-- Logo removida daqui (agora está no header) -->
+        <div class="slogan">Engineering the power behind the future</div>
+        <h1 class="hero-title">Excelência em Engenharia Elétrica e Soluções Energéticas</h1>
+        <h2 class="hero-subtitle">Projetos, execução e soluções técnicas para sistemas elétricos modernos, eficientes e sustentáveis.</h2>
+        <a href="#contato" class="btn btn-large">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </section>
 
   <!-- QUEM SOMOS -->
-  <section class="quem-somos">
-    <h2 class="section-title">Quem somos</h2>
-    <p>
-      A EngeVision é uma empresa de engenharia elétrica que atua em projetos e execução de sistemas elétricos,
-      integrando soluções em energia renovável, eficiência energética e mercado de energia.
-    </p>
-    <a href="quem-somos.html" class="btn">Conheça a EngeVision</a>
+  <section id="quem-somos" class="quem-somos">
+    <div class="container">
+      <h2 class="section-title">Quem somos</h2>
+      <p class="section-intro">
+        A <strong>EngeVision</strong> é uma empresa de engenharia elétrica com mais de 15 anos de experiência, 
+        especializada em projetos e execução de sistemas elétricos de alta complexidade. Integramos soluções 
+        inovadoras em energia renovável, eficiência energética e mercado de energia para clientes corporativos 
+        e industriais.
+      </p>
+      
+      <div class="destaques">
+        <div class="destaque-item">
+          <i class="fas fa-award"></i>
+          <h3>Certificação e Qualidade</h3>
+          <p>Certificada ISO 9001 com projetos seguindo as mais rigorosas normas técnicas.</p>
+        </div>
+        
+        <div class="destaque-item">
+          <i class="fas fa-users"></i>
+          <h3>Equipe Especializada</h3>
+          <p>Engenheiros com mestrado e doutorado nas principais áreas de atuação.</p>
+        </div>
+        
+        <div class="destaque-item">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3>Atuação Nacional</h3>
+          <p>Projetos executados em mais de 12 estados brasileiros.</p>
+        </div>
+      </div>
+      
+      <div class="center-btn">
+        <a href="quem-somos.html" class="btn">Conheça a EngeVision</a>
+      </div>
+    </div>
   </section>
 
   <!-- ATUAÇÃO -->
-  <section>
-    <h2 class="section-title">Atuação</h2>
+  <section id="atuacao" class="atuacao">
+    <div class="container">
+      <h2 class="section-title">Áreas de Atuação</h2>
+      <p class="section-subtitle">Especialistas em soluções completas para o setor elétrico e energético</p>
 
-    <div class="cards">
-      <a href="projetos.html" class="card">
-        <h3>Projetos e Execução Elétrica</h3>
-      </a>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Projetos e Execução Elétrica</h3>
+          <p>Projetos de baixa, média e alta tensão, subestações, instalações industriais e comerciais.</p>
+          <a href="projetos.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+        </div>
 
-      <a href="automacao.html" class="card">
-        <h3>Automação</h3>
-      </a>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>Automação e Controle</h3>
+          <p>Sistemas de automação industrial, CLPs, SCADA e integração de processos produtivos.</p>
+          <a href="automacao.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+        </div>
 
-      <a href="renovaveis.html" class="card">
-        <h3>Energia Renovável</h3>
-      </a>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-sun"></i>
+          </div>
+          <h3>Energia Renovável</h3>
+          <p>Projetos de usinas solares, eólicas, GD e soluções de geração distribuída.</p>
+          <a href="renovaveis.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+        </div>
 
-      <a href="eficiencia.html" class="card">
-        <h3>Eficiência e Auditoria Energética</h3>
-      </a>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Eficiência Energética</h3>
+          <p>Auditorias energéticas, projetos de eficientização e gestão de consumo.</p>
+          <a href="eficiencia.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+        </div>
 
-      <a href="mercado.html" class="card">
-        <h3>Mercado de Energia</h3>
-      </a>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-industry"></i>
+          </div>
+          <h3>Mercado de Energia</h3>
+          <p>Consultoria em compra de energia, gestão de contratos e otimização de custos.</p>
+          <a href="mercado.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- TRANSIÇÃO ENERGÉTICA -->
-  <section class="transicao">
-    <h2 class="section-title">Transição energética</h2>
-    <p>
-      Atuamos alinhados à transição energética, contribuindo para sistemas elétricos mais eficientes,
-      confiáveis e integrados a fontes renováveis.
-    </p>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <h2>Fale com nossa equipe técnica</h2>
-    <a href="contato.html" class="btn">Entrar em contato</a>
-  </section>
-
-  <footer class="footer">
-  <div class="footer-content">
-
-    <div class="footer-brand">
-      <img src="images/logo.jpg" alt="EngeVision Engenharia Elétrica">
-      <p>Engineering the power behind the future</p>
-    </div>
-
-    <div class="footer-info">
-      <div class="footer-social">
-        <a href="#" aria-label="LinkedIn" target="_blank">
-          <!-- LinkedIn -->
-          <svg viewBox="0 0 24 24">
-            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.7-1.3 2.4-2.7 5-2.7 5.3 0 6.3 3.5 6.3 8V24h-5V16.3c0-1.8 0-4.1-2.5-4.1s-2.9 1.9-2.9 4V24h-5V8z"/>
-          </svg>
-        </a>
-
-        <a href="#" aria-label="Instagram" target="_blank">
-          <!-- Instagram -->
-          <svg viewBox="0 0 24 24">
-            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.2A4.8 4.8 0 1 0 12 17a4.8 4.8 0 0 0 0-9.6zm0 2A2.8 2.8 0 1 1 12 15a2.8 2.8 0 0 1 0-5.6zm5.1-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
-          </svg>
-        </a>
+  <section id="transicao" class="transicao">
+    <div class="container">
+      <h2 class="section-title">Transição Energética</h2>
+      <p class="transicao-text">
+        Lideramos a transição energética no Brasil com projetos que integram fontes renováveis, 
+        sistemas de armazenamento e gestão inteligente de energia. Desenvolvemos soluções que 
+        reduzem emissões de carbono em até 70% enquanto garantem segurança e confiabilidade 
+        no fornecimento de energia.
+      </p>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">150+</span>
+          <span class="stat-label">Projetos de Energia Limpa</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2.5GW</span>
+          <span class="stat-label">Capacidade Instalada</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">40%</span>
+          <span class="stat-label">Redução Média de Custos</span>
+        </div>
       </div>
-
-      <p>
-        © 2025 EngeVision Engenharia Elétrica.  
-        Todos os direitos reservados.
-      </p>
-      <p class="footer-note">
-        Conteúdo institucional. Informações sujeitas a alterações sem aviso prévio.
-      </p>
     </div>
+  </section>
 
-  </div>
-</footer>
+  <!-- CTA / CONTATO -->
+  <section id="contato" class="cta">
+    <div class="container">
+      <h2 class="cta-title">Fale com nossa equipe técnica</h2>
+      <p class="cta-subtitle">Solicite uma avaliação gratuita para seu projeto</p>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <h3>Telefone</h3>
+            <p>(11) 9999-9999</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>E-mail</h3>
+            <p>contato@engevision.com.br</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <h3>Horário</h3>
+            <p>Seg-Sex: 8h-18h</p>
+          </div>
+        </div>
+      </div>
+      
+      <a href="contato.html" class="btn btn-large">Entrar em contato</a>
+    </div>
+  </section>
 
-  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.jpeg" alt="EngeVision Engenharia Elétrica" class="footer-logo">
+          <p class="footer-slogan">Engineering the power behind the future</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#atuacao">Áreas de Atuação</a></li>
+            <li><a href="#transicao">Transição Energética</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</p>
+          <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+          <p><i class="fas fa-envelope"></i> contato@engevision.com.br</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" aria-label="Instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="YouTube" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        
+        <div class="copyright">
+          <p>© 2025 EngeVision Engenharia Elétrica. Todos os direitos reservados.</p>
+          <p class="footer-note">CNPJ: 00.000.000/0001-00 • Conteúdo institucional.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
