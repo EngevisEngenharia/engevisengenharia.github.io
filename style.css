@@ -1370,3 +1370,122 @@ section {
     font-size: 1.7rem;
   }
 }
+/* =============================================
+   ESTILOS ADICIONAIS PARA PROJETOS ELÉTRICOS
+============================================== */
+
+/* Espaçamento entre seções */
+section {
+  margin-bottom: 60px;
+}
+
+/* Seção de Software 3D */
+.software-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.software-content h3 {
+  font-size: 1.8rem;
+  color: var(--branco);
+  margin-bottom: 20px;
+}
+
+.software-content p {
+  color: var(--cinza-texto);
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.software-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.software-content ul li {
+  color: var(--cinza-texto);
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.software-content ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--amarelo-destaque);
+  font-weight: bold;
+}
+
+.software-gif {
+  position: relative;
+  text-align: center;
+}
+
+.gif-projeto {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.software-badge {
+  background: var(--azul-secundario);
+  color: var(--branco);
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.software-badge i {
+  font-size: 1.5rem;
+  color: var(--amarelo-destaque);
+}
+
+.software-badge div {
+  display: flex;
+  flex-direction: column;
+}
+
+.software-badge span {
+  font-size: 0.9rem;
+  color: var(--cinza-texto);
+}
+
+.software-badge strong {
+  font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .software-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .gif-projeto {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-bottom: 40px;
+  }
+  
+  .software-badge {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 15px;
+  }
+}
