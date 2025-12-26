@@ -483,53 +483,32 @@ section {
 }
 
 /* ==============================
-   FOOTER - VERSÃO FINAL FULL WIDTH
+   FOOTER – VERSÃO FINAL ESTÁVEL
 ================================ */
 
-/* RESET BÁSICO PARA EVITAR SCROLL HORIZONTAL */
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-/* FOOTER BASE */
 .footer {
   width: 100%;
-  min-width: 100vw;
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(31, 79, 216, 0.10) 0%,
-      rgba(10, 15, 30, 1) 70%
-    ),
-    var(--azul-escuro);
+  background-color: var(--azul-escuro);
   padding: 80px 0 30px;
   border-top: 1px solid rgba(31, 79, 216, 0.15);
-  box-sizing: border-box;
-  position: relative;
 }
 
-/* CONTAINER INTERNO (MAIS LARGO E PROFISSIONAL) */
+/* Container centralizado corretamente */
 .footer-container {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 80px;
-  width: 100%;
-  box-sizing: border-box;
+  padding: 0 60px;
 }
 
-/* GRID PRINCIPAL */
+/* Grid principal */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
-/* BRAND */
+/* Brand */
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -543,20 +522,19 @@ html, body {
 .footer-slogan {
   color: var(--cinza);
   font-style: italic;
-  max-width: 320px;
   line-height: 1.6;
+  max-width: 320px;
 }
 
-/* TÍTULOS */
+/* Títulos */
 .footer-links h3,
 .footer-contact h3 {
   color: var(--branco);
-  margin-bottom: 25px;
   font-size: 1.2rem;
-  font-weight: 600;
+  margin-bottom: 25px;
 }
 
-/* LINKS */
+/* Links */
 .footer-links ul {
   list-style: none;
   padding: 0;
@@ -564,123 +542,91 @@ html, body {
 }
 
 .footer-links li {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .footer-links a {
   color: var(--cinza);
   text-decoration: none;
-  display: inline-block;
   transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
   color: var(--amarelo);
-  transform: translateX(6px);
+  padding-left: 6px;
 }
 
-/* CONTATO */
+/* Contato */
 .footer-contact p {
-  color: var(--cinza);
-  margin-bottom: 15px;
   display: flex;
   align-items: center;
   gap: 12px;
-  line-height: 1.5;
+  color: var(--cinza);
+  margin-bottom: 14px;
 }
 
 .footer-contact i {
   color: var(--amarelo);
-  min-width: 20px;
-  text-align: center;
+  min-width: 18px;
 }
 
-/* PARTE INFERIOR */
+/* Linha separadora */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 30px 0;
+}
+
+/* Parte inferior */
 .footer-bottom {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 35px;
-  width: 100%;
 }
 
-/* LINHA FULL WIDTH REAL */
-.footer-bottom::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100vw;
-  width: 200vw;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* REDES SOCIAIS */
+/* Redes sociais */
 .footer-social {
   display: flex;
   gap: 16px;
 }
 
 .footer-social a {
-  width: 42px;
-  height: 42px;
-  background-color: rgba(255, 255, 255, 0.06);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  text-decoration: none;
 }
 
 .footer-social a:hover {
   background-color: var(--amarelo);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .footer-social i {
-  font-size: 1.1rem;
   color: var(--branco);
 }
 
-/* COPYRIGHT */
+/* Copyright */
 .copyright {
   text-align: right;
 }
 
 .copyright p {
-  color: var(--cinza);
   font-size: 0.9rem;
+  color: var(--cinza);
   margin: 0;
-  line-height: 1.4;
 }
 
 /* ==============================
-   RESPONSIVIDADE
+   RESPONSIVO
 ================================ */
 
-@media (max-width: 1200px) {
-  .footer-container {
-    padding: 0 50px;
-  }
-}
-
-@media (max-width: 992px) {
-  .footer {
-    padding: 70px 0 25px;
-  }
-
-  .footer-grid {
-    gap: 50px;
-  }
-}
-
 @media (max-width: 768px) {
-  .footer {
-    padding: 60px 0 20px;
-  }
-
   .footer-container {
     padding: 0 25px;
   }
@@ -692,10 +638,6 @@ html, body {
 
   .footer-brand {
     align-items: center;
-  }
-
-  .footer-slogan {
-    text-align: center;
   }
 
   .footer-contact p {
@@ -713,16 +655,6 @@ html, body {
   }
 }
 
-@media (max-width: 480px) {
-  .footer {
-    padding: 50px 0 20px;
-  }
-
-  .footer-container {
-    padding: 0 18px;
-  }
-}
-
 
 /* ==============================
    ANIMAÇÕES
@@ -737,6 +669,7 @@ html, body {
     transform: translateY(0);
   }
 }
+
 
 
 
