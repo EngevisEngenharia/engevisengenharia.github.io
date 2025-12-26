@@ -946,16 +946,16 @@ section {
 ============================================== */
 
 :root {
-  --azul-engenharia: #0a1f3a;
-  --azul-secundario: #0d2b4d;
-  --azul-card: #1a2d4a;
-  --amarelo-destaque: #ffc107;
-  --amarelo-hover: #ffd54f;
-  --cinza-texto: #c5d1de;
-  --cinza-escuro: #5f6f82;
-  --branco: #ffffff;
-  --sombra-leve: 0 6px 18px rgba(0,0,0,0.15);
-  --sombra-pesada: 0 20px 40px rgba(0,0,0,0.25);
+  --azul-base: #0B1020;
+  --azul-tecnico: #1F4FD8;
+  --amarelo: #F2B705;
+  --amarelo-escuro: #D6A105;
+  --branco: #FFFFFF;
+  --cinza: #B0B6C3;
+  --cinza-escuro: #7A8192;
+  --azul-card: #11162b;
+  --azul-card-hover: #141a35;
+  --azul-escuro: #070B1A;
 }
 
 /* ====================
@@ -969,8 +969,8 @@ section {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--azul-engenharia);
-  color: var(--cinza-texto);
+  background-color: var(--azul-base);
+  color: var(--cinza);
   line-height: 1.6;
 }
 
@@ -981,7 +981,7 @@ body {
 }
 
 .highlight {
-  color: var(--amarelo-destaque);
+  color: var(--amarelo);
 }
 
 /* ====================
@@ -989,16 +989,16 @@ body {
 ==================== */
 .top-space {
   height: 100px;
-  background: linear-gradient(to bottom, var(--azul-engenharia), transparent);
+  background: linear-gradient(to bottom, var(--azul-base), transparent);
 }
 
 /* ====================
    HERO SECTION
 ==================== */
 .hero-projeto {
-  background: linear-gradient(135deg, var(--azul-engenharia), var(--azul-secundario));
-  padding: 120px 0 80px;
-  border-bottom: 4px solid var(--amarelo-destaque);
+  background: linear-gradient(135deg, var(--azul-base), var(--azul-escuro));
+  padding: 100px 0 60px;
+  border-bottom: 4px solid var(--amarelo);
   margin-top: 80px;
   position: relative;
   overflow: hidden;
@@ -1011,7 +1011,7 @@ body {
   right: -20%;
   width: 40%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,193,7,0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(242,183,5,0.05) 0%, transparent 70%);
   transform: rotate(15deg);
 }
 
@@ -1021,17 +1021,17 @@ body {
 }
 
 .hero-projeto .hero-text {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
 .hero-projeto .section-title {
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 800;
   line-height: 1.2;
   color: var(--branco);
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   position: relative;
   display: inline-block;
 }
@@ -1040,18 +1040,18 @@ body {
   content: "";
   width: 120px;
   height: 4px;
-  background-color: var(--amarelo-destaque);
+  background-color: var(--amarelo);
   display: block;
   margin: 20px auto 0;
   border-radius: 2px;
 }
 
 .hero-projeto .section-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.8;
-  color: var(--cinza-texto);
+  color: var(--cinza);
   margin-bottom: 40px;
-  max-width: 90%;
+  max-width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1060,17 +1060,17 @@ body {
    SELLOS DE CONFIANÇA
 ==================== */
 .trust-section {
-  background: var(--azul-secundario);
+  background: var(--azul-escuro);
   padding: 50px 0;
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 .trust-badges {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 25px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1078,25 +1078,26 @@ body {
 .badge {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1rem;
+  gap: 15px;
+  font-size: 1.05rem;
   color: var(--branco);
-  padding: 16px 20px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 8px;
+  padding: 18px 22px;
+  background: var(--azul-card);
+  border-radius: 10px;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .badge:hover {
-  background: rgba(255,255,255,0.08);
+  background: var(--azul-card-hover);
   transform: translateY(-3px);
-  border-color: rgba(255,193,7,0.3);
+  border-color: var(--amarelo);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .badge i {
-  color: var(--amarelo-destaque);
-  font-size: 1.4rem;
+  color: var(--amarelo);
+  font-size: 1.5rem;
 }
 
 /* ====================
@@ -1105,45 +1106,50 @@ body {
 .hero-cta {
   display: flex;
   gap: 20px;
-  margin-top: 40px;
+  margin-top: 50px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 16px 34px;
+  padding: 16px 36px;
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-primary {
-  background: var(--amarelo-destaque);
-  color: var(--azul-engenharia);
-  border: 2px solid var(--amarelo-destaque);
+  background: var(--amarelo);
+  color: var(--azul-base);
+  border: 2px solid var(--amarelo);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  background: var(--amarelo-hover);
+  background: var(--amarelo-escuro);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255,193,7,0.3);
+  box-shadow: 0 10px 25px rgba(242,183,5,0.3);
+  border-color: var(--amarelo-escuro);
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid var(--amarelo-destaque);
-  color: var(--amarelo-destaque);
+  border: 2px solid var(--amarelo);
+  color: var(--amarelo);
+  font-weight: 600;
 }
 
 .btn-secondary:hover {
-  background: var(--amarelo-destaque);
-  color: var(--azul-engenharia);
+  background: var(--amarelo);
+  color: var(--azul-base);
   transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(242,183,5,0.2);
 }
 
 /* ====================
@@ -1151,8 +1157,8 @@ body {
 ==================== */
 .oferecemos {
   padding: 100px 0;
-  background: var(--azul-secundario);
-  margin-bottom: 80px;
+  background: var(--azul-escuro);
+  margin-bottom: 100px;
 }
 
 .section-header {
@@ -1165,11 +1171,11 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--branco);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .section-header .section-subtitle {
-  color: var(--cinza-texto);
+  color: var(--cinza);
   font-size: 1.2rem;
   line-height: 1.6;
 }
@@ -1177,18 +1183,18 @@ body {
 .oferecemos .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 35px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .oferecemos .card {
   background: var(--azul-card);
-  padding: 40px 30px;
+  padding: 45px 35px;
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.05);
   position: relative;
   overflow: hidden;
 }
@@ -1200,15 +1206,16 @@ body {
   left: 0;
   width: 100%;
   height: 4px;
-  background: var(--amarelo-destaque);
+  background: linear-gradient(90deg, var(--amarelo), var(--amarelo-escuro));
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .oferecemos .card:hover {
   transform: translateY(-10px);
-  border-color: var(--amarelo-destaque);
-  box-shadow: var(--sombra-pesada);
+  border-color: var(--amarelo);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  background: var(--azul-card-hover);
 }
 
 .oferecemos .card:hover::before {
@@ -1217,22 +1224,22 @@ body {
 
 .card-icon {
   font-size: 3rem;
-  color: var(--amarelo-destaque);
+  color: var(--amarelo);
   margin-bottom: 25px;
   transition: transform 0.3s ease;
 }
 
 .oferecemos .card:hover .card-icon {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1);
 }
 
 .oferecemos .card h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: var(--branco);
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 15px;
 }
 
 .oferecemos .card h3::after {
@@ -1241,14 +1248,15 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 2px;
-  background: var(--amarelo-destaque);
+  width: 50px;
+  height: 3px;
+  background: var(--amarelo);
   opacity: 0.5;
+  border-radius: 2px;
 }
 
 .oferecemos .card p {
-  color: var(--cinza-texto);
+  color: var(--cinza);
   line-height: 1.7;
   font-size: 1.05rem;
 }
@@ -1258,31 +1266,31 @@ body {
 ==================== */
 .software-section {
   padding: 100px 0;
-  background: var(--azul-engenharia);
-  margin-bottom: 80px;
+  background: var(--azul-base);
+  margin-bottom: 100px;
 }
 
 .software-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 70px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .software-content h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--branco);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: 700;
 }
 
 .software-content p {
-  color: var(--cinza-texto);
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-  line-height: 1.7;
+  color: var(--cinza);
+  margin-bottom: 35px;
+  font-size: 1.15rem;
+  line-height: 1.8;
 }
 
 .software-content ul {
@@ -1291,21 +1299,21 @@ body {
 }
 
 .software-content ul li {
-  color: var(--cinza-texto);
-  margin-bottom: 15px;
-  padding-left: 30px;
+  color: var(--cinza);
+  margin-bottom: 18px;
+  padding-left: 35px;
   position: relative;
-  line-height: 1.6;
-  font-size: 1.05rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
 }
 
 .software-content ul li::before {
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--amarelo-destaque);
+  color: var(--amarelo);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .software-gif {
@@ -1315,28 +1323,28 @@ body {
 
 .gif-projeto {
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   border-radius: 12px;
-  box-shadow: var(--sombra-pesada);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  border: 2px solid rgba(31, 79, 216, 0.2);
 }
 
 .software-badge {
-  background: var(--azul-card);
+  background: linear-gradient(135deg, var(--azul-card), var(--azul-escuro));
   color: var(--branco);
-  padding: 18px 24px;
-  border-radius: 10px;
+  padding: 20px 28px;
+  border-radius: 12px;
   display: inline-flex;
   align-items: center;
-  gap: 15px;
-  margin-top: 25px;
-  border: 1px solid rgba(255, 193, 7, 0.3);
-  box-shadow: var(--sombra-leve);
+  gap: 20px;
+  margin-top: 30px;
+  border: 2px solid rgba(242, 183, 5, 0.2);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
 .software-badge i {
-  font-size: 1.8rem;
-  color: var(--amarelo-destaque);
+  font-size: 2rem;
+  color: var(--amarelo);
 }
 
 .software-badge div {
@@ -1346,13 +1354,14 @@ body {
 }
 
 .software-badge span {
-  font-size: 0.9rem;
-  color: var(--cinza-texto);
+  font-size: 0.95rem;
+  color: var(--cinza);
 }
 
 .software-badge strong {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--branco);
+  margin-top: 5px;
 }
 
 /* ====================
@@ -1360,8 +1369,8 @@ body {
 ==================== */
 .diferenciais {
   padding: 100px 0;
-  background: var(--azul-secundario);
-  margin-bottom: 80px;
+  background: var(--azul-escuro);
+  margin-bottom: 100px;
 }
 
 .diferenciais .section-title {
@@ -1369,14 +1378,14 @@ body {
   font-weight: 700;
   color: var(--branco);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .diferenciais .section-subtitle {
-  color: var(--cinza-texto);
+  color: var(--cinza);
   text-align: center;
   font-size: 1.2rem;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -1391,12 +1400,12 @@ body {
 }
 
 .diferenciais ul li {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: 1.15rem;
-  color: var(--cinza-texto);
-  padding-left: 55px;
+  color: var(--cinza);
+  padding-left: 60px;
   position: relative;
-  line-height: 1.7;
+  line-height: 1.8;
   padding-top: 8px;
   font-weight: 500;
 }
@@ -1407,22 +1416,22 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  width: 40px;
-  height: 40px;
-  background: var(--amarelo-destaque);
-  color: var(--azul-engenharia);
+  width: 45px;
+  height: 45px;
+  background: var(--amarelo);
+  color: var(--azul-base);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 8px rgba(255,193,7,0.3);
+  font-weight: 800;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 16px rgba(242,183,5,0.3);
 }
 
 .diferenciais ul li strong {
   color: var(--branco);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ====================
@@ -1430,13 +1439,13 @@ body {
 ==================== */
 .cta-orcamento {
   text-align: center;
-  margin: 80px auto;
-  padding: 70px 50px;
-  background: linear-gradient(135deg, var(--azul-card), var(--azul-secundario));
+  margin: 100px auto;
+  padding: 80px 60px;
+  background: linear-gradient(135deg, var(--azul-card), var(--azul-escuro));
   border-radius: 16px;
   max-width: 900px;
-  border: 3px solid var(--amarelo-destaque);
-  box-shadow: var(--sombra-pesada);
+  border: 3px solid var(--amarelo);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
   position: relative;
   overflow: hidden;
 }
@@ -1448,7 +1457,7 @@ body {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,193,7,0.1) 0%, transparent 50%);
+  background: radial-gradient(circle, rgba(242,183,5,0.1) 0%, transparent 50%);
   z-index: 1;
 }
 
@@ -1458,42 +1467,43 @@ body {
 }
 
 .cta-orcamento h3 {
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   color: var(--branco);
-  margin-bottom: 20px;
-  font-weight: 700;
+  margin-bottom: 25px;
+  font-weight: 800;
 }
 
 .cta-orcamento p {
-  font-size: 1.2rem;
-  color: var(--cinza-texto);
-  margin-bottom: 40px;
+  font-size: 1.25rem;
+  color: var(--cinza);
+  margin-bottom: 45px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .cta-orcamento .btn-large {
-  padding: 18px 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: var(--amarelo-destaque);
-  color: var(--azul-engenharia);
+  padding: 20px 55px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: var(--amarelo);
+  color: var(--azul-base);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  box-shadow: 0 8px 16px rgba(255, 193, 7, 0.3);
+  gap: 15px;
+  box-shadow: 0 10px 25px rgba(242,183,5,0.3);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .cta-orcamento .btn-large:hover {
-  background: var(--amarelo-hover);
+  background: var(--amarelo-escuro);
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(255, 193, 7, 0.4);
+  box-shadow: 0 15px 35px rgba(242,183,5,0.4);
 }
 
 /* ====================
@@ -1501,7 +1511,7 @@ body {
 ==================== */
 .cta-final {
   padding: 100px 0;
-  background: linear-gradient(135deg, var(--azul-engenharia), #08192f);
+  background: linear-gradient(135deg, var(--azul-base), #090e1d);
   margin-bottom: 0;
 }
 
@@ -1514,45 +1524,46 @@ body {
 .cta-final h3 {
   font-size: 2.5rem;
   color: var(--branco);
-  margin-bottom: 20px;
-  font-weight: 700;
+  margin-bottom: 25px;
+  font-weight: 800;
 }
 
 .cta-final p {
-  font-size: 1.2rem;
-  color: var(--cinza-texto);
-  margin-bottom: 40px;
-  line-height: 1.7;
+  font-size: 1.25rem;
+  color: var(--cinza);
+  margin-bottom: 50px;
+  line-height: 1.8;
 }
 
 .cta-final .contact-methods {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 400px;
-  margin: 0 auto;
+  gap: 25px;
+  max-width: 450px;
+  margin: 0 auto 40px;
 }
 
 .contact-btn {
-  padding: 18px 30px;
+  padding: 22px 35px;
   background: var(--azul-card);
   color: var(--branco);
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  font-weight: 600;
+  gap: 18px;
+  font-weight: 700;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  font-size: 1.05rem;
 }
 
 .contact-btn:hover {
-  background: var(--azul-secundario);
-  border-color: var(--amarelo-destaque);
-  transform: translateY(-3px);
-  box-shadow: var(--sombra-leve);
+  background: var(--azul-card-hover);
+  border-color: var(--amarelo);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
 .contact-btn.whatsapp {
@@ -1562,26 +1573,29 @@ body {
 
 .contact-btn.whatsapp:hover {
   background: #1da851;
+  border-color: #1da851;
 }
 
 .contact-btn i {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .availability {
-  margin-top: 30px;
-  color: var(--cinza-texto);
-  font-size: 0.95rem;
-}
-
-.availability p {
-  margin: 8px 0;
+  margin-top: 40px;
+  color: var(--cinza);
   font-size: 1rem;
 }
 
+.availability p {
+  margin: 10px 0;
+  font-size: 1.05rem;
+  color: var(--cinza);
+}
+
 .availability i {
-  color: var(--amarelo-destaque);
-  margin-right: 10px;
+  color: var(--amarelo);
+  margin-right: 12px;
+  font-size: 1.2rem;
 }
 
 /* ====================
@@ -1589,12 +1603,12 @@ body {
 ==================== */
 @media (max-width: 1024px) {
   .hero-projeto .section-title {
-    font-size: 2.8rem;
+    font-size: 2.7rem;
   }
   
   .software-container {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 60px;
   }
   
   .gif-projeto {
@@ -1608,7 +1622,7 @@ body {
 
 @media (max-width: 768px) {
   .hero-projeto {
-    padding: 90px 0 60px;
+    padding: 80px 0 50px;
     margin-top: 70px;
   }
   
@@ -1617,11 +1631,11 @@ body {
   }
   
   .hero-projeto .section-title {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
   
   .hero-projeto .section-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     max-width: 100%;
   }
   
@@ -1632,39 +1646,39 @@ body {
   
   .btn {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     justify-content: center;
   }
   
   .trust-badges {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 20px;
   }
   
   .oferecemos,
   .diferenciais,
   .software-section {
-    padding: 70px 0;
-    margin-bottom: 60px;
+    padding: 80px 0;
+    margin-bottom: 80px;
   }
   
   .oferecemos .cards {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
   }
   
   .diferenciais ul li {
-    font-size: 1.05rem;
-    padding-left: 45px;
+    font-size: 1.1rem;
+    padding-left: 55px;
   }
   
   .cta-orcamento {
-    margin: 60px 20px;
-    padding: 50px 30px;
+    margin: 80px 20px;
+    padding: 60px 40px;
   }
   
   .cta-orcamento h3 {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
   
   .cta-orcamento .btn-large {
@@ -1673,17 +1687,21 @@ body {
   }
   
   .section-header .section-title {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
   
   .section-header .section-subtitle {
     font-size: 1.1rem;
   }
+  
+  .software-content h3 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-projeto .section-title {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
   
   .top-space {
@@ -1691,26 +1709,31 @@ body {
   }
   
   .oferecemos .card {
-    padding: 30px 20px;
+    padding: 35px 25px;
   }
   
   .cta-orcamento {
-    padding: 40px 20px;
+    padding: 50px 30px;
   }
   
   .cta-orcamento h3 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
   
   .software-badge {
     flex-direction: column;
     text-align: center;
-    padding: 15px 20px;
+    padding: 18px 22px;
   }
   
   .diferenciais ul li::before {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  .contact-btn {
+    padding: 18px 25px;
     font-size: 1rem;
   }
 }
