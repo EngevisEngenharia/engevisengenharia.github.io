@@ -17,29 +17,37 @@
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container">
-      <nav class="navbar">
-        <a href="index.html" class="logo-link">
-          <img src="images/logo.PNG" alt="EngeVision Engenharia Elétrica" class="logo">
-        </a>
 
-        <ul class="nav-menu">
-          <li><a href="index.html#hero">Home</a></li>
-          <li><a href="index.html#quem-somos">A EngeVision</a></li>
-          <li><a href="index.html#atuacao">Atuação</a></li>
-          <li><a href="index.html#contato" class="nav-btn">Contato</a></li>
-        </ul>
+ <!-- MENU -->
+      <ul class="nav-menu">
+        <li>
+          <a href="#hero">Home</a>
+        </li>
 
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </nav>
-    </div>
-  </header>
+        <li>
+          <a href="#quem-somos">A EngeVision</a>
+        </li>
+
+        <!-- DROPDOWN ATUAÇÃO -->
+        <li class="dropdown">
+          <a href="#atuacao" class="dropdown-toggle">
+            Atuação <i class="fas fa-chevron-down"></i>
+          </a>
+
+<ul class="dropdown-menu">
+  <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+  <li><a href="automacao.html">Automação</a></li>
+  <li><a href="renovaveis.html">Energia Renovável</a></li>
+  <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
+  <li><a href="mercado.html">Mercado de Energia</a></li>
+</ul>
+
+        </li>
+
+        <li>
+          <a href="#contato" class="nav-btn">Contato</a>
+        </li>
+      </ul>
 
   <!-- HERO / INTRO -->
   <main class="atuacao-page container">
