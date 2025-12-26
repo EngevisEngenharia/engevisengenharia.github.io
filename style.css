@@ -940,91 +940,121 @@ section {
   }
 }
 
-/* ==============================
-   PROJETOS E EXECUÇÃO ELÉTRICA
-================================ */
+/* =============================================
+   SEÇÃO DE PROJETOS - ENGENHARIA ELÉTRICA
+   Estilos otimizados para autoridade técnica
+============================================== */
 
-/* Espaço no topo para não sobrepor header fixo */
-.top-space {
-  height: 80px;
+/* Variáveis consistentes com identidade visual */
+:root {
+  --azul-engenharia: #0a1f3a;
+  --amarelo-destaque: #ffc107;
+  --cinza-tecnico: #8a9fb2;
+  --branco-profissional: #f8f9fa;
+  --sombra-pesada: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Hero section - Página específica */
+/* Espaçamento estrutural */
+.top-space {
+  height: 100px;
+  background: linear-gradient(to bottom, var(--azul-engenharia), transparent);
+}
+
+/* Hero Section - Autoridade técnica */
 .hero-projeto {
-  padding: 60px 0;
+  padding: 80px 0 40px;
+  background: linear-gradient(135deg, var(--azul-engenharia) 0%, #0d2b4d 100%);
+  border-bottom: 4px solid var(--amarelo-destaque);
+  margin-top: 80px;
   position: relative;
   overflow: hidden;
-  margin-top: 80px;
+}
+
+.hero-projeto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,193,7,0.1) 0%, transparent 70%);
 }
 
 .hero-projeto .hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-projeto .hero-text {
-  flex: 1 1 400px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero-projeto .section-title {
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  color: var(--branco);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 25px;
+  color: var(--branco-profissional);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
   position: relative;
   display: inline-block;
 }
 
 .hero-projeto .section-title::after {
   content: "";
-  width: 80px;
-  height: 4px;
-  background-color: var(--amarelo);
+  width: 120px;
+  height: 5px;
+  background-color: var(--amarelo-destaque);
   display: block;
-  margin-top: 15px;
-  border-radius: 2px;
+  margin: 20px auto 0;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
 }
 
 .hero-projeto .section-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--cinza);
-  margin-bottom: 30px;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--cinza-tecnico);
+  margin-bottom: 40px;
   max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
 }
 
-.hero-projeto .hero-image {
-  flex: 1 1 400px;
-  text-align: center;
-  position: relative;
-}
-
-.hero-projeto .hero-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Cards */
+/* Cards de Especialidades - Layout técnico */
 .oferecemos {
-  background-color: var(--azul-escuro);
-  padding: 80px 0;
+  background-color: #f8fafc;
+  padding: 100px 0;
+  border-top: 1px solid rgba(10, 31, 58, 0.1);
+}
+
+.oferecemos .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .oferecemos .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--azul-engenharia);
+  text-align: center;
+  margin-bottom: 60px;
   position: relative;
-  display: inline-block;
 }
 
 .oferecemos .section-title::after {
   content: "";
   width: 80px;
   height: 4px;
-  background-color: var(--amarelo);
+  background-color: var(--amarelo-destaque);
   display: block;
   margin: 15px auto 0;
   border-radius: 2px;
@@ -1032,78 +1062,95 @@ section {
 
 .oferecemos .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  margin-top: 20px;
 }
 
 .oferecemos .card {
-  background-color: var(--azul-card);
-  padding: 40px 30px;
-  border-radius: 8px;
+  background: white;
+  padding: 45px 35px;
+  border-radius: 12px;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(31, 79, 216, 0.1);
-}
-
-.oferecemos .card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: var(--amarelo);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .oferecemos .card:hover {
-  transform: translateY(-10px);
-  background-color: var(--azul-card-hover);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.oferecemos .card:hover::before {
-  transform: scaleX(1);
+  transform: translateY(-8px);
+  border-color: var(--amarelo-destaque);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .card-icon {
-  font-size: 2.5rem;
-  color: var(--amarelo);
-  margin-bottom: 20px;
+  font-size: 3rem;
+  color: var(--azul-engenharia);
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.oferecemos .card:hover .card-icon {
+  transform: scale(1.1);
+  color: var(--amarelo-destaque);
 }
 
 .oferecemos .card h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--branco);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--azul-engenharia);
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.oferecemos .card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--amarelo-destaque);
 }
 
 .oferecemos .card p {
-  color: var(--cinza);
+  color: #4a5568;
   line-height: 1.7;
+  font-size: 1.05rem;
   margin-bottom: 25px;
 }
 
-/* Diferenciais / lista */
+/* Diferenciais - Lista técnica */
 .diferenciais {
-  padding: 80px 0;
+  padding: 100px 0;
+  background-color: var(--azul-engenharia);
+  position: relative;
+}
+
+.diferenciais .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .diferenciais .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--branco-profissional);
+  text-align: center;
+  margin-bottom: 60px;
   position: relative;
-  display: inline-block;
 }
 
 .diferenciais .section-title::after {
   content: "";
   width: 80px;
   height: 4px;
-  background-color: var(--amarelo);
+  background-color: var(--amarelo-destaque);
   display: block;
   margin: 15px auto 0;
   border-radius: 2px;
@@ -1112,115 +1159,180 @@ section {
 .diferenciais ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 30px;
-  max-width: 800px;
+  counter-reset: diferenciais-counter;
+}
+
+.diferenciais ul li {
+  margin-bottom: 22px;
+  font-size: 1.15rem;
+  color: var(--branco-profissional);
+  padding-left: 50px;
+  position: relative;
+  line-height: 1.7;
+  padding-top: 8px;
+}
+
+.diferenciais ul li::before {
+  counter-increment: diferenciais-counter;
+  content: counter(diferenciais-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--amarelo-destaque);
+  color: var(--azul-engenharia);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+}
+
+/* CTA - Chamada profissional */
+.cta-orcamento {
+  text-align: center;
+  margin: 80px auto;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--azul-engenharia) 0%, #0d2b4d 100%);
+  border-radius: 16px;
+  max-width: 900px;
+  border: 3px solid var(--amarelo-destaque);
+  box-shadow: var(--sombra-pesada);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-orcamento::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,193,7,0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.cta-orcamento .cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-orcamento h3 {
+  font-size: 2.2rem;
+  color: var(--branco-profissional);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.cta-orcamento p {
+  font-size: 1.2rem;
+  color: var(--cinza-tecnico);
+  margin-bottom: 35px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.diferenciais ul li {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  color: var(--cinza);
-  padding-left: 30px;
-  position: relative;
-  line-height: 1.6;
-}
-
-.diferenciais ul li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--amarelo);
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-/* Call to action */
-.cta-orcamento {
-  text-align: center;
-  margin: 60px 0;
-  padding: 40px;
-  background: var(--azul-card);
-  border-radius: 12px;
-  border: 1px solid rgba(31, 79, 216, 0.2);
-}
-
 .cta-orcamento .btn-large {
-  padding: 18px 45px;
-  font-size: 1.1rem;
-  background: var(--amarelo);
-  color: var(--azul-base);
+  padding: 20px 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: var(--amarelo-destaque);
+  color: var(--azul-engenharia);
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
 }
 
 .cta-orcamento .btn-large:hover {
-  background: var(--amarelo-escuro);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
+  background: #ffd54f;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(255, 193, 7, 0.4);
 }
 
-/* Responsividade */
+/* Responsividade profissional */
 @media (max-width: 1024px) {
-  .hero-projeto .hero-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
   .hero-projeto .section-title {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
   
-  .hero-projeto .section-subtitle {
-    max-width: 100%;
+  .oferecemos .cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
   }
 }
 
 @media (max-width: 768px) {
+  .top-space {
+    height: 80px;
+  }
+  
   .hero-projeto {
-    padding: 40px 0;
+    padding: 60px 0 30px;
     margin-top: 70px;
   }
   
   .hero-projeto .section-title {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
   
   .hero-projeto .section-subtitle {
-    font-size: 1rem;
+    font-size: 1.15rem;
+    max-width: 100%;
   }
   
   .oferecemos,
   .diferenciais {
-    padding: 60px 0;
+    padding: 70px 0;
   }
   
   .oferecemos .cards {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
   
   .diferenciais ul li {
-    font-size: 1rem;
-    padding-left: 25px;
+    font-size: 1.1rem;
+    padding-left: 45px;
   }
   
   .cta-orcamento {
-    padding: 30px 20px;
+    margin: 60px 20px;
+    padding: 50px 30px;
   }
   
-  .cta-orcamento .btn-large {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
+  .cta-orcamento h3 {
+    font-size: 1.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-projeto .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   
   .top-space {
     height: 70px;
+  }
+  
+  .oferecemos .card {
+    padding: 35px 25px;
+  }
+  
+  .cta-orcamento .btn-large {
+    width: 100%;
+    justify-content: center;
+    padding: 18px 30px;
   }
 }
