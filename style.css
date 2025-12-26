@@ -169,6 +169,7 @@ img {
   position: relative;
 }
 
+.nav-menu a {
 .nav-menu > li > a {
   font-weight: 500;
   font-size: 0.95rem;
@@ -181,6 +182,25 @@ img {
   text-decoration: none;
 }
 
+/* Linha animada */
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--amarelo);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu a:hover {
+  color: var(--amarelo);
+}
 /* Linha animada APENAS no menu principal */
 .nav-menu > li > a::after {
   content: '';
@@ -221,7 +241,12 @@ img {
   transform: translateY(-2px);
 }
 
+.nav-btn::after {
+  display: none !important;
+}
+
 /* ==============================
+   DROPDOWN (ATUAÇÃO)
    DROPDOWN (SEM RISQUINHO)
 ================================ */
 .dropdown-menu {
@@ -502,35 +527,81 @@ section {
 }
 
 /* ==============================
-   RISQUINHO AMARELO - ÁREAS DE ATUAÇÃO
+   CARDS DE ATUAÇÃO
 ================================ */
-.atuacao .card h3 {
-  position: relative;
-  display: inline-block; /* permite que o risquinho acompanhe o texto */
-  padding-bottom: 5px;   /* espaço para o risquinho */
-  transition: color 0.3s ease;
-  cursor: pointer;
+.atuacao {
+  background-color: var(--azul-escuro);
 }
 
-.atuacao .card h3::after {
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  background-color: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(31, 79, 216, 0.1);
+}
+
+.card::before {
   content: '';
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--amarelo);
-  transition: width 0.3s ease;
-}
-
-.atuacao .card h3:hover::after {
   width: 100%;
+  height: 4px;
+  background-color: var(--amarelo);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
 }
 
-.atuacao .card h3:hover {
+.card:hover {
+  transform: translateY(-10px);
+  background-color: var(--azul-card-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
   color: var(--amarelo);
+  margin-bottom: 20px;
 }
 
+.card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.card p {
+  color: var(--cinza);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.card-link {
+  color: var(--amarelo);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-link:hover {
+  gap: 15px;
+}
 
 /* ==============================
    TRANSIÇÃO ENERGÉTICA
@@ -787,11 +858,11 @@ section {
   .section-title {
     font-size: 2.2rem;
   }
-  
+
   .hero-title {
     font-size: 2.8rem;
   }
-  
+
   .cta-title {
     font-size: 2.4rem;
   }
@@ -835,15 +906,15 @@ section {
   .hero-title {
     font-size: 2.4rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
-  
+
   section {
     padding: 70px 0;
   }
-  
+
   .footer-container {
     padding: 0 25px;
   }
@@ -857,7 +928,7 @@ section {
   .footer-brand {
     align-items: center;
   }
-  
+
   .footer-slogan {
     max-width: 100%;
     text-align: center;
@@ -866,7 +937,7 @@ section {
   .footer-contact p {
     justify-content: center;
   }
-  
+
   .footer-social {
     justify-content: center;
     margin-bottom: 25px;
@@ -877,56 +948,48 @@ section {
   .hero {
     padding: 120px 20px 60px;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .section-title {
     font-size: 1.8rem;
   }
-  
+
   .btn, .btn-large {
     width: 100%;
     text-align: center;
   }
-  
+
   .footer-container {
     padding: 0 20px;
   }
-  
+
   .footer {
     padding: 60px 0 0;
   }
-  
+
   .footer-grid {
     gap: 35px;
   }
-  
+
   .footer-social {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .contact-item {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
-  
+
   .copyright p {
     font-size: 0.85rem;
   }
-  
+
   .copyright span {
     font-size: 0.8rem;
   }
 }
-
-
-
-
-
-
-
-
