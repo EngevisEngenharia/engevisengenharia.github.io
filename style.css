@@ -169,7 +169,7 @@ img {
   position: relative;
 }
 
-.nav-menu a {
+.nav-menu > li > a {
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--branco);
@@ -181,25 +181,7 @@ img {
   text-decoration: none;
 }
 
-/* Linha animada */
-.nav-menu a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--amarelo);
-  transition: width 0.3s ease;
-}
-
-.nav-menu a:hover::after {
-  width: 100%;
-}
-
-.nav-menu a:hover {
-  color: var(--amarelo);
-}
+/* Linha animada APENAS no menu principal */
 .nav-menu > li > a::after {
   content: '';
   position: absolute;
@@ -215,6 +197,9 @@ img {
   width: 100%;
 }
 
+.nav-menu > li > a:hover {
+  color: var(--amarelo);
+}
 
 /* ==============================
    BOTÃO CONTATO
@@ -227,17 +212,17 @@ img {
   font-weight: 600 !important;
 }
 
+.nav-btn::after {
+  display: none !important;
+}
+
 .nav-btn:hover {
   background-color: var(--amarelo-escuro);
   transform: translateY(-2px);
 }
 
-.nav-btn::after {
-  display: none !important;
-}
-
 /* ==============================
-   DROPDOWN (ATUAÇÃO)
+   DROPDOWN (SEM RISQUINHO)
 ================================ */
 .dropdown-menu {
   position: absolute;
@@ -264,6 +249,7 @@ img {
   width: 100%;
   font-size: 0.9rem;
   color: var(--branco);
+  text-decoration: none;
 }
 
 .dropdown-menu a::after {
@@ -357,6 +343,7 @@ img {
     padding: 12px;
   }
 }
+
 
 
 
@@ -981,6 +968,7 @@ section {
     font-size: 0.8rem;
   }
 }
+
 
 
 
