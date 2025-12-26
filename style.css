@@ -81,6 +81,14 @@ img {
   font-weight: 500;
   color: var(--cinza);
 }
+/* ==============================
+   LOGO
+================================ */
+.logo {
+  width: 180px;
+  margin-bottom: 30px;
+}
+
 
 /* ==============================
    SEÇÕES GERAIS
@@ -225,5 +233,11 @@ section {
 
   section {
     padding: 60px 8%;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 140px;
   }
 }
