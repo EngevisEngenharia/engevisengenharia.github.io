@@ -1,669 +1,1120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Processo de Trabalho - EngeVision</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <style>
-    /* ==============================
-       VARIÁVEIS DE IDENTIDADE
-    ================================ */
-    :root {
-      --azul-base: #0B1020;
-      --azul-tecnico: #1F4FD8;
-      --amarelo: #F2B705;
-      --amarelo-escuro: #D6A105;
-      --branco: #FFFFFF;
-      --cinza: #B0B6C3;
-      --cinza-escuro: #7A8192;
-      --azul-card: #11162b;
-      --azul-card-hover: #141a35;
-      --azul-escuro: #070B1A;
-    }
-    
-    /* ==============================
-       RESET E BASE
-    ================================ */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0B1020;
-      color: #FFFFFF;
-      line-height: 1.6;
-      padding: 20px;
-    }
-    
-    /* ==============================
-       ESTILOS DA SEÇÃO PROCESSO
-    ================================ */
-    .processo-trabalho {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      background-color: #070B1A;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-      color: #FFFFFF;
-    }
-    
-    .section-title::after {
-      content: "";
-      width: 80px;
-      height: 4px;
-      background-color: #F2B705;
-      display: block;
-      margin: 15px auto 0;
-      border-radius: 2px;
-    }
-    
-    .highlight {
-      color: #F2B705;
-    }
-    
-    .section-subtitle {
-      color: #B0B6C3;
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-    
-    /* ==============================
-       TIMELINE DO PROCESSO
-    ================================ */
-    .processo-timeline {
-      position: relative;
-      margin: 60px auto 0;
-    }
-    
-    .processo-timeline::before {
-      content: '';
-      position: absolute;
-      left: 60px;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(to bottom, #F2B705, #1F4FD8);
-      border-radius: 2px;
-    }
-    
-    .processo-etapa {
-      position: relative;
-      margin-bottom: 60px;
-      display: flex;
-      align-items: flex-start;
-      gap: 40px;
-    }
-    
-    .etapa-numero {
-      width: 120px;
-      height: 120px;
-      background: #0B1020;
-      border: 4px solid #F2B705;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #F2B705;
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-    }
-    
-    .etapa-conteudo {
-      flex: 1;
-      background: #11162b;
-      padding: 40px;
-      border-radius: 12px;
-      border-left: 5px solid #F2B705;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
-    
-    .etapa-conteudo:hover {
-      transform: translateY(-5px);
-    }
-    
-    .etapa-icon {
-      font-size: 3rem;
-      color: #F2B705;
-      margin-bottom: 25px;
-    }
-    
-    .etapa-conteudo h3 {
-      font-size: 1.8rem;
-      color: #FFFFFF;
-      margin-bottom: 25px;
-      font-weight: 700;
-    }
-    
-    .etapa-detalhes h4 {
-      color: #F2B705;
-      margin: 30px 0 15px;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    
-    .etapa-detalhes ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    
-    .etapa-detalhes ul li {
-      color: #B0B6C3;
-      margin-bottom: 12px;
-      padding-left: 25px;
-      position: relative;
-      line-height: 1.6;
-    }
-    
-    .etapa-detalhes ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #F2B705;
-      font-size: 1.5rem;
-    }
-    
-    .entregas-lista {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-    
-    .entrega-item {
-      background: rgba(242, 183, 5, 0.1);
-      color: #F2B705;
-      padding: 10px 20px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
-      border: 1px solid rgba(242, 183, 5, 0.3);
-    }
-    
-    .entregas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    
-    .entrega-card {
-      background: #0B1020;
-      padding: 20px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .entrega-card:hover {
-      border-color: #F2B705;
-      transform: translateY(-3px);
-    }
-    
-    .entrega-card i {
-      font-size: 2rem;
-      color: #F2B705;
-    }
-    
-    .entrega-card div {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .entrega-card strong {
-      color: #FFFFFF;
-      font-size: 1rem;
-      margin-bottom: 5px;
-    }
-    
-    .entrega-card small {
-      color: #B0B6C3;
-      font-size: 0.85rem;
-    }
-    
-    .diferencial-execucao {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    
-    .diferencial-item {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      color: #B0B6C3;
-    }
-    
-    .diferencial-item i {
-      color: #F2B705;
-      font-size: 1.2rem;
-    }
-    
-    .pacote-entrega {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    
-    .documento-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      background: rgba(31, 79, 216, 0.1);
-      padding: 25px;
-      border-radius: 8px;
-      border-left: 4px solid #1F4FD8;
-    }
-    
-    .documento-item i {
-      font-size: 2.5rem;
-      color: #1F4FD8;
-      margin-top: 5px;
-    }
-    
-    .documento-item strong {
-      color: #FFFFFF;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      display: block;
-    }
-    
-    .documento-item p {
-      color: #B0B6C3;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    
-    .cta-processo {
-      background: linear-gradient(135deg, rgba(242, 183, 5, 0.1), rgba(31, 79, 216, 0.1));
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 30px;
-      text-align: center;
-      border: 2px solid rgba(242, 183, 5, 0.2);
-    }
-    
-    .cta-processo p {
-      color: #FFFFFF;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    
-    .garantias {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-    
-    .garantias span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: #B0B6C3;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-    }
-    
-    .garantias i {
-      color: #F2B705;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 16px 40px;
-      background-color: transparent;
-      border: 2px solid #F2B705;
-      color: #F2B705;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      border-radius: 4px;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-    }
-    
-    .btn:hover {
-      background-color: #F2B705;
-      color: #0B1020;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
-    }
-    
-    .btn-primary {
-      background: #F2B705;
-      color: #0B1020;
-      border: 2px solid #F2B705;
-      font-weight: 700;
-    }
-    
-    .btn-primary:hover {
-      background: #D6A105;
-      border-color: #D6A105;
-    }
-    
-    /* ==============================
-       RESPONSIVIDADE
-    ================================ */
-    @media (max-width: 1024px) {
-      .processo-timeline::before {
-        left: 50px;
-      }
-      
-      .etapa-numero {
-        width: 100px;
-        height: 100px;
-        font-size: 2rem;
-      }
-      
-      .section-title {
-        font-size: 2.2rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .processo-timeline::before {
-        display: none;
-      }
-      
-      .processo-etapa {
-        flex-direction: column;
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-      
-      .etapa-numero {
-        width: 80px;
-        height: 80px;
-        font-size: 1.8rem;
-        align-self: center;
-      }
-      
-      .etapa-conteudo {
-        padding: 25px;
-      }
-      
-      .entregas-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .documento-item {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .garantias {
-        grid-template-columns: 1fr;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .etapa-conteudo h3 {
-        font-size: 1.5rem;
-      }
-      
-      .entregas-lista {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .entrega-item {
-        width: 100%;
-        justify-content: flex-start;
-      }
-      
-      .cta-processo {
-        padding: 20px;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .section-subtitle {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos Elétricos | ENGEvision - Engenharia Elétrica Especializada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-base: #00061d;
+            --azul-tecnico: #1F4FD8;
+            --amarelo: #F2B705;
+            --amarelo-escuro: #D6A105;
+            --branco: #FFFFFF;
+            --cinza: #B0B6C3;
+            --cinza-escuro: #7A8192;
+            --azul-card: #11162b;
+            --azul-card-hover: #141a35;
+            --azul-escuro: #070B1A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--branco);
+            background-color: var(--azul-escuro);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background-color: var(--azul-base);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--amarelo);
+        }
+        
+        .nav-btn {
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--amarelo);
+            color: var(--azul-base);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--azul-card);
+            min-width: 250px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            list-style: none;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--cinza);
+            transition: all 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--azul-card-hover);
+            color: var(--amarelo);
+            padding-left: 25px;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--branco);
+            transition: all 0.3s;
+        }
+        
+        /* Page Hero */
+        .page-hero {
+            background-color: var(--azul-base);
+            padding: 160px 0 100px;
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(31, 79, 216, 0.1), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--cinza);
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--cinza);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--amarelo);
+        }
+        
+        .breadcrumb i {
+            font-size: 0.8rem;
+        }
+        
+        .page-hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+        
+        .page-hero h1 span {
+            color: var(--amarelo);
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--cinza);
+        }
+        
+        /* Projects Overview */
+        .projects-overview {
+            padding: 100px 0;
+            background-color: var(--azul-escuro);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--branco);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--cinza);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .overview-card {
+            background-color: var(--azul-card);
+            border-radius: 8px;
+            padding: 40px 30px;
+            transition: transform 0.3s, background-color 0.3s;
+            text-align: center;
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-10px);
+            background-color: var(--azul-card-hover);
+        }
+        
+        .overview-icon {
+            font-size: 3rem;
+            color: var(--amarelo);
+            margin-bottom: 20px;
+        }
+        
+        .overview-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--branco);
+        }
+        
+        .overview-card p {
+            color: var(--cinza);
+        }
+        
+        /* Projects Showcase */
+        .projects-showcase {
+            padding: 100px 0;
+            background-color: var(--azul-base);
+        }
+        
+        .project-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .filter-btn {
+            background-color: transparent;
+            border: 2px solid var(--azul-tecnico);
+            color: var(--branco);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--azul-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 250px;
+            background-color: var(--azul-tecnico);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(31, 79, 216, 0.3), rgba(242, 183, 5, 0.1));
+        }
+        
+        .project-image i {
+            font-size: 5rem;
+            color: var(--branco);
+            opacity: 0.8;
+            z-index: 1;
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .project-category {
+            display: inline-block;
+            background-color: rgba(31, 79, 216, 0.2);
+            color: var(--azul-tecnico);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--branco);
+        }
+        
+        .project-content p {
+            color: var(--cinza);
+            margin-bottom: 20px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-tag {
+            background-color: rgba(242, 183, 5, 0.1);
+            color: var(--amarelo);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .project-link {
+            color: var(--amarelo);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+        
+        .project-link:hover {
+            gap: 12px;
+        }
+        
+        /* Methodology */
+        .methodology {
+            padding: 100px 0;
+            background-color: var(--azul-escuro);
+        }
+        
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            counter-reset: step-counter;
+        }
+        
+        .step {
+            background-color: var(--azul-card);
+            border-radius: 8px;
+            padding: 40px 30px 30px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step::before {
+            counter-increment: step-counter;
+            content: "0" counter(step-counter);
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(31, 79, 216, 0.2);
+            line-height: 1;
+        }
+        
+        .step-icon {
+            font-size: 2rem;
+            color: var(--amarelo);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--branco);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step p {
+            color: var(--cinza);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background-color: var(--azul-base);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--cinza);
+        }
+        
+        .btn {
+            background-color: var(--azul-tecnico);
+            color: var(--branco);
+            padding: 15px 40px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--amarelo);
+            color: var(--azul-base);
+            transform: translateY(-5px);
+        }
+        
+        .btn-large {
+            padding: 18px 50px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--azul-escuro);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-slogan {
+            color: var(--cinza);
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--amarelo);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--cinza);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--amarelo);
+        }
+        
+        .footer-contact p {
+            color: var(--cinza);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: var(--amarelo);
+            width: 20px;
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--azul-card);
+            border-radius: 50%;
+            color: var(--branco);
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--azul-tecnico);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: var(--cinza);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--azul-base);
+                width: 100%;
+                text-align: center;
+                padding: 30px 0;
+                transition: right 0.5s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: transparent;
+                padding-left: 20px;
+                margin-top: 10px;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .page-hero {
+                padding: 150px 0 80px;
+                margin-top: 90px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .project-filter {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- COMO TRABALHAMOS - PROCESSO COMPLETO -->
-  <section id="processo" class="processo-trabalho">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Como Trabalhamos: <span class="highlight">Processo Completo</span></h2>
-        <p class="section-subtitle">Do diagnóstico inicial à entrega final, seguimos um fluxo estruturado que garante qualidade, segurança e conformidade em cada etapa</p>
-      </div>
-      
-      <div class="processo-timeline">
-        <!-- ETAPA 1 -->
-        <div class="processo-etapa">
-          <div class="etapa-numero">01</div>
-          <div class="etapa-conteudo">
-            <div class="etapa-icon">
-              <i class="fas fa-clipboard-list"></i>
-            </div>
-            <h3>Diagnóstico e Levantamento Técnico</h3>
-            <div class="etapa-detalhes">
-              <h4>O que fazemos:</h4>
-              <ul>
-                <li><strong>Visita técnica presencial</strong> para avaliação das necessidades e condições existentes</li>
-                <li><strong>Levantamento de cargas e demandas</strong> energéticas atuais e futuras</li>
-                <li><strong>Análise de documentação existente</strong> (plantas, projetos anteriores, contratos)</li>
-                <li><strong>Avaliação de conformidade</strong> com normas NR-10, NBR 5410 e exigências da concessionária</li>
-              </ul>
-              
-              <h4>Entregas desta etapa:</h4>
-              <div class="entregas-lista">
-                <span class="entrega-item"><i class="fas fa-file-alt"></i> Relatório técnico inicial</span>
-                <span class="entrega-item"><i class="fas fa-chart-bar"></i> Análise de viabilidade</span>
-                <span class="entrega-item"><i class="fas fa-clock"></i> Cronograma preliminar</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- ETAPA 2 -->
-        <div class="processo-etapa">
-          <div class="etapa-numero">02</div>
-          <div class="etapa-conteudo">
-            <div class="etapa-icon">
-              <i class="fas fa-drafting-compass"></i>
-            </div>
-            <h3>Desenvolvimento do Projeto Executivo</h3>
-            <div class="etapa-detalhes">
-              <h4>Nossas ferramentas e métodos:</h4>
-              <ul>
-                <li><strong>Modelagem 3D com AutoCAD e SketchUp</strong> para visualização completa</li>
-                <li><strong>Cálculos elétricos detalhados</strong> (dimensionamento de condutores, proteções, QDCs)</li>
-                <li><strong>Elaboração de plantas técnicas</strong> com especificações completas</li>
-                <li><strong>Compatibilização com outras disciplinas</strong> (arquitetura, hidráulica, estrutural)</li>
-              </ul>
-              
-              <h4>O que você recebe:</h4>
-              <div class="entregas-grid">
-                <div class="entrega-card">
-                  <i class="fas fa-print"></i>
-                  <div>
-                    <strong>Conjunto completo de plantas</strong>
-                    <small>Layouts, diagramas unifilares, detalhes</small>
-                  </div>
-                </div>
-                <div class="entrega-card">
-                  <i class="fas fa-calculator"></i>
-                  <div>
-                    <strong>Memoriais de cálculo</strong>
-                    <small>Cálculos técnicos justificativos</small>
-                  </div>
-                </div>
-                <div class="entrega-card">
-                  <i class="fas fa-clipboard-check"></i>
-                  <div>
-                    <strong>Lista de materiais</strong>
-                    <small>Especificações técnicas completas</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- ETAPA 3 -->
-        <div class="processo-etapa">
-          <div class="etapa-numero">03</div>
-          <div class="etapa-conteudo">
-            <div class="etapa-icon">
-              <i class="fas fa-hard-hat"></i>
-            </div>
-            <h3>Execução e Supervisão de Obra</h3>
-            <div class="etapa-detalhes">
-              <h4>Nossa atuação no canteiro:</h4>
-              <ul>
-                <li><strong>Gestão completa de fornecedores</strong> e aquisição de materiais</li>
-                <li><strong>Coordenação de equipes especializadas</strong> (eletricistas, técnicos)</li>
-                <li><strong>Supervisão técnica diária</strong> ou conforme cronograma acordado</li>
-                <li><strong>Testes e medições em tempo real</strong> para garantir conformidade</li>
-              </ul>
-              
-              <h4>Nosso diferencial na execução:</h4>
-              <div class="diferencial-execucao">
-                <div class="diferencial-item">
-                  <i class="fas fa-user-shield"></i>
-                  <span>Supervisão CREA ativo em todas as etapas críticas</span>
-                </div>
-                <div class="diferencial-item">
-                  <i class="fas fa-clipboard-list"></i>
-                  <span>Checklists de segurança NR-10 aplicados diariamente</span>
-                </div>
-                <div class="diferencial-item">
-                  <i class="fas fa-camera"></i>
-                  <span>Registro fotográfico documental de todas as etapas</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- ETAPA 4 -->
-        <div class="processo-etapa">
-          <div class="etapa-numero">04</div>
-          <div class="etapa-conteudo">
-            <div class="etapa-icon">
-              <i class="fas fa-clipboard-check"></i>
-            </div>
-            <h3>Testes, Comissionamento e Entrega</h3>
-            <div class="etapa-detalhes">
-              <h4>Garantia de qualidade final:</h4>
-              <ul>
-                <li><strong>Testes rigorosos de funcionamento</strong> de todos os circuitos e equipamentos</li>
-                <li><strong>Medições de aterramento e continuidade</strong> com laudos técnicos</li>
-                <li><strong>Treinamento da equipe operadora</strong> nos sistemas instalados</li>
-                <li><strong>Elaboração de plantas "As Built"</strong> atualizadas com o executado</li>
-              </ul>
-              
-              <h4>Pacote de entrega completo:</h4>
-              <div class="pacote-entrega">
-                <div class="documento-item">
-                  <i class="fas fa-file-contract"></i>
-                  <div>
-                    <strong>ART - Anotação de Responsabilidade Técnica</strong>
-                    <p>Documento legal obrigatório para todo projeto de engenharia</p>
-                  </div>
-                </div>
-                <div class="documento-item">
-                  <i class="fas fa-file-invoice"></i>
-                  <div>
-                    <strong>Manual de Operação e Manutenção</strong>
-                    <p>Instruções detalhadas para uso e manutenção preventiva</p>
-                  </div>
-                </div>
-                <div class="documento-item">
-                  <i class="fas fa-shield-alt"></i>
-                  <div>
-                    <strong>Certificado de Garantia</strong>
-                    <p>12 meses contra defeitos de execução e materiais</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- ETAPA 5 -->
-        <div class="processo-etapa">
-          <div class="etapa-numero">05</div>
-          <div class="etapa-conteudo">
-            <div class="etapa-icon">
-              <i class="fas fa-headset"></i>
-            </div>
-            <h3>Suporte Pós-entrega e Manutenção</h3>
-            <div class="etapa-detalhes">
-              <h4>Compromisso além da entrega:</h4>
-              <ul>
-                <li><strong>Disponibilidade para esclarecimentos</strong> técnicos por 30 dias sem custo adicional</li>
-                <li><strong>Visitas de verificação pós-obra</strong> para ajustes finos se necessário</li>
-                <li><strong>Suporte remoto</strong> para dúvidas operacionais</li>
-                <li><strong>Contratos de manutenção preventiva</strong> opcionais</li>
-              </ul>
-              
-              <div class="cta-processo">
-                <p><strong>Este processo estruturado garante:</strong></p>
-                <div class="garantias">
-                  <span><i class="fas fa-check-circle"></i> Conformidade total com normas</span>
-                  <span><i class="fas fa-check-circle"></i> Previsibilidade de prazos e custos</span>
-                  <span><i class="fas fa-check-circle"></i> Documentação completa para legalização</span>
-                  <span><i class="fas fa-check-circle"></i> Segurança jurídica com ART</span>
-                </div>
-                <a href="#contato" class="btn btn-primary">
-                  <i class="fas fa-calendar-alt"></i> Agendar diagnóstico técnico
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- LOGO -->
+                <a href="index.html" class="logo-link">
+                    <div class="logo-text" style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-bolt" style="color: var(--amarelo); font-size: 2rem;"></i>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.5rem; color: var(--branco);">ENGE<span style="color: var(--amarelo);">vision</span></div>
+                            <div style="font-size: 0.8rem; color: var(--cinza);">Engenharia de energia e transição energética</div>
+                        </div>
+                    </div>
                 </a>
-              </div>
-            </div>
-          </div>
+
+                <!-- MENU -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#quem-somos">A EngeVision</a></li>
+                    
+                    <!-- DROPDOWN ATUAÇÃO -->
+                    <li class="dropdown" id="dropdown">
+                        <a href="#atuacao" class="dropdown-toggle">
+                            Atuação <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+                            <li><a href="automacao.html">Automação</a></li>
+                            <li><a href="renovaveis.html">Energia Renovável</a></li>
+                            <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
+                            <li><a href="mercado.html">Mercado Livre de Energia</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="index.html#contato" class="nav-btn">Contato</a></li>
+                </ul>
+
+                <!-- HAMBURGER -->
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="index.html#atuacao">Atuação</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Projetos Elétricos</span>
+                </div>
+                
+                <h1>Projetos e Execução <span>Elétrica</span></h1>
+                <p>Soluções técnicas completas em engenharia elétrica, desde concepção até execução, com foco em segurança, conformidade normativa e eficiência energética para indústrias, comércios e empreendimentos.</p>
+                <a href="#contato" class="btn btn-large">Solicitar Projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Overview -->
+    <section class="projects-overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escopo de Atuação em Projetos Elétricos</h2>
+                <p>Especialistas em soluções técnicas completas para sistemas elétricos de baixa e média tensão, com engenharia própria e acompanhamento em todas as fases do projeto.</p>
+            </div>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <i class="fas fa-bolt overview-icon"></i>
+                    <h3>Baixa Tensão</h3>
+                    <p>Projetos de instalações elétricas prediais, industriais e comerciais, com dimensionamento preciso de circuitos, proteções e quadros de distribuição.</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-industry overview-icon"></i>
+                    <h3>Média Tensão</h3>
+                    <p>Sistemas de distribuição em média tensão, subestações de transformação, proteção e seccionamento, atendendo normas da Concessionária.</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-solar-panel overview-icon"></i>
+                    <h3>Sistemas de Energia</h3>
+                    <p>Projetos de geração distribuída, sistemas fotovoltaicos, grupos geradores, nobreaks e soluções para qualidade de energia.</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-lightbulb overview-icon"></i>
+                    <h3>Iluminação e SPDA</h3>
+                    <p>Projetos de iluminação eficiente, cômputo de cargas, SPDA (Sistema de Proteção contra Descargas Atmosféricas) e aterramento.</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-drafting-compass overview-icon"></i>
+                    <h3>Projetos Executivos</h3>
+                    <p>Documentação técnica completa: memoriais, diagramas unifilares, layout de equipamentos, lista de materiais e especificações técnicas.</p>
+                </div>
+                
+                <div class="overview-card">
+                    <i class="fas fa-hard-hat overview-icon"></i>
+                    <h3>Acompanhamento de Obra</h3>
+                    <p>Fiscalização e gestão da execução, garantindo conformidade com o projeto, normas técnicas e prazos estabelecidos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section class="projects-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Projetos</h2>
+                <p>Conheça alguns dos nossos trabalhos em engenharia elétrica aplicada a diferentes segmentos e necessidades técnicas.</p>
+            </div>
+            
+            <div class="project-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+                <button class="filter-btn" data-filter="comercial">Comercial</button>
+                <button class="filter-btn" data-filter="subestacao">Subestação</button>
+                <button class="filter-btn" data-filter="renovavel">Renovável</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="industrial">
+                    <div class="project-image">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Industrial</span>
+                        <h3>Ampliação de Subestação Industrial</h3>
+                        <p>Projeto e execução de ampliação de subestação de 1,5MVA para 3MVA em indústria alimentícia, com novos painéis de média tensão e sistema de proteção atualizado.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Média Tensão</span>
+                            <span class="tech-tag">Proteção</span>
+                            <span class="tech-tag">NBR 5410</span>
+                        </div>
+                        <a href="#" class="project-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="comercial">
+                    <div class="project-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Comercial</span>
+                        <h3>Centro Comercial - Modernização Elétrica</h3>
+                        <p>Projeto completo de modernização do sistema elétrico de shopping center, com substituição de quadros de distribuição, atualização de proteções e implantação de sistema de medição setorizada.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Baixa Tensão</span>
+                            <span class="tech-tag">Modernização</span>
+                            <span class="tech-tag">EFiEG</span>
+                        </div>
+                        <a href="#" class="project-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="subestacao">
+                    <div class="project-image">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Subestação</span>
+                        <h3>Subestação de 5MVA - Empreendimento Logístico</h3>
+                        <p>Projeto executivo de subestação abrigada 13,8kV/380V para galpão logístico, com sistema de proteção digital, medição de energia e comunicação com Concessionária.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SE Abrigada</span>
+                            <span class="tech-tag">Proteção Digital</span>
+                            <span class="tech-tag">NBR 14039</span>
+                        </div>
+                        <a href="#" class="project-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="renovavel">
+                    <div class="project-image">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Renovável</span>
+                        <h3>Sistema Fotovoltaico Industrial 500kWp</h3>
+                        <p>Projeto de conexão de usina solar fotovoltaica em indústria têxtil, com estudo de fluxo de potência, proteção de ilhamento e adequação do sistema de medição para geração distribuída.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">GD</span>
+                            <span class="tech-tag">Solar</span>
+                            <span class="tech-tag">Norma 482</span>
+                        </div>
+                        <a href="#" class="project-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="industrial">
+                    <div class="project-image">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Industrial</span>
+                        <h3>Sistema de Potência para Fábrica de Plásticos</h3>
+                        <p>Projeto elétrico completo para nova linha de produção, com dimensionamento de motores, sistemas de partida, automação e comando, e distribuição de energia com seccionamento adequado.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Motores</span>
+                            <span class="tech-tag">Comando</span>
+                            <span class="tech-tag">NBR 5410</span>
+                        </div>
+                        <a href="#" class="project-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="comercial">
+                    <div class="project-image">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Comercial</span>
+                        <h3>Hotel Resort - Sistema Elétrico Completo</h3>
+                        <p>Projeto de instalações elétricas para complexo hoteleiro, incluindo sistema de geradores de emergência, iluminação de áreas comuns, SPDA e sistema de aterramento.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SPDA</span>
+                            <span class="tech-tag">Geradores</span>
+                            <span class="tech-tag">Iluminação</span>
+                        </div>
+                        <a href="#" class="project-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="methodology">
+        <div class="container">
+            <div class="section-title">
+                <h2>Metodologia de Trabalho</h2>
+                <p>Processo estruturado para desenvolvimento de projetos elétricos, garantindo qualidade técnica, conformidade normativa e atendimento aos prazos estabelecidos.</p>
+            </div>
+            
+            <div class="methodology-steps">
+                <div class="step">
+                    <i class="fas fa-clipboard-list step-icon"></i>
+                    <h3>Levantamento de Requisitos</h3>
+                    <p>Análise técnica das necessidades do cliente, visitas técnicas, coleta de dados e definição do escopo do projeto.</p>
+                </div>
+                
+                <div class="step">
+                    <i class="fas fa-drafting-compass step-icon"></i>
+                    <h3>Projeto Preliminar</h3>
+                    <p>Desenvolvimento do estudo preliminar, definição de conceitos, pré-dimensionamento e aprovação do cliente.</p>
+                </div>
+                
+                <div class="step">
+                    <i class="fas fa-file-contract step-icon"></i>
+                    <h3>Projeto Executivo</h3>
+                    <p>Elaboração da documentação técnica completa: memoriais, diagramas, layouts, listas de materiais e especificações.</p>
+                </div>
+                
+                <div class="step">
+                    <i class="fas fa-tools step-icon"></i>
+                    <h3>Aprovações e Licenças</h3>
+                    <p>Obtenção de aprovações junto aos órgãos competentes (Concessionária, Corpo de Bombeiros, Prefeitura).</p>
+                </div>
+                
+                <div class="step">
+                    <i class="fas fa-hard-hat step-icon"></i>
+                    <h3>Acompanhamento da Execução</h3>
+                    <p>Suporte técnico durante a obra, fiscalização da implantação e ajustes necessários para garantir conformidade.</p>
+                </div>
+                
+                <div class="step">
+                    <i class="fas fa-clipboard-check step-icon"></i>
+                    <h3>Entrega e Laudos</h3>
+                    <p>Entrega da obra concluída, laudos técnicos, documentação "as-built" e treinamento para operação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <h2>Solicite um projeto elétrico personalizado</h2>
+            <p>Nossa equipe de engenheiros está pronta para desenvolver soluções técnicas que atendam às especificações do seu empreendimento, com foco em segurança, conformidade e eficiência energética.</p>
+            <a href="mailto:contato@engevision.com.br" class="btn btn-large">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- BRAND -->
+                <div class="footer-brand">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <i class="fas fa-bolt" style="color: var(--amarelo); font-size: 2rem;"></i>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.5rem; color: var(--branco);">ENGE<span style="color: var(--amarelo);">vision</span></div>
+                            <div style="font-size: 0.8rem; color: var(--cinza);">Engenharia de energia e transição energética</div>
+                        </div>
+                    </div>
+                    <p class="footer-slogan">Engineering the power behind the future</p>
+                </div>
+
+                <!-- LINKS -->
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html#quem-somos">Quem Somos</a></li>
+                        <li><a href="index.html#atuacao">Áreas de Atuação</a></li>
+                        <li><a href="index.html#transicao">Transição Energética</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTATO -->
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
+                    <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
+                    <p><i class="fas fa-envelope"></i> contato@engevision.com.br</p>
+                </div>
+            </div>
+
+            <!-- LINHA SEPARADORA -->
+            <div class="footer-divider"></div>
+
+            <!-- PARTE INFERIOR COM REDES SOCIAIS E COPYRIGHT -->
+            <div class="footer-bottom">
+                <!-- Redes Sociais -->
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="copyright">
+                    <p>© 2025 EngeVision Engenharia Elétrica.</p>
+                    <span>Todos os direitos reservados.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const dropdown = document.getElementById('dropdown');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // Hamburger animation
+            hamburger.classList.toggle('active');
+        });
+        
+        // Dropdown toggle on mobile
+        if (dropdown) {
+            const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            dropdownToggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
+        
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
