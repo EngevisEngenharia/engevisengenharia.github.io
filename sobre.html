@@ -1,1057 +1,315 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - EngeVision | Engineering the Power Behind the Future</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* ==============================
-           ROOT VARIABLES
-        ================================ */
-        :root {
-          --azul-base: #0B1020;
-          --azul-tecnico: #1F4FD8;
-          --amarelo: #F2B705;
-          --amarelo-escuro: #D6A105;
-          --branco: #FFFFFF;
-          --cinza: #B0B6C3;
-          --cinza-escuro: #7A8192;
-          --azul-card: #11162b;
-          --azul-card-hover: #141a35;
-          --azul-escuro: #070B1A;
-        }
-
-        /* ==============================
-           RESET E BASE
-        ================================ */
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        html, body {
-          width: 100%;
-          min-height: 100vh;
-          overflow-x: hidden;
-        }
-
-        html {
-          scroll-behavior: smooth;
-          scroll-padding-top: 80px;
-        }
-
-        body {
-          font-family: 'Montserrat', sans-serif;
-          background-color: var(--azul-base);
-          color: var(--branco);
-          line-height: 1.6;
-        }
-
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-
-        a {
-          text-decoration: none;
-          color: inherit;
-          transition: all 0.3s ease;
-        }
-
-        img {
-          max-width: 100%;
-          display: block;
-        }
-
-        /* ==============================
-           ANIMAÇÕES
-        ================================ */
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* ==============================
-           HEADER / NAVEGAÇÃO
-        ================================ */
-        .header {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          background-color: rgba(11, 16, 32, 0.95);
-          backdrop-filter: blur(10px);
-          z-index: 1000;
-          padding: 15px 0;
-          border-bottom: 1px solid rgba(31, 79, 216, 0.1);
-        }
-
-        .navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .logo-link {
-          display: flex;
-          align-items: center;
-        }
-
-        .logo {
-          width: 80px;
-          height: auto;
-          transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-          transform: scale(1.05);
-        }
-
-        /* ==============================
-           MENU PRINCIPAL
-        ================================ */
-        .nav-menu {
-          display: flex;
-          align-items: center;
-          gap: 40px;
-          list-style: none;
-        }
-
-        .nav-menu li {
-          position: relative;
-        }
-
-        .nav-menu > li > a {
-          font-weight: 500;
-          font-size: 0.95rem;
-          color: var(--branco);
-          position: relative;
-          padding: 5px 0;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          text-decoration: none;
-        }
-
-        /* TRAÇO ANIMADO APENAS NO MENU PRINCIPAL */
-        .nav-menu > li > a::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background-color: var(--amarelo);
-          transition: width 0.3s ease;
-        }
-
-        .nav-menu > li > a:hover::after {
-          width: 100%;
-        }
-
-        .nav-menu > li > a:hover {
-          color: var(--amarelo);
-        }
-
-        /* ==============================
-           BOTÃO CONTATO (SEM TRAÇO)
-        ================================ */
-        .nav-btn {
-          background-color: var(--amarelo);
-          color: var(--azul-base) !important;
-          padding: 10px 25px !important;
-          border-radius: 4px;
-          font-weight: 600 !important;
-        }
-
-        .nav-btn::after {
-          display: none !important;
-        }
-
-        .nav-btn:hover {
-          background-color: var(--amarelo-escuro);
-          transform: translateY(-2px);
-        }
-
-        /* ==============================
-           DROPDOWN (ATUAÇÃO)
-        ================================ */
-        .dropdown-menu {
-          position: absolute;
-          top: 140%;
-          left: 0;
-          background-color: rgba(11, 16, 32, 0.98);
-          min-width: 280px;
-          padding: 15px 0;
-          border-radius: 6px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(10px);
-          transition: all 0.3s ease;
-          z-index: 999;
-          list-style: none;
-        }
-
-        .dropdown-menu li {
-          width: 100%;
-        }
-
-        .dropdown-menu a {
-          padding: 10px 20px;
-          width: 100%;
-          font-size: 0.9rem;
-          color: var(--branco);
-          text-decoration: none;
-          display: block;
-        }
-
-        .dropdown-menu a::after {
-          display: none !important;
-        }
-
-        .dropdown-menu a:hover {
-          background-color: rgba(255, 255, 255, 0.05);
-          color: var(--amarelo);
-        }
-
-        /* Hover desktop */
-        .dropdown:hover .dropdown-menu {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-
-        /* ==============================
-           HAMBURGER
-        ================================ */
-        .hamburger {
-          display: none;
-          cursor: pointer;
-        }
-
-        .bar {
-          display: block;
-          width: 25px;
-          height: 3px;
-          margin: 5px auto;
-          background-color: var(--branco);
-          transition: all 0.3s ease;
-        }
-
-        /* ==============================
-           HERO PÁGINA SOBRE
-        ================================ */
-        .sobre-hero {
-          min-height: 60vh;
-          background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.85)),
-                      url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
-          display: flex;
-          align-items: center;
-          padding: 140px 20px 80px;
-          margin-top: 70px;
-          position: relative;
-        }
-
-        .sobre-hero-content {
-          max-width: 900px;
-          animation: fadeUp 1s ease forwards;
-        }
-
-        .sobre-slogan {
-          font-size: 0.85rem;
-          letter-spacing: 3px;
-          text-transform: uppercase;
-          color: var(--amarelo);
-          margin-bottom: 20px;
-          font-weight: 600;
-        }
-
-        .sobre-title {
-          font-size: 3.2rem;
-          font-weight: 700;
-          margin-bottom: 20px;
-          line-height: 1.2;
-        }
-
-        .sobre-intro {
-          font-size: 1.2rem;
-          font-weight: 400;
-          color: var(--cinza);
-          max-width: 700px;
-          margin-bottom: 40px;
-          line-height: 1.8;
-        }
-
-        /* ==============================
-           SEÇÕES GERAIS
-        ================================ */
-        section {
-          padding: 100px 0;
-        }
-
-        .section-title {
-          font-size: 2.5rem;
-          font-weight: 700;
-          margin-bottom: 20px;
-          position: relative;
-          display: inline-block;
-        }
-
-        .section-title::after {
-          content: "";
-          width: 80px;
-          height: 4px;
-          background-color: var(--amarelo);
-          display: block;
-          margin-top: 15px;
-          border-radius: 2px;
-        }
-
-        .section-intro {
-          font-size: 1.2rem;
-          color: var(--cinza);
-          max-width: 900px;
-          margin-bottom: 60px;
-          line-height: 1.8;
-        }
-
-        .section-subtitle {
-          color: var(--cinza-escuro);
-          font-size: 1.1rem;
-          margin-bottom: 50px;
-          max-width: 700px;
-        }
-
-        .content-text {
-          font-size: 1.1rem;
-          color: var(--cinza);
-          line-height: 1.8;
-          margin-bottom: 30px;
-        }
-
-        .highlight {
-          color: var(--amarelo);
-          font-weight: 600;
-        }
-
-        /* ==============================
-           CARDS DE SERVIÇOS
-        ================================ */
-        .servicos-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 30px;
-          margin-top: 50px;
-        }
-
-        .servico-card {
-          background-color: var(--azul-card);
-          padding: 40px 30px;
-          border-radius: 8px;
-          transition: all 0.3s ease;
-          height: 100%;
-          border-left: 4px solid var(--amarelo);
-        }
-
-        .servico-card:hover {
-          transform: translateY(-10px);
-          background-color: var(--azul-card-hover);
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .servico-icon {
-          font-size: 2.5rem;
-          color: var(--amarelo);
-          margin-bottom: 25px;
-        }
-
-        .servico-card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 15px;
-          color: var(--branco);
-        }
-
-        .servico-card p {
-          color: var(--cinza);
-          font-size: 1rem;
-          line-height: 1.7;
-        }
-
-        /* ==============================
-           DIFERENCIAIS
-        ================================ */
-        .diferenciais-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 30px;
-          margin-top: 50px;
-        }
-
-        .diferencial-card {
-          background-color: var(--azul-card);
-          padding: 40px 30px;
-          border-radius: 8px;
-          text-align: center;
-          transition: all 0.3s ease;
-          height: 100%;
-        }
-
-        .diferencial-card:hover {
-          transform: translateY(-10px);
-          background-color: var(--azul-card-hover);
-        }
-
-        .diferencial-icon {
-          font-size: 2.5rem;
-          color: var(--amarelo);
-          margin-bottom: 25px;
-          height: 70px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .diferencial-card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 15px;
-          color: var(--branco);
-        }
-
-        .diferencial-card p {
-          color: var(--cinza);
-          font-size: 1rem;
-          line-height: 1.7;
-        }
-
-        /* ==============================
-           EQUIPE E MISSÃO
-        ================================ */
-        .equipe-container {
-          display: flex;
-          align-items: center;
-          gap: 60px;
-          margin-top: 50px;
-        }
-
-        .equipe-content {
-          flex: 1;
-        }
-
-        .equipe-img {
-          flex: 1;
-          border-radius: 10px;
-          overflow: hidden;
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-          min-height: 400px;
-          background: linear-gradient(45deg, var(--azul-tecnico), var(--azul-card));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--branco);
-          font-size: 1.2rem;
-          text-align: center;
-          padding: 20px;
-        }
-
-        .missao-box {
-          background: linear-gradient(135deg, var(--azul-card), var(--azul-escuro));
-          padding: 60px;
-          border-radius: 10px;
-          text-align: center;
-          border-left: 5px solid var(--amarelo);
-          margin-top: 30px;
-        }
-
-        .missao-box p {
-          font-size: 1.5rem;
-          font-style: italic;
-          color: var(--branco);
-          line-height: 1.8;
-        }
-
-        /* ==============================
-           FOOTER
-        ================================ */
-        .footer {
-          background-color: var(--azul-escuro);
-          padding: 60px 0 30px;
-          margin-top: 80px;
-        }
-
-        .footer-content {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 40px;
-          margin-bottom: 40px;
-        }
-
-        .footer-logo {
-          width: 100px;
-          margin-bottom: 20px;
-        }
-
-        .footer-description {
-          color: var(--cinza);
-          margin-bottom: 20px;
-          font-size: 0.95rem;
-        }
-
-        .footer-title {
-          font-size: 1.3rem;
-          margin-bottom: 25px;
-          color: var(--branco);
-          position: relative;
-          padding-bottom: 10px;
-        }
-
-        .footer-title::after {
-          content: "";
-          width: 40px;
-          height: 3px;
-          background-color: var(--amarelo);
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-        }
-
-        .footer-links {
-          list-style: none;
-        }
-
-        .footer-links li {
-          margin-bottom: 12px;
-        }
-
-        .footer-links a {
-          color: var(--cinza);
-          transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-          color: var(--amarelo);
-          padding-left: 5px;
-        }
-
-        .footer-contact {
-          color: var(--cinza);
-        }
-
-        .footer-contact p {
-          margin-bottom: 15px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .footer-bottom {
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          padding-top: 30px;
-          text-align: center;
-          color: var(--cinza-escuro);
-          font-size: 0.9rem;
-        }
-
-        /* ==============================
-           BOTÕES
-        ================================ */
-        .btn {
-          display: inline-block;
-          padding: 16px 40px;
-          background-color: transparent;
-          border: 2px solid var(--amarelo);
-          color: var(--amarelo);
-          font-weight: 600;
-          letter-spacing: 0.5px;
-          transition: all 0.3s ease;
-          border-radius: 4px;
-          cursor: pointer;
-          text-align: center;
-        }
-
-        .btn:hover {
-          background-color: var(--amarelo);
-          color: var(--azul-base);
-          transform: translateY(-3px);
-          box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
-        }
-
-        .center-btn {
-          text-align: center;
-          margin-top: 50px;
-        }
-
-        /* ==============================
-           MOBILE
-        ================================ */
-        @media (max-width: 900px) {
-          .hamburger {
-            display: block;
-          }
-
-          .nav-menu {
-            position: fixed;
-            top: 100%;
-            left: 0;
-            background-color: rgba(11, 16, 32, 0.98);
-            flex-direction: column;
-            width: 100%;
-            max-height: 0;
-            overflow: hidden;
-            gap: 0;
-            transition: max-height 0.4s ease;
-          }
-
-          .nav-menu.active {
-            max-height: 500px;
-          }
-
-          .nav-menu li {
-            width: 100%;
-            text-align: center;
-          }
-
-          .nav-menu a {
-            padding: 15px;
-            width: 100%;
-            justify-content: center;
-          }
-
-          /* Dropdown no mobile */
-          .dropdown-menu {
-            position: static;
-            box-shadow: none;
-            background: transparent;
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-            max-height: 0;
-            overflow: hidden;
-            padding: 0;
-          }
-
-          .dropdown.active .dropdown-menu {
-            max-height: 500px;
-          }
-
-          .dropdown-menu a {
-            padding: 12px;
-          }
-
-          .sobre-title {
-            font-size: 2.5rem;
-          }
-
-          .sobre-intro {
-            font-size: 1.1rem;
-          }
-
-          .section-title {
-            font-size: 2rem;
-          }
-
-          .equipe-container {
-            flex-direction: column;
-            gap: 40px;
-          }
-
-          .missao-box {
-            padding: 40px 20px;
-          }
-
-          .missao-box p {
-            font-size: 1.2rem;
-          }
-        }
-
-        @media (max-width: 600px) {
-          .sobre-hero {
-            min-height: 50vh;
-            padding: 120px 20px 60px;
-          }
-
-          .sobre-title {
-            font-size: 2rem;
-          }
-
-          section {
-            padding: 70px 0;
-          }
-
-          .servico-card, .diferencial-card {
-            padding: 30px 20px;
-          }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Sobre - EngeVision | Engenharia Elétrica e Soluções em Energia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça a EngeVision - Excelência em engenharia elétrica, projetos, eficiência energética e transição energética.">
+  
+  <!-- Fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- CSS específico da página Sobre -->
+  <link rel="stylesheet" href="sobre.css">
+  
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <!-- ==============================
-         HEADER / NAVEGAÇÃO
-    ================================ -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo-link">
-                    <div class="logo">
-                        <!-- Logo placeholder - substituir pela logo real -->
-                        <div style="background-color: var(--amarelo); color: var(--azul-base); width: 80px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 700; border-radius: 4px;">ENGEVISION</div>
-                    </div>
-                </a>
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <!-- LOGO -->
+      <a href="index.html" class="logo-link">
+        <img src="images/logo.PNG" alt="EngeVision Engenharia Elétrica" class="logo">
+      </a>
 
-                <ul class="nav-menu">
-                    <li><a href="index.html">Início</a></li>
-                    <li class="dropdown">
-                        <a href="#">Atuação <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Projetos e Execução Elétrica</a></li>
-                            <li><a href="#">Energias Renováveis</a></li>
-                            <li><a href="#">Eficiência Energética</a></li>
-                            <li><a href="#">Mercado Livre de Energia</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="sobre.html" style="color: var(--amarelo);">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="contato.html" class="nav-btn">Contato</a></li>
-                </ul>
+      <!-- MENU -->
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html" class="active">Sobre</a></li>
+        
+        <!-- DROPDOWN ATUAÇÃO -->
+        <li class="dropdown">
+          <a href="#atuacao" class="dropdown-toggle">
+            Atuação <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="automacao.html">Automação</a></li>
+            <li><a href="renovaveis.html">Energia Renovável</a></li>
+            <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
+            <li><a href="mercado.html">Mercado Livre de Energia</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato" class="nav-btn">Contato</a></li>
+      </ul>
 
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
+      <!-- HAMBURGER -->
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SOBRE -->
+<section class="sobre-hero">
+  <div class="container">
+    <div class="sobre-hero-content">
+      <div class="slogan">Sobre a EngeVision</div>
+      <h1 class="hero-title">Engineering the Power Behind the Future</h1>
+      <p class="hero-subtitle">Fundada em 2021, a EngeVision atua no setor de engenharia elétrica e soluções em energia, oferecendo serviços para os setores residencial, comercial, industrial e público.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE A EMPRESA -->
+<section class="sobre-empresa">
+  <div class="container">
+    <div class="sobre-conteudo">
+      <div class="sobre-texto">
+        <h2 class="section-title">Nossa Visão</h2>
+        <p>Nosso foco é fornecer soluções integradas que combinam planejamento, execução e consultoria, sempre com atenção à eficiência, segurança e sustentabilidade.</p>
+        <p>Buscamos entregar projetos sólidos, execução precisa e suporte estratégico, com resultados concretos e mensuráveis. Acreditamos que qualidade e inovação são fruto de competência, método e compromisso.</p>
+      </div>
+      <div class="sobre-destaque">
+        <div class="destaque-box">
+          <i class="fas fa-bullseye"></i>
+          <h3>Missão</h3>
+          <p>Conectar a necessidade energética de hoje às soluções inteligentes e sustentáveis de amanhã.</p>
         </div>
-    </header>
-
-    <!-- ==============================
-         HERO PÁGINA SOBRE
-    ================================ -->
-    <section class="sobre-hero">
-        <div class="container">
-            <div class="sobre-hero-content">
-                <p class="sobre-slogan">Sobre a EngeVision</p>
-                <h1 class="sobre-title">Engineering the Power Behind the Future</h1>
-                <p class="sobre-intro">Fundada em 2021, a EngeVision atua no setor de engenharia elétrica e soluções em energia, oferecendo serviços para os setores residencial, comercial, industrial e público.</p>
-            </div>
+        <div class="destaque-box">
+          <i class="fas fa-eye"></i>
+          <h3>Visão</h3>
+          <p>Ser referência em engenharia elétrica e soluções energéticas na América Latina.</p>
         </div>
-    </section>
-
-    <!-- ==============================
-         SOBRE A EMPRESA
-    ================================ -->
-    <section id="sobre">
-        <div class="container">
-            <h2 class="section-title">Sobre a EngeVision</h2>
-            <p class="section-intro">Nosso foco é fornecer soluções integradas que combinam planejamento, execução e consultoria, sempre com atenção à eficiência, segurança e sustentabilidade.</p>
-            
-            <div class="content-text">
-                <p>Fundada em 2021, a EngeVision se estabeleceu como referência no setor de engenharia elétrica e soluções energéticas, atendendo aos mais diversos segmentos do mercado. Nossa trajetória é marcada pelo compromisso com a excelência técnica e a inovação constante.</p>
-            </div>
+        <div class="destaque-box">
+          <i class="fas fa-handshake"></i>
+          <h3>Valores</h3>
+          <p>Excelência técnica, inovação, sustentabilidade e compromisso com resultados.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ==============================
-         NOSSA ABORDAGEM
-    ================================ -->
-    <section id="abordagem" style="background-color: var(--azul-escuro);">
-        <div class="container">
-            <h2 class="section-title">Nossa Abordagem</h2>
-            <p class="section-intro">Buscamos entregar projetos sólidos, execução precisa e suporte estratégico, com resultados concretos e mensuráveis. Acreditamos que qualidade e inovação são fruto de competência, método e compromisso.</p>
-            
-            <div class="diferenciais-grid">
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Foco em Resultados</h3>
-                    <p>Trabalhamos com metas claras e indicadores mensuráveis para garantir que cada projeto atinja os objetivos definidos em parceria com nossos clientes.</p>
-                </div>
-                
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Excelência Técnica</h3>
-                    <p>Investimos continuamente na capacitação de nossa equipe e na adoção das melhores práticas e tecnologias do mercado de engenharia elétrica.</p>
-                </div>
-                
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Parceria Estratégica</h3>
-                    <p>Atuamos como extensão da equipe de nossos clientes, compreendendo seus desafios e colaborando ativamente para o sucesso de seus projetos.</p>
-                </div>
-            </div>
+<!-- O QUE FAZEMOS -->
+<section class="servicos-detalhados">
+  <div class="container">
+    <h2 class="section-title">O que Fazemos</h2>
+    <p class="section-intro">Soluções completas em engenharia elétrica e energia para diversos segmentos</p>
+    
+    <div class="servicos-lista">
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-bolt"></i>
         </div>
-    </section>
-
-    <!-- ==============================
-         O QUE FAZEMOS
-    ================================ -->
-    <section id="servicos">
-        <div class="container">
-            <h2 class="section-title">O que Fazemos</h2>
-            <p class="section-intro">Oferecemos soluções completas em engenharia elétrica e energia, desde projetos básicos até sistemas complexos de geração e gestão energética.</p>
-            
-            <div class="servicos-grid">
-                <div class="servico-card">
-                    <div class="servico-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Projetos e Execução Elétrica</h3>
-                    <p>Desenvolvimento e implementação de instalações elétricas seguras e eficientes, de pequena a grande escala. Atendemos desde residências até complexos industriais com o mesmo compromisso com a qualidade e segurança.</p>
-                </div>
-                
-                <div class="servico-card">
-                    <div class="servico-icon">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <h3>Energias Renováveis</h3>
-                    <p>Planejamento e implantação de sistemas fotovoltaicos, com foco em geração de energia limpa e confiável. Desenvolvemos soluções personalizadas que maximizam o retorno do investimento em energia solar.</p>
-                </div>
-                
-                <div class="servico-card">
-                    <div class="servico-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3>Eficiência Energética e Auditoria</h3>
-                    <p>Identificação de oportunidades de otimização do consumo, propondo ações para reduzir custos e desperdícios. Nossas auditorias energéticas proporcionam um diagnóstico completo com plano de ação implementável.</p>
-                </div>
-                
-                <div class="servico-card">
-                    <div class="servico-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <h3>Mercado Livre de Energia</h3>
-                    <p>Suporte estratégico para contratação e gestão no mercado livre, simplificando processos complexos e buscando as melhores condições. Acompanhamos todo o ciclo, desde a migração até a gestão contratual.</p>
-                </div>
-            </div>
+        <div class="servico-content">
+          <h3>Projetos e Execução Elétrica</h3>
+          <p>Desenvolvimento e implementação de instalações elétricas seguras e eficientes, de pequena a grande escala, para os setores residencial, comercial, industrial e público.</p>
         </div>
-    </section>
-
-    <!-- ==============================
-         NOSSOS DIFERENCIAIS
-    ================================ -->
-    <section id="diferenciais" style="background-color: var(--azul-escuro);">
-        <div class="container">
-            <h2 class="section-title">Nossos Diferenciais</h2>
-            <p class="section-intro">O que nos torna a escolha certa para seus projetos de engenharia elétrica e soluções energéticas.</p>
-            
-            <div class="diferenciais-grid">
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3>Expertise Técnica</h3>
-                    <p>Equipe qualificada com experiência em projetos e execução, utilizando ferramentas como Revit, AutoCAD e SketchUp para garantir precisão e qualidade em todas as etapas.</p>
-                </div>
-                
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3>Metodologia Integrada</h3>
-                    <p>Consultoria, projeto e execução em um fluxo contínuo e colaborativo, garantindo fidelidade ao projeto e otimização de recursos em todas as fases.</p>
-                </div>
-                
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Foco em Sustentabilidade</h3>
-                    <p>Nossas soluções consideram tanto valor econômico quanto contribuição para uma matriz energética mais limpa e eficiente, alinhadas com os ODS da ONU.</p>
-                </div>
-                
-                <div class="diferencial-card">
-                    <div class="diferencial-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Resultados Concretos</h3>
-                    <p>Trabalhamos com transparência, garantindo que cada projeto entregue eficiência, confiabilidade e satisfação ao cliente, com métricas claras de performance.</p>
-                </div>
-            </div>
+      </div>
+      
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-sun"></i>
         </div>
-    </section>
-
-    <!-- ==============================
-         NOSSA EQUIPE
-    ================================ -->
-    <section id="equipe">
-        <div class="container">
-            <h2 class="section-title">Nossa Equipe</h2>
-            
-            <div class="equipe-container">
-                <div class="equipe-content">
-                    <p class="content-text">Contamos com uma equipe multidisciplinar de engenheiros, projetistas e especialistas em energia, que trabalham de forma colaborativa para oferecer soluções práticas, inovadoras e alinhadas às necessidades de cada projeto.</p>
-                    
-                    <p class="content-text">Nossos profissionais possuem certificações específicas e experiência comprovada em projetos de diversos portes e complexidades, sempre atualizados com as normativas técnicas e tendências do setor elétrico.</p>
-                    
-                    <p class="content-text">A cultura colaborativa da EngeVision permite que diferentes expertises se complementem, criando soluções integradas que superam expectativas e enfrentam os desafios mais complexos do setor energético.</p>
-                </div>
-                
-                <div class="equipe-img">
-                    <div>
-                        <i class="fas fa-users" style="font-size: 4rem; margin-bottom: 20px; color: var(--amarelo);"></i>
-                        <h3>Equipe Multidisciplinar</h3>
-                        <p>Engenheiros, projetistas e especialistas trabalhando em conjunto</p>
-                    </div>
-                </div>
-            </div>
+        <div class="servico-content">
+          <h3>Energias Renováveis</h3>
+          <p>Planejamento e implantação de sistemas fotovoltaicos, com foco em geração de energia limpa e confiável, contribuindo para a transição energética.</p>
         </div>
-    </section>
-
-    <!-- ==============================
-         NOSSA MISSÃO
-    ================================ -->
-    <section id="missao">
-        <div class="container">
-            <div class="missao-box">
-                <h2 class="section-title" style="color: var(--branco); margin-bottom: 30px;">Nossa Missão</h2>
-                <p>A EngeVision conecta a necessidade energética de hoje às soluções inteligentes e sustentáveis de amanhã, apoiando clientes na transição para uma energia mais limpa e eficiente.</p>
-            </div>
-            
-            <div class="center-btn">
-                <a href="contato.html" class="btn">Fale Conosco</a>
-            </div>
+      </div>
+      
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-chart-line"></i>
         </div>
-    </section>
-
-    <!-- ==============================
-         FOOTER
-    ================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <div style="background-color: var(--amarelo); color: var(--azul-base); width: 100px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 700; border-radius: 4px;">ENGEVISION</div>
-                    </div>
-                    <p class="footer-description">Engineering the Power Behind the Future. Soluções em engenharia elétrica e energia para um amanhã mais sustentável e eficiente.</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="sobre.html">Sobre</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#diferenciais">Diferenciais</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Serviços</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Projetos Elétricos</a></li>
-                        <li><a href="#">Energia Solar</a></li>
-                        <li><a href="#">Eficiência Energética</a></li>
-                        <li><a href="#">Mercado Livre</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Contato</h3>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> Av. Engenheiro, 1234 - Centro</p>
-                        <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
-                        <p><i class="fas fa-envelope"></i> contato@engevision.com.br</p>
-                        <p><i class="fas fa-clock"></i> Seg - Sex: 8h às 18h</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 EngeVision. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: var(--amarelo);"></i> para um futuro energético sustentável</p>
-            </div>
+        <div class="servico-content">
+          <h3>Eficiência Energética e Auditoria</h3>
+          <p>Identificação de oportunidades de otimização do consumo, propondo ações para reduzir custos e desperdícios através de auditorias energéticas especializadas.</p>
         </div>
-    </footer>
+      </div>
+      
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-industry"></i>
+        </div>
+        <div class="servico-content">
+          <h3>Mercado Livre de Energia</h3>
+          <p>Suporte estratégico para contratação e gestão no mercado livre, simplificando processos complexos e buscando as melhores condições para nossos clientes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Menu Mobile
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        const dropdowns = document.querySelectorAll('.dropdown');
+<!-- NOSSOS DIFERENCIAIS -->
+<section class="diferenciais-sobre">
+  <div class="container">
+    <h2 class="section-title">Nossos Diferenciais</h2>
+    <p class="section-intro">O que nos torna a escolha certa para seus projetos de engenharia elétrica</p>
+    
+    <div class="diferenciais-grid">
+      <div class="diferencial-card">
+        <div class="diferencial-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <h3>Expertise Técnica</h3>
+        <p>Equipe qualificada com experiência em projetos e execução, utilizando ferramentas como Revit, AutoCAD e SketchUp.</p>
+      </div>
+      
+      <div class="diferencial-card">
+        <div class="diferencial-icon">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h3>Metodologia Integrada</h3>
+        <p>Consultoria, projeto e execução em um fluxo contínuo e colaborativo, garantindo fidelidade ao projeto e otimização de recursos.</p>
+      </div>
+      
+      <div class="diferencial-card">
+        <div class="diferencial-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3>Foco em Sustentabilidade</h3>
+        <p>Nossas soluções consideram tanto valor econômico quanto contribuição para uma matriz energética mais limpa e eficiente.</p>
+      </div>
+      
+      <div class="diferencial-card">
+        <div class="diferencial-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+        <h3>Resultados Concretos</h3>
+        <p>Trabalhamos com transparência, garantindo que cada projeto entregue eficiência, confiabilidade e satisfação ao cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+<!-- NOSSA EQUIPE -->
+<section class="equipe-sobre">
+  <div class="container">
+    <div class="equipe-conteudo">
+      <div class="equipe-texto">
+        <h2 class="section-title">Nossa Equipe</h2>
+        <p>Contamos com uma equipe multidisciplinar de engenheiros, projetistas e especialistas em energia, que trabalham de forma colaborativa para oferecer soluções práticas, inovadoras e alinhadas às necessidades de cada projeto.</p>
+        <p>Nossa abordagem técnica é baseada em conhecimento especializado, metodologias comprovadas e as melhores práticas do setor, garantindo excelência em cada etapa do processo.</p>
+      </div>
+      <div class="equipe-destaque">
+        <div class="equipe-stats">
+          <div class="stat-item">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Profissionais</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Projetos Concluídos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Especialidades</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            
-            // Fechar dropdowns abertos
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-        }));
+<!-- MISSÃO -->
+<section class="missao-sobre">
+  <div class="container">
+    <div class="missao-conteudo">
+      <div class="missao-icon">
+        <i class="fas fa-bullseye"></i>
+      </div>
+      <div class="missao-texto">
+        <h2 class="section-title">Nossa Missão</h2>
+        <p class="missao-destaque">A EngeVision conecta a necessidade energética de hoje às soluções inteligentes e sustentáveis de amanhã, apoiando clientes na transição para uma energia mais limpa e eficiente.</p>
+        <p>Através de nossa expertise técnica e abordagem integrada, buscamos não apenas atender às demandas atuais do mercado, mas também antecipar as necessidades futuras, contribuindo para um cenário energético mais sustentável e resiliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Dropdown mobile
-        dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
-            
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 900) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                    
-                    // Fechar outros dropdowns abertos
-                    dropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        });
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <h2 class="cta-title">Pronto para transformar seu projeto energético?</h2>
+    <p class="cta-subtitle">Entre em contato com nossa equipe especializada para uma avaliação personalizada.</p>
+    
+    <div class="center-btn">
+      <a href="contato.html" class="btn btn-large">Solicitar Orçamento</a>
+      <a href="index.html#atuacao" class="btn btn-secondary">Conhecer Serviços</a>
+    </div>
+  </div>
+</section>
 
-        // Fechar dropdown ao clicar fora
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.dropdown') && window.innerWidth <= 900) {
-                dropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-        });
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- BRAND -->
+      <div class="footer-brand">
+        <img src="images/logo.PNG" alt="EngeVision Engenharia Elétrica" class="footer-logo">
+        <p class="footer-slogan">Engineering the power behind the future</p>
+      </div>
 
-        // Animação ao rolar a página
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      <!-- LINKS -->
+      <div class="footer-links">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="index.html#atuacao">Áreas de Atuação</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+      <!-- CONTATO -->
+      <div class="footer-contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
+        <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
+        <p><i class="fas fa-envelope"></i> contato@engevision.com.br</p>
+      </div>
+    </div>
 
-        // Observar elementos para animação
-        document.querySelectorAll('.servico-card, .diferencial-card').forEach((el) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
-        });
-    </script>
+    <!-- LINHA SEPARADORA -->
+    <div class="footer-divider"></div>
+
+    <!-- PARTE INFERIOR COM REDES SOCIAIS E COPYRIGHT CENTRALIZADO -->
+    <div class="footer-bottom">
+      <!-- Redes Sociais -->
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" aria-label="Instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" aria-label="YouTube" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+
+      <!-- Copyright Centralizado -->
+      <div class="copyright">
+        <p>© 2025 EngeVision Engenharia Elétrica.</p>
+        <span>Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
