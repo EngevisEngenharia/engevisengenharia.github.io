@@ -1438,10 +1438,34 @@ section {
 
 /* VISUAL */
 .engenharia-visual {
+  position: relative; /* necessário para o traço animado */
   background-color: var(--azul-card);
   border-radius: 10px;
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* TRAÇO AMARELO NO TOPO */
+.engenharia-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--amarelo);
+  transition: width 0.4s ease;
+}
+
+.engenharia-visual:hover::before {
+  width: 100%;
+}
+
+.engenharia-visual:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .engenharia-visual img {
@@ -1461,4 +1485,5 @@ section {
     margin: 0 auto;
   }
 }
+
 
