@@ -1411,18 +1411,20 @@ section {
   margin-bottom: 60px;
 }
 
-/* ITENS */
+/* GRID DE ITENS 2x2 */
 .engenharia-itens {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  gap: 40px;
 }
 
+/* BLOCO DO ITEM */
 .engenharia-item {
   display: flex;
+  flex-direction: column; /* imagem em cima, texto embaixo */
   align-items: center;
-  gap: 40px; /* espaço maior para leitura */
-  background-color: rgba(255, 255, 255, 0.05); /* fundo do bloco */
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 30px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1434,18 +1436,17 @@ section {
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
-.engenharia-item.reverse {
-  flex-direction: row-reverse;
-}
-
+/* TEXTO DO ITEM */
 .engenharia-item-texto {
-  flex: 1;
-  font-size: 1.1rem; /* leve aumento */
+  text-align: center;
+  font-size: 1.1rem;
   line-height: 1.7;
 }
 
+/* IMAGEM DO ITEM */
 .engenharia-item-visual {
-  flex: 0 0 375px; /* imagem maior */
+  width: 100%; /* ocupa todo o bloco */
+  max-width: 350px; /* tamanho máximo */
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -1473,13 +1474,12 @@ section {
 
 /* RESPONSIVO */
 @media (max-width: 1024px) {
-  .engenharia-item, .engenharia-item.reverse {
-    flex-direction: column;
-    text-align: center;
+  .engenharia-itens {
+    grid-template-columns: 1fr; /* uma coluna no tablet/mobile */
+    gap: 30px;
   }
 
   .engenharia-item-visual {
-    width: 250px; /* mantém proporcional no mobile */
-    margin: 0 auto;
+    max-width: 100%; /* ocupa toda a largura do bloco */
   }
 }
