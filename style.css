@@ -1493,11 +1493,11 @@ section {
 }
 
 /* ==============================
-   TIPOS DE PROJETOS - BLOCO AMARELO
+   TIPOS DE PROJETOS - BLOCO AZUL
 ================================ */
 .tipos-projetos {
-  padding: 0; /* remove padding, cada item ocupa a largura */
-  background-color: var(--amarelo); /* fundo amarelo da identidade */
+  padding: 0;
+  background-color: var(--azul-base); /* fundo azul */
 }
 
 .tipos-grid {
@@ -1506,13 +1506,13 @@ section {
 }
 
 .tipo-item {
-  flex: 1 1 25%; /* 4 itens lado a lado, ocupa largura total */
+  flex: 1 1 25%; /* 4 itens lado a lado */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-  color: var(--azul-base); /* texto em contraste com amarelo */
+  color: var(--amarelo); /* ícones e texto amarelos */
   font-weight: 600;
   position: relative;
   overflow: hidden;
@@ -1527,7 +1527,7 @@ section {
   left: 0;
   height: 4px;
   width: 0%;
-  background-color: var(--branco);
+  background-color: var(--amarelo); /* traço amarelo */
   transition: width 0.4s ease;
 }
 
@@ -1543,12 +1543,14 @@ section {
 .tipo-item i {
   font-size: 3rem;
   margin-bottom: 15px;
+  color: var(--amarelo); /* ícones amarelos */
 }
 
 .tipo-item h4 {
   font-size: 1.25rem;
   margin: 0;
   text-align: center;
+  color: var(--amarelo); /* texto amarelo */
 }
 
 /* RESPONSIVO */
