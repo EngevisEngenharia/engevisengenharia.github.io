@@ -1216,41 +1216,56 @@ section {
   margin-bottom: 60px;
 }
 
-//* ==========================
+/* ==========================
    ITENS SIMPLES COM ÍCONES
 ========================== */
 .engenharia-itens-lista {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* espaço entre itens */
+  gap: 20px; /* espaço entre os itens */
   margin-bottom: 60px;
 }
 
 .engenharia-item-lista {
   display: flex;
   align-items: flex-start;
-  gap: 15px; /* espaço entre ícone e texto */
+  gap: 20px; /* distância entre ícone e texto */
+  margin-bottom: 15px;
 }
 
 .engenharia-item-lista .item-icon i {
   font-size: 2rem;
   color: var(--amarelo);
   flex-shrink: 0; /* ícone não encolhe */
-  margin-top: 5px; /* alinha melhor com o texto */
-}
-
-.engenharia-item-lista .item-texto p {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
 }
 
 .engenharia-item-lista .item-texto strong {
   display: block;
-  font-weight: 700;
-  color: var(--amarelo);
+  font-weight: 600;
+  font-size: 1.05rem;
   margin-bottom: 5px;
+  color: inherit; /* mantém cor do texto padrão, não amarelo */
 }
+
+.engenharia-item-lista .item-texto p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: inherit;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .engenharia-item-lista {
+    flex-direction: row; /* mantém a mesma estrutura */
+    gap: 15px;
+  }
+
+  .engenharia-item-lista .item-icon i {
+    font-size: 1.8rem;
+  }
+}
+
 
 /* ==========================
    CARDS 2x2 COM IMAGEM ACIMA
@@ -2289,6 +2304,7 @@ section {
     max-width: 300px;
   }
 }
+
 
 
 
