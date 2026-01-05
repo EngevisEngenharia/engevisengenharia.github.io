@@ -423,9 +423,52 @@ img {
   width: 100%;
 }
 
+/* ==================================================================================
+   SEÇÃO: PÁGINA INICIAL (index.html)
+================================================================================== */
+
 /* ==============================
-   BOTÕES GLOBAIS
+   HERO SECTION - PÁGINA INICIAL
 ================================ */
+.hero {
+  min-height: 100vh;
+  background: url("images/capa.png") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 140px 20px 80px;
+  margin-top: 70px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.slogan {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--cinza);
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
 .btn {
   display: inline-block;
   padding: 16px 40px;
@@ -452,19 +495,8 @@ img {
   font-size: 1.1rem;
 }
 
-.btn-secondary {
-  background-color: transparent;
-  border: 2px solid var(--amarelo);
-  color: var(--amarelo);
-}
-
-.btn-secondary:hover {
-  background-color: var(--amarelo);
-  color: var(--azul-base);
-}
-
 /* ==============================
-   TÍTULOS E SEÇÕES GLOBAIS
+   SEÇÕES GERAIS - PÁGINA INICIAL
 ================================ */
 section {
   padding: 100px 0;
@@ -509,6 +541,1532 @@ section {
 }
 
 /* ==============================
+   QUEM SOMOS / DESTAQUES - PÁGINA INICIAL
+================================ */
+.destaques {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.destaque-item {
+  background-color: var(--azul-card);
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.destaque-item:hover {
+  transform: translateY(-10px);
+}
+
+.destaque-item i {
+  font-size: 2.5rem;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+}
+
+.destaque-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.destaque-item p {
+  color: var(--cinza);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==============================
+   CARDS DE ATUAÇÃO - PÁGINA INICIAL
+================================ */
+.atuacao {
+  background-color: var(--azul-escuro);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  background-color: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(31, 79, 216, 0.1);
+}
+
+/* TRAÇO AMARELO NO TOPO DO BLOCO */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--amarelo);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background-color: var(--azul-card-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.card p {
+  color: var(--cinza);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.card-link {
+  color: var(--amarelo);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-link:hover {
+  gap: 15px;
+}
+
+/* ==============================
+   TRANSIÇÃO ENERGÉTICA - PÁGINA INICIAL
+================================ */
+.transicao-text {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  max-width: 900px;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 30px;
+  background-color: rgba(31, 79, 216, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(31, 79, 216, 0.2);
+}
+
+.stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--amarelo);
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--cinza);
+  font-weight: 500;
+}
+
+/* ==============================
+   CTA / CONTATO - PÁGINA INICIAL
+================================ */
+.cta {
+  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+              url("images/background-cta.jpg") center/cover no-repeat;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.contact-item i {
+  font-size: 2rem;
+  color: var(--amarelo);
+}
+
+.contact-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: var(--amarelo);
+}
+
+.contact-item p {
+  color: var(--branco);
+  font-weight: 500;
+}
+
+/* ==================================================================================
+   SEÇÃO: PÁGINA SOBRE (sobre.html)
+================================================================================== */
+
+/* HERO SOBRE */
+.sobre-hero {
+  min-height: 70vh;
+  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.85)),
+              url("images/sobre-hero.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 140px 20px 80px;
+  margin-top: 70px;
+  position: relative;
+}
+
+.sobre-hero-content {
+  max-width: 800px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.sobre-hero .slogan {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* SOBRE EMPRESA */
+.sobre-empresa {
+  padding: 100px 0;
+}
+
+.sobre-conteudo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.sobre-texto h2 {
+  margin-bottom: 30px;
+}
+
+.sobre-texto p {
+  margin-bottom: 20px;
+  color: var(--cinza);
+  line-height: 1.8;
+}
+
+.sobre-destaque {
+  display: grid;
+  gap: 25px;
+}
+
+.destaque-box {
+  background: var(--azul-card);
+  padding: 30px;
+  border-radius: 8px;
+  border-left: 4px solid var(--amarelo);
+  transition: transform 0.3s ease;
+}
+
+.destaque-box:hover {
+  transform: translateY(-5px);
+}
+
+.destaque-box i {
+  font-size: 2.2rem;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+}
+
+.destaque-box h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--branco);
+}
+
+.destaque-box p {
+  color: var(--cinza);
+  line-height: 1.6;
+}
+
+/* SERVIÇOS DETALHADOS */
+.servicos-detalhados {
+  padding: 100px 0;
+  background-color: var(--azul-escuro);
+}
+
+.servicos-lista {
+  max-width: 1000px;
+  margin: 50px auto 0;
+}
+
+.servico-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+  align-items: start;
+}
+
+.servico-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--azul-card);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--amarelo);
+}
+
+.servico-icon i {
+  font-size: 2.5rem;
+  color: var(--amarelo);
+}
+
+.servico-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.servico-content p {
+  color: var(--cinza);
+  line-height: 1.8;
+}
+
+/* DIFERENCIAIS SOBRE */
+.diferenciais-sobre {
+  padding: 100px 0;
+}
+
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.diferencial-card {
+  background: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.diferencial-card:hover {
+  transform: translateY(-10px);
+  background: var(--azul-card-hover);
+  border-color: var(--amarelo);
+}
+
+.diferencial-icon {
+  font-size: 2.8rem;
+  color: var(--amarelo);
+  margin-bottom: 25px;
+}
+
+.diferencial-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.diferencial-card p {
+  color: var(--cinza);
+  line-height: 1.7;
+}
+
+/* EQUIPE SOBRE */
+.equipe-sobre {
+  padding: 100px 0;
+  background-color: var(--azul-escuro);
+}
+
+.equipe-conteudo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.equipe-texto h2 {
+  margin-bottom: 30px;
+}
+
+.equipe-texto p {
+  margin-bottom: 20px;
+  color: var(--cinza);
+  line-height: 1.8;
+}
+
+.equipe-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  background: var(--azul-card);
+  padding: 25px 15px;
+  border-radius: 8px;
+  text-align: center;
+  border-top: 4px solid var(--amarelo);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--amarelo);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--cinza);
+  font-weight: 600;
+}
+
+/* MISSÃO */
+.missao-sobre {
+  padding: 100px 0;
+}
+
+.missao-conteudo {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.missao-icon {
+  width: 150px;
+  height: 150px;
+  background: var(--azul-card);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--amarelo);
+}
+
+.missao-icon i {
+  font-size: 4rem;
+  color: var(--amarelo);
+}
+
+.missao-texto h2 {
+  margin-bottom: 25px;
+}
+
+.missao-destaque {
+  font-size: 1.5rem;
+  color: var(--branco);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.missao-texto p {
+  color: var(--cinza);
+  line-height: 1.8;
+}
+
+/* CTA FINAL */
+.cta-final {
+  padding: 80px 0;
+  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+              url("images/cta-bg.jpg") center/cover no-repeat;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--branco);
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-btn {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--amarelo);
+  color: var(--amarelo);
+}
+
+.btn-secondary:hover {
+  background-color: var(--amarelo);
+  color: var(--azul-base);
+}
+
+/* ==================================================================================
+   SEÇÃO: PÁGINA ENERGIA RENOVÁVEL (renovaveis.html)
+================================================================================== */
+
+/* ==============================
+   HERO - ENERGIA RENOVÁVEL
+================================ */
+.servico-hero {
+  position: relative;
+  background: url('images/renovaveis.jpg') center/cover no-repeat;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  color: var(--branco);
+  text-align: center;
+}
+
+.servico-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.servico-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.servico-hero .slogan {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.servico-hero .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.servico-hero .hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   TIPOS DE PROJETOS - BLOCO AMARELO
+================================ */
+.tipos-projetos {
+  padding: 0;
+  background-color: var(--amarelo);
+}
+
+.tipos-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tipo-item {
+  flex: 1 1 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  color: var(--azul-base);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tipo-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--azul-base);
+  transition: width 0.4s ease;
+}
+
+.tipo-item:hover::before {
+  width: 100%;
+}
+
+.tipo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tipo-item i {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--azul-base);
+}
+
+.tipo-item h4 {
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  color: var(--azul-base);
+}
+
+/* ==============================
+   ENGENHARIA - ITENS COM ÍCONES (Layout conforme anexo)
+================================ */
+.engenharia-itens-icones {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* espaçamento maior entre itens */
+  background-color: #0B0C17; /* fundo escuro próximo ao anexo */
+  padding: 60px 40px;
+  border-radius: 12px;
+}
+
+.engenharia-icone-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.engenharia-icone-item i {
+  min-width: 56px;
+  height: 56px;
+  border: 2.5px solid #EAB308; /* amarelo vivo */
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 1.8rem;
+  color: #EAB308;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px; /* alinha verticalmente o ícone com o título */
+}
+
+.engenharia-icone-item p {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #C0C0CC; /* cinza claro */
+}
+
+.engenharia-icone-item p strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .engenharia-itens-icones {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .engenharia-icone-item {
+    gap: 15px;
+  }
+
+  .engenharia-icone-item i {
+    min-width: 48px;
+    height: 48px;
+    padding: 6px;
+    font-size: 1.5rem;
+    margin-top: 3px;
+  }
+
+  .engenharia-icone-item p {
+    font-size: 1rem;
+  }
+
+  .engenharia-icone-item p strong {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* ==========================
+   CARDS 2x2 COM IMAGEM ACIMA
+========================== */
+.engenharia-itens-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.engenharia-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engenharia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.engenharia-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.engenharia-card-texto strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--amarelo);
+  margin-bottom: 8px;
+}
+
+.engenharia-card-texto p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .engenharia-itens-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .engenharia-itens-lista {
+    gap: 15px;
+  }
+}
+
+
+
+/* ==============================
+   CTA ESPECÍFICO PARA SERVIÇOS
+================================ */
+.cta {
+  background-color: var(--azul-escuro);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta-box {
+  background-color: var(--azul-card);
+  border-radius: 12px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+.cta-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--branco);
+}
+
+.cta-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--cinza);
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: var(--branco);
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1rem;
+  color: var(--branco);
+}
+
+.contact-item i {
+  font-size: 1.8rem;
+  color: var(--amarelo);
+}
+
+/* ==================================================================================
+   SEÇÃO: PÁGINA PROJETOS ELÉTRICOS (projetos-eletricos.html) - CSS COMPLETO
+================================================================================== */
+
+/* ==============================
+   HERO - PROJETOS ELÉTRICOS
+================================ */
+.servico-hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  color: var(--branco);
+  text-align: center;
+}
+
+.servico-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.servico-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.servico-hero .slogan {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.servico-hero .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.servico-hero .hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   TIPOS DE PROJETOS - BLOCO AMARELO
+================================ */
+.tipos-projetos {
+  padding: 0;
+  background-color: var(--amarelo);
+}
+
+.tipos-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tipo-item {
+  flex: 1 1 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  color: var(--azul-base);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tipo-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--azul-base);
+  transition: width 0.4s ease;
+}
+
+.tipo-item:hover::before {
+  width: 100%;
+}
+
+.tipo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tipo-item i {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--azul-base);
+}
+
+.tipo-item h4 {
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  color: var(--azul-base);
+}
+
+/* ==============================
+   INTRODUÇÃO
+================================ */
+#introducao {
+  padding: 80px 0;
+  background-color: var(--azul-base);
+}
+
+#introducao .container {
+  max-width: 900px;
+}
+
+#introducao h2 {
+  font-size: 2.2rem;
+  color: var(--branco); /* NÃO usa amarelo */
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+#introducao h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background-color: var(--cinza); /* linha cinza */
+  display: block;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+#introducao p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--cinza);
+  margin-bottom: 20px;
+}
+
+/* ==============================
+   ENGENHARIA - O QUE ENTREGAMOS
+================================ */
+.engenharia-entrega {
+  padding: 100px 0;
+  background-color: var(--azul-base);
+  color: var(--branco);
+}
+
+.engenharia-entrega .slogan {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.engenharia-entrega .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.engenharia-descricao {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+/* GRID DE ITENS 2x2 */
+.engenharia-itens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* BLOCO DO ITEM */
+.engenharia-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engenharia-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* TEXTO DO ITEM */
+.engenharia-item-texto {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.engenharia-item-texto strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--amarelo);
+}
+
+/* IMAGEM DO ITEM */
+.engenharia-item-visual {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.engenharia-item-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--amarelo);
+  transition: width 0.4s ease;
+}
+
+.engenharia-item-visual:hover::before {
+  width: 100%;
+}
+
+.engenharia-item-visual img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .engenharia-itens {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .engenharia-item-visual {
+    max-width: 100%;
+  }
+}
+/* GRID DE ITENS 2x2 */
+.engenharia-itens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* BLOCO DO ITEM */
+.engenharia-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engenharia-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* TEXTO DO ITEM */
+.engenharia-item-texto {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.engenharia-item-texto strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--amarelo);
+}
+
+/* IMAGEM DO ITEM */
+.engenharia-item-visual {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.engenharia-item-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--amarelo);
+  transition: width 0.4s ease;
+}
+
+.engenharia-item-visual:hover::before {
+  width: 100%;
+}
+
+.engenharia-item-visual img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .engenharia-itens {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .engenharia-item-visual {
+    max-width: 100%;
+  }
+}
+
+/* BLOCO 2x2 DE CARDS - Desenho 2D, 3D, Memorial, Documentação */
+.projetos-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.projeto-card {
+  background: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.projeto-card:hover {
+  transform: translateY(-5px);
+  background: var(--azul-card-hover);
+  border-color: var(--amarelo);
+}
+
+.projeto-card i {
+  font-size: 2.5rem;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+}
+
+.projeto-card h3 {
+  font-size: 1.4rem;
+  color: var(--branco);
+  margin-bottom: 10px;
+}
+
+.projeto-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--cinza);
+}
+
+/* ==============================
+   ENGENHARIA QUE ENTREGAMOS
+================================ */
+.engenharia-entrega {
+  padding: 100px 0;
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+}
+
+.engenharia-entrega .slogan {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.engenharia-entrega .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.engenharia-descricao {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.engenharia-descricao strong {
+  color: var(--amarelo);
+}
+
+/* ITENS COM ÍCONES */
+.engenharia-itens-icones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.engenharia-icone-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid var(--amarelo);
+  transition: transform 0.3s ease;
+}
+
+.engenharia-icone-item:hover {
+  transform: translateY(-5px);
+}
+
+.engenharia-icone-item i {
+  font-size: 2rem;
+  color: var(--amarelo);
+  min-width: 40px;
+}
+
+.engenharia-icone-item p {
+  color: var(--branco);
+  line-height: 1.6;
+}
+
+.engenharia-icone-item strong {
+  color: var(--amarelo);
+}
+
+/* GRID DE ITENS 2x2 COM IMAGENS */
+.engenharia-itens {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.engenharia-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.engenharia-item.reverse {
+  direction: rtl;
+}
+
+.engenharia-item.reverse .engenharia-item-texto {
+  direction: ltr;
+}
+
+.engenharia-item-visual {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.engenharia-item-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--amarelo);
+  transition: width 0.4s ease;
+  z-index: 2;
+}
+
+.engenharia-item-visual:hover::before {
+  width: 100%;
+}
+
+.engenharia-item-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.engenharia-item-visual:hover img {
+  transform: scale(1.05);
+}
+
+.engenharia-item-texto {
+  padding: 20px;
+}
+
+.engenharia-item-texto strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.engenharia-item-texto p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--cinza);
+}
+
+/* ==============================
+   ESCOPO DE ATUAÇÃO (COMO TRABALHAMOS)
+================================ */
+.como-trabalhamos {
+  padding: 100px 0;
+  background-color: var(--azul-base);
+}
+
+.como-trabalhamos .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--branco);
+}
+
+.como-trabalhamos .item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.como-trabalhamos .item i {
+  font-size: 2rem;
+  color: var(--amarelo);
+  min-width: 40px;
+}
+
+.como-trabalhamos .item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--cinza);
+  margin: 0;
+}
+
+/* ==============================
+   DIFERENCIAIS - PROJETOS
+================================ */
+.diferenciais-sobre {
+  padding: 100px 0;
+  background-color: var(--azul-escuro);
+}
+
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.diferencial-card {
+  background: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.diferencial-card:hover {
+  transform: translateY(-10px);
+  background: var(--azul-card-hover);
+  border-color: var(--amarelo);
+}
+
+.diferencial-icon {
+  font-size: 2.8rem;
+  color: var(--amarelo);
+  margin-bottom: 25px;
+}
+
+.diferencial-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.diferencial-card p {
+  color: var(--cinza);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* ==============================
+   CTA FINAL - PROJETOS
+================================ */
+.cta-final {
+  padding: 80px 0;
+  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+              url("images/cta-bg.jpg") center/cover no-repeat;
+  text-align: center;
+}
+
+.cta-quadro {
+  background-color: var(--azul-card);
+  padding: 60px 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--branco);
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+  color: var(--branco);
+  border: none;
+  padding: 18px 45px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+
+/* ==================================================================================
+   SEÇÃO: COMPONENTES COMPARTILHADOS (TODAS AS PÁGINAS)
+================================================================================== */
+
+/* ==============================
    BOTÃO WHATSAPP FIXO (TODAS AS PÁGINAS)
 ================================ */
 .whatsapp-float {
@@ -546,1423 +2104,7 @@ section {
 }
 
 /* ==================================================================================
-   PÁGINA INICIAL (index.html) - CLASSES ESPECÍFICAS
-================================================================================== */
-
-/* ==============================
-   HERO SECTION - PÁGINA INICIAL
-================================ */
-.pagina-inicial .hero {
-  min-height: 100vh;
-  background: url("images/capa.png") center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 140px 20px 80px;
-  margin-top: 70px;
-  position: relative;
-}
-
-.pagina-inicial .hero-content {
-  max-width: 800px;
-  animation: fadeUp 1s ease forwards;
-}
-
-.pagina-inicial .slogan {
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.pagina-inicial .hero-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.pagina-inicial .hero-subtitle {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--cinza);
-  margin-bottom: 40px;
-  max-width: 700px;
-}
-
-/* ==============================
-   QUEM SOMOS / DESTAQUES - PÁGINA INICIAL
-================================ */
-.pagina-inicial .destaques {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.pagina-inicial .destaque-item {
-  background-color: var(--azul-card);
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.pagina-inicial .destaque-item:hover {
-  transform: translateY(-10px);
-}
-
-.pagina-inicial .destaque-item i {
-  font-size: 2.5rem;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-}
-
-.pagina-inicial .destaque-item h3 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.pagina-inicial .destaque-item p {
-  color: var(--cinza);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* ==============================
-   CARDS DE ATUAÇÃO - PÁGINA INICIAL
-================================ */
-.pagina-inicial .atuacao {
-  background-color: var(--azul-escuro);
-}
-
-.pagina-inicial .cards-home {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.pagina-inicial .card-home {
-  background-color: var(--azul-card);
-  padding: 40px 30px;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(31, 79, 216, 0.1);
-}
-
-/* TRAÇO AMARELO NO TOPO DO BLOCO */
-.pagina-inicial .card-home::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: var(--amarelo);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.pagina-inicial .card-home:hover {
-  transform: translateY(-10px);
-  background-color: var(--azul-card-hover);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.pagina-inicial .card-home:hover::before {
-  transform: scaleX(1);
-}
-
-.pagina-inicial .card-icon {
-  font-size: 2.5rem;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-}
-
-.pagina-inicial .card-home h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.pagina-inicial .card-home p {
-  color: var(--cinza);
-  margin-bottom: 25px;
-  line-height: 1.7;
-}
-
-.pagina-inicial .card-link {
-  color: var(--amarelo);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.pagina-inicial .card-link:hover {
-  gap: 15px;
-}
-
-/* ==============================
-   TRANSIÇÃO ENERGÉTICA - PÁGINA INICIAL
-================================ */
-.pagina-inicial .transicao-text {
-  font-size: 1.2rem;
-  color: var(--cinza);
-  max-width: 900px;
-  line-height: 1.8;
-  margin-bottom: 60px;
-}
-
-.pagina-inicial .stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin-top: 60px;
-}
-
-.pagina-inicial .stat-item {
-  text-align: center;
-  padding: 30px;
-  background-color: rgba(31, 79, 216, 0.1);
-  border-radius: 8px;
-  border: 1px solid rgba(31, 79, 216, 0.2);
-}
-
-.pagina-inicial .stat-number {
-  display: block;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--amarelo);
-  margin-bottom: 10px;
-}
-
-.pagina-inicial .stat-label {
-  font-size: 1rem;
-  color: var(--cinza);
-  font-weight: 500;
-}
-
-/* ==============================
-   CTA / CONTATO - PÁGINA INICIAL
-================================ */
-.pagina-inicial .cta {
-  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
-              url("images/background-cta.jpg") center/cover no-repeat;
-  text-align: center;
-}
-
-.pagina-inicial .cta-title {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-}
-
-.pagina-inicial .cta-subtitle {
-  font-size: 1.2rem;
-  color: var(--cinza);
-  margin-bottom: 50px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pagina-inicial .contact-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 50px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pagina-inicial .contact-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 8px;
-  text-align: left;
-}
-
-.pagina-inicial .contact-item i {
-  font-size: 2rem;
-  color: var(--amarelo);
-}
-
-.pagina-inicial .contact-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  color: var(--amarelo);
-}
-
-.pagina-inicial .contact-item p {
-  color: var(--branco);
-  font-weight: 500;
-}
-
-/* ==================================================================================
-   PÁGINA SOBRE (sobre.html) - CLASSES ESPECÍFICAS
-================================================================================== */
-
-/* HERO SOBRE */
-.pagina-sobre .sobre-hero {
-  min-height: 70vh;
-  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.85)),
-              url("images/sobre-hero.jpg") center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 140px 20px 80px;
-  margin-top: 70px;
-  position: relative;
-}
-
-.pagina-sobre .sobre-hero-content {
-  max-width: 800px;
-  animation: fadeUp 1s ease forwards;
-}
-
-.pagina-sobre .sobre-hero .slogan {
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-/* SOBRE EMPRESA */
-.pagina-sobre .sobre-empresa {
-  padding: 100px 0;
-}
-
-.pagina-sobre .sobre-conteudo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.pagina-sobre .sobre-texto h2 {
-  margin-bottom: 30px;
-}
-
-.pagina-sobre .sobre-texto p {
-  margin-bottom: 20px;
-  color: var(--cinza);
-  line-height: 1.8;
-}
-
-.pagina-sobre .sobre-destaque {
-  display: grid;
-  gap: 25px;
-}
-
-.pagina-sobre .destaque-box {
-  background: var(--azul-card);
-  padding: 30px;
-  border-radius: 8px;
-  border-left: 4px solid var(--amarelo);
-  transition: transform 0.3s ease;
-}
-
-.pagina-sobre .destaque-box:hover {
-  transform: translateY(-5px);
-}
-
-.pagina-sobre .destaque-box i {
-  font-size: 2.2rem;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-}
-
-.pagina-sobre .destaque-box h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: var(--branco);
-}
-
-.pagina-sobre .destaque-box p {
-  color: var(--cinza);
-  line-height: 1.6;
-}
-
-/* SERVIÇOS DETALHADOS */
-.pagina-sobre .servicos-detalhados {
-  padding: 100px 0;
-  background-color: var(--azul-escuro);
-}
-
-.pagina-sobre .servicos-lista {
-  max-width: 1000px;
-  margin: 50px auto 0;
-}
-
-.pagina-sobre .servico-item {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 30px;
-  margin-bottom: 50px;
-  align-items: start;
-}
-
-.pagina-sobre .servico-icon {
-  width: 80px;
-  height: 80px;
-  background: var(--azul-card);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--amarelo);
-}
-
-.pagina-sobre .servico-icon i {
-  font-size: 2.5rem;
-  color: var(--amarelo);
-}
-
-.pagina-sobre .servico-content h3 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.pagina-sobre .servico-content p {
-  color: var(--cinza);
-  line-height: 1.8;
-}
-
-/* DIFERENCIAIS SOBRE */
-.pagina-sobre .diferenciais-sobre {
-  padding: 100px 0;
-}
-
-.pagina-sobre .diferenciais-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.pagina-sobre .diferencial-card {
-  background: var(--azul-card);
-  padding: 40px 30px;
-  border-radius: 8px;
-  text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.pagina-sobre .diferencial-card:hover {
-  transform: translateY(-10px);
-  background: var(--azul-card-hover);
-  border-color: var(--amarelo);
-}
-
-.pagina-sobre .diferencial-icon {
-  font-size: 2.8rem;
-  color: var(--amarelo);
-  margin-bottom: 25px;
-}
-
-.pagina-sobre .diferencial-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.pagina-sobre .diferencial-card p {
-  color: var(--cinza);
-  line-height: 1.7;
-}
-
-/* EQUIPE SOBRE */
-.pagina-sobre .equipe-sobre {
-  padding: 100px 0;
-  background-color: var(--azul-escuro);
-}
-
-.pagina-sobre .equipe-conteudo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.pagina-sobre .equipe-texto h2 {
-  margin-bottom: 30px;
-}
-
-.pagina-sobre .equipe-texto p {
-  margin-bottom: 20px;
-  color: var(--cinza);
-  line-height: 1.8;
-}
-
-.pagina-sobre .equipe-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.pagina-sobre .stat-item-equipe {
-  background: var(--azul-card);
-  padding: 25px 15px;
-  border-radius: 8px;
-  text-align: center;
-  border-top: 4px solid var(--amarelo);
-}
-
-.pagina-sobre .stat-number-equipe {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--amarelo);
-  margin-bottom: 5px;
-}
-
-.pagina-sobre .stat-label-equipe {
-  font-size: 0.9rem;
-  color: var(--cinza);
-  font-weight: 600;
-}
-
-/* MISSÃO */
-.pagina-sobre .missao-sobre {
-  padding: 100px 0;
-}
-
-.pagina-sobre .missao-conteudo {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 50px;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.pagina-sobre .missao-icon {
-  width: 150px;
-  height: 150px;
-  background: var(--azul-card);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--amarelo);
-}
-
-.pagina-sobre .missao-icon i {
-  font-size: 4rem;
-  color: var(--amarelo);
-}
-
-.pagina-sobre .missao-texto h2 {
-  margin-bottom: 25px;
-}
-
-.pagina-sobre .missao-destaque {
-  font-size: 1.5rem;
-  color: var(--branco);
-  line-height: 1.6;
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-
-.pagina-sobre .missao-texto p {
-  color: var(--cinza);
-  line-height: 1.8;
-}
-
-/* CTA FINAL */
-.pagina-sobre .cta-final {
-  padding: 80px 0;
-  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
-              url("images/cta-bg.jpg") center/cover no-repeat;
-  text-align: center;
-}
-
-.pagina-sobre .cta-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: var(--branco);
-}
-
-.pagina-sobre .cta-subtitle {
-  font-size: 1.2rem;
-  color: var(--cinza);
-  margin-bottom: 40px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pagina-sobre .center-btn {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ==================================================================================
-   PÁGINA ENERGIA RENOVÁVEL (renovaveis.html) - CLASSES ESPECÍFICAS
-================================================================================== */
-
-/* ==============================
-   HERO - ENERGIA RENOVÁVEL
-================================ */
-.pagina-renovaveis .servico-hero {
-  position: relative;
-  background: url('images/renovaveis.jpg') center/cover no-repeat;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  color: var(--branco);
-  text-align: center;
-}
-
-.pagina-renovaveis .servico-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1;
-}
-
-.pagina-renovaveis .servico-hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.pagina-renovaveis .servico-hero .slogan {
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.pagina-renovaveis .servico-hero .hero-title {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.pagina-renovaveis .servico-hero .hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* ==============================
-   TIPOS DE PROJETOS - BLOCO AMARELO
-================================ */
-.pagina-renovaveis .tipos-projetos {
-  padding: 0;
-  background-color: var(--amarelo);
-}
-
-.pagina-renovaveis .tipos-grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.pagina-renovaveis .tipo-item-renovavel {
-  flex: 1 1 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 16px;
-  color: var(--azul-base);
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pagina-renovaveis .tipo-item-renovavel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background-color: var(--azul-base);
-  transition: width 0.4s ease;
-}
-
-.pagina-renovaveis .tipo-item-renovavel:hover::before {
-  width: 100%;
-}
-
-.pagina-renovaveis .tipo-item-renovavel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.pagina-renovaveis .tipo-item-renovavel i {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  color: var(--azul-base);
-}
-
-.pagina-renovaveis .tipo-item-renovavel h4 {
-  font-size: 1rem;
-  margin: 0;
-  text-align: center;
-  color: var(--azul-base);
-}
-
-/* ==============================
-   ENGENHARIA - ITENS COM ÍCONES
-================================ */
-.pagina-renovaveis .engenharia-itens-icones-renovavel {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  background-color: #0B0C17;
-  padding: 60px 40px;
-  border-radius: 12px;
-}
-
-.pagina-renovaveis .engenharia-icone-item-renovavel {
-  display: flex;
-  align-items: flex-start;
-  gap: 25px;
-}
-
-.pagina-renovaveis .engenharia-icone-item-renovavel i {
-  min-width: 56px;
-  height: 56px;
-  border: 2.5px solid #EAB308;
-  border-radius: 50%;
-  padding: 8px;
-  font-size: 1.8rem;
-  color: #EAB308;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-
-.pagina-renovaveis .engenharia-icone-item-renovavel p {
-  margin: 0;
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: #C0C0CC;
-}
-
-.pagina-renovaveis .engenharia-icone-item-renovavel p strong {
-  display: block;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #FFFFFF;
-  margin-bottom: 6px;
-}
-
-/* ==============================
-   CARDS 2x2 COM IMAGEM ACIMA
-================================ */
-.pagina-renovaveis .engenharia-itens-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-}
-
-.pagina-renovaveis .engenharia-card-renovavel {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pagina-renovaveis .engenharia-card-renovavel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-.pagina-renovaveis .engenharia-card-renovavel img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 15px;
-}
-
-.pagina-renovaveis .engenharia-card-texto strong {
-  display: block;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--amarelo);
-  margin-bottom: 8px;
-}
-
-.pagina-renovaveis .engenharia-card-texto p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ==============================
-   CTA ESPECÍFICO PARA ENERGIA RENOVÁVEL
-================================ */
-.pagina-renovaveis .cta-renovavel {
-  background-color: var(--azul-escuro);
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.pagina-renovaveis .cta-box-renovavel {
-  background-color: var(--azul-card);
-  border-radius: 12px;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  max-width: 500px;
-  margin: 0 auto 40px;
-}
-
-.pagina-renovaveis .cta-title-renovavel {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: var(--branco);
-}
-
-.pagina-renovaveis .cta-subtitle-renovavel {
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-  color: var(--cinza);
-}
-
-.pagina-renovaveis .btn-whatsapp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: #25D366;
-  color: var(--branco);
-  font-weight: 600;
-  padding: 15px 30px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: background 0.3s;
-}
-
-.pagina-renovaveis .btn-whatsapp:hover {
-  background-color: #1ebe5d;
-}
-
-.pagina-renovaveis .contact-info-renovavel {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.pagina-renovaveis .contact-item-renovavel {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1rem;
-  color: var(--branco);
-}
-
-.pagina-renovaveis .contact-item-renovavel i {
-  font-size: 1.8rem;
-  color: var(--amarelo);
-}
-
-/* ==================================================================================
-   PÁGINA PROJETOS ELÉTRICOS (projetos-eletricos.html) - CLASSES ESPECÍFICAS
-================================================================================== */
-
-/* ==============================
-   HERO - PROJETOS ELÉTRICOS
-================================ */
-.pagina-projetos .servico-hero {
-  position: relative;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  color: var(--branco);
-  text-align: center;
-}
-
-.pagina-projetos .servico-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1;
-}
-
-.pagina-projetos .servico-hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.pagina-projetos .servico-hero .slogan {
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.pagina-projetos .servico-hero .hero-title {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.pagina-projetos .servico-hero .hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* ==============================
-   TIPOS DE PROJETOS - BLOCO AMARELO
-================================ */
-.pagina-projetos .tipos-projetos {
-  padding: 0;
-  background-color: var(--amarelo);
-}
-
-.pagina-projetos .tipos-grid-projetos {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.pagina-projetos .tipo-item-projeto {
-  flex: 1 1 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 16px;
-  color: var(--azul-base);
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pagina-projetos .tipo-item-projeto::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background-color: var(--azul-base);
-  transition: width 0.4s ease;
-}
-
-.pagina-projetos .tipo-item-projeto:hover::before {
-  width: 100%;
-}
-
-.pagina-projetos .tipo-item-projeto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.pagina-projetos .tipo-item-projeto i {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  color: var(--azul-base);
-}
-
-.pagina-projetos .tipo-item-projeto h4 {
-  font-size: 1rem;
-  margin: 0;
-  text-align: center;
-  color: var(--azul-base);
-}
-
-/* ==============================
-   INTRODUÇÃO
-================================ */
-.pagina-projetos #introducao {
-  padding: 80px 0;
-  background-color: var(--azul-base);
-}
-
-.pagina-projetos #introducao .container {
-  max-width: 900px;
-}
-
-.pagina-projetos #introducao h2 {
-  font-size: 2.2rem;
-  color: var(--branco);
-  margin-bottom: 25px;
-  position: relative;
-  display: inline-block;
-}
-
-.pagina-projetos #introducao h2::after {
-  content: "";
-  width: 60px;
-  height: 4px;
-  background-color: var(--cinza);
-  display: block;
-  margin-top: 10px;
-  border-radius: 2px;
-}
-
-.pagina-projetos #introducao p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--cinza);
-  margin-bottom: 20px;
-}
-
-/* ==============================
-   ENGENHARIA - O QUE ENTREGAMOS
-================================ */
-.pagina-projetos .engenharia-entrega {
-  padding: 100px 0;
-  background-color: var(--azul-base);
-  color: var(--branco);
-}
-
-.pagina-projetos .engenharia-entrega .slogan {
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.pagina-projetos .engenharia-entrega .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.pagina-projetos .engenharia-descricao {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 60px;
-}
-
-/* GRID DE ITENS 2x2 ESPECÍFICO PARA PROJETOS */
-.pagina-projetos .engenharia-itens-projetos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-}
-
-/* BLOCO DO ITEM */
-.pagina-projetos .engenharia-item-projeto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pagina-projetos .engenharia-item-projeto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-/* TEXTO DO ITEM */
-.pagina-projetos .engenharia-item-texto-projeto {
-  text-align: center;
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-.pagina-projetos .engenharia-item-texto-projeto strong {
-  display: block;
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-  color: var(--amarelo);
-}
-
-/* IMAGEM DO ITEM */
-.pagina-projetos .engenharia-item-visual-projeto {
-  width: 100%;
-  max-width: 350px;
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.pagina-projetos .engenharia-item-visual-projeto::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background-color: var(--amarelo);
-  transition: width 0.4s ease;
-}
-
-.pagina-projetos .engenharia-item-visual-projeto:hover::before {
-  width: 100%;
-}
-
-.pagina-projetos .engenharia-item-visual-projeto img {
-  width: 100%;
-  border-radius: 6px;
-}
-
-/* BLOCO 2x2 DE CARDS - Desenho 2D, 3D, Memorial, Documentação */
-.pagina-projetos .projetos-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 60px;
-}
-
-.pagina-projetos .projeto-card {
-  background: var(--azul-card);
-  padding: 40px 30px;
-  border-radius: 8px;
-  text-align: left;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.pagina-projetos .projeto-card:hover {
-  transform: translateY(-5px);
-  background: var(--azul-card-hover);
-  border-color: var(--amarelo);
-}
-
-.pagina-projetos .projeto-card i {
-  font-size: 2.5rem;
-  color: var(--amarelo);
-  margin-bottom: 15px;
-}
-
-.pagina-projetos .projeto-card h3 {
-  font-size: 1.4rem;
-  color: var(--branco);
-  margin-bottom: 10px;
-}
-
-.pagina-projetos .projeto-card p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--cinza);
-}
-
-/* ==============================
-   ENGENHARIA QUE ENTREGAMOS (SEÇÃO COMPLETA)
-================================ */
-.pagina-projetos .engenharia-entrega-completa {
-  padding: 100px 0;
-  background-color: var(--azul-escuro);
-  color: var(--branco);
-}
-
-.pagina-projetos .engenharia-entrega-completa .slogan {
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.pagina-projetos .engenharia-descricao-completa {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 60px;
-  max-width: 900px;
-}
-
-.pagina-projetos .engenharia-descricao-completa strong {
-  color: var(--amarelo);
-}
-
-/* ITENS COM ÍCONES */
-.pagina-projetos .engenharia-itens-icones-projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-bottom: 60px;
-}
-
-.pagina-projetos .engenharia-icone-item-projeto {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 25px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid var(--amarelo);
-  transition: transform 0.3s ease;
-}
-
-.pagina-projetos .engenharia-icone-item-projeto:hover {
-  transform: translateY(-5px);
-}
-
-.pagina-projetos .engenharia-icone-item-projeto i {
-  font-size: 2rem;
-  color: var(--amarelo);
-  min-width: 40px;
-}
-
-.pagina-projetos .engenharia-icone-item-projeto p {
-  color: var(--branco);
-  line-height: 1.6;
-}
-
-.pagina-projetos .engenharia-icone-item-projeto strong {
-  color: var(--amarelo);
-}
-
-/* GRID DE ITENS 2x2 COM IMAGENS */
-.pagina-projetos .engenharia-itens-layout-projetos {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 60px;
-  margin-top: 60px;
-}
-
-.pagina-projetos .engenharia-item-layout-projeto {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.pagina-projetos .engenharia-item-layout-projeto.reverse {
-  direction: rtl;
-}
-
-.pagina-projetos .engenharia-item-layout-projeto.reverse .engenharia-item-texto-layout {
-  direction: ltr;
-}
-
-.pagina-projetos .engenharia-item-visual-layout {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.pagina-projetos .engenharia-item-visual-layout::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background-color: var(--amarelo);
-  transition: width 0.4s ease;
-  z-index: 2;
-}
-
-.pagina-projetos .engenharia-item-visual-layout:hover::before {
-  width: 100%;
-}
-
-.pagina-projetos .engenharia-item-visual-layout img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.pagina-projetos .engenharia-item-visual-layout:hover img {
-  transform: scale(1.05);
-}
-
-.pagina-projetos .engenharia-item-texto-layout {
-  padding: 20px;
-}
-
-.pagina-projetos .engenharia-item-texto-layout strong {
-  display: block;
-  font-size: 1.4rem;
-  color: var(--amarelo);
-  margin-bottom: 15px;
-  line-height: 1.4;
-}
-
-.pagina-projetos .engenharia-item-texto-layout p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--cinza);
-}
-
-/* ==============================
-   ESCOPO DE ATUAÇÃO (COMO TRABALHAMOS)
-================================ */
-.pagina-projetos .como-trabalhamos {
-  padding: 100px 0;
-  background-color: var(--azul-base);
-}
-
-.pagina-projetos .como-trabalhamos .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 60px;
-  color: var(--branco);
-}
-
-.pagina-projetos .como-trabalhamos .item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.pagina-projetos .como-trabalhamos .item i {
-  font-size: 2rem;
-  color: var(--amarelo);
-  min-width: 40px;
-}
-
-.pagina-projetos .como-trabalhamos .item p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--cinza);
-  margin: 0;
-}
-
-/* ==============================
-   DIFERENCIAIS - PROJETOS
-================================ */
-.pagina-projetos .diferenciais-projetos {
-  padding: 100px 0;
-  background-color: var(--azul-escuro);
-}
-
-.pagina-projetos .diferenciais-grid-projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.pagina-projetos .diferencial-card-projeto {
-  background: var(--azul-card);
-  padding: 40px 30px;
-  border-radius: 8px;
-  text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.pagina-projetos .diferencial-card-projeto:hover {
-  transform: translateY(-10px);
-  background: var(--azul-card-hover);
-  border-color: var(--amarelo);
-}
-
-.pagina-projetos .diferencial-icon-projeto {
-  font-size: 2.8rem;
-  color: var(--amarelo);
-  margin-bottom: 25px;
-}
-
-.pagina-projetos .diferencial-card-projeto h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.pagina-projetos .diferencial-card-projeto p {
-  color: var(--cinza);
-  line-height: 1.7;
-  font-size: 1rem;
-}
-
-/* ==============================
-   CTA FINAL - PROJETOS
-================================ */
-.pagina-projetos .cta-final-projetos {
-  padding: 80px 0;
-  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
-              url("images/cta-bg.jpg") center/cover no-repeat;
-  text-align: center;
-}
-
-.pagina-projetos .cta-quadro-projetos {
-  background-color: var(--azul-card);
-  padding: 60px 40px;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.pagina-projetos .cta-title-projetos {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: var(--branco);
-}
-
-.pagina-projetos .cta-subtitle-projetos {
-  font-size: 1.2rem;
-  color: var(--cinza);
-  margin-bottom: 40px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.pagina-projetos .whatsapp-btn-projetos {
-  background-color: #25D366;
-  color: var(--branco);
-  border: none;
-  padding: 18px 45px;
-  font-size: 1.2rem;
-  border-radius: 50px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-}
-
-.pagina-projetos .whatsapp-btn-projetos:hover {
-  background-color: #1ebe5d;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-}
-
-/* ==================================================================================
-   RESPONSIVIDADE (APLICADA EM TODAS AS PÁGINAS)
+   SEÇÃO: RESPONSIVIDADE (APLICADA EM TODAS AS PÁGINAS)
 ================================================================================== */
 
 /* ==============================
@@ -1973,65 +2115,59 @@ section {
     font-size: 2.2rem;
   }
 
-  .pagina-inicial .hero-title {
+  .hero-title {
     font-size: 2.8rem;
   }
 
-  .pagina-inicial .cta-title {
+  .cta-title {
     font-size: 2.4rem;
   }
   
-  .pagina-sobre .sobre-conteudo,
-  .pagina-sobre .equipe-conteudo {
+  .sobre-conteudo,
+  .equipe-conteudo {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   
-  .pagina-sobre .missao-conteudo {
+  .missao-conteudo {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 30px;
   }
   
-  .pagina-sobre .missao-icon {
+  .missao-icon {
     margin: 0 auto;
   }
   
-  .pagina-renovaveis .tipo-item-renovavel,
-  .pagina-projetos .tipo-item-projeto {
+  .tipo-item {
     flex: 1 1 50%;
     padding: 40px 16px;
   }
 
-  .pagina-projetos .engenharia-itens-projetos {
+  .engenharia-itens {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .pagina-projetos .engenharia-item-visual-projeto {
+  .engenharia-item-visual {
     max-width: 100%;
   }
   
-  .pagina-projetos .engenharia-item-layout-projeto {
+  .engenharia-item {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .pagina-projetos .engenharia-item-layout-projeto.reverse {
+  .engenharia-item.reverse {
     direction: ltr;
   }
 
-  .pagina-projetos .engenharia-itens-icones-projetos {
+  .engenharia-itens-icones {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
-  .pagina-projetos .diferenciais-grid-projetos {
+  .diferenciais-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-  .pagina-renovaveis .engenharia-itens-cards {
-    grid-template-columns: 1fr;
-    gap: 30px;
   }
 }
 
@@ -2121,11 +2257,11 @@ section {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .pagina-inicial .hero-title {
+  .hero-title {
     font-size: 2.4rem;
   }
 
-  .pagina-inicial .hero-subtitle {
+  .hero-subtitle {
     font-size: 1.2rem;
   }
 
@@ -2133,141 +2269,117 @@ section {
     padding: 70px 0;
   }
   
-  .pagina-sobre .sobre-hero {
+  .sobre-hero {
     padding: 120px 20px 60px;
     min-height: 60vh;
   }
   
-  .pagina-sobre .sobre-hero .hero-title {
+  .sobre-hero .hero-title {
     font-size: 2.5rem;
   }
   
-  .pagina-sobre .servico-item {
+  .servico-item {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 20px;
   }
   
-  .pagina-sobre .servico-icon {
+  .servico-icon {
     margin: 0 auto;
   }
   
-  .pagina-sobre .equipe-stats {
+  .equipe-stats {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .pagina-sobre .diferenciais-grid {
+  .diferenciais-grid {
     grid-template-columns: 1fr;
   }
   
-  .pagina-sobre .center-btn,
-  .pagina-projetos .center-btn {
+  .center-btn {
     flex-direction: column;
     align-items: center;
   }
   
-  .pagina-sobre .center-btn .btn,
-  .pagina-projetos .center-btn .btn {
+  .center-btn .btn {
     width: 100%;
     max-width: 300px;
   }
   
-  .pagina-renovaveis .servico-hero .hero-title,
-  .pagina-projetos .servico-hero .hero-title {
+  .servico-hero .hero-title {
     font-size: 2.2rem;
   }
 
-  .pagina-renovaveis .servico-hero .hero-subtitle,
-  .pagina-projetos .servico-hero .hero-subtitle {
+  .servico-hero .hero-subtitle {
     font-size: 1rem;
   }
 
-  .pagina-projetos #introducao h2 {
+  #introducao h2 {
     font-size: 1.8rem;
   }
 
-  .pagina-projetos .engenharia-entrega .section-title {
+  .engenharia-entrega .section-title {
     font-size: 2rem;
   }
 
-  .pagina-sobre .servicos-detalhados .section-title {
+  .servicos-detalhados .section-title {
     font-size: 2rem;
   }
 
-  .pagina-projetos .cta-title-projetos {
+  .servico-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .servico-icon {
+    margin: 0 auto;
+  }
+
+  .cta-title {
     font-size: 2rem;
   }
 
-  .pagina-projetos .cta-subtitle-projetos {
+  .cta-subtitle {
     font-size: 1.1rem;
   }
 
-  .pagina-projetos .cta-quadro-projetos {
+  .cta-quadro {
     padding: 40px 20px;
-  }
-
-  .pagina-renovaveis .cta-title-renovavel {
-    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 600px) {
-  .pagina-renovaveis .tipo-item-renovavel,
-  .pagina-projetos .tipo-item-projeto {
+  .tipo-item {
     flex: 1 1 100%;
     padding: 32px 16px;
   }
   
-  .pagina-projetos .engenharia-itens-icones-projetos {
+  .engenharia-itens-icones {
     grid-template-columns: 1fr;
   }
 
-  .pagina-projetos .engenharia-icone-item-projeto {
+  .engenharia-icone-item {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .pagina-projetos .diferenciais-grid-projetos {
+  .diferenciais-grid {
     grid-template-columns: 1fr;
   }
 
-  .pagina-projetos .diferencial-card-projeto {
+  .diferencial-card {
     padding: 30px 20px;
-  }
-
-  .pagina-renovaveis .engenharia-itens-icones-renovavel {
-    padding: 40px 20px;
-    gap: 30px;
-  }
-
-  .pagina-renovaveis .engenharia-icone-item-renovavel {
-    gap: 15px;
-  }
-
-  .pagina-renovaveis .engenharia-icone-item-renovavel i {
-    min-width: 48px;
-    height: 48px;
-    padding: 6px;
-    font-size: 1.5rem;
-    margin-top: 3px;
-  }
-
-  .pagina-renovaveis .engenharia-icone-item-renovavel p {
-    font-size: 1rem;
-  }
-
-  .pagina-renovaveis .engenharia-icone-item-renovavel p strong {
-    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .pagina-inicial .hero {
+  .hero {
     padding: 120px 20px 60px;
   }
 
-  .pagina-inicial .hero-title {
+  .hero-title {
     font-size: 2rem;
   }
 
@@ -2280,82 +2392,76 @@ section {
     text-align: center;
   }
 
-  .pagina-inicial .contact-item {
+  .contact-item {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
   
-  .pagina-sobre .sobre-hero .hero-title {
+  .sobre-hero .hero-title {
     font-size: 2rem;
   }
   
-  .pagina-sobre .sobre-hero .hero-subtitle {
+  .sobre-hero .hero-subtitle {
     font-size: 1.1rem;
   }
   
-  .pagina-sobre .equipe-stats {
+  .equipe-stats {
     grid-template-columns: 1fr;
   }
   
-  .pagina-sobre .stat-item-equipe {
+  .stat-item {
     padding: 20px 10px;
   }
   
-  .pagina-sobre .stat-number-equipe {
+  .stat-number {
     font-size: 2rem;
   }
   
-  .pagina-sobre .destaque-box {
+  .destaque-box {
     padding: 20px;
   }
   
-  .pagina-sobre .diferencial-card {
+  .diferencial-card {
     padding: 30px 20px;
   }
   
-  .pagina-renovaveis .servico-hero,
-  .pagina-projetos .servico-hero {
+  .servico-hero {
     height: 400px;
     padding: 100px 20px;
   }
 
-  .pagina-renovaveis .servico-hero .hero-title,
-  .pagina-projetos .servico-hero .hero-title {
+  .servico-hero .hero-title {
     font-size: 1.8rem;
   }
 
-  .pagina-projetos #introducao {
+  #introducao {
     padding: 60px 0;
   }
 
-  .pagina-projetos .engenharia-entrega {
+  .engenharia-entrega {
     padding: 70px 0;
   }
 
-  .pagina-sobre .servicos-detalhados {
+  .servicos-detalhados {
     padding: 70px 0;
   }
 
-  .pagina-projetos .diferenciais-projetos {
+  .diferenciais-sobre {
     padding: 70px 0;
   }
 
-  .pagina-projetos .cta-final-projetos {
+  .cta-final {
     padding: 60px 0;
   }
 
-  .pagina-projetos .cta-title-projetos {
+  .cta-title {
     font-size: 1.8rem;
   }
 
-  .pagina-projetos .whatsapp-btn-projetos {
+  .whatsapp-btn {
     width: 100%;
     max-width: 300px;
   }
-
-  .pagina-renovaveis .contact-info-renovavel {
-    flex-direction: column;
-    gap: 20px;
-  }
 }
+
