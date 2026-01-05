@@ -1,3 +1,7 @@
+/* ==================================================================================
+   VARIÁVEIS GLOBAIS E ESTILOS BASE (APLICADOS EM TODAS AS PÁGINAS)
+================================================================================== */
+
 /* ==============================
    VARIÁVEIS DE IDENTIDADE
 ================================ */
@@ -59,7 +63,7 @@ img {
 }
 
 /* ==============================
-   ANIMAÇÕES
+   ANIMAÇÕES GLOBAIS
 ================================ */
 @keyframes fadeUp {
   from {
@@ -73,7 +77,7 @@ img {
 }
 
 /* ==============================
-   HEADER / NAVEGAÇÃO
+   HEADER / NAVEGAÇÃO (TODAS AS PÁGINAS)
 ================================ */
 .header {
   position: fixed;
@@ -109,7 +113,7 @@ img {
 }
 
 /* ==============================
-   MENU PRINCIPAL
+   MENU PRINCIPAL (TODAS AS PÁGINAS)
 ================================ */
 .nav-menu {
   display: flex;
@@ -224,7 +228,7 @@ img {
 }
 
 /* ==============================
-   HAMBURGER
+   HAMBURGER (TODAS AS PÁGINAS)
 ================================ */
 .hamburger {
   display: none;
@@ -241,396 +245,7 @@ img {
 }
 
 /* ==============================
-   MOBILE
-================================ */
-@media (max-width: 900px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 100%;
-    left: 0;
-    background-color: rgba(11, 16, 32, 0.98);
-    flex-direction: column;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    gap: 0;
-    transition: max-height 0.4s ease;
-  }
-
-  .nav-menu.active {
-    max-height: 500px;
-  }
-
-  .nav-menu li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-menu a {
-    padding: 15px;
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Dropdown no mobile */
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    background: transparent;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    max-height: 0;
-    overflow: hidden;
-    padding: 0;
-  }
-
-  .dropdown.active .dropdown-menu {
-    max-height: 500px;
-  }
-
-  .dropdown-menu a {
-    padding: 12px;
-  }
-}
-
-/* ==============================
-   HERO SECTION
-================================ */
-.hero {
-  min-height: 100vh;
-  background: 
-              url("images/capa.png") center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 140px 20px 80px;
-  margin-top: 70px;
-  position: relative;
-}
-
-.hero-content {
-  max-width: 800px;
-  animation: fadeUp 1s ease forwards;
-}
-
-.slogan {
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.hero-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.hero-subtitle {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--cinza);
-  margin-bottom: 40px;
-  max-width: 700px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 16px 40px;
-  background-color: transparent;
-  border: 2px solid var(--amarelo);
-  color: var(--amarelo);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn:hover {
-  background-color: var(--amarelo);
-  color: var(--azul-base);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
-}
-
-.btn-large {
-  padding: 18px 45px;
-  font-size: 1.1rem;
-}
-
-/* ==============================
-   SEÇÕES GERAIS
-================================ */
-section {
-  padding: 100px 0;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: "";
-  width: 80px;
-  height: 4px;
-  background-color: var(--amarelo);
-  display: block;
-  margin-top: 15px;
-  border-radius: 2px;
-}
-
-.section-intro {
-  font-size: 1.2rem;
-  color: var(--cinza);
-  max-width: 900px;
-  margin-bottom: 60px;
-  line-height: 1.8;
-}
-
-.section-subtitle {
-  color: var(--cinza-escuro);
-  font-size: 1.1rem;
-  margin-bottom: 50px;
-  max-width: 700px;
-}
-
-.center-btn {
-  text-align: center;
-  margin-top: 50px;
-}
-
-/* ==============================
-   QUEM SOMOS / DESTAQUES
-================================ */
-.destaques {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.destaque-item {
-  background-color: var(--azul-card);
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.destaque-item:hover {
-  transform: translateY(-10px);
-}
-
-.destaque-item i {
-  font-size: 2.5rem;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-}
-
-.destaque-item h3 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.destaque-item p {
-  color: var(--cinza);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* ==============================
-   CARDS DE ATUAÇÃO
-================================ */
-.atuacao {
-  background-color: var(--azul-escuro);
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.card {
-  background-color: var(--azul-card);
-  padding: 40px 30px;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(31, 79, 216, 0.1);
-}
-
-/* TRAÇO AMARELO NO TOPO DO BLOCO */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: var(--amarelo);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  background-color: var(--azul-card-hover);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.card:hover::before {
-  transform: scaleX(1);
-}
-
-.card-icon {
-  font-size: 2.5rem;
-  color: var(--amarelo);
-  margin-bottom: 20px;
-}
-
-.card h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.card p {
-  color: var(--cinza);
-  margin-bottom: 25px;
-  line-height: 1.7;
-}
-
-.card-link {
-  color: var(--amarelo);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.card-link:hover {
-  gap: 15px;
-}
-
-/* ==============================
-   TRANSIÇÃO ENERGÉTICA
-================================ */
-.transicao-text {
-  font-size: 1.2rem;
-  color: var(--cinza);
-  max-width: 900px;
-  line-height: 1.8;
-  margin-bottom: 60px;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin-top: 60px;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 30px;
-  background-color: rgba(31, 79, 216, 0.1);
-  border-radius: 8px;
-  border: 1px solid rgba(31, 79, 216, 0.2);
-}
-
-.stat-number {
-  display: block;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--amarelo);
-  margin-bottom: 10px;
-}
-
-.stat-label {
-  font-size: 1rem;
-  color: var(--cinza);
-  font-weight: 500;
-}
-
-/* ==============================
-   CTA / CONTATO
-================================ */
-.cta {
-  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
-              url("images/background-cta.jpg") center/cover no-repeat;
-  text-align: center;
-}
-
-.cta-title {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-}
-
-.cta-subtitle {
-  font-size: 1.2rem;
-  color: var(--cinza);
-  margin-bottom: 50px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contact-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 50px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 8px;
-  text-align: left;
-}
-
-.contact-item i {
-  font-size: 2rem;
-  color: var(--amarelo);
-}
-
-.contact-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  color: var(--amarelo);
-}
-
-.contact-item p {
-  color: var(--branco);
-  font-weight: 500;
-}
-
-/* ==============================
-   FOOTER - VERSÃO DEFINITIVA
+   FOOTER (TODAS AS PÁGINAS)
 ================================ */
 .footer {
   width: 100%;
@@ -798,151 +413,353 @@ section {
 }
 
 /* ==============================
-   RESPONSIVIDADE
+   NAVEGAÇÃO ATIVA (TODAS AS PÁGINAS)
 ================================ */
-@media (max-width: 1024px) {
-  .section-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-title {
-    font-size: 2.8rem;
-  }
-
-  .cta-title {
-    font-size: 2.4rem;
-  }
+.nav-menu > li > a.active {
+  color: var(--amarelo);
 }
 
-@media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 70px;
-    flex-direction: column;
-    background-color: var(--azul-base);
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    padding: 40px 0;
-    gap: 30px;
-  }
-
-  .nav-menu.active {
-    left: 0;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  .hero-title {
-    font-size: 2.4rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  section {
-    padding: 70px 0;
-  }
-
-  .footer-container {
-    padding: 0 25px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .footer-brand {
-    align-items: center;
-  }
-
-  .footer-slogan {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .footer-contact p {
-    justify-content: center;
-  }
-
-  .footer-social {
-    justify-content: center;
-    margin-bottom: 25px;
-  }
+.nav-menu > li > a.active::after {
+  width: 100%;
 }
 
-@media (max-width: 480px) {
-  .hero {
-    padding: 120px 20px 60px;
-  }
+/* ==================================================================================
+   SEÇÃO: PÁGINA INICIAL (index.html)
+================================================================================== */
 
-  .hero-title {
-    font-size: 2rem;
-  }
+/* ==============================
+   HERO SECTION - PÁGINA INICIAL
+================================ */
+.hero {
+  min-height: 100vh;
+  background: url("images/capa.png") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 140px 20px 80px;
+  margin-top: 70px;
+  position: relative;
+}
 
-  .section-title {
-    font-size: 1.8rem;
-  }
+.hero-content {
+  max-width: 800px;
+  animation: fadeUp 1s ease forwards;
+}
 
-  .btn, .btn-large {
-    width: 100%;
-    text-align: center;
-  }
+.slogan {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
 
-  .footer-container {
-    padding: 0 20px;
-  }
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
 
-  .footer {
-    padding: 60px 0 0;
-  }
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--cinza);
+  margin-bottom: 40px;
+  max-width: 700px;
+}
 
-  .footer-grid {
-    gap: 35px;
-  }
+.btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background-color: transparent;
+  border: 2px solid var(--amarelo);
+  color: var(--amarelo);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
 
-  .footer-social {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.btn:hover {
+  background-color: var(--amarelo);
+  color: var(--azul-base);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
+}
 
-  .contact-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-
-  .copyright p {
-    font-size: 0.85rem;
-  }
-
-  .copyright span {
-    font-size: 0.8rem;
-  }
+.btn-large {
+  padding: 18px 45px;
+  font-size: 1.1rem;
 }
 
 /* ==============================
-   PÁGINA SOBRE - ESTILOS ESPECÍFICOS
+   SEÇÕES GERAIS - PÁGINA INICIAL
 ================================ */
+section {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: var(--amarelo);
+  display: block;
+  margin-top: 15px;
+  border-radius: 2px;
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  max-width: 900px;
+  margin-bottom: 60px;
+  line-height: 1.8;
+}
+
+.section-subtitle {
+  color: var(--cinza-escuro);
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+  max-width: 700px;
+}
+
+.center-btn {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* ==============================
+   QUEM SOMOS / DESTAQUES - PÁGINA INICIAL
+================================ */
+.destaques {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.destaque-item {
+  background-color: var(--azul-card);
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.destaque-item:hover {
+  transform: translateY(-10px);
+}
+
+.destaque-item i {
+  font-size: 2.5rem;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+}
+
+.destaque-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.destaque-item p {
+  color: var(--cinza);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==============================
+   CARDS DE ATUAÇÃO - PÁGINA INICIAL
+================================ */
+.atuacao {
+  background-color: var(--azul-escuro);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  background-color: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(31, 79, 216, 0.1);
+}
+
+/* TRAÇO AMARELO NO TOPO DO BLOCO */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--amarelo);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background-color: var(--azul-card-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.card p {
+  color: var(--cinza);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.card-link {
+  color: var(--amarelo);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-link:hover {
+  gap: 15px;
+}
+
+/* ==============================
+   TRANSIÇÃO ENERGÉTICA - PÁGINA INICIAL
+================================ */
+.transicao-text {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  max-width: 900px;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 30px;
+  background-color: rgba(31, 79, 216, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(31, 79, 216, 0.2);
+}
+
+.stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--amarelo);
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--cinza);
+  font-weight: 500;
+}
+
+/* ==============================
+   CTA / CONTATO - PÁGINA INICIAL
+================================ */
+.cta {
+  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+              url("images/background-cta.jpg") center/cover no-repeat;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.contact-item i {
+  font-size: 2rem;
+  color: var(--amarelo);
+}
+
+.contact-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: var(--amarelo);
+}
+
+.contact-item p {
+  color: var(--branco);
+  font-weight: 500;
+}
+
+/* ==================================================================================
+   SEÇÃO: PÁGINA SOBRE (sobre.html)
+================================================================================== */
 
 /* HERO SOBRE */
 .sobre-hero {
@@ -1255,115 +1072,9 @@ section {
   color: var(--azul-base);
 }
 
-/* NAVEGAÇÃO ATIVA */
-.nav-menu > li > a.active {
-  color: var(--amarelo);
-}
-
-.nav-menu > li > a.active::after {
-  width: 100%;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 1024px) {
-  .sobre-conteudo,
-  .equipe-conteudo {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .missao-conteudo {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 30px;
-  }
-  
-  .missao-icon {
-    margin: 0 auto;
-  }
-  
-  .cta-title {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .sobre-hero {
-    padding: 120px 20px 60px;
-    min-height: 60vh;
-  }
-  
-  .sobre-hero .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .servico-item {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 20px;
-  }
-  
-  .servico-icon {
-    margin: 0 auto;
-  }
-  
-  .equipe-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .diferenciais-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .center-btn {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .center-btn .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sobre-hero .hero-title {
-    font-size: 2rem;
-  }
-  
-  .sobre-hero .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .equipe-stats {
-    grid-template-columns: 1fr;
-  }
-  
-  .stat-item {
-    padding: 20px 10px;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .destaque-box {
-    padding: 20px;
-  }
-  
-  .diferencial-card {
-    padding: 30px 20px;
-  }
-}
-
-/* ==============================
-   VARIÁVEIS DE CORES
-================================ */
-:root {
-  --azul-base: #0b1020;
-  --amarelo: #f5c518;
-  --branco: #ffffff;
-}
+/* ==================================================================================
+   SEÇÃO: PÁGINA ENERGIA RENOVÁVEL (renovaveis.html)
+================================================================================== */
 
 /* ==============================
    HERO - ENERGIA RENOVÁVEL
@@ -1371,7 +1082,7 @@ section {
 .servico-hero {
   position: relative;
   background: url('images/renovaveis.jpg') center/cover no-repeat;
-  height: 500px; /* altura do banner */
+  height: 500px;
   display: flex;
   align-items: center;
   color: var(--branco);
@@ -1381,9 +1092,11 @@ section {
 .servico-hero::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.5); /* sobreposição escura */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
   z-index: 1;
 }
 
@@ -1418,7 +1131,7 @@ section {
 ================================ */
 .tipos-projetos {
   padding: 0;
-  background-color: var(--amarelo); /* fundo amarelo */
+  background-color: var(--amarelo);
 }
 
 .tipos-grid {
@@ -1427,13 +1140,13 @@ section {
 }
 
 .tipo-item {
-  flex: 1 1 20%; 
+  flex: 1 1 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 48px 16px;
-  color: var(--azul-base); 
+  color: var(--azul-base);
   font-weight: 600;
   position: relative;
   overflow: hidden;
@@ -1448,7 +1161,7 @@ section {
   left: 0;
   height: 4px;
   width: 0%;
-  background-color: var(--azul-base); 
+  background-color: var(--azul-base);
   transition: width 0.4s ease;
 }
 
@@ -1462,31 +1175,375 @@ section {
 }
 
 .tipo-item i {
-  font-size: 2.4rem; 
+  font-size: 2.4rem;
   margin-bottom: 12px;
   color: var(--azul-base);
 }
 
 .tipo-item h4 {
-  font-size: 1rem; 
+  font-size: 1rem;
   margin: 0;
   text-align: center;
   color: var(--azul-base);
 }
 
-/* RESPONSIVO TIPOS DE PROJETOS */
-@media (max-width: 1024px) {
-  .tipo-item {
-    flex: 1 1 50%; 
-    padding: 40px 16px;
+/* ==============================
+   ENGENHARIA - ITENS COM ÍCONES (Layout conforme anexo)
+================================ */
+.engenharia-itens-icones {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* espaçamento maior entre itens */
+  background-color: #0B0C17; /* fundo escuro próximo ao anexo */
+  padding: 60px 40px;
+  border-radius: 12px;
+}
+
+.engenharia-icone-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.engenharia-icone-item i {
+  min-width: 56px;
+  height: 56px;
+  border: 2.5px solid #EAB308; /* amarelo vivo */
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 1.8rem;
+  color: #EAB308;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px; /* alinha verticalmente o ícone com o título */
+}
+
+.engenharia-icone-item p {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #C0C0CC; /* cinza claro */
+}
+
+.engenharia-icone-item p strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .engenharia-itens-icones {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .engenharia-icone-item {
+    gap: 15px;
+  }
+
+  .engenharia-icone-item i {
+    min-width: 48px;
+    height: 48px;
+    padding: 6px;
+    font-size: 1.5rem;
+    margin-top: 3px;
+  }
+
+  .engenharia-icone-item p {
+    font-size: 1rem;
+  }
+
+  .engenharia-icone-item p strong {
+    font-size: 1.1rem;
   }
 }
 
-@media (max-width: 600px) {
-  .tipo-item {
-    flex: 1 1 100%; 
-    padding: 32px 16px;
+
+/* ==========================
+   CARDS 2x2 COM IMAGEM ACIMA
+========================== */
+.engenharia-itens-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.engenharia-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engenharia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.engenharia-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.engenharia-card-texto strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--amarelo);
+  margin-bottom: 8px;
+}
+
+.engenharia-card-texto p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .engenharia-itens-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
+
+  .engenharia-itens-lista {
+    gap: 15px;
+  }
+}
+
+
+
+/* ==============================
+   CTA ESPECÍFICO PARA SERVIÇOS
+================================ */
+.cta {
+  background-color: var(--azul-escuro);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta-box {
+  background-color: var(--azul-card);
+  border-radius: 12px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+.cta-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--branco);
+}
+
+.cta-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--cinza);
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: var(--branco);
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1rem;
+  color: var(--branco);
+}
+
+.contact-item i {
+  font-size: 1.8rem;
+  color: var(--amarelo);
+}
+
+/* ==================================================================================
+   SEÇÃO: PÁGINA PROJETOS ELÉTRICOS (projetos-eletricos.html) - CSS COMPLETO
+================================================================================== */
+
+/* ==============================
+   HERO - PROJETOS ELÉTRICOS
+================================ */
+.servico-hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  color: var(--branco);
+  text-align: center;
+}
+
+.servico-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.servico-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.servico-hero .slogan {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.servico-hero .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.servico-hero .hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   TIPOS DE PROJETOS - BLOCO AMARELO
+================================ */
+.tipos-projetos {
+  padding: 0;
+  background-color: var(--amarelo);
+}
+
+.tipos-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tipo-item {
+  flex: 1 1 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  color: var(--azul-base);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tipo-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--azul-base);
+  transition: width 0.4s ease;
+}
+
+.tipo-item:hover::before {
+  width: 100%;
+}
+
+.tipo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tipo-item i {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--azul-base);
+}
+
+.tipo-item h4 {
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  color: var(--azul-base);
+}
+
+/* ==============================
+   INTRODUÇÃO
+================================ */
+#introducao {
+  padding: 80px 0;
+  background-color: var(--azul-base);
+}
+
+#introducao .container {
+  max-width: 900px;
+}
+
+#introducao h2 {
+  font-size: 2.2rem;
+  color: var(--branco); /* NÃO usa amarelo */
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+#introducao h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background-color: var(--cinza); /* linha cinza */
+  display: block;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+#introducao p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--cinza);
+  margin-bottom: 20px;
 }
 
 /* ==============================
@@ -1598,9 +1655,420 @@ section {
     max-width: 100%;
   }
 }
+/* GRID DE ITENS 2x2 */
+.engenharia-itens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
 
-/*  BOTÃO WHATSAPP FIXO */
+/* BLOCO DO ITEM */
+.engenharia-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.engenharia-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* TEXTO DO ITEM */
+.engenharia-item-texto {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.engenharia-item-texto strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--amarelo);
+}
+
+/* IMAGEM DO ITEM */
+.engenharia-item-visual {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.engenharia-item-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--amarelo);
+  transition: width 0.4s ease;
+}
+
+.engenharia-item-visual:hover::before {
+  width: 100%;
+}
+
+.engenharia-item-visual img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .engenharia-itens {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .engenharia-item-visual {
+    max-width: 100%;
+  }
+}
+
+/* BLOCO 2x2 DE CARDS - Desenho 2D, 3D, Memorial, Documentação */
+.projetos-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.projeto-card {
+  background: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.projeto-card:hover {
+  transform: translateY(-5px);
+  background: var(--azul-card-hover);
+  border-color: var(--amarelo);
+}
+
+.projeto-card i {
+  font-size: 2.5rem;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+}
+
+.projeto-card h3 {
+  font-size: 1.4rem;
+  color: var(--branco);
+  margin-bottom: 10px;
+}
+
+.projeto-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--cinza);
+}
+
+/* ==============================
+   ENGENHARIA QUE ENTREGAMOS
+================================ */
+.engenharia-entrega {
+  padding: 100px 0;
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+}
+
+.engenharia-entrega .slogan {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.engenharia-entrega .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.engenharia-descricao {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.engenharia-descricao strong {
+  color: var(--amarelo);
+}
+
+/* ITENS COM ÍCONES */
+.engenharia-itens-icones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.engenharia-icone-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid var(--amarelo);
+  transition: transform 0.3s ease;
+}
+
+.engenharia-icone-item:hover {
+  transform: translateY(-5px);
+}
+
+.engenharia-icone-item i {
+  font-size: 2rem;
+  color: var(--amarelo);
+  min-width: 40px;
+}
+
+.engenharia-icone-item p {
+  color: var(--branco);
+  line-height: 1.6;
+}
+
+.engenharia-icone-item strong {
+  color: var(--amarelo);
+}
+
+/* GRID DE ITENS 2x2 COM IMAGENS */
+.engenharia-itens {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.engenharia-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.engenharia-item.reverse {
+  direction: rtl;
+}
+
+.engenharia-item.reverse .engenharia-item-texto {
+  direction: ltr;
+}
+
+.engenharia-item-visual {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.engenharia-item-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--amarelo);
+  transition: width 0.4s ease;
+  z-index: 2;
+}
+
+.engenharia-item-visual:hover::before {
+  width: 100%;
+}
+
+.engenharia-item-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.engenharia-item-visual:hover img {
+  transform: scale(1.05);
+}
+
+.engenharia-item-texto {
+  padding: 20px;
+}
+
+.engenharia-item-texto strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.engenharia-item-texto p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--cinza);
+}
+
+/* ==============================
+   ESCOPO DE ATUAÇÃO (COMO TRABALHAMOS)
+================================ */
+.como-trabalhamos {
+  padding: 100px 0;
+  background-color: var(--azul-base);
+}
+
+.como-trabalhamos .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--branco);
+}
+
+.como-trabalhamos .item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.como-trabalhamos .item i {
+  font-size: 2rem;
+  color: var(--amarelo);
+  min-width: 40px;
+}
+
+.como-trabalhamos .item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--cinza);
+  margin: 0;
+}
+
+/* ==============================
+   DIFERENCIAIS - PROJETOS
+================================ */
+.diferenciais-sobre {
+  padding: 100px 0;
+  background-color: var(--azul-escuro);
+}
+
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.diferencial-card {
+  background: var(--azul-card);
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.diferencial-card:hover {
+  transform: translateY(-10px);
+  background: var(--azul-card-hover);
+  border-color: var(--amarelo);
+}
+
+.diferencial-icon {
+  font-size: 2.8rem;
+  color: var(--amarelo);
+  margin-bottom: 25px;
+}
+
+.diferencial-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.diferencial-card p {
+  color: var(--cinza);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* ==============================
+   CTA FINAL - PROJETOS
+================================ */
+.cta-final {
+  padding: 80px 0;
+  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+              url("images/cta-bg.jpg") center/cover no-repeat;
+  text-align: center;
+}
+
+.cta-quadro {
+  background-color: var(--azul-card);
+  padding: 60px 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--branco);
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: var(--cinza);
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+  color: var(--branco);
+  border: none;
+  padding: 18px 45px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+
+/* ==================================================================================
+   SEÇÃO: COMPONENTES COMPARTILHADOS (TODAS AS PÁGINAS)
+================================================================================== */
+
+/* ==============================
+   BOTÃO WHATSAPP FIXO (TODAS AS PÁGINAS)
+================================ */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -1635,75 +2103,378 @@ section {
   }
 }
 
-.cta {
-  background-color: var(--azul-escuro); /* fundo da seção inteira */
-  padding: 60px 20px;
-  text-align: center;
+/* ==================================================================================
+   SEÇÃO: RESPONSIVIDADE (APLICADA EM TODAS AS PÁGINAS)
+================================================================================== */
+
+/* ==============================
+   RESPONSIVIDADE GERAL
+================================ */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .cta-title {
+    font-size: 2.4rem;
+  }
+  
+  .sobre-conteudo,
+  .equipe-conteudo {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .missao-conteudo {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .missao-icon {
+    margin: 0 auto;
+  }
+  
+  .tipo-item {
+    flex: 1 1 50%;
+    padding: 40px 16px;
+  }
+
+  .engenharia-itens {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .engenharia-item-visual {
+    max-width: 100%;
+  }
+  
+  .engenharia-item {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .engenharia-item.reverse {
+    direction: ltr;
+  }
+
+  .engenharia-itens-icones {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 }
 
-.cta-box {
-  background-color: var(--azul-card); /* fundo do quadro */
-  border-radius: 12px;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  max-width: 500px;
-  margin: 0 auto 40px;
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    background-color: rgba(11, 16, 32, 0.98);
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    gap: 0;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-menu.active {
+    max-height: 500px;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu a {
+    padding: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Dropdown no mobile */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .dropdown.active .dropdown-menu {
+    max-height: 500px;
+  }
+
+  .dropdown-menu a {
+    padding: 12px;
+  }
 }
 
-.cta-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: var(--branco);
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: var(--azul-base);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 40px 0;
+    gap: 30px;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+  
+  .sobre-hero {
+    padding: 120px 20px 60px;
+    min-height: 60vh;
+  }
+  
+  .sobre-hero .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .servico-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .servico-icon {
+    margin: 0 auto;
+  }
+  
+  .equipe-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .center-btn {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .center-btn .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .servico-hero .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .servico-hero .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  #introducao h2 {
+    font-size: 1.8rem;
+  }
+
+  .engenharia-entrega .section-title {
+    font-size: 2rem;
+  }
+
+  .servicos-detalhados .section-title {
+    font-size: 2rem;
+  }
+
+  .servico-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .servico-icon {
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .cta-quadro {
+    padding: 40px 20px;
+  }
 }
 
-.cta-subtitle {
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-  color: var(--cinza);
+@media (max-width: 600px) {
+  .tipo-item {
+    flex: 1 1 100%;
+    padding: 32px 16px;
+  }
+  
+  .engenharia-itens-icones {
+    grid-template-columns: 1fr;
+  }
+
+  .engenharia-icone-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diferencial-card {
+    padding: 30px 20px;
+  }
 }
 
-.btn-whatsapp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: #25D366; /* verde do WhatsApp permanece */
-  color: var(--branco);
-  font-weight: 600;
-  padding: 15px 30px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: background 0.3s;
+@media (max-width: 480px) {
+  .hero {
+    padding: 120px 20px 60px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .btn, .btn-large {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .sobre-hero .hero-title {
+    font-size: 2rem;
+  }
+  
+  .sobre-hero .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .equipe-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-item {
+    padding: 20px 10px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .destaque-box {
+    padding: 20px;
+  }
+  
+  .diferencial-card {
+    padding: 30px 20px;
+  }
+  
+  .servico-hero {
+    height: 400px;
+    padding: 100px 20px;
+  }
+
+  .servico-hero .hero-title {
+    font-size: 1.8rem;
+  }
+
+  #introducao {
+    padding: 60px 0;
+  }
+
+  .engenharia-entrega {
+    padding: 70px 0;
+  }
+
+  .servicos-detalhados {
+    padding: 70px 0;
+  }
+
+  .diferenciais-sobre {
+    padding: 70px 0;
+  }
+
+  .cta-final {
+    padding: 60px 0;
+  }
+
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .whatsapp-btn {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
-.btn-whatsapp:hover {
-  background-color: #1ebe5d;
-}
 
-.contact-info {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
 
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1rem;
-  color: var(--branco);
-}
 
-.contact-item i {
-  font-size: 1.8rem;
-  color: var(--amarelo);
-}
+
+
+
+
+
+
+
+
 
 
