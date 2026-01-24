@@ -2,26 +2,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Favicon usando a mesma logo -->
   <link rel="icon" href="images/logo.PNG" type="image/png">
-  <title>Cartão de Visita Virtual | Engevis Engenharia</title>
+  <title>Cartão Digital | Engevis Engenharia Elétrica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-        content="Cartão de visita digital da Engevis Engenharia Elétrica. Projetos elétricos, energia renovável e eficiência energética.">
-
+  <meta name="description" content="Cartão de visita digital da Engevis Engenharia Elétrica. Projetos elétricos, energia renovável e eficiência energética.">
+  
   <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* ==================================================================================
-       VARIÁVEIS GLOBAIS E ESTILOS BASE
-    ================================================================================== */
-    
     /* ==============================
-       VARIÁVEIS DE IDENTIDADE
+       VARIÁVEIS E RESET
     ================================ */
     :root {
       --azul-base: #0B1020;
@@ -30,724 +24,846 @@
       --amarelo-escuro: #D6A105;
       --branco: #FFFFFF;
       --cinza: #B0B6C3;
-      --cinza-escuro: #7A8192;
+      --cinza-claro: #E8EAEE;
       --azul-card: #11162b;
       --azul-card-hover: #141a35;
       --azul-escuro: #070B1A;
+      --gradiente-tech: linear-gradient(135deg, #0B1020 0%, #1F4FD8 100%);
     }
 
-    /* ==============================
-       RESET E BASE
-    ================================ */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html, body {
       width: 100%;
       min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--gradiente-tech);
+      color: var(--branco);
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--azul-base);
-      color: var(--branco);
-      line-height: 1.6;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 20px;
-    }
-
-    .container {
-      max-width: 800px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      background-attachment: fixed;
     }
 
     /* ==============================
-       ANIMAÇÕES GLOBAIS
-    ================================ */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* ==============================
-       CARTAO DE VISITA
+       CONTAINER PRINCIPAL
     ================================ */
     .cartao-container {
       width: 100%;
-      max-width: 800px;
+      max-width: 400px;
       margin: 0 auto;
-      animation: fadeUp 0.8s ease-out;
-    }
-
-    .cartao-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .cartao-logo {
-      width: 120px;
-      height: auto;
-      margin: 0 auto 20px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .cartao-titulo {
-      font-size: 2.5rem;
-      color: var(--amarelo);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .cartao-subtitulo {
-      font-size: 1.2rem;
-      color: var(--cinza);
-      margin-bottom: 30px;
-      font-weight: 500;
-    }
-
-    .cartao-slogan {
-      font-size: 1.1rem;
-      color: var(--amarelo);
-      font-style: italic;
-      border-top: 1px solid rgba(242, 183, 5, 0.3);
-      border-bottom: 1px solid rgba(242, 183, 5, 0.3);
-      padding: 15px 0;
-      margin: 0 auto;
-      max-width: 500px;
+      perspective: 1000px;
     }
 
     /* ==============================
-       CARTAO PRINCIPAL
+       CABEÇALHO PROFISSIONAL
     ================================ */
-    .cartao-principal {
-      background: linear-gradient(145deg, var(--azul-card), var(--azul-escuro));
-      border-radius: 20px;
-      padding: 40px;
+    .cartao-header {
+      text-align: center;
       margin-bottom: 30px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(31, 79, 216, 0.1);
+      padding: 20px;
+      position: relative;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+    }
+
+    .logo-engenharia {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--amarelo);
+      box-shadow: 0 8px 25px rgba(242, 183, 5, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-engenharia:hover {
+      transform: scale(1.05);
+    }
+
+    .engenharia-badge {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      background: var(--amarelo);
+      color: var(--azul-base);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: 3px solid var(--azul-base);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .titulo-principal {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--branco);
+      margin-bottom: 5px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitulo-profissional {
+      font-size: 1rem;
+      color: var(--amarelo);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 15px;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--cinza-claro);
+      font-style: italic;
+      padding: 10px 0;
+      border-top: 1px solid rgba(242, 183, 5, 0.2);
+      border-bottom: 1px solid rgba(242, 183, 5, 0.2);
+      margin: 0 auto;
+      max-width: 300px;
+    }
+
+    /* ==============================
+       CARTAO PRINCIPAL 3D
+    ================================ */
+    .cartao-3d {
+      background: rgba(17, 22, 43, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(31, 79, 216, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(242, 183, 5, 0.1);
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
       position: relative;
       overflow: hidden;
     }
 
-    .cartao-principal::before {
-      content: "";
+    .cartao-3d::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0;
       height: 4px;
       background: linear-gradient(90deg, var(--amarelo), var(--azul-tecnico));
     }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+    .cartao-3d::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 20%, rgba(31, 79, 216, 0.1) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .info-coluna {
+    /* ==============================
+       INFORMAÇÕES DE CONTATO
+    ================================ */
+    .contato-lista {
       display: flex;
       flex-direction: column;
       gap: 25px;
     }
 
-    .info-item {
+    .contato-item {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 15px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
     }
 
-    .info-icone {
-      width: 50px;
-      height: 50px;
-      background-color: rgba(242, 183, 5, 0.1);
-      border-radius: 10px;
+    .contato-item:hover {
+      background: rgba(242, 183, 5, 0.1);
+      border-left-color: var(--amarelo);
+      transform: translateX(5px);
+    }
+
+    .icone-contato {
+      width: 48px;
+      height: 48px;
+      background: rgba(242, 183, 5, 0.15);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      border: 1px solid rgba(242, 183, 5, 0.2);
     }
 
-    .info-icone i {
-      font-size: 1.5rem;
+    .icone-contato i {
+      font-size: 1.4rem;
       color: var(--amarelo);
     }
 
-    .info-conteudo h3 {
-      font-size: 1.1rem;
+    .detalhes-contato h4 {
+      font-size: 0.85rem;
       color: var(--cinza);
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-
-    .info-conteudo p {
-      font-size: 1.2rem;
-      color: var(--branco);
       font-weight: 500;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .info-conteudo a:hover {
+    .detalhes-contato p,
+    .detalhes-contato a {
+      font-size: 1.1rem;
+      color: var(--branco);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .detalhes-contato a:hover {
       color: var(--amarelo);
     }
 
     /* ==============================
-       SERVICOS
+       BOTÕES DE AÇÃO
     ================================ */
-    .servicos-container {
-      margin: 40px 0;
-    }
-
-    .servicos-titulo {
-      font-size: 1.8rem;
-      color: var(--branco);
-      text-align: center;
-      margin-bottom: 30px;
-      position: relative;
-      padding-bottom: 15px;
-    }
-
-    .servicos-titulo::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background-color: var(--amarelo);
-      border-radius: 2px;
-    }
-
-    .servicos-grid {
+    .acoes-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 30px 0;
     }
 
-    .servico-card {
-      background-color: var(--azul-card);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .servico-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      border-color: var(--amarelo);
-    }
-
-    .servico-icone {
-      font-size: 2.5rem;
-      color: var(--amarelo);
-      margin-bottom: 15px;
-    }
-
-    .servico-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: var(--branco);
-    }
-
-    .servico-card p {
-      color: var(--cinza);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* ==============================
-       BOTOES DE CONTATO
-    ================================ */
-    .botoes-container {
+    .btn-acao {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin: 40px 0;
-    }
-
-    .btn {
-      display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 16px 30px;
-      font-weight: 600;
-      border-radius: 8px;
+      padding: 20px 15px;
+      background: var(--azul-card);
+      border-radius: 15px;
+      text-decoration: none;
       transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      font-size: 1rem;
-      min-width: 200px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn-whatsapp {
-      background-color: #25D366;
-      color: white;
+    .btn-acao::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(242, 183, 5, 0.1), rgba(31, 79, 216, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .btn-whatsapp:hover {
-      background-color: #1ebe5d;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-      animation: pulse 1s infinite;
+    .btn-acao:hover {
+      transform: translateY(-5px);
+      border-color: var(--amarelo);
+      box-shadow: 0 10px 25px rgba(242, 183, 5, 0.15);
     }
 
-    .btn-email {
-      background-color: var(--azul-tecnico);
-      color: white;
+    .btn-acao:hover::before {
+      opacity: 1;
     }
 
-    .btn-email:hover {
-      background-color: #1a43c4;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(31, 79, 216, 0.3);
-    }
-
-    .btn-site {
-      background-color: transparent;
+    .btn-acao i {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
       color: var(--amarelo);
+    }
+
+    .btn-acao span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--branco);
+      text-align: center;
+    }
+
+    .btn-whatsapp:hover i {
+      color: #25D366;
+    }
+
+    .btn-email:hover i {
+      color: var(--azul-tecnico);
+    }
+
+    .btn-site:hover i {
+      color: var(--amarelo);
+    }
+
+    .btn-contato:hover i {
+      color: var(--amarelo);
+    }
+
+    /* ==============================
+       ESPECIALIZAÇÕES
+    ================================ */
+    .especializacoes {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 25px 0;
+      border: 1px solid rgba(242, 183, 5, 0.1);
+    }
+
+    .especializacoes h3 {
+      font-size: 1.2rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .chip {
+      background: rgba(242, 183, 5, 0.15);
+      color: var(--amarelo);
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(242, 183, 5, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .chip:hover {
+      background: var(--amarelo);
+      color: var(--azul-base);
+      transform: translateY(-2px);
+    }
+
+    /* ==============================
+       QR CODE MODERNO
+    ================================ */
+    .qrcode-moderno {
+      background: var(--azul-card);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      margin: 25px 0;
+      border: 1px solid rgba(242, 183, 5, 0.1);
+    }
+
+    .qrcode-moderno h3 {
+      font-size: 1.1rem;
+      color: var(--amarelo);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .qrcode-vizual {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, var(--branco) 0%, #f0f0f0 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
       border: 2px solid var(--amarelo);
     }
 
-    .btn-site:hover {
-      background-color: var(--amarelo);
+    .qrcode-vizual::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(242, 183, 5, 0.1) 10px,
+        rgba(242, 183, 5, 0.1) 20px
+      );
+    }
+
+    .qrcode-vizual i {
+      font-size: 3.5rem;
       color: var(--azul-base);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.3);
+      position: relative;
+      z-index: 1;
     }
 
-    /* ==============================
-       QR CODE E COMPARTILHAMENTO
-    ================================ */
-    .qrcode-container {
-      background-color: var(--azul-card);
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      margin: 40px 0;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .qrcode-titulo {
-      font-size: 1.5rem;
-      color: var(--amarelo);
-      margin-bottom: 20px;
-    }
-
-    .qrcode-box {
-      display: inline-block;
-      background-color: white;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .qrcode-placeholder {
-      width: 180px;
-      height: 180px;
-      background-color: #f0f0f0;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .qrcode-instrucao {
+    .instrucao-qrcode {
+      font-size: 0.85rem;
       color: var(--cinza);
-      font-size: 0.9rem;
-      max-width: 400px;
-      margin: 0 auto;
       line-height: 1.5;
+      max-width: 280px;
+      margin: 0 auto;
     }
 
     /* ==============================
-       FOOTER DO CARTAO
+       FOOTER
     ================================ */
-    .cartao-footer {
+    .footer-cartao {
       text-align: center;
-      padding: 30px 0;
+      padding: 25px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 40px;
       width: 100%;
     }
 
-    .footer-social {
+    .redes-sociais {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 25px;
+      gap: 15px;
+      margin-bottom: 20px;
     }
 
-    .social-link {
-      width: 50px;
-      height: 50px;
+    .rede-social {
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background-color: var(--azul-card);
+      background: rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .social-link:hover {
-      background-color: var(--amarelo);
-      transform: translateY(-5px);
+    .rede-social:hover {
+      background: var(--amarelo);
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(242, 183, 5, 0.2);
     }
 
-    .social-link i {
-      font-size: 1.3rem;
+    .rede-social i {
+      font-size: 1.1rem;
       color: var(--branco);
     }
 
-    .copyright {
+    .direitos {
+      font-size: 0.8rem;
       color: var(--cinza);
-      font-size: 0.9rem;
-      margin-top: 20px;
+      opacity: 0.8;
+    }
+
+    .direitos a {
+      color: var(--amarelo);
+      text-decoration: none;
     }
 
     /* ==============================
-       RESPONSIVIDADE
+       ANIMAÇÕES
     ================================ */
-    @media (max-width: 768px) {
-      .cartao-titulo {
-        font-size: 2rem;
-      }
-      
-      .cartao-principal {
-        padding: 30px 20px;
-      }
-      
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .servicos-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .botoes-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .btn {
-        width: 100%;
-        max-width: 300px;
-      }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(242, 183, 5, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(242, 183, 5, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(242, 183, 5, 0); }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    /* ==============================
+       RESPONSIVIDADE CELULAR
+    ================================ */
     @media (max-width: 480px) {
       body {
-        padding: 10px;
+        padding: 15px;
+        justify-content: flex-start;
+        min-height: 100vh;
       }
       
-      .cartao-titulo {
+      .cartao-container {
+        max-width: 100%;
+      }
+      
+      .cartao-3d {
+        padding: 25px 20px;
+        margin: 10px 0 20px;
+      }
+      
+      .titulo-principal {
         font-size: 1.8rem;
       }
       
-      .cartao-subtitulo {
+      .subtitulo-profissional {
+        font-size: 0.9rem;
+      }
+      
+      .acoes-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .btn-acao {
+        padding: 18px 15px;
+      }
+      
+      .contato-item {
+        padding: 12px;
+        gap: 12px;
+      }
+      
+      .icone-contato {
+        width: 42px;
+        height: 42px;
+      }
+      
+      .icone-contato i {
+        font-size: 1.2rem;
+      }
+      
+      .detalhes-contato p,
+      .detalhes-contato a {
         font-size: 1rem;
       }
       
-      .info-item {
-        flex-direction: column;
-        text-align: center;
+      .qrcode-vizual {
+        width: 140px;
+        height: 140px;
       }
       
-      .info-icone {
-        margin: 0 auto;
+      .qrcode-vizual i {
+        font-size: 3rem;
       }
     }
+
+    @media (max-width: 360px) {
+      .titulo-principal {
+        font-size: 1.6rem;
+      }
+      
+      .cartao-3d {
+        padding: 20px 15px;
+      }
+      
+      .chips-container {
+        gap: 8px;
+      }
+      
+      .chip {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ==============================
+       UTILITÁRIOS
+    ================================ */
+    .copy-message {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--amarelo);
+      color: var(--azul-base);
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      opacity: 0;
+    }
+
+    .copy-message.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
   <div class="cartao-container">
-    <!-- CABEÇALHO DO CARTÃO -->
+    <!-- CABEÇALHO COM LOGO -->
     <div class="cartao-header">
-      <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="cartao-logo">
-      <h1 class="cartao-titulo">Engevis Engenharia</h1>
-      <p class="cartao-subtitulo">Engenharia Elétrica e de Energia</p>
-      <div class="cartao-slogan">
+      <div class="logo-wrapper">
+        <img src="images/logo.PNG" alt="Engevis Engenharia" class="logo-engenharia">
+        <div class="engenharia-badge">
+          <i class="fas fa-bolt"></i>
+        </div>
+      </div>
+      
+      <h1 class="titulo-principal">Engevis</h1>
+      <p class="subtitulo-profissional">Engenharia Elétrica</p>
+      <div class="tagline">
         "Engineering the power behind the future"
       </div>
     </div>
 
-    <!-- CARTÃO PRINCIPAL COM INFORMAÇÕES -->
-    <div class="cartao-principal">
-      <div class="info-grid">
-        <div class="info-coluna">
-          <!-- CONTATO -->
-          <div class="info-item">
-            <div class="info-icone">
-              <i class="fas fa-user-tie"></i>
-            </div>
-            <div class="info-conteudo">
-              <h3>Engenheiro Responsável</h3>
-              <p>Eng. Vinícius Silva</p>
-            </div>
+    <!-- CARTAO PRINCIPAL -->
+    <div class="cartao-3d">
+      <div class="contato-lista">
+        <!-- TELEFONE -->
+        <div class="contato-item">
+          <div class="icone-contato">
+            <i class="fas fa-phone-alt"></i>
           </div>
-          
-          <div class="info-item">
-            <div class="info-icone">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="info-conteudo">
-              <h3>Telefone</h3>
-              <p><a href="tel:+5535999165674">(35) 99916-5674</a></p>
-            </div>
-          </div>
-          
-          <div class="info-item">
-            <div class="info-icone">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="info-conteudo">
-              <h3>E-mail</h3>
-              <p><a href="mailto:engevisengenharia@outlook.com">engevisengenharia@outlook.com</a></p>
-            </div>
+          <div class="detalhes-contato">
+            <h4>Contato Direto</h4>
+            <a href="tel:+5535999165674">(35) 99916-5674</a>
           </div>
         </div>
-        
-        <div class="info-coluna">
-          <!-- LOCALIZAÇÃO E OUTRAS INFOS -->
-          <div class="info-item">
-            <div class="info-icone">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="info-conteudo">
-              <h3>Localização</h3>
-              <p>Itajubá - MG</p>
-            </div>
+
+        <!-- E-MAIL -->
+        <div class="contato-item">
+          <div class="icone-contato">
+            <i class="fas fa-envelope"></i>
           </div>
-          
-          <div class="info-item">
-            <div class="info-icone">
-              <i class="fas fa-id-card"></i>
-            </div>
-            <div class="info-conteudo">
-              <h3>CREA/MG</h3>
-              <p>Engenheiro Eletricista</p>
-            </div>
+          <div class="detalhes-contato">
+            <h4>E-mail Corporativo</h4>
+            <a href="mailto:engevisengenharia@outlook.com">engevisengenharia@outlook.com</a>
           </div>
-          
-          <div class="info-item">
-            <div class="info-icone">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <div class="info-conteudo">
-              <h3>Especialização</h3>
-              <p>Projetos e Execução Elétrica</p>
-            </div>
+        </div>
+
+        <!-- LOCALIZAÇÃO -->
+        <div class="contato-item">
+          <div class="icone-contato">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="detalhes-contato">
+            <h4>Sede</h4>
+            <p>Itajubá - Minas Gerais</p>
+          </div>
+        </div>
+
+        <!-- ÁREA DE ATUAÇÃO -->
+        <div class="contato-item">
+          <div class="icone-contato">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <div class="detalhes-contato">
+            <h4>Especialização</h4>
+            <p>Projetos e Execução Elétrica</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- SERVIÇOS OFERECIDOS -->
-    <div class="servicos-container">
-      <h2 class="servicos-titulo">Nossos Serviços</h2>
-      <div class="servicos-grid">
-        <div class="servico-card">
-          <div class="servico-icone">
-            <i class="fas fa-drafting-compass"></i>
-          </div>
-          <h4>Projetos Elétricos</h4>
-          <p>Residenciais, comerciais e industriais com ART</p>
-        </div>
-        
-        <div class="servico-card">
-          <div class="servico-icone">
-            <i class="fas fa-solar-panel"></i>
-          </div>
-          <h4>Energia Renovável</h4>
-          <p>Sistemas fotovoltaicos e soluções sustentáveis</p>
-        </div>
-        
-        <div class="servico-card">
-          <div class="servico-icone">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h4>Eficiência Energética</h4>
-          <p>Auditoria e otimização do consumo de energia</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- BOTÕES DE CONTATO -->
-    <div class="botoes-container">
-      <a href="https://wa.me/5535999165674" target="_blank" class="btn btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> WhatsApp
+    <!-- BOTÕES DE AÇÃO -->
+    <div class="acoes-grid">
+      <a href="https://wa.me/5535999165674" target="_blank" class="btn-acao btn-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
       </a>
       
-      <a href="mailto:engevisengenharia@outlook.com" class="btn btn-email">
-        <i class="fas fa-envelope"></i> E-mail
+      <a href="mailto:engevisengenharia@outlook.com" class="btn-acao btn-email">
+        <i class="fas fa-envelope"></i>
+        <span>E-mail</span>
       </a>
       
-      <a href="index.html" class="btn btn-site">
-        <i class="fas fa-globe"></i> Site Oficial
+      <a href="index.html" class="btn-acao btn-site">
+        <i class="fas fa-globe"></i>
+        <span>Site Oficial</span>
+      </a>
+      
+      <a href="projetos-eletricos.html" class="btn-acao btn-contato">
+        <i class="fas fa-briefcase"></i>
+        <span>Serviços</span>
       </a>
     </div>
 
-    <!-- QR CODE PARA COMPARTILHAMENTO -->
-    <div class="qrcode-container">
-      <h3 class="qrcode-titulo">Compartilhe este cartão</h3>
-      <div class="qrcode-box">
-        <div class="qrcode-placeholder">
-          <div>
-            <i class="fas fa-qrcode" style="font-size: 2rem; margin-bottom: 10px; color: #333;"></i>
-            <p>QR Code para compartilhamento do cartão digital</p>
-          </div>
-        </div>
+    <!-- ESPECIALIZAÇÕES -->
+    <div class="especializacoes">
+      <h3>Áreas de Expertise</h3>
+      <div class="chips-container">
+        <span class="chip">Projetos Elétricos</span>
+        <span class="chip">Energia Solar</span>
+        <span class="chip">Eficiência Energética</span>
+        <span class="chip">Execução de Obras</span>
+        <span class="chip">Normas Técnicas</span>
+        <span class="chip">ART & Documentação</span>
       </div>
-      <p class="qrcode-instrucao">
-        Aponte a câmera do seu celular para o QR Code acima para salvar este cartão de visita digital em seus contatos.
+    </div>
+
+    <!-- QR CODE MODERNO -->
+    <div class="qrcode-moderno">
+      <h3>Salve este Cartão</h3>
+      <div class="qrcode-vizual floating">
+        <i class="fas fa-qrcode"></i>
+      </div>
+      <p class="instrucao-qrcode">
+        Aponte a câmera do celular para salvar o contato
       </p>
     </div>
 
     <!-- FOOTER COM REDES SOCIAIS -->
-    <div class="cartao-footer">
-      <div class="footer-social">
-        <a href="#" class="social-link" aria-label="LinkedIn" target="_blank">
+    <div class="footer-cartao">
+      <div class="redes-sociais">
+        <a href="#" class="rede-social" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="#" class="social-link" aria-label="Instagram" target="_blank">
+        <a href="#" class="rede-social" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="#" class="social-link" aria-label="YouTube" target="_blank">
+        <a href="#" class="rede-social" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
       </div>
       
-      <div class="copyright">
-        <p>© 2026 Engevis Engenharia Elétrica e de Energia</p>
-        <p>Todos os direitos reservados.</p>
+      <div class="direitos">
+        © 2026 Engevis Engenharia Elétrica<br>
+        <a href="index.html">www.engevis.com</a>
       </div>
     </div>
   </div>
 
+  <!-- MENSAGEM DE CÓPIA -->
+  <div class="copy-message" id="copyMessage">Copiado para área de transferência!</div>
+
   <script>
-    // Função para adicionar contato diretamente no celular
-    function addToContacts() {
-      const contactData = {
-        name: "Engevis Engenharia",
-        tel: "+5535999165674",
-        email: "engevisengenharia@outlook.com",
-        company: "Engevis Engenharia Elétrica",
-        jobTitle: "Engenharia Elétrica e de Energia",
-        url: window.location.href
-      };
-      
-      // Verifica se é um dispositivo móvel
-      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        const vCard = `BEGIN:VCARD
-VERSION:3.0
-FN:${contactData.name}
-ORG:${contactData.company}
-TITLE:${contactData.jobTitle}
-TEL;TYPE=WORK,VOICE:${contactData.tel}
-EMAIL:${contactData.email}
-URL:${contactData.url}
-END:VCARD`;
+    // Função para copiar informações
+    document.querySelectorAll('.detalhes-contato a, .detalhes-contato p').forEach(element => {
+      element.style.cursor = 'pointer';
+      element.addEventListener('click', function(e) {
+        if (this.tagName === 'A') {
+          e.preventDefault();
+        }
         
-        const blob = new Blob([vCard], { type: "text/vcard" });
-        const url = URL.createObjectURL(blob);
-        
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "engevis-contato.vcf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        alert("Contato da Engevis Engenharia adicionado aos seus contatos!");
-      } else {
-        alert("Para salvar o contato, acesse esta página em seu celular ou copie as informações manualmente.");
-      }
-    }
-    
-    // Adicionar funcionalidade de copiar informações
-    document.querySelectorAll('.info-conteudo p').forEach(element => {
-      element.addEventListener('click', function() {
         const textToCopy = this.textContent;
+        
+        // Usar a API Clipboard moderna
         navigator.clipboard.writeText(textToCopy).then(() => {
-          const originalText = this.textContent;
-          this.textContent = "Copiado!";
-          setTimeout(() => {
-            this.textContent = originalText;
-          }, 1500);
+          showCopyMessage();
+        }).catch(err => {
+          // Fallback para métodos antigos
+          const textArea = document.createElement('textarea');
+          textArea.value = textToCopy;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          showCopyMessage();
         });
       });
     });
+
+    // Mostrar mensagem de cópia
+    function showCopyMessage() {
+      const message = document.getElementById('copyMessage');
+      message.classList.add('show');
+      setTimeout(() => {
+        message.classList.remove('show');
+      }, 2000);
+    }
+
+    // Efeito 3D no cartão
+    const cartao3d = document.querySelector('.cartao-3d');
     
+    if (cartao3d) {
+      document.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 768) {
+          const { left, top, width, height } = cartao3d.getBoundingClientRect();
+          const centerX = left + width / 2;
+          const centerY = top + height / 2;
+          const mouseX = e.clientX - centerX;
+          const mouseY = e.clientY - centerY;
+          
+          const rotateY = (mouseX / width) * 10;
+          const rotateX = -(mouseY / height) * 10;
+          
+          cartao3d.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cartao3d.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+      });
+    }
+
     // Animar elementos ao rolar
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
       });
     }, observerOptions);
-    
+
     // Observar elementos para animação
-    document.querySelectorAll('.servico-card, .info-item, .btn').forEach(el => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(20px)";
-      el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    document.querySelectorAll('.contato-item, .btn-acao, .chip').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
+    });
+
+    // Efeito de digitação no título (opcional)
+    const titulo = document.querySelector('.titulo-principal');
+    if (titulo && window.innerWidth > 768) {
+      const textoOriginal = titulo.textContent;
+      titulo.textContent = '';
+      
+      let i = 0;
+      const digitar = () => {
+        if (i < textoOriginal.length) {
+          titulo.textContent += textoOriginal.charAt(i);
+          i++;
+          setTimeout(digitar, 100);
+        }
+      };
+      
+      // Iniciar após um breve delay
+      setTimeout(digitar, 500);
+    }
+
+    // Adicionar toque vibratório em dispositivos móveis
+    if ('vibrate' in navigator) {
+      document.querySelectorAll('.btn-acao, .chip, .rede-social').forEach(element => {
+        element.addEventListener('touchstart', () => {
+          navigator.vibrate(10);
+        });
+      });
+    }
+
+    // Detectar orientação do celular
+    window.addEventListener('orientationchange', () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     });
   </script>
 </body>
