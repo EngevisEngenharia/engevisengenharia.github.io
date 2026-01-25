@@ -13,6 +13,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
   <style>
     /* ==============================
        VARIÁVEIS E RESET
@@ -26,7 +29,8 @@
       --branco-puro: #FFFFFF;
       --cinza-claro: #E8EAEE;
       --cinza-medio: #A0A8C0;
-      --gradiente-engenharia: linear-gradient(135deg, #0A0F23 0%, #0F1A3A 50%, #1F4FD8 100%);
+      --verde-whatsapp: #25D366;
+      --gradiente-engenharia: linear-gradient(135deg, #0A0F23 0%, #0F1A3A 100%);
     }
 
     * {
@@ -187,6 +191,15 @@
       box-shadow: 
         0 20px 50px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cartao-corporativo:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(242, 183, 5, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     /* Moldura dourada */
@@ -204,106 +217,14 @@
         transparent 100%);
     }
 
-    /* Padrão técnico de fundo */
-    .cartao-corporativo::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(31, 79, 216, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(242, 183, 5, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
     /* ==============================
-       INFORMAÇÕES CORPORATIVAS
-    ================================ */
-    .info-corporativa {
-      position: relative;
-      z-index: 1;
-    }
-
-    .info-linha {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .info-linha:hover {
-      background: rgba(242, 183, 5, 0.08);
-      border-color: rgba(242, 183, 5, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .info-linha:hover .info-icone {
-      background: var(--ouro-corporativo);
-      transform: scale(1.1);
-    }
-
-    .info-linha:hover .info-icone i {
-      color: var(--azul-corporativo);
-    }
-
-    .info-icone {
-      width: 50px;
-      height: 50px;
-      min-width: 50px;
-      background: rgba(242, 183, 5, 0.1);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 18px;
-      transition: all 0.3s ease;
-    }
-
-    .info-icone i {
-      font-size: 1.3rem;
-      color: var(--ouro-corporativo);
-    }
-
-    .info-conteudo h4 {
-      font-size: 0.8rem;
-      color: var(--cinza-medio);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 5px;
-    }
-
-    .info-conteudo p,
-    .info-conteudo a {
-      font-size: 1.15rem;
-      color: var(--branco-puro);
-      font-weight: 500;
-      line-height: 1.4;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .info-conteudo a:hover {
-      color: var(--ouro-corporativo);
-    }
-
-    /* ==============================
-       BOTÕES DE AÇÃO CORPORATIVOS
+       BOTÕES DE AÇÃO CORPORATIVOS (AGORA PRIMEIROS)
     ================================ */
     .acoes-corporativas {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
-      margin: 35px 0;
+      margin-bottom: 35px;
     }
 
     .btn-corporativo {
@@ -365,8 +286,18 @@
     }
 
     /* Cores específicas para cada botão */
-    .btn-whatsapp:hover .btn-icone {
-      color: #25D366;
+    .btn-whatsapp {
+      background: rgba(37, 211, 102, 0.1);
+      border-color: rgba(37, 211, 102, 0.2);
+    }
+
+    .btn-whatsapp:hover {
+      background: rgba(37, 211, 102, 0.2);
+      border-color: var(--verde-whatsapp);
+    }
+
+    .btn-whatsapp .btn-icone {
+      color: var(--verde-whatsapp);
     }
 
     .btn-email:hover .btn-icone {
@@ -382,52 +313,118 @@
     }
 
     /* ==============================
+       INFORMAÇÕES CORPORATIVAS (AGORA DEPOIS DOS BOTÕES)
+    ================================ */
+    .info-corporativa {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 30px;
+    }
+
+    .info-linha {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-linha:hover {
+      background: rgba(242, 183, 5, 0.08);
+      border-color: rgba(242, 183, 5, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-linha:hover .info-icone {
+      background: var(--ouro-corporativo);
+      transform: scale(1.1);
+    }
+
+    .info-linha:hover .info-icone i {
+      color: var(--azul-corporativo);
+    }
+
+    .info-icone {
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+      background: rgba(242, 183, 5, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .info-icone i {
+      font-size: 1.2rem;
+      color: var(--ouro-corporativo);
+    }
+
+    .info-conteudo h4 {
+      font-size: 0.8rem;
+      color: var(--cinza-medio);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 5px;
+    }
+
+    .info-conteudo p,
+    .info-conteudo a {
+      font-size: 1.1rem;
+      color: var(--branco-puro);
+      font-weight: 500;
+      line-height: 1.4;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info-conteudo a:hover {
+      color: var(--ouro-corporativo);
+    }
+
+    .destaque-ouro {
+      color: var(--ouro-corporativo);
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    /* ==============================
        ESPECIALIZAÇÕES CORPORATIVAS
     ================================ */
     .especializacoes-corporativas {
       background: rgba(255, 255, 255, 0.03);
       border-radius: 16px;
-      padding: 28px;
-      margin: 30px 0;
+      padding: 25px;
+      margin: 25px 0;
       border: 1px solid rgba(242, 183, 5, 0.1);
       position: relative;
       overflow: hidden;
     }
 
-    .especializacoes-corporativas::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 30% 70%, rgba(31, 79, 216, 0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
     .especializacoes-titulo {
       font-size: 1.3rem;
       color: var(--ouro-corporativo);
-      margin-bottom: 22px;
+      margin-bottom: 18px;
       text-align: center;
       font-weight: 700;
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
-    .especializacoes-titulo::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--ouro-corporativo) 50%, 
-        transparent 100%);
+    .especializacoes-subtitulo {
+      font-size: 1.1rem;
+      color: var(--branco-puro);
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.4;
     }
 
     .chips-corporativos {
@@ -440,7 +437,7 @@
     .chip-corporativo {
       background: rgba(242, 183, 5, 0.08);
       color: var(--ouro-corporativo);
-      padding: 11px 20px;
+      padding: 10px 18px;
       border-radius: 25px;
       font-size: 0.9rem;
       font-weight: 500;
@@ -476,17 +473,6 @@
       overflow: hidden;
     }
 
-    .qrcode-corporativo::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 70% 30%, rgba(31, 79, 216, 0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
     .qrcode-titulo {
       font-size: 1.2rem;
       color: var(--ouro-corporativo);
@@ -494,37 +480,20 @@
       font-weight: 600;
     }
 
-    .qrcode-visual {
+    #qrcode-real {
       width: 170px;
       height: 170px;
       margin: 0 auto 18px;
-      background: linear-gradient(135deg, var(--branco-puro) 0%, #f8f9fa 100%);
+      padding: 10px;
+      background: white;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
       border: 2px solid var(--ouro-corporativo);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .qrcode-visual::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: 
-        linear-gradient(45deg, transparent 45%, rgba(31, 79, 216, 0.1) 50%, transparent 55%),
-        linear-gradient(-45deg, transparent 45%, rgba(31, 79, 216, 0.1) 50%, transparent 55%);
-      background-size: 20px 20px;
-    }
-
-    .qrcode-visual i {
-      font-size: 3.5rem;
-      color: var(--azul-corporativo);
-      position: relative;
-      z-index: 1;
+    #qrcode-real canvas {
+      width: 150px !important;
+      height: 150px !important;
     }
 
     .qrcode-descricao {
@@ -532,7 +501,28 @@
       color: var(--cinza-medio);
       line-height: 1.5;
       max-width: 280px;
-      margin: 0 auto;
+      margin: 0 auto 15px;
+    }
+
+    #btn-download-contato {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--ouro-corporativo), var(--ouro-escuro));
+      color: var(--azul-corporativo);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(242, 183, 5, 0.2);
+    }
+
+    #btn-download-contato:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(242, 183, 5, 0.3);
     }
 
     /* ==============================
@@ -597,16 +587,16 @@
     ================================ */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+      50% { transform: translateY(-10px); }
     }
 
     @keyframes pulse-gold {
       0%, 100% { box-shadow: 0 0 0 0 rgba(242, 183, 5, 0.3); }
-      50% { box-shadow: 0 0 0 12px rgba(242, 183, 5, 0); }
+      50% { box-shadow: 0 0 0 10px rgba(242, 183, 5, 0); }
     }
 
     .floating {
-      animation: float 4s ease-in-out infinite;
+      animation: float 3s ease-in-out infinite;
     }
 
     .pulse-gold {
@@ -628,7 +618,7 @@
       }
       
       .cartao-corporativo {
-        padding: 28px 22px;
+        padding: 25px 20px;
         margin: 10px 0 25px;
       }
       
@@ -644,6 +634,7 @@
       .acoes-corporativas {
         grid-template-columns: 1fr;
         gap: 12px;
+        margin-bottom: 25px;
       }
       
       .btn-corporativo {
@@ -651,38 +642,53 @@
       }
       
       .info-linha {
-        padding: 16px;
-        margin-bottom: 20px;
+        padding: 14px;
+        margin-bottom: 15px;
       }
       
       .info-icone {
-        width: 46px;
-        height: 46px;
-        min-width: 46px;
-        margin-right: 16px;
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        margin-right: 14px;
       }
       
       .info-icone i {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       
       .info-conteudo p,
       .info-conteudo a {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
       }
       
-      .qrcode-visual {
+      #qrcode-real {
         width: 150px;
         height: 150px;
       }
       
-      .qrcode-visual i {
-        font-size: 3rem;
+      #qrcode-real canvas {
+        width: 130px !important;
+        height: 130px !important;
       }
       
       .especializacoes-corporativas,
       .qrcode-corporativo {
-        padding: 24px 20px;
+        padding: 22px 18px;
+        margin: 20px 0;
+      }
+      
+      .especializacoes-subtitulo {
+        font-size: 1rem;
+      }
+      
+      .chips-corporativos {
+        gap: 8px;
+      }
+      
+      .chip-corporativo {
+        padding: 8px 16px;
+        font-size: 0.85rem;
       }
     }
 
@@ -692,16 +698,7 @@
       }
       
       .cartao-corporativo {
-        padding: 24px 18px;
-      }
-      
-      .chips-corporativos {
-        gap: 8px;
-      }
-      
-      .chip-corporativo {
-        padding: 10px 16px;
-        font-size: 0.85rem;
+        padding: 22px 16px;
       }
       
       .info-linha {
@@ -739,32 +736,10 @@
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
-
-    .destaque-ouro {
-      color: var(--ouro-corporativo);
-      font-weight: 600;
-    }
-
-    /* ==============================
-       EFEITOS DE LUZ
-    ================================ */
-    .efeito-luz {
-      position: fixed;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(31, 79, 216, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: -1;
-      transition: transform 0.1s ease;
-    }
   </style>
 </head>
 
 <body>
-  <!-- Efeito de luz que segue o mouse -->
-  <div class="efeito-luz" id="efeitoLuz"></div>
-
   <div class="cartao-container">
     <!-- CABEÇALHO CORPORATIVO -->
     <div class="cabecalho-corporativo">
@@ -784,6 +759,30 @@
 
     <!-- CARTAO CORPORATIVO -->
     <div class="cartao-corporativo">
+      <!-- BOTÕES DE AÇÃO (AGORA PRIMEIROS) -->
+      <div class="acoes-corporativas">
+        <a href="https://wa.me/5535999165674" target="_blank" class="btn-corporativo btn-whatsapp">
+          <i class="fab fa-whatsapp btn-icone"></i>
+          <span class="btn-texto">WhatsApp Direto</span>
+        </a>
+        
+        <a href="mailto:engevisengenharia@outlook.com" class="btn-corporativo btn-email">
+          <i class="fas fa-envelope btn-icone"></i>
+          <span class="btn-texto">Enviar E-mail</span>
+        </a>
+        
+        <a href="https://engevisengenharia.github.io/" target="_blank" class="btn-corporativo btn-site">
+          <i class="fas fa-globe btn-icone"></i>
+          <span class="btn-texto">Site Oficial</span>
+        </a>
+        
+        <a href="https://engevisengenharia.github.io/index.html#atuacao" target="_blank" class="btn-corporativo btn-servicos">
+          <i class="fas fa-briefcase btn-icone"></i>
+          <span class="btn-texto">Nossos Serviços</span>
+        </a>
+      </div>
+
+      <!-- INFORMAÇÕES CORPORATIVAS (AGORA DEPOIS DOS BOTÕES) -->
       <div class="info-corporativa">
         <!-- TELEFONE -->
         <div class="info-linha">
@@ -818,44 +817,24 @@
           </div>
         </div>
 
-        <!-- ESPECIALIZAÇÃO -->
+        <!-- ESPECIALIZAÇÃO PRINCIPAL -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-cogs"></i>
           </div>
           <div class="info-conteudo">
             <h4>Especialização Principal</h4>
-            <p><span class="destaque-ouro">Projetos e Execução Elétrica</span></p>
+            <p class="destaque-ouro">Energia Renovável e Engenharia Elétrica</p>
           </div>
         </div>
-      </div>
-
-      <!-- BOTÕES DE AÇÃO -->
-      <div class="acoes-corporativas">
-        <a href="https://wa.me/5535999165674" target="_blank" class="btn-corporativo btn-whatsapp">
-          <i class="fab fa-whatsapp btn-icone"></i>
-          <span class="btn-texto">WhatsApp Direto</span>
-        </a>
-        
-        <a href="mailto:engevisengenharia@outlook.com" class="btn-corporativo btn-email">
-          <i class="fas fa-envelope btn-icone"></i>
-          <span class="btn-texto">Enviar E-mail</span>
-        </a>
-        
-        <a href="https://engevisengenharia.github.io/" class="btn-corporativo btn-site">
-          <i class="fas fa-globe btn-icone"></i>
-          <span class="btn-texto">Site Oficial</span>
-        </a>
-        
-        <a href="https://engevisengenharia.github.io/index.html#atuacao" class="btn-corporativo btn-servicos">
-          <i class="fas fa-briefcase btn-icone"></i>
-          <span class="btn-texto">Nossos Serviços</span>
-        </a>
       </div>
 
       <!-- ESPECIALIZAÇÕES -->
       <div class="especializacoes-corporativas">
         <h3 class="especializacoes-titulo">Áreas de Atuação</h3>
+        <p class="especializacoes-subtitulo">
+          Soluções integradas para indústria, construção civil e agronegócio
+        </p>
         <div class="chips-corporativos">
           <span class="chip-corporativo">
             <i class="fas fa-drafting-compass"></i> Projetos Elétricos
@@ -873,20 +852,29 @@
             <i class="fas fa-file-contract"></i> ART & Documentação
           </span>
           <span class="chip-corporativo">
-            <i class="fas fa-lightbulb"></i> Automação
+            <i class="fas fa-tractor"></i> Projetos Rurais
           </span>
         </div>
       </div>
 
       <!-- QR CODE -->
       <div class="qrcode-corporativo">
-        <h3 class="qrcode-titulo">Compartilhe este Cartão</h3>
-        <div class="qrcode-visual floating pulse-gold">
-          <i class="fas fa-qrcode"></i>
-        </div>
+        <h3 class="qrcode-titulo">Salvar Contato Automático</h3>
+        
+        <div id="qrcode-real" class="floating pulse-gold"></div>
+        
         <p class="qrcode-descricao">
-          Aponte a câmera do celular para salvar este contato profissional
+          <strong>Instruções:</strong><br>
+          1. Abra a câmera do celular<br>
+          2. Aponte para o QR Code<br>
+          3. Toque na notificação que aparecer<br>
+          4. Confirme para salvar o contato
         </p>
+        
+        <button id="btn-download-contato">
+          <i class="fas fa-download"></i>
+          <span>Baixar Contato Manualmente</span>
+        </button>
       </div>
     </div>
 
@@ -915,13 +903,62 @@
   <div class="mensagem-copiada" id="mensagemCopiada">Copiado para área de transferência!</div>
 
   <script>
-    // Efeito de luz que segue o mouse
-    const efeitoLuz = document.getElementById('efeitoLuz');
-    if (efeitoLuz) {
-      document.addEventListener('mousemove', (e) => {
-        efeitoLuz.style.left = `${e.clientX - 100}px`;
-        efeitoLuz.style.top = `${e.clientY - 100}px`;
+    // Gerar QR Code para vCard inline
+    function gerarQRCodeContatoInline() {
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:Engevis;Engenharia;;;
+FN:Engevis Engenharia
+ORG:Engevis Engenharia de Energia e Elétrica
+TITLE:Energia Renovável e Engenharia Elétrica
+TEL;TYPE=WORK,VOICE:+5535999165674
+EMAIL;TYPE=WORK:engevisengenharia@outlook.com
+URL:https://engevisengenharia.github.io/
+ADR;TYPE=WORK:;;Itajubá;Minas Gerais;;;Brasil
+NOTE:Engineering the power behind the future
+END:VCARD`;
+      
+      // Converter vCard para formato URL seguro
+      const vCardUrl = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
+      
+      // Limpar container primeiro
+      document.getElementById('qrcode-real').innerHTML = '';
+      
+      // Gerar novo QR Code
+      new QRCode(document.getElementById('qrcode-real'), {
+        text: vCardUrl,
+        width: 150,
+        height: 150,
+        colorDark: "#0A0F23",
+        colorLight: "#FFFFFF",
+        correctLevel: QRCode.CorrectLevel.H
       });
+    }
+
+    // Função para criar e baixar vCard
+    function criarEDownloadVCard() {
+      const vCardContent = `BEGIN:VCARD
+VERSION:3.0
+FN:Engevis Engenharia
+ORG:Engevis Engenharia de Energia e Elétrica
+TITLE:Energia Renovável e Engenharia Elétrica
+TEL;TYPE=WORK,VOICE:+5535999165674
+EMAIL;TYPE=WORK:engevisengenharia@outlook.com
+URL:https://engevisengenharia.github.io/
+ADR;TYPE=WORK:;;Itajubá;Minas Gerais;;;Brasil
+NOTE:Engineering the power behind the future
+END:VCARD`;
+
+      const blob = new Blob([vCardContent], { type: 'text/vcard' });
+      const url = URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Engevis-Contato.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     }
 
     // Copiar informações com clique
@@ -970,84 +1007,5 @@
       
       setTimeout(() => {
         mensagem.classList.remove('show');
-      }, 2000);
-    }
-
-    // Efeito hover 3D no cartão (apenas desktop)
-    const cartao = document.querySelector('.cartao-corporativo');
-    if (cartao && window.innerWidth > 768) {
-      cartao.addEventListener('mousemove', (e) => {
-        const { left, top, width, height } = cartao.getBoundingClientRect();
-        const x = (e.clientX - left) / width - 0.5;
-        const y = (e.clientY - top) / height - 0.5;
-        
-        const rotateY = x * 8;
-        const rotateX = -y * 8;
-        
-        cartao.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
-      
-      cartao.addEventListener('mouseleave', () => {
-        cartao.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-      });
-    }
-
-    // Animar elementos ao rolar
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    // Observar elementos para animação
-    document.querySelectorAll('.info-linha, .btn-corporativo, .chip-corporativo').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      observer.observe(el);
-    });
-
-    // Efeito de digitação no título
-    const titulo = document.querySelector('.titulo-empresa');
-    if (titulo && window.innerWidth > 768) {
-      const textoOriginal = titulo.textContent;
-      titulo.textContent = '';
-      
-      let i = 0;
-      const digitar = () => {
-        if (i < textoOriginal.length) {
-          titulo.textContent += textoOriginal.charAt(i);
-          i++;
-          setTimeout(digitar, 100);
-        }
-      };
-      
-      setTimeout(digitar, 300);
-    }
-
-    // Detectar orientação do celular
-    let ultimaOrientacao = window.orientation;
-    window.addEventListener('orientationchange', () => {
-      if (window.orientation !== ultimaOrientacao) {
-        window.scrollTo(0, 0);
-        ultimaOrientacao = window.orientation;
-      }
-    });
-
-    // Otimização para touch
-    document.addEventListener('touchstart', function() {}, {passive: true});
-    document.addEventListener('touchmove', function() {}, {passive: true});
-
-    // Preload de recursos críticos
-    window.addEventListener('load', () => {
-      document.body.style.opacity = '1';
-    });
-  </script>
-</body>
-</html>
+      }, 
+              
