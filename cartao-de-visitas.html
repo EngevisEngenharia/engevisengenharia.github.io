@@ -7,6 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Engevis Engenharia de Energia e Elétrica - Soluções completas em projetos elétricos, eficiência energética e energia renovável.">
   
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://engevisengenharia.github.io/cartao-digital.html">
+  <meta property="og:title" content="Engevis Engenharia | Cartão Digital">
+  <meta property="og:description" content="Engenharia de Energia e Elétrica - Projetos Elétricos, Energia Solar, Eficiência Energética e Execução Industrial. Entre em contato!">
+  <meta property="og:image" content="https://engevisengenharia.github.io/images/capa-whatsapp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Engevis Engenharia - Cartão Digital de Visitas">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://engevisengenharia.github.io/cartao-digital.html">
+  <meta property="twitter:title" content="Engevis Engenharia | Cartão Digital">
+  <meta property="twitter:description" content="Engenharia de Energia e Elétrica - Projetos Elétricos, Energia Solar, Eficiência Energética e Execução Industrial. Entre em contato!">
+  <meta property="twitter:image" content="https://engevisengenharia.github.io/images/capa-whatsapp.jpg">
+  
+  <!-- Apple iOS -->
+  <meta name="apple-mobile-web-app-title" content="Engevis Engenharia">
+  
   <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
@@ -523,6 +543,23 @@
       font-size: 1.05rem;
     }
 
+    /* Estilo para telefones com nome */
+    .telefone-com-nome {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .telefone-numero {
+      font-weight: 600;
+    }
+
+    .telefone-nome {
+      font-size: 0.85rem;
+      color: var(--ouro-corporativo);
+      font-weight: 500;
+    }
+
     /* ==============================
        ESPECIALIZAÇÕES
     ================================ */
@@ -874,14 +911,31 @@
 
       <!-- INFORMAÇÕES CORPORATIVAS -->
       <div class="info-corporativa">
-        <!-- TELEFONE -->
+        <!-- TELEFONE VINICIOS -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-phone-alt"></i>
           </div>
           <div class="info-conteudo">
             <h4>Contato Direto</h4>
-            <a href="tel:+5535999165674">(35) 99916-5674</a>
+            <div class="telefone-com-nome">
+              <a href="tel:+5535999165674" class="telefone-numero">+55 35 99916-5674</a>
+              <span class="telefone-nome">Vinicios</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TELEFONE RODRIGO -->
+        <div class="info-linha">
+          <div class="info-icone">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="info-conteudo">
+            <h4>Contato Direto</h4>
+            <div class="telefone-com-nome">
+              <a href="tel:+553597221324" class="telefone-numero">+55 35 9722-1324</a>
+              <span class="telefone-nome">Rodrigo</span>
+            </div>
           </div>
         </div>
 
@@ -965,7 +1019,7 @@
 
   <script>
     // Copiar informações com clique
-    document.querySelectorAll('.info-conteudo a, .info-conteudo p').forEach(element => {
+    document.querySelectorAll('.info-conteudo a, .info-conteudo p, .telefone-numero').forEach(element => {
       element.style.cursor = 'pointer';
       element.addEventListener('click', function(e) {
         if (this.tagName === 'A') {
