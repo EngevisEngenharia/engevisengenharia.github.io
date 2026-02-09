@@ -769,17 +769,6 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* Estilos do Leaflet personalizados */
-    .leaflet-control-attribution {
-      background: rgba(10, 15, 35, 0.8) !important;
-      color: var(--cinza-medio) !important;
-      font-size: 10px !important;
-    }
-
-    .leaflet-control-attribution a {
-      color: var(--ouro-corporativo) !important;
-    }
-
     /* ==============================
        ESPECIALIZAÇÕES
     ================================ */
@@ -1317,6 +1306,16 @@
 
   <script>
     // ==============================
+    // DETECTAR PREFERÊNCIA DE TEMA
+    // ==============================
+    function getPreferredTheme() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      return 'light';
+    }
+
+    // ==============================
     // MAPA DE ITAJUBÁ COM GEOJSON EXTERNO
     // ==============================
     async function initMap() {
@@ -1324,12 +1323,27 @@
         // Mostrar carregamento
         const carregandoElement = document.getElementById('mapaCarregando');
         
+        // Obter tema preferido
+        const theme = getPreferredTheme();
+        
         // Criar mapa
         const map = L.map('mapa-itajuba').setView([-22.4238234, -45.4524156], 11);
         
-        // Adicionar tile layer escuro
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          attribution: '©OpenStreetMap, ©CartoDB',
+        // Escolher tile layer baseado no tema
+        let tileLayerUrl;
+        let tileLayerAttribution;
+        
+        if (theme === 'dark') {
+          tileLayerUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+          tileLayerAttribution = '©OpenStreetMap, ©CartoDB';
+        } else {
+          tileLayerUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+          tileLayerAttribution = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+        }
+        
+        // Adicionar tile layer
+        L.tileLayer(tileLayerUrl, {
+          attribution: tileLayerAttribution,
           maxZoom: 19,
           className: 'map-tiles'
         }).addTo(map);
@@ -1343,17 +1357,22 @@
         
         const geojsonData = await response.json();
         
-        // Adicionar polígono de Itajubá
+        // Estilo para o perímetro (vermelho pontilhado)
+        const borderStyle = {
+          color: '#FF0000', // Vermelho
+          weight: 3,
+          opacity: 0.8,
+          fill: false, // Sem preenchimento
+          dashArray: '10, 10', // Linha pontilhada: 10px traço, 10px espaço
+          lineCap: 'round',
+          lineJoin: 'round'
+        };
+        
+        // Adicionar polígono de Itajubá (apenas perímetro)
         const itajubaLayer = L.geoJSON(geojsonData, {
-          style: {
-            fillColor: '#F2B705',
-            weight: 2,
-            opacity: 0.8,
-            color: '#D6A105',
-            fillOpacity: 0.15
-          },
+          style: borderStyle,
           onEachFeature: function(feature, layer) {
-            // Tooltip
+            // Tooltip com nome da cidade
             if (feature.properties && feature.properties.name) {
               layer.bindTooltip(feature.properties.name, {
                 permanent: false,
@@ -1361,6 +1380,15 @@
                 className: 'map-tooltip'
               });
             }
+            
+            // Popup com informações
+            layer.bindPopup(`
+              <div style="text-align: center; padding: 10px;">
+                <strong style="color: #FF0000; font-size: 16px;">${feature.properties.name || 'Itajubá'}</strong><br>
+                <span style="color: #666; font-size: 12px;">Município de Minas Gerais</span><br>
+                <small style="color: #888;">Localização da Engevis Engenharia</small>
+              </div>
+            `);
           }
         }).addTo(map);
         
@@ -1370,39 +1398,8 @@
           maxZoom: 13
         });
         
-        // Marcador personalizado da Engevis
-        const engevisIcon = L.divIcon({
-          html: `
-            <div style="
-              background: #F2B705;
-              width: 32px;
-              height: 32px;
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border: 3px solid #0F1A3A;
-              box-shadow: 0 0 15px rgba(242, 183, 5, 0.6);
-              animation: pulse 2s infinite;
-            ">
-              <i class="fas fa-bolt" style="color: #0F1A3A; font-size: 14px;"></i>
-            </div>
-            <style>
-              @keyframes pulse {
-                0% { box-shadow: 0 0 0 0 rgba(242, 183, 5, 0.7); }
-                70% { box-shadow: 0 0 0 10px rgba(242, 183, 5, 0); }
-                100% { box-shadow: 0 0 0 0 rgba(242, 183, 5, 0); }
-              }
-            </style>
-          `,
-          className: 'engevis-marker',
-          iconSize: [32, 32],
-          iconAnchor: [16, 16]
-        });
-        
-        // Adicionar marcador da Engevis
-        const engevisMarker = L.marker([-22.4238234, -45.4524156], { 
-          icon: engevisIcon,
+        // Marcar a localização da Engevis com marcador padrão (sem ícone personalizado)
+        const engevisMarker = L.marker([-22.4238234, -45.4524156], {
           title: 'Engevis Engenharia'
         }).addTo(map);
         
@@ -1410,9 +1407,27 @@
           <div style="text-align: center; padding: 10px;">
             <strong style="color: #F2B705; font-size: 16px;">Engevis Engenharia</strong><br>
             <span style="color: #666; font-size: 12px;">Engenharia de Energia e Elétrica</span><br>
-            <small style="color: #888;">Itajubá - MG</small>
+            <small style="color: #888;">Sede em Itajubá - MG</small>
           </div>
         `);
+        
+        // Centralizar no marcador ao clicar no polígono
+        itajubaLayer.on('click', function() {
+          map.setView([-22.4238234, -45.4524156], 13);
+          engevisMarker.openPopup();
+        });
+        
+        // Escutador para mudança de tema
+        if (window.matchMedia) {
+          const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+          darkModeMediaQuery.addEventListener('change', (e) => {
+            // Recarregar o mapa quando o tema mudar
+            setTimeout(() => {
+              map.remove();
+              initMap();
+            }, 100);
+          });
+        }
         
         // Esconder indicador de carregamento
         setTimeout(() => {
