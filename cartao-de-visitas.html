@@ -32,7 +32,9 @@
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     /* ==============================
        VARIÁVEIS E RESET
@@ -610,7 +612,7 @@
 
     .info-linha {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 15px;
       padding: 14px;
       background: rgba(255, 255, 255, 0.03);
@@ -648,11 +650,16 @@
       justify-content: center;
       margin-right: 14px;
       transition: all 0.3s ease;
+      margin-top: 2px;
     }
 
     .info-icone i {
       font-size: 1.1rem;
       color: var(--ouro-corporativo);
+    }
+
+    .info-conteudo {
+      flex: 1;
     }
 
     .info-conteudo h4 {
@@ -661,7 +668,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
     .info-conteudo p,
@@ -699,6 +706,78 @@
       font-size: 0.85rem;
       color: var(--ouro-corporativo);
       font-weight: 500;
+    }
+
+    /* ==============================
+       MAPA LEAFLET
+    ================================ */
+    .mapa-container {
+      margin-top: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(242, 183, 5, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      height: 200px;
+    }
+
+    #mapa-itajuba {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      border-radius: 11px;
+    }
+
+    .mapa-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(10, 15, 35, 0.1), rgba(15, 26, 58, 0.1));
+      pointer-events: none;
+      border-radius: 11px;
+      z-index: 2;
+    }
+
+    /* Carregamento do mapa */
+    .mapa-carregando {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 15, 35, 0.8);
+      z-index: 3;
+      border-radius: 11px;
+    }
+
+    .carregando-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(242, 183, 5, 0.3);
+      border-top: 3px solid var(--ouro-corporativo);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Estilos do Leaflet personalizados */
+    .leaflet-control-attribution {
+      background: rgba(10, 15, 35, 0.8) !important;
+      color: var(--cinza-medio) !important;
+      font-size: 10px !important;
+    }
+
+    .leaflet-control-attribution a {
+      color: var(--ouro-corporativo) !important;
     }
 
     /* ==============================
@@ -915,6 +994,10 @@
       .opcao-nome {
         font-size: 1rem;
       }
+      
+      .mapa-container {
+        height: 180px;
+      }
     }
 
     /* ==============================
@@ -977,7 +1060,7 @@
           </div>
           <div class="opcao-info">
             <div class="opcao-nome">Vinicios</div>
-            <div class="opcao-cargo">Sócio Fundador</div>
+            <div class="opcao-cargo">Engenheiro de Energia</div>
           </div>
           <div class="opcao-whatsapp">
             <i class="fab fa-whatsapp"></i>
@@ -1153,7 +1236,7 @@
           </div>
         </div>
 
-        <!-- LOCALIZAÇÃO -->
+        <!-- LOCALIZAÇÃO ITAJUBÁ -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-map-marker-alt"></i>
@@ -1161,6 +1244,15 @@
           <div class="info-conteudo">
             <h4>Sede</h4>
             <p>Itajubá - Minas Gerais</p>
+            
+            <!-- MAPA COM LEAFLET E CARREGAMENTO -->
+            <div class="mapa-container">
+              <div id="mapa-itajuba"></div>
+              <div class="mapa-carregando" id="mapaCarregando">
+                <div class="carregando-spinner"></div>
+              </div>
+              <div class="mapa-overlay"></div>
+            </div>
           </div>
         </div>
 
@@ -1220,8 +1312,134 @@
   <!-- MENSAGEM DE CÓPIA -->
   <div class="mensagem-copiada" id="mensagemCopiada">Copiado para área de transferência!</div>
 
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <script>
+    // ==============================
+    // MAPA DE ITAJUBÁ COM GEOJSON EXTERNO
+    // ==============================
+    async function initMap() {
+      try {
+        // Mostrar carregamento
+        const carregandoElement = document.getElementById('mapaCarregando');
+        
+        // Criar mapa
+        const map = L.map('mapa-itajuba').setView([-22.4238234, -45.4524156], 11);
+        
+        // Adicionar tile layer escuro
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+          attribution: '©OpenStreetMap, ©CartoDB',
+          maxZoom: 19,
+          className: 'map-tiles'
+        }).addTo(map);
+        
+        // Carregar GeoJSON externo
+        const response = await fetch('itajuba-limites.geojson');
+        
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo GeoJSON');
+        }
+        
+        const geojsonData = await response.json();
+        
+        // Adicionar polígono de Itajubá
+        const itajubaLayer = L.geoJSON(geojsonData, {
+          style: {
+            fillColor: '#F2B705',
+            weight: 2,
+            opacity: 0.8,
+            color: '#D6A105',
+            fillOpacity: 0.15
+          },
+          onEachFeature: function(feature, layer) {
+            // Tooltip
+            if (feature.properties && feature.properties.name) {
+              layer.bindTooltip(feature.properties.name, {
+                permanent: false,
+                direction: 'center',
+                className: 'map-tooltip'
+              });
+            }
+          }
+        }).addTo(map);
+        
+        // Ajustar o mapa para mostrar todo o polígono
+        map.fitBounds(itajubaLayer.getBounds(), {
+          padding: [20, 20],
+          maxZoom: 13
+        });
+        
+        // Marcador personalizado da Engevis
+        const engevisIcon = L.divIcon({
+          html: `
+            <div style="
+              background: #F2B705;
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 3px solid #0F1A3A;
+              box-shadow: 0 0 15px rgba(242, 183, 5, 0.6);
+              animation: pulse 2s infinite;
+            ">
+              <i class="fas fa-bolt" style="color: #0F1A3A; font-size: 14px;"></i>
+            </div>
+            <style>
+              @keyframes pulse {
+                0% { box-shadow: 0 0 0 0 rgba(242, 183, 5, 0.7); }
+                70% { box-shadow: 0 0 0 10px rgba(242, 183, 5, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(242, 183, 5, 0); }
+              }
+            </style>
+          `,
+          className: 'engevis-marker',
+          iconSize: [32, 32],
+          iconAnchor: [16, 16]
+        });
+        
+        // Adicionar marcador da Engevis
+        const engevisMarker = L.marker([-22.4238234, -45.4524156], { 
+          icon: engevisIcon,
+          title: 'Engevis Engenharia'
+        }).addTo(map);
+        
+        engevisMarker.bindPopup(`
+          <div style="text-align: center; padding: 10px;">
+            <strong style="color: #F2B705; font-size: 16px;">Engevis Engenharia</strong><br>
+            <span style="color: #666; font-size: 12px;">Engenharia de Energia e Elétrica</span><br>
+            <small style="color: #888;">Itajubá - MG</small>
+          </div>
+        `);
+        
+        // Esconder indicador de carregamento
+        setTimeout(() => {
+          carregandoElement.style.opacity = '0';
+          setTimeout(() => {
+            carregandoElement.style.display = 'none';
+          }, 300);
+        }, 500);
+        
+      } catch (error) {
+        console.error('Erro ao carregar mapa:', error);
+        
+        // Mostrar mensagem de erro
+        const carregandoElement = document.getElementById('mapaCarregando');
+        carregandoElement.innerHTML = `
+          <div style="text-align: center; color: #F2B705; padding: 20px;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 24px; margin-bottom: 10px;"></i><br>
+            <span style="font-size: 14px;">Erro ao carregar o mapa</span><br>
+            <small style="font-size: 12px; color: #A0A8C0;">Verifique o arquivo itajuba-limites.geojson</small>
+          </div>
+        `;
+      }
+    }
+    
+    // ==============================
     // Modal WhatsApp
+    // ==============================
     const modalWhatsApp = document.getElementById('modalWhatsApp');
     const btnWhatsApp = document.getElementById('btnWhatsApp');
     const fecharModal = document.getElementById('fecharModal');
@@ -1229,9 +1447,8 @@
     // Abrir modal
     btnWhatsApp.addEventListener('click', function() {
       modalWhatsApp.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Previne scroll
+      document.body.style.overflow = 'hidden';
       
-      // Adiciona animação de entrada
       if ('vibrate' in navigator) {
         navigator.vibrate(30);
       }
@@ -1271,7 +1488,9 @@
       }
     });
 
-    // Copiar informações com clique
+    // ==============================
+    // Copiar informações
+    // ==============================
     document.querySelectorAll('.info-conteudo a, .info-conteudo p, .telefone-numero').forEach(element => {
       element.style.cursor = 'pointer';
       element.addEventListener('click', function(e) {
@@ -1318,7 +1537,9 @@
       }, 2000);
     }
 
-    // Animar elementos ao rolar
+    // ==============================
+    // Animações
+    // ==============================
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1339,8 +1560,13 @@
       observer.observe(el);
     });
 
-    // Inicializar quando a página carregar
+    // ==============================
+    // Inicialização
+    // ==============================
     window.addEventListener('DOMContentLoaded', () => {
+      // Inicializar mapa
+      initMap();
+      
       // Animação de entrada para o cabeçalho
       const elementosEntrada = document.querySelectorAll('.cabecalho-corporativo > *');
       elementosEntrada.forEach((el, index) => {
