@@ -2,30 +2,66 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="images/logo.PNG" type="image/png">
-  <title>Engevis Engenharia | Cartão Digital</title>
+  <link rel="icon" href="https://engevisengenharia.github.io/images/logo.PNG" type="image/png">
+  <title>Engevis Engenharia | Engenharia de Energia e Elétrica - Itajubá/MG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Engevis Engenharia de Energia e Elétrica - Soluções completas em projetos elétricos, eficiência energética e energia renovável.">
   
-  <!-- Open Graph / Facebook -->
+  <!-- META TAGS PRINCIPAIS -->
+  <meta name="description" content="🔌 Engevis Engenharia - Especialistas em Projetos Elétricos, Energia Solar, Eficiência Energética e Execução Industrial. Atendemos Itajubá/MG e região. Solicite seu orçamento!">
+  <meta name="keywords" content="engenharia elétrica, energia solar, projetos elétricos, eficiência energética, itajubá, minas gerais, eletricista, energia renovável">
+  <meta name="author" content="Engevis Engenharia">
+  <meta name="robots" content="index, follow">
+  
+  <!-- OPEN GRAPH / FACEBOOK / WHATSAPP / LINKEDIN -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://engevisengenharia.github.io/cartao-digital.html">
-  <meta property="og:title" content="Engevis Engenharia | Cartão Digital">
-  <meta property="og:description" content="Engenharia de Energia e Elétrica - Projetos Elétricos, Energia Solar, Eficiência Energética e Execução Industrial. Entre em contato!">
+  <meta property="og:title" content="Engevis Engenharia | Engenharia de Energia e Elétrica">
+  <meta property="og:description" content="⚡ Projetos Elétricos | ☀️ Energia Solar | 📊 Eficiência Energética | 🏭 Execução Industrial. Sede em Itajubá/MG. WhatsApp: (35) 99916-5674">
   <meta property="og:image" content="https://engevisengenharia.github.io/images/capa-whatsapp.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Engevis Engenharia - Cartão Digital de Visitas">
+  <meta property="og:image:alt" content="Engevis Engenharia - Cartão Digital de Visitas - Engenharia de Energia e Elétrica em Itajubá/MG">
+  <meta property="og:site_name" content="Engevis Engenharia">
+  <meta property="og:locale" content="pt_BR">
   
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://engevisengenharia.github.io/cartao-digital.html">
-  <meta property="twitter:title" content="Engevis Engenharia | Cartão Digital">
-  <meta property="twitter:description" content="Engenharia de Energia e Elétrica - Projetos Elétricos, Energia Solar, Eficiência Energética e Execução Industrial. Entre em contato!">
-  <meta property="twitter:image" content="https://engevisengenharia.github.io/images/capa-whatsapp.jpg">
+  <!-- META ESPECÍFICAS PARA WHATSAPP -->
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:secure_url" content="https://engevisengenharia.github.io/images/capa-whatsapp.jpg">
+  <meta property="og:phone_number" content="+5535999165674">
+  <meta property="og:email" content="engevisengenharia@outlook.com">
   
-  <!-- Apple iOS -->
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://engevisengenharia.github.io/cartao-digital.html">
+  <meta name="twitter:title" content="Engevis Engenharia | Engenharia de Energia e Elétrica">
+  <meta name="twitter:description" content="⚡ Projetos Elétricos • ☀️ Energia Solar • 📊 Eficiência Energética • 🏭 Execução Industrial. Atendimento em Itajubá/MG e região.">
+  <meta name="twitter:image" content="https://engevisengenharia.github.io/images/capa-whatsapp.jpg">
+  <meta name="twitter:image:alt" content="Logo Engevis Engenharia - Especialistas em Engenharia Elétrica e Energia">
+  
+  <!-- META PARA DISPLAY EM APPS -->
+  <meta name="theme-color" content="#0A0F23">
+  <meta name="msapplication-TileColor" content="#0A0F23">
+  <meta name="msapplication-TileImage" content="https://engevisengenharia.github.io/images/logo.PNG">
+  
+  <!-- APPLE TOUCH ICON -->
+  <link rel="apple-touch-icon" href="https://engevisengenharia.github.io/images/logo.PNG">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Engevis Engenharia">
+  
+  <!-- ANDROID CHROME -->
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- META PARA BUSCADORES -->
+  <meta name="geo.region" content="BR-MG">
+  <meta name="geo.placename" content="Itajubá">
+  <meta name="geo.position" content="-22.4238234;-45.4524156">
+  <meta name="ICBM" content="-22.4238234, -45.4524156">
+  
+  <!-- META DE CONTATO -->
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="telephone" content="+5535999165674">
+  <meta name="contact" content="engevisengenharia@outlook.com">
   
   <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,6 +71,7 @@
   
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
   <style>
     /* ==============================
        VARIÁVEIS E RESET
@@ -63,10 +100,11 @@
       width: 100%;
       min-height: 100vh;
       font-family: 'Montserrat', sans-serif;
-      background: var(--azul-profundo);
+      background: #020b1c;
       color: var(--branco-puro);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
     }
 
     body {
@@ -75,10 +113,11 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      position: relative;
     }
 
-    /* Efeito de grade técnica no fundo */
+    /* ==============================
+       BACKGROUND MODERNO E TECNOLÓGICO
+    ================================ */
     body::before {
       content: '';
       position: fixed;
@@ -86,12 +125,112 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: 
-        linear-gradient(rgba(31, 79, 216, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(31, 79, 216, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
+      background: 
+        linear-gradient(135deg, #020b1c 0%, #041430 40%, #020b1c 100%);
+      z-index: -3;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(31, 79, 216, 0.03) 40px,
+          rgba(31, 79, 216, 0.03) 80px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 40px,
+          rgba(0, 140, 255, 0.02) 40px,
+          rgba(0, 140, 255, 0.02) 80px
+        );
+      z-index: -2;
+      animation: moveDiagonal 120s linear infinite;
+    }
+
+    .fundo-geometrico {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .forma-1 {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, 
+        rgba(31, 79, 216, 0.08) 0%,
+        rgba(0, 140, 255, 0.04) 50%,
+        transparent 100%);
+      transform: rotate(45deg);
+      border-radius: 20px;
+      animation: floatForma1 25s ease-in-out infinite;
+    }
+
+    .forma-2 {
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(45deg, 
+        rgba(0, 40, 85, 0.06) 0%,
+        rgba(0, 140, 255, 0.03) 50%,
+        transparent 100%);
+      transform: rotate(-30deg);
+      border-radius: 30px;
+      animation: floatForma2 30s ease-in-out infinite;
+    }
+
+    .forma-3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(15deg);
+      width: 600px;
+      height: 300px;
+      background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(31, 79, 216, 0.05) 30%,
+        rgba(0, 140, 255, 0.02) 70%,
+        transparent 100%);
+      border-radius: 10px;
+      animation: floatForma3 20s ease-in-out infinite;
+    }
+
+    @keyframes moveDiagonal {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes floatForma1 {
+      0%, 100% { transform: rotate(45deg) translate(0, 0); }
+      50% { transform: rotate(45deg) translate(20px, 20px); }
+    }
+
+    @keyframes floatForma2 {
+      0%, 100% { transform: rotate(-30deg) translate(0, 0); }
+      50% { transform: rotate(-30deg) translate(-20px, 20px); }
+    }
+
+    @keyframes floatForma3 {
+      0%, 100% { transform: translate(-50%, -50%) rotate(15deg) scale(1); }
+      50% { transform: translate(-50%, -50%) rotate(15deg) scale(1.05); }
     }
 
     /* ==============================
@@ -196,7 +335,6 @@
       line-height: 1.5;
     }
 
-    /* Redes Sociais no Cabeçalho */
     .redes-cabecalho {
       display: flex;
       justify-content: center;
@@ -253,7 +391,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
-    /* Moldura dourada */
     .cartao-corporativo::before {
       content: '';
       position: absolute;
@@ -268,8 +405,26 @@
         transparent 100%);
     }
 
+    .cartao-corporativo::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(242, 183, 5, 0.03) 50%,
+        transparent 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 20px;
+    }
+
     /* ==============================
-       BOTÕES DE AÇÃO CORPORATIVOS (AGORA PRIMEIROS)
+       BOTÕES DE AÇÃO CORPORATIVOS
     ================================ */
     .acoes-corporativas {
       display: grid;
@@ -291,6 +446,7 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
 
     .btn-corporativo:hover {
@@ -319,7 +475,6 @@
       line-height: 1.3;
     }
 
-    /* Cores específicas para cada botão */
     .btn-whatsapp {
       background: rgba(37, 211, 102, 0.1);
       border-color: rgba(37, 211, 102, 0.2);
@@ -602,7 +757,7 @@
     }
 
     /* ==============================
-       INFORMAÇÕES CORPORATIVAS (AGORA DEPOIS DOS BOTÕES)
+       INFORMAÇÕES CORPORATIVAS
     ================================ */
     .info-corporativa {
       position: relative;
@@ -691,7 +846,6 @@
       font-size: 1.05rem;
     }
 
-    /* Estilo para telefones com nome */
     .telefone-com-nome {
       display: flex;
       flex-direction: column;
@@ -740,7 +894,6 @@
       z-index: 2;
     }
 
-    /* Carregamento do mapa */
     .mapa-carregando {
       position: absolute;
       top: 0;
@@ -1030,6 +1183,13 @@
 </head>
 
 <body>
+  <!-- FUNDO GEOMÉTRICO -->
+  <div class="fundo-geometrico">
+    <div class="forma-1"></div>
+    <div class="forma-2"></div>
+    <div class="forma-3"></div>
+  </div>
+
   <!-- MODAL DE SELEÇÃO WHATSAPP -->
   <div class="modal-whatsapp" id="modalWhatsApp">
     <div class="modal-conteudo">
@@ -1049,8 +1209,8 @@
           </div>
           <div class="opcao-info">
             <div class="opcao-nome">Vinicios</div>
-              <div class="opcao-cargo">Sócio Fundador</div>
-            <div class="opcao-cargo">Engenheiria de Energia</div>
+            <div class="opcao-cargo">Sócio Fundador</div>
+            <div class="opcao-cargo">Engenharia de Energia</div>
           </div>
           <div class="opcao-whatsapp">
             <i class="fab fa-whatsapp"></i>
@@ -1063,8 +1223,8 @@
           </div>
           <div class="opcao-info">
             <div class="opcao-nome">Rodrigo</div>
-              <div class="opcao-cargo">Sócio Fundador</div>
-            <div class="opcao-cargo">Engenheiria Elétrica</div>
+            <div class="opcao-cargo">Sócio Fundador</div>
+            <div class="opcao-cargo">Engenharia Elétrica</div>
           </div>
           <div class="opcao-whatsapp">
             <i class="fab fa-whatsapp"></i>
@@ -1103,9 +1263,8 @@
 
     <!-- CARTAO CORPORATIVO -->
     <div class="cartao-corporativo">
-      <!-- BOTÕES DE AÇÃO (AGORA PRIMEIROS) -->
+      <!-- BOTÕES DE AÇÃO -->
       <div class="acoes-corporativas">
-        <!-- Botão WhatsApp atualizado para abrir modal -->
         <button class="btn-corporativo btn-whatsapp" id="btnWhatsApp">
           <i class="fab fa-whatsapp btn-icone"></i>
           <span class="btn-texto">WhatsApp Direto</span>
@@ -1135,7 +1294,6 @@
         </h3>
         
         <div class="projetos-grid">
-          <!-- Projeto 1 - Residencial -->
           <div class="projeto-card" onclick="window.open('https://engevisengenharia.github.io/projetos-eletricos.html', '_blank')">
             <div class="projeto-imagem" style="background: linear-gradient(135deg, #25D366 0%, #0A0F23 100%);">
               <i class="fas fa-home"></i>
@@ -1146,7 +1304,6 @@
             </div>
           </div>
           
-          <!-- Projeto 2 - Energia Solar -->
           <div class="projeto-card" onclick="window.open('https://engevisengenharia.github.io/renovaveis.html', '_blank')">
             <div class="projeto-imagem" style="background: linear-gradient(135deg, #F2B705 0%, #0A0F23 100%);">
               <i class="fas fa-solar-panel"></i>
@@ -1157,7 +1314,6 @@
             </div>
           </div>
 
-          <!-- Projeto 3 - Industrial -->
           <div class="projeto-card" onclick="window.open('https://engevisengenharia.github.io/projetos-eletricos.html', '_blank')">
             <div class="projeto-imagem" style="background: linear-gradient(135deg, #1F4FD8 0%, #0A0F23 100%);">
               <i class="fas fa-industry"></i>
@@ -1168,7 +1324,6 @@
             </div>
           </div>
 
-          <!-- Projeto 4 - Eficiência -->
           <div class="projeto-card" onclick="window.open('https://engevisengenharia.github.io/eficiencia.html', '_blank')">
             <div class="projeto-imagem" style="background: linear-gradient(135deg, #FF6B6B 0%, #0A0F23 100%);">
               <i class="fas fa-chart-line"></i>
@@ -1188,7 +1343,6 @@
 
       <!-- INFORMAÇÕES CORPORATIVAS -->
       <div class="info-corporativa">
-        <!-- TELEFONE VINICIOS -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-phone-alt"></i>
@@ -1202,7 +1356,6 @@
           </div>
         </div>
 
-        <!-- TELEFONE RODRIGO -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-mobile-alt"></i>
@@ -1216,7 +1369,6 @@
           </div>
         </div>
 
-        <!-- E-MAIL -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-envelope"></i>
@@ -1227,7 +1379,6 @@
           </div>
         </div>
 
-        <!-- LOCALIZAÇÃO ITAJUBÁ -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-map-marker-alt"></i>
@@ -1236,7 +1387,6 @@
             <h4>Sede</h4>
             <p>Itajubá - Minas Gerais</p>
             
-            <!-- MAPA COM LEAFLET E CARREGAMENTO -->
             <div class="mapa-container">
               <div id="mapa-itajuba"></div>
               <div class="mapa-carregando" id="mapaCarregando">
@@ -1247,7 +1397,6 @@
           </div>
         </div>
 
-        <!-- ESPECIALIZAÇÃO PRINCIPAL -->
         <div class="info-linha">
           <div class="info-icone">
             <i class="fas fa-cogs"></i>
@@ -1259,34 +1408,17 @@
         </div>
       </div>
 
-      <!-- ESPECIALIZAÇÕES -->
       <div class="especializacoes-corporativas">
         <h3 class="especializacoes-titulo">Áreas de Expertise</h3>
         <div class="chips-corporativos">
-          <span class="chip-corporativo">
-            <i class="fas fa-drafting-compass"></i> Projetos Elétricos
-          </span>
-          <span class="chip-corporativo">
-            <i class="fas fa-solar-panel"></i> Energia Solar
-          </span>
-          <span class="chip-corporativo">
-            <i class="fas fa-chart-line"></i> Eficiência Energética
-          </span>
-          <span class="chip-corporativo">
-            <i class="fas fa-industry"></i> Consultoria e Auditoria Industrial
-          </span>
-          <span class="chip-corporativo">
-            <i class="fas fa-file-contract"></i> ART & Documentação
-          </span>
-          <span class="chip-corporativo">
-            <i class="fas fa-tractor"></i> Agronegócio
-          </span>
-          <span class="chip-corporativo">
-            <i class="fas fa-building"></i> Construção Civil
-          </span>
-          <span class="chip-corporativo">
-            <i class="fas fa-lightbulb"></i> Automação
-          </span>
+          <span class="chip-corporativo"><i class="fas fa-drafting-compass"></i> Projetos Elétricos</span>
+          <span class="chip-corporativo"><i class="fas fa-solar-panel"></i> Energia Solar</span>
+          <span class="chip-corporativo"><i class="fas fa-chart-line"></i> Eficiência Energética</span>
+          <span class="chip-corporativo"><i class="fas fa-industry"></i> Consultoria Industrial</span>
+          <span class="chip-corporativo"><i class="fas fa-file-contract"></i> ART & Documentação</span>
+          <span class="chip-corporativo"><i class="fas fa-tractor"></i> Agronegócio</span>
+          <span class="chip-corporativo"><i class="fas fa-building"></i> Construção Civil</span>
+          <span class="chip-corporativo"><i class="fas fa-lightbulb"></i> Automação</span>
         </div>
       </div>
     </div>
@@ -1307,9 +1439,6 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    // ==============================
-    // DETECTAR PREFERÊNCIA DE TEMA
-    // ==============================
     function getPreferredTheme() {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark';
@@ -1317,21 +1446,12 @@
       return 'light';
     }
 
-    // ==============================
-    // MAPA DE ITAJUBÁ COM GEOJSON EXTERNO
-    // ==============================
     async function initMap() {
       try {
-        // Mostrar carregamento
         const carregandoElement = document.getElementById('mapaCarregando');
-        
-        // Obter tema preferido
         const theme = getPreferredTheme();
-        
-        // Criar mapa
         const map = L.map('mapa-itajuba').setView([-22.4238234, -45.4524156], 11);
         
-        // Escolher tile layer baseado no tema
         let tileLayerUrl;
         let tileLayerAttribution;
         
@@ -1343,14 +1463,12 @@
           tileLayerAttribution = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
         }
         
-        // Adicionar tile layer
         L.tileLayer(tileLayerUrl, {
           attribution: tileLayerAttribution,
           maxZoom: 19,
           className: 'map-tiles'
         }).addTo(map);
         
-        // Carregar GeoJSON externo
         const response = await fetch('itajuba-limites.geojson');
         
         if (!response.ok) {
@@ -1359,22 +1477,20 @@
         
         const geojsonData = await response.json();
         
-        // Estilo para o perímetro (vermelho pontilhado)
         const borderStyle = {
-          color: '#FF0000', // Vermelho
+          color: '#F2B705',
           weight: 3,
-          opacity: 0.8,
-          fill: false, // Sem preenchimento
-          dashArray: '10, 10', // Linha pontilhada: 10px traço, 10px espaço
+          opacity: 0.9,
+          fill: true,
+          fillColor: '#0F1A3A',
+          fillOpacity: 0.1,
           lineCap: 'round',
           lineJoin: 'round'
         };
         
-        // Adicionar polígono de Itajubá (apenas perímetro)
         const itajubaLayer = L.geoJSON(geojsonData, {
           style: borderStyle,
           onEachFeature: function(feature, layer) {
-            // Tooltip com nome da cidade
             if (feature.properties && feature.properties.name) {
               layer.bindTooltip(feature.properties.name, {
                 permanent: false,
@@ -1383,24 +1499,21 @@
               });
             }
             
-            // Popup com informações
             layer.bindPopup(`
               <div style="text-align: center; padding: 10px;">
-                <strong style="color: #FF0000; font-size: 16px;">${feature.properties.name || 'Itajubá'}</strong><br>
-                <span style="color: #666; font-size: 12px;">Município de Minas Gerais</span><br>
-                <small style="color: #888;">Localização da Engevis Engenharia</small>
+                <strong style="color: #F2B705; font-size: 16px;">${feature.properties.name || 'Itajubá'}</strong><br>
+                <span style="color: #A0A8C0; font-size: 12px;">Município de Minas Gerais</span><br>
+                <small style="color: #888;">Perímetro municipal</small>
               </div>
             `);
           }
         }).addTo(map);
         
-        // Ajustar o mapa para mostrar todo o polígono
         map.fitBounds(itajubaLayer.getBounds(), {
           padding: [20, 20],
           maxZoom: 13
         });
         
-        // Marcar a localização da Engevis com marcador padrão (sem ícone personalizado)
         const engevisMarker = L.marker([-22.4238234, -45.4524156], {
           title: 'Engevis Engenharia'
         }).addTo(map);
@@ -1413,17 +1526,14 @@
           </div>
         `);
         
-        // Centralizar no marcador ao clicar no polígono
         itajubaLayer.on('click', function() {
           map.setView([-22.4238234, -45.4524156], 13);
           engevisMarker.openPopup();
         });
         
-        // Escutador para mudança de tema
         if (window.matchMedia) {
           const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
           darkModeMediaQuery.addEventListener('change', (e) => {
-            // Recarregar o mapa quando o tema mudar
             setTimeout(() => {
               map.remove();
               initMap();
@@ -1431,7 +1541,6 @@
           });
         }
         
-        // Esconder indicador de carregamento
         setTimeout(() => {
           carregandoElement.style.opacity = '0';
           setTimeout(() => {
@@ -1442,7 +1551,6 @@
       } catch (error) {
         console.error('Erro ao carregar mapa:', error);
         
-        // Mostrar mensagem de erro
         const carregandoElement = document.getElementById('mapaCarregando');
         carregandoElement.innerHTML = `
           <div style="text-align: center; color: #F2B705; padding: 20px;">
@@ -1454,75 +1562,45 @@
       }
     }
     
-    // ==============================
-    // Modal WhatsApp
-    // ==============================
     const modalWhatsApp = document.getElementById('modalWhatsApp');
     const btnWhatsApp = document.getElementById('btnWhatsApp');
     const fecharModal = document.getElementById('fecharModal');
 
-    // Abrir modal
     btnWhatsApp.addEventListener('click', function() {
       modalWhatsApp.classList.add('active');
       document.body.style.overflow = 'hidden';
-      
-      if ('vibrate' in navigator) {
-        navigator.vibrate(30);
-      }
+      if ('vibrate' in navigator) navigator.vibrate(30);
     });
 
-    // Fechar modal
     fecharModal.addEventListener('click', function() {
       modalWhatsApp.classList.remove('active');
       document.body.style.overflow = 'auto';
-      
-      if ('vibrate' in navigator) {
-        navigator.vibrate(30);
-      }
+      if ('vibrate' in navigator) navigator.vibrate(30);
     });
 
-    // Fechar modal ao clicar fora
     modalWhatsApp.addEventListener('click', function(e) {
       if (e.target === modalWhatsApp) {
         modalWhatsApp.classList.remove('active');
         document.body.style.overflow = 'auto';
-        
-        if ('vibrate' in navigator) {
-          navigator.vibrate(30);
-        }
+        if ('vibrate' in navigator) navigator.vibrate(30);
       }
     });
 
-    // Fechar modal com ESC
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && modalWhatsApp.classList.contains('active')) {
         modalWhatsApp.classList.remove('active');
         document.body.style.overflow = 'auto';
-        
-        if ('vibrate' in navigator) {
-          navigator.vibrate(30);
-        }
+        if ('vibrate' in navigator) navigator.vibrate(30);
       }
     });
 
-    // ==============================
-    // Copiar informações
-    // ==============================
     document.querySelectorAll('.info-conteudo a, .info-conteudo p, .telefone-numero').forEach(element => {
       element.style.cursor = 'pointer';
       element.addEventListener('click', function(e) {
-        if (this.tagName === 'A') {
-          e.preventDefault();
-        }
-        
+        if (this.tagName === 'A') e.preventDefault();
         const textToCopy = this.textContent;
-        
         if (navigator.clipboard) {
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            mostrarMensagemCopia();
-          }).catch(() => {
-            copiarFallback(textToCopy);
-          });
+          navigator.clipboard.writeText(textToCopy).then(() => mostrarMensagemCopia()).catch(() => copiarFallback(textToCopy));
         } else {
           copiarFallback(textToCopy);
         }
@@ -1544,19 +1622,10 @@
     function mostrarMensagemCopia() {
       const mensagem = document.getElementById('mensagemCopiada');
       mensagem.classList.add('show');
-      
-      if ('vibrate' in navigator) {
-        navigator.vibrate(30);
-      }
-      
-      setTimeout(() => {
-        mensagem.classList.remove('show');
-      }, 2000);
+      if ('vibrate' in navigator) navigator.vibrate(30);
+      setTimeout(() => mensagem.classList.remove('show'), 2000);
     }
 
-    // ==============================
-    // Animações
-    // ==============================
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1565,32 +1634,21 @@
           entry.target.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -30px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-    // Observar elementos para animação
     document.querySelectorAll('.projeto-card, .info-linha, .btn-corporativo, .chip-corporativo').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(15px)';
       observer.observe(el);
     });
 
-    // ==============================
-    // Inicialização
-    // ==============================
     window.addEventListener('DOMContentLoaded', () => {
-      // Inicializar mapa
       initMap();
-      
-      // Animação de entrada para o cabeçalho
       const elementosEntrada = document.querySelectorAll('.cabecalho-corporativo > *');
       elementosEntrada.forEach((el, index) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        
         setTimeout(() => {
           el.style.opacity = '1';
           el.style.transform = 'translateY(0)';
@@ -1598,7 +1656,6 @@
       });
     });
 
-    // Otimização para touch
     document.addEventListener('touchstart', function() {}, {passive: true});
     document.addEventListener('touchmove', function() {}, {passive: true});
   </script>
