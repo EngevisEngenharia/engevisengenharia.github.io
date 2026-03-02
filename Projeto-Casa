@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.PNG" type="image/png">
+  <title>Residência Unifamiliar em Condomínio | Projeto Engevis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Projeto elétrico e análise de eficiência energética em ambiente BIM para residência de alto padrão. Modelagem 3D, estudos solares e preparação para geração fotovoltaica.">
+
+  <!-- Fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==================================================================================
+       VARIÁVEIS GLOBAIS E ESTILOS BASE (IDENTIDADE ENGEVIS)
+    ================================================================================== */
+    :root {
+      --azul-base: #0B1020;
+      --azul-tecnico: #1F4FD8;
+      --amarelo: #F2B705;
+      --amarelo-escuro: #D6A105;
+      --branco: #FFFFFF;
+      --cinza: #B0B6C3;
+      --cinza-escuro: #7A8192;
+      --azul-card: #11162b;
+      --azul-card-hover: #141a35;
+      --azul-escuro: #070B1A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--azul-base);
+      color: var(--branco);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ==============================
+       ANIMAÇÕES GLOBAIS
+    ================================ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==============================
+       HEADER / NAVEGAÇÃO
+    ================================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(11, 16, 32, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(31, 79, 216, 0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu > li > a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--branco);
+      position: relative;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-menu > li > a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--amarelo);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu > li > a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu > li > a:hover {
+      color: var(--amarelo);
+    }
+
+    .nav-btn {
+      background-color: var(--amarelo);
+      color: var(--azul-base) !important;
+      padding: 10px 25px !important;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+
+    .nav-btn::after {
+      display: none !important;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--amarelo-escuro);
+      transform: translateY(-2px);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 140%;
+      left: 0;
+      background-color: rgba(11, 16, 32, 0.98);
+      min-width: 280px;
+      padding: 15px 0;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 999;
+      list-style: none;
+    }
+
+    .dropdown-menu li {
+      width: 100%;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 0.9rem;
+      color: var(--branco);
+      display: block;
+    }
+
+    .dropdown-menu a::after {
+      display: none !important;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--amarelo);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      background-color: var(--branco);
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu > li > a.active {
+      color: var(--amarelo);
+    }
+
+    .nav-menu > li > a.active::after {
+      width: 100%;
+    }
+
+    /* ==============================
+       HERO DA PÁGINA DE PROJETO
+    ================================ */
+    .projeto-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 140px 20px 80px;
+      margin-top: 70px;
+      background: linear-gradient(rgba(11, 16, 32, 0.85), rgba(11, 16, 32, 0.9)),
+                  url('images/residencia-bg.jpg') center/cover no-repeat;
+    }
+
+    .projeto-hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .projeto-hero .slogan {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .projeto-hero .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .projeto-hero .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ==============================
+       SEÇÕES DE CONTEÚDO
+    ================================ */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background-color: var(--amarelo);
+      display: block;
+      margin-top: 15px;
+      border-radius: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      max-width: 900px;
+      margin-bottom: 50px;
+      line-height: 1.8;
+    }
+
+    .bg-base {
+      background-color: var(--azul-base);
+    }
+
+    .bg-card {
+      background-color: var(--azul-card);
+    }
+
+    .bg-escuro {
+      background-color: var(--azul-escuro);
+    }
+
+    /* Grid para cards de imagem + texto */
+    .projeto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .projeto-grid.reverse {
+      direction: rtl;
+    }
+
+    .projeto-grid.reverse .projeto-texto {
+      direction: ltr;
+    }
+
+    .projeto-imagem {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .projeto-imagem img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.4s ease;
+    }
+
+    .projeto-imagem:hover img {
+      transform: scale(1.02);
+    }
+
+    .projeto-texto h3 {
+      font-size: 2rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+    }
+
+    .projeto-texto p {
+      color: var(--cinza);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .projeto-texto ul {
+      list-style: none;
+    }
+
+    .projeto-texto li {
+      color: var(--cinza);
+      margin-bottom: 12px;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .projeto-texto li::before {
+      content: "•";
+      color: var(--amarelo);
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0;
+      top: -4px;
+    }
+
+    /* Cards para seções com múltiplos itens */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card-item {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid var(--amarelo);
+      transition: transform 0.3s ease;
+    }
+
+    .card-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-item i {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+    }
+
+    .card-item h4 {
+      font-size: 1.4rem;
+      color: var(--branco);
+      margin-bottom: 15px;
+    }
+
+    .card-item p {
+      color: var(--cinza);
+      line-height: 1.7;
+    }
+
+    /* Diferenciais */
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .diferencial-card {
+      background: var(--azul-card);
+      padding: 40px 30px;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .diferencial-card:hover {
+      transform: translateY(-10px);
+      background: var(--azul-card-hover);
+      border-color: var(--amarelo);
+    }
+
+    .diferencial-icon {
+      font-size: 2.8rem;
+      color: var(--amarelo);
+      margin-bottom: 25px;
+    }
+
+    .diferencial-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .diferencial-card p {
+      color: var(--cinza);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* CTA */
+    .cta-final {
+      padding: 80px 0;
+      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+                  url("images/cta-bg.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .cta-quadro {
+      background-color: var(--azul-card);
+      padding: 60px 40px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--branco);
+    }
+
+    .cta-subtitle {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background-color: transparent;
+      border: 2px solid var(--amarelo);
+      color: var(--amarelo);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--amarelo);
+      color: var(--azul-base);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
+    }
+
+    .btn-large {
+      padding: 18px 45px;
+      font-size: 1.1rem;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: var(--branco);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
+      color: var(--branco);
+    }
+
+    /* ==============================
+       FOOTER
+    ================================ */
+    .footer {
+      width: 100%;
+      background-color: var(--azul-escuro);
+      padding: 80px 0 0;
+      border-top: 1px solid rgba(31, 79, 216, 0.15);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      width: 90px;
+    }
+
+    .footer-slogan {
+      color: var(--cinza);
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-links h3,
+    .footer-contact h3 {
+      color: var(--branco);
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--cinza);
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 2px 0;
+      display: inline-block;
+    }
+
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--amarelo);
+      transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--amarelo);
+      padding-left: 6px;
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+
+    .footer-contact p {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--cinza);
+      margin-bottom: 14px;
+    }
+
+    .footer-contact i {
+      color: var(--amarelo);
+      min-width: 18px;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 40px 0 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--amarelo);
+      transform: translateY(-3px);
+    }
+
+    .footer-social i {
+      color: var(--branco);
+    }
+
+    .copyright {
+      text-align: center;
+      width: 100%;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .copyright p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+      margin: 0 0 5px 0;
+      line-height: 1.4;
+    }
+
+    .copyright span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--cinza);
+      opacity: 0.8;
+    }
+
+    /* ==============================
+       WHATSAPP FIXO E MODAL
+    ================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      animation: bounce 2s infinite;
+      z-index: 9999;
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-12px); }
+      60% { transform: translateY(-6px); }
+    }
+
+    .modal-whatsapp {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-whatsapp.mostrar {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-conteudo {
+      background-color: var(--azul-card);
+      max-width: 450px;
+      width: 90%;
+      border-radius: 12px;
+      padding: 30px 20px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(242, 183, 5, 0.2);
+    }
+
+    .modal-fechar {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--cinza);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .modal-fechar:hover {
+      color: var(--amarelo);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .modal-titulo {
+      color: var(--branco);
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .modal-titulo i {
+      color: #25D366;
+      font-size: 1.8rem;
+    }
+
+    .opcoes-whatsapp {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .opcao-contato {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .opcao-contato:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--amarelo);
+      transform: translateY(-2px);
+    }
+
+    .opcao-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--azul-escuro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--amarelo);
+    }
+
+    .opcao-avatar i {
+      font-size: 1.8rem;
+      color: var(--amarelo);
+    }
+
+    .opcao-info {
+      flex: 1;
+    }
+
+    .opcao-nome {
+      color: var(--branco);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .opcao-cargo {
+      color: var(--cinza);
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .opcao-whatsapp i {
+      font-size: 2rem;
+      color: #25D366;
+      transition: transform 0.3s ease;
+    }
+
+    .opcao-contato:hover .opcao-whatsapp i {
+      transform: scale(1.1);
+    }
+
+    /* ==============================
+       RESPONSIVIDADE
+    ================================ */
+    @media (max-width: 1024px) {
+      .projeto-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .projeto-grid.reverse {
+        direction: ltr;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .projeto-hero .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--azul-base);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 40px 0;
+        gap: 30px;
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .projeto-hero .hero-title {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .projeto-texto h3 {
+        font-size: 1.8rem;
+      }
+
+      .cta-title {
+        font-size: 2rem;
+      }
+
+      .footer-container {
+        padding: 0 20px;
+      }
+
+      .footer-grid {
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projeto-hero {
+        padding: 120px 20px 60px;
+      }
+
+      .projeto-hero .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .projeto-texto h3 {
+        font-size: 1.5rem;
+      }
+
+      .btn, .btn-large {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cta-quadro {
+        padding: 40px 20px;
+      }
+
+      .cta-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="logo">
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html">A Engevis</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Atuação <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="renovaveis.html">Energia Renovável</a></li>
+            <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
+          </ul>
+        </li>
+        <li><a href="#contato" class="nav-btn">Contato</a></li>
+      </ul>
+      <button class="hamburger">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="projeto-hero">
+  <div class="container">
+    <div class="projeto-hero-content">
+      <span class="slogan">Projeto Executado</span>
+      <h1 class="hero-title">Residência Unifamiliar em Condomínio</h1>
+      <p class="hero-subtitle">
+        Projeto Elétrico e Análise de Eficiência Energética em Ambiente BIM
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTEXTO ================= -->
+<section class="bg-base">
+  <div class="container">
+    <h2 class="section-title">1. Contexto do Projeto</h2>
+    <p class="section-intro">
+      Projeto elétrico desenvolvido para residência unifamiliar de alto padrão em condomínio fechado, modelado integralmente em ambiente BIM por meio do Autodesk Revit.
+    </p>
+    <div class="cards-grid">
+      <div class="card-item">
+        <i class="fas fa-cube"></i>
+        <h4>Modelagem elétrica tridimensional</h4>
+        <p>Distribuição e identificação de circuitos, prumadas e quadros elétricos.</p>
+      </div>
+      <div class="card-item">
+        <i class="fas fa-chart-pie"></i>
+        <h4>Quadro de cargas e balanceamento</h4>
+        <p>Dimensionamento e equilíbrio de fases para eficiência do sistema trifásico.</p>
+      </div>
+      <div class="card-item">
+        <i class="fas fa-solar-panel"></i>
+        <h4>Expansão e geração fotovoltaica</h4>
+        <p>Previsão de integração com sistema solar e espaço técnico preparado.</p>
+      </div>
+      <div class="card-item">
+        <i class="fas fa-sun"></i>
+        <h4>Estudos solares e desempenho</h4>
+        <p>Análises de incidência solar e comportamento energético da edificação.</p>
+      </div>
+    </div>
+    <p style="color: var(--cinza); margin-top: 40px;">
+      O desenvolvimento ocorreu de forma integrada à arquitetura, com foco na compatibilização e organização técnica do sistema.
+    </p>
+  </div>
+</section>
+
+<!-- ================= MODELAGEM 3D ================= -->
+<section class="bg-escuro">
+  <div class="container">
+    <div class="projeto-grid">
+      <div class="projeto-imagem">
+        <img src="images/modelagem-3d.jpg" alt="Modelagem 3D completa da elétrica">
+        <!-- Substitua pela imagem real -->
+      </div>
+      <div class="projeto-texto">
+        <h3>2. Modelagem Elétrica 3D</h3>
+        <p>O sistema elétrico foi modelado integralmente em 3D, permitindo:</p>
+        <ul>
+          <li>Visualização da distribuição de eletrodutos e prumadas</li>
+          <li>Coordenação com elementos estruturais e arquitetônicos</li>
+          <li>Antecipação de interferências</li>
+          <li>Organização clara por níveis</li>
+        </ul>
+        <p>A modelagem possibilitou maior controle na definição de percursos e posicionamento de quadros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORGANIZAÇÃO POR PAVIMENTO ================= -->
+<section class="bg-base">
+  <div class="container">
+    <div class="projeto-grid reverse">
+      <div class="projeto-imagem">
+        <img src="images/pavimentos.jpg" alt="Organização por pavimento">
+        <!-- Substitua pela imagem real -->
+      </div>
+      <div class="projeto-texto">
+        <h3>3. Organização por Pavimento</h3>
+        <p>A distribuição foi organizada por pavimentos, com identificação individualizada dos circuitos em cada nível.</p>
+        <p>A vista explodida evidencia:</p>
+        <ul>
+          <li>Relação entre quadros e prumadas</li>
+          <li>Continuidade vertical dos sistemas</li>
+          <li>Hierarquia da distribuição elétrica</li>
+        </ul>
+        <p>Essa organização facilita leitura técnica, execução e manutenção futura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DISTRIBUIÇÃO DE CIRCUITOS ================= -->
+<section class="bg-escuro">
+  <div class="container">
+    <div class="projeto-grid">
+      <div class="projeto-imagem">
+        <img src="images/circuitos.jpg" alt="Identificação de circuitos">
+        <!-- Substitua pela imagem real -->
+      </div>
+      <div class="projeto-texto">
+        <h3>4. Distribuição e Setorização de Circuitos</h3>
+        <p>Os circuitos foram estruturados considerando critérios funcionais e operacionais, incluindo:</p>
+        <ul>
+          <li>Separação entre áreas sociais e íntimas</li>
+          <li>Individualização de cargas de maior potência</li>
+          <li>Setorização de equipamentos específicos</li>
+          <li>Circuitos dedicados para sistemas críticos</li>
+        </ul>
+        <p>Essa estratégia contribui para melhor controle de cargas e flexibilidade para futuras adaptações.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIMENSIONAMENTO ================= -->
+<section class="bg-base">
+  <div class="container">
+    <div class="projeto-grid reverse">
+      <div class="projeto-imagem">
+        <img src="images/quadro-cargas.jpg" alt="Quadro de cargas">
+        <!-- Substitua pela imagem real -->
+      </div>
+      <div class="projeto-texto">
+        <h3>5. Dimensionamento e Balanceamento</h3>
+        <p>O dimensionamento foi realizado com base nas cargas previstas para cada ambiente, considerando fatores de demanda e simultaneidade.</p>
+        <p>Foram desenvolvidos:</p>
+        <ul>
+          <li>Quadro de cargas detalhado</li>
+          <li>Distribuição equilibrada entre fases</li>
+          <li>Identificação de cargas específicas</li>
+          <li>Previsão para ampliação do sistema</li>
+        </ul>
+        <p>O balanceamento de fases foi adotado para reduzir assimetrias e melhorar o desempenho do sistema trifásico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPANSÃO ================= -->
+<section class="bg-escuro">
+  <div class="container">
+    <div class="projeto-grid">
+      <div class="projeto-imagem">
+        <img src="images/expansao.jpg" alt="Preparação para expansão">
+        <!-- Substitua pela imagem real -->
+      </div>
+      <div class="projeto-texto">
+        <h3>6. Preparação para Expansão e Geração Solar</h3>
+        <p>O projeto contempla:</p>
+        <ul>
+          <li>Previsão de circuito dedicado para sistema fotovoltaico</li>
+          <li>Espaço técnico para instalação de inversor</li>
+          <li>Organização interna do quadro para expansão futura</li>
+        </ul>
+        <p>Essa abordagem permite integração com geração distribuída sem necessidade de alterações significativas na infraestrutura elétrica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EFICIÊNCIA ENERGÉTICA ================= -->
+<section class="bg-base">
+  <div class="container">
+    <h2 class="section-title">7. Estratégias de Eficiência Energética</h2>
+    <div class="cards-grid">
+      <div class="card-item">
+        <i class="fas fa-lightbulb"></i>
+        <h4>Iluminação LED</h4>
+        <p>Especificação de iluminação LED com distribuição compatível com o uso dos ambientes e controle setorizado.</p>
+      </div>
+      <div class="card-item">
+        <i class="fas fa-sitemap"></i>
+        <h4>Organização de Cargas</h4>
+        <p>Separação por setores e individualização de cargas específicas para melhor acompanhamento de consumo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESTUDOS SOLARES ================= -->
+<section class="bg-escuro">
+  <div class="container">
+    <div class="projeto-grid">
+      <div class="projeto-imagem">
+        <img src="images/estudos-solares.jpg" alt="Estudos solares">
+        <!-- Substitua pela imagem real -->
+      </div>
+      <div class="projeto-texto">
+        <h3>8. Estudos Solares e Análises de Desempenho</h3>
+        <p>Foram realizados estudos solares no Autodesk Revit para avaliação da incidência nas fachadas e compreensão do impacto na carga térmica da edificação.</p>
+        <p>Também foram elaboradas análises gráficas de desempenho, utilizadas como apoio para:</p>
+        <ul>
+          <li>Avaliação de demanda</li>
+          <li>Verificação de comportamento energético</li>
+          <li>Apoio às decisões de projeto</li>
+        </ul>
+        <p>A modelagem permite integração com ferramentas de simulação como o OpenStudio, ampliando a possibilidade de análises energéticas mais detalhadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONSIDERAÇÕES ================= -->
+<section class="bg-base">
+  <div class="container">
+    <h2 class="section-title">9. Considerações Técnicas</h2>
+    <p class="section-intro">
+      O projeto foi desenvolvido com foco em:
+    </p>
+    <div class="diferenciais-grid" style="margin-top: 30px;">
+      <div class="diferencial-card">
+        <i class="fas fa-draw-polygon diferencial-icon"></i>
+        <h3>Organização e Clareza</h3>
+        <p>Sistema elétrico claro e bem estruturado para execução e manutenção.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-cubes diferencial-icon"></i>
+        <h3>Compatibilização BIM</h3>
+        <p>Integração total com arquitetura e estrutura, evitando conflitos.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-calculator diferencial-icon"></i>
+        <h3>Dimensionamento coerente</h3>
+        <p>Cálculos precisos baseados na demanda real da edificação.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-chart-line diferencial-icon"></i>
+        <h3>Preparação para expansões</h3>
+        <p>Infraestrutura pronta para futuras ampliações e geração solar.</p>
+      </div>
+    </div>
+    <p style="color: var(--cinza); margin-top: 40px; text-align: center;">
+      A abordagem adotada busca garantir consistência técnica, facilidade de execução e possibilidade de evolução do sistema ao longo do tempo.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-final" id="contato">
+  <div class="container">
+    <div class="cta-quadro">
+      <h2 class="cta-title">Seu projeto merece esse nível de detalhamento</h2>
+      <p class="cta-subtitle">
+        Desenvolvemos projetos elétricos completos em BIM, com análise de eficiência energética e preparação para o futuro. Entre em contato e transforme sua ideia em realidade.
+      </p>
+      <div class="center-btn">
+        <a href="#" class="btn btn-large btn-whatsapp abrir-modal-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Falar com nossos Engenheiros
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOTÃO WHATSAPP FIXO ================= -->
+<a href="#" class="whatsapp-float abrir-modal-whatsapp" aria-label="Abrir opções de WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- ================= MODAL WHATSAPP ================= -->
+<div class="modal-whatsapp" id="modalWhatsApp">
+  <div class="modal-conteudo">
+    <button class="modal-fechar" id="fecharModal">
+      <i class="fas fa-times"></i>
+    </button>
+    <h3 class="modal-titulo">
+      <i class="fab fa-whatsapp"></i>
+      Escolha com quem falar
+    </h3>
+    <div class="opcoes-whatsapp">
+      <a href="https://wa.me/5535999165674" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Vinicios</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia de Energia</div>
+        </div>
+        <div class="opcao-whatsapp"><i class="fab fa-whatsapp"></i></div>
+      </a>
+      <a href="https://wa.me/553597221324" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar"><i class="fas fa-user-cog"></i></div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Rodrigo</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia Elétrica</div>
+        </div>
+        <div class="opcao-whatsapp"><i class="fab fa-whatsapp"></i></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.PNG" alt="Engevis" class="footer-logo">
+        <p class="footer-slogan">Engineering the power behind the future</p>
+      </div>
+      <div class="footer-links">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">A Engevis</a></li>
+          <li><a href="projetos-eletricos.html">Projetos Elétricos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
+        <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
+        <p><i class="fas fa-envelope"></i> engevis.engenharia@outlook.com</p>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/engevis-engenharia/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/engevis.eng" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="copyright">
+        <p>© 2026 Engevis Engenharia Elétrica e de Energia.</p>
+        <span>Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+  // Menu Mobile
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+  }));
+
+  // Scroll suave para âncoras
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if(targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if(targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Efeito header ao rolar
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if(window.scrollY > 100) {
+      header.style.backgroundColor = 'rgba(11, 16, 32, 0.98)';
+      header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+    } else {
+      header.style.backgroundColor = 'rgba(11, 16, 32, 0.95)';
+      header.style.boxShadow = 'none';
+    }
+  });
+
+  // Modal WhatsApp
+  const botoesAbrirModal = document.querySelectorAll('.abrir-modal-whatsapp');
+  const modal = document.getElementById('modalWhatsApp');
+  const botaoFechar = document.getElementById('fecharModal');
+
+  if (botoesAbrirModal.length > 0 && modal && botaoFechar) {
+    botoesAbrirModal.forEach(botao => {
+      botao.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('mostrar');
+      });
+    });
+    botaoFechar.addEventListener('click', () => {
+      modal.classList.remove('mostrar');
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('mostrar');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
