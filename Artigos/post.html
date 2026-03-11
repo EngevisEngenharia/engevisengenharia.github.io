@@ -12,9 +12,10 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
+  <!-- Biblioteca marked para converter Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <style>
-    /* Copie todo o CSS do index.html para cá */
-    /* (o mesmo estilo que já temos) */
     :root {
       --azul-base: #0B1020;
       --azul-tecnico: #1F4FD8;
@@ -52,7 +53,7 @@
       color: inherit;
     }
 
-    /* Header (igual ao index.html) */
+    /* Header */
     .header {
       position: fixed;
       top: 0;
@@ -127,7 +128,7 @@
       color: var(--amarelo);
     }
 
-    /* Hero da página do artigo */
+    /* Hero do artigo */
     .post-hero {
       position: relative;
       min-height: 30vh;
@@ -164,30 +165,25 @@
       color: var(--cinza);
     }
 
-    /* Conteúdo do artigo */
+    /* Conteúdo do artigo (estilos para Markdown convertido) */
     .post-content {
       max-width: 800px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
-    .post-content h1 {
-      font-size: 2.2rem;
-      color: var(--amarelo);
-      margin: 40px 0 20px;
-    }
-
-    .post-content h2 {
-      font-size: 1.8rem;
-      color: var(--amarelo);
-      margin: 30px 0 15px;
-    }
-
+    .post-content h1,
+    .post-content h2,
     .post-content h3 {
-      font-size: 1.4rem;
-      color: var(--branco);
-      margin: 25px 0 15px;
+      color: var(--amarelo);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
+
+    .post-content h1 { font-size: 2.2rem; }
+    .post-content h2 { font-size: 1.8rem; }
+    .post-content h3 { font-size: 1.4rem; }
 
     .post-content p {
       color: var(--cinza);
@@ -195,7 +191,8 @@
       line-height: 1.8;
     }
 
-    .post-content ul, .post-content ol {
+    .post-content ul,
+    .post-content ol {
       color: var(--cinza);
       margin: 20px 0;
       padding-left: 40px;
@@ -224,6 +221,14 @@
       margin: 30px 0;
     }
 
+    .post-content blockquote {
+      border-left: 4px solid var(--amarelo);
+      padding-left: 20px;
+      color: var(--cinza-escuro);
+      font-style: italic;
+      margin: 30px 0;
+    }
+
     .post-footer {
       margin-top: 60px;
       padding-top: 30px;
@@ -247,7 +252,7 @@
       color: var(--azul-base);
     }
 
-    /* Footer (igual ao index.html) */
+    /* Footer */
     .footer {
       background-color: var(--azul-escuro);
       padding: 60px 0 0;
@@ -444,7 +449,7 @@
   </div>
 </footer>
 
-<!-- ===== SCRIPT PARA CARREGAR O ARTIGO ===== -->
+<!-- ===== SCRIPT PARA CARREGAR O ARTIGO COM MARKDOWN ===== -->
 <script>
   async function carregarArtigo() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -462,29 +467,24 @@
       
       const conteudo = await resposta.text();
       
-      // 2. Processa o markdown básico
+      // 2. Extrai o título (primeira linha com # ) e o resto do conteúdo
       const linhas = conteudo.split('\n');
-      let titulo = '';
-      let corpo = [];
-      let emTitulo = true;
+      let titulo = 'Artigo';
+      let corpoMarkdown = conteudo;
       
-      for (let linha of linhas) {
-        if (emTitulo && linha.startsWith('# ')) {
-          titulo = linha.substring(2);
-          emTitulo = false;
-        } else {
-          corpo.push(linha);
-        }
+      if (linhas[0].startsWith('# ')) {
+        titulo = linhas[0].substring(2);
+        corpoMarkdown = linhas.slice(1).join('\n');
       }
       
-      // 3. Converte quebras de linha para <br> (simples)
-      // Idealmente usaríamos uma biblioteca como marked, mas por enquanto é suficiente
-      const htmlCorpo = corpo.join('\n').replace(/\n/g, '<br>');
+      // 3. Converte Markdown para HTML usando a biblioteca marked
+      const htmlCorpo = marked.parse(corpoMarkdown);
       
       // 4. Atualiza a página
-      document.getElementById('post-title').textContent = titulo || 'Artigo sem título';
+      document.getElementById('post-title').textContent = titulo;
+      document.getElementById('post-content').innerHTML = htmlCorpo;
       
-      // 5. Tenta pegar categoria e data do JSON (opcional)
+      // 5. Tenta pegar categoria e data do JSON
       try {
         const jsonResposta = await fetch('posts.json');
         const posts = await jsonResposta.json();
@@ -504,8 +504,6 @@
       } catch (e) {
         // Ignora erro se não encontrar no JSON
       }
-      
-      document.getElementById('post-content').innerHTML = htmlCorpo;
       
     } catch (erro) {
       console.error('Erro:', erro);
