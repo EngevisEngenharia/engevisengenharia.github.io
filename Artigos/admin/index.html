@@ -3,75 +3,37 @@
     const container = document.getElementById('posts-container');
     
     try {
-      // Lista os arquivos da pasta posts usando a API do GitHub (agora sem CORS)
-      const resposta = await fetch('https://api.github.com/repos/engevisengenharia/engevisengenharia.github.io/contents/Artigos/posts');
+      const resposta = await fetch('posts/posts.json');
+      const posts = await resposta.json();
       
-      if (!resposta.ok) {
-        throw new Error('Erro ao acessar o repositório');
-      }
-      
-      const arquivos = await resposta.json();
-      
-      if (!arquivos || arquivos.length === 0) {
+      if (!posts || posts.length === 0) {
         container.innerHTML = '<div style="grid-column: 1/-1; text-align: center;">Nenhum artigo publicado ainda.</div>';
         return;
       }
       
       container.innerHTML = '';
       
-      for (const arquivo of arquivos) {
-        if (arquivo.name.endsWith('.md')) {
-          // Usa o raw.githubusercontent.com para pegar o conteúdo sem CORS
-          const rawUrl = `https://raw.githubusercontent.com/engevisengenharia/engevisengenharia.github.io/main/Artigos/posts/${arquivo.name}`;
-          const conteudoResposta = await fetch(rawUrl);
-          const conteudo = await conteudoResposta.text();
-          
-          // Extrai os metadados (front matter) do markdown
-          const partes = conteudo.split('---');
-          if (partes.length < 3) continue;
-          
-          const metadadosRaw = partes[1].trim();
-          const metadados = {};
-          
-          metadadosRaw.split('\n').forEach(linha => {
-            const separador = linha.indexOf(':');
-            if (separador > 0) {
-              const chave = linha.substring(0, separador).trim();
-              const valor = linha.substring(separador + 1).trim().replace(/^["']|["']$/g, '');
-              metadados[chave] = valor;
-            }
-          });
-          
-          // Data formatada
-          let dataFormatada = '';
-          if (metadados.date) {
-            const data = new Date(metadados.date);
-            dataFormatada = data.toLocaleDateString('pt-BR');
-          }
-          
-          const categoria = metadados.category || 'Geral';
-          const imagem = metadados.image || 'https://via.placeholder.com/600x400/1F4FD8/FFFFFF?text=Engevis';
-          const slug = arquivo.name.replace('.md', '');
-          const link = `post.html?slug=${slug}`;
-          
-          const card = document.createElement('article');
-          card.className = 'blog-card';
-          card.innerHTML = `
-            <img src="${imagem}" alt="${metadados.title || 'Artigo'}">
-            <div class="blog-card-content">
-              <h3>${metadados.title || 'Sem título'}</h3>
-              <div class="blog-card-meta">
-                <span><i class="far fa-calendar-alt"></i> ${dataFormatada}</span>
-                <span><i class="far fa-folder"></i> ${categoria}</span>
-              </div>
-              <p>${metadados.description || ''}</p>
-              <a href="${link}" class="btn-link">Leia mais <i class="fas fa-arrow-right"></i></a>
+      posts.forEach(post => {
+        const data = new Date(post.date);
+        const dataFormatada = data.toLocaleDateString('pt-BR');
+        
+        const card = document.createElement('article');
+        card.className = 'blog-card';
+        card.innerHTML = `
+          <img src="${post.image}" alt="${post.title}">
+          <div class="blog-card-content">
+            <h3>${post.title}</h3>
+            <div class="blog-card-meta">
+              <span><i class="far fa-calendar-alt"></i> ${dataFormatada}</span>
+              <span><i class="far fa-folder"></i> ${post.category}</span>
             </div>
-          `;
-          
-          container.appendChild(card);
-        }
-      }
+            <p>${post.description}</p>
+            <a href="post.html?slug=${post.slug}" class="btn-link">Leia mais <i class="fas fa-arrow-right"></i></a>
+          </div>
+        `;
+        
+        container.appendChild(card);
+      });
       
     } catch (erro) {
       console.error('Erro:', erro);
