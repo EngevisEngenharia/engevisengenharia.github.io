@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Meu Primeiro Artigo",
+    "date": "2026-03-11",
+    "category": "BIM",
+    "image": "images/artigo1.jpg",
+    "description": "Este é um resumo do meu primeiro artigo sobre BIM.",
+    "slug": "meu-primeiro-artigo"
+  }
+]
