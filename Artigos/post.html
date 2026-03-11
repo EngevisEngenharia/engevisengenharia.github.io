@@ -3,41 +3,450 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="../images/logo.PNG" type="image/png">
-  <title>Artigo | Engevis</title>
+  <title>Artigo | Engevis Engenharia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Fonte Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
   <style>
-    /* Mesmo CSS da página de listagem (copie o bloco <style> inteiro da index.html para cá) */
-    /* ... */
-    /* Vou omitir por brevidade, mas você deve copiar exatamente o mesmo estilo */
+    /* Copie todo o CSS do index.html para cá */
+    /* (o mesmo estilo que já temos) */
+    :root {
+      --azul-base: #0B1020;
+      --azul-tecnico: #1F4FD8;
+      --amarelo: #F2B705;
+      --amarelo-escuro: #D6A105;
+      --branco: #FFFFFF;
+      --cinza: #B0B6C3;
+      --cinza-escuro: #7A8192;
+      --azul-card: #11162b;
+      --azul-card-hover: #141a35;
+      --azul-escuro: #070B1A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--azul-base);
+      color: var(--branco);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header (igual ao index.html) */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(11, 16, 32, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(31, 79, 216, 0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-menu > li > a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--branco);
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-menu > li > a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--amarelo);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu > li > a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu > li > a:hover {
+      color: var(--amarelo);
+    }
+
+    .nav-btn {
+      background-color: var(--amarelo);
+      color: var(--azul-base) !important;
+      padding: 10px 25px !important;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+
+    .active {
+      color: var(--amarelo);
+    }
+
+    /* Hero da página do artigo */
+    .post-hero {
+      position: relative;
+      min-height: 30vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 140px 20px 40px;
+      margin-top: 70px;
+      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.95));
+    }
+
+    .post-hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .post-hero .hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      color: var(--amarelo);
+      font-size: 1rem;
+    }
+
+    .post-meta i {
+      margin-right: 5px;
+      color: var(--cinza);
+    }
+
+    /* Conteúdo do artigo */
+    .post-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .post-content h1 {
+      font-size: 2.2rem;
+      color: var(--amarelo);
+      margin: 40px 0 20px;
+    }
+
+    .post-content h2 {
+      font-size: 1.8rem;
+      color: var(--amarelo);
+      margin: 30px 0 15px;
+    }
+
+    .post-content h3 {
+      font-size: 1.4rem;
+      color: var(--branco);
+      margin: 25px 0 15px;
+    }
+
+    .post-content p {
+      color: var(--cinza);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .post-content ul, .post-content ol {
+      color: var(--cinza);
+      margin: 20px 0;
+      padding-left: 40px;
+    }
+
+    .post-content li {
+      margin-bottom: 10px;
+    }
+
+    .post-content strong {
+      color: var(--branco);
+    }
+
+    .post-content a {
+      color: var(--amarelo);
+      text-decoration: underline;
+    }
+
+    .post-content a:hover {
+      color: var(--branco);
+    }
+
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+
+    .post-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .btn-voltar {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: transparent;
+      border: 2px solid var(--amarelo);
+      color: var(--amarelo);
+      font-weight: 600;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-voltar:hover {
+      background-color: var(--amarelo);
+      color: var(--azul-base);
+    }
+
+    /* Footer (igual ao index.html) */
+    .footer {
+      background-color: var(--azul-escuro);
+      padding: 60px 0 0;
+      border-top: 1px solid rgba(31, 79, 216, 0.15);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      width: 90px;
+    }
+
+    .footer-slogan {
+      color: var(--cinza);
+      font-style: italic;
+    }
+
+    .footer-links h3,
+    .footer-contact h3 {
+      color: var(--branco);
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--cinza);
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--amarelo);
+      padding-left: 6px;
+    }
+
+    .footer-contact p {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--cinza);
+      margin-bottom: 14px;
+    }
+
+    .footer-contact i {
+      color: var(--amarelo);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--amarelo);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      width: 100%;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .copyright p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+    }
+
+    @media (max-width: 768px) {
+      .post-hero .hero-title {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-<header class="header"> <!-- igual ao da index --> </header>
-
-<section class="blog-hero" style="min-height: 30vh;">
+<!-- ===== HEADER ===== -->
+<header class="header">
   <div class="container">
-    <div class="blog-hero-content" id="post-header">
+    <nav class="navbar">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.PNG" alt="Engevis Engenharia" class="logo">
+      </a>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../sobre.html">A Engevis</a></li>
+        <li><a href="index.html">Artigos</a></li>
+        <li><a href="../#contato" class="nav-btn">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO DO ARTIGO ===== -->
+<section class="post-hero">
+  <div class="container">
+    <div class="post-hero-content">
       <h1 class="hero-title" id="post-title">Carregando...</h1>
-      <div class="blog-card-meta" id="post-meta" style="justify-content: center;"></div>
+      <div class="post-meta" id="post-meta"></div>
     </div>
   </div>
 </section>
 
+<!-- ===== CONTEÚDO DO ARTIGO ===== -->
 <section class="bg-base">
   <div class="container">
-    <div class="projeto-texto" id="post-content" style="max-width: 800px; margin: 0 auto;">
-      <!-- Conteúdo do artigo será inserido aqui -->
+    <div class="post-content" id="post-content">
+      <p>Carregando conteúdo...</p>
+    </div>
+    
+    <div class="post-footer">
+      <a href="index.html" class="btn-voltar">← Voltar para Artigos</a>
     </div>
   </div>
 </section>
 
-<footer class="footer"> <!-- igual ao da index --> </footer>
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/logo.PNG" alt="Engevis" class="footer-logo">
+        <p class="footer-slogan">Engineering the power behind the future</p>
+      </div>
+      <div class="footer-links">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../sobre.html">A Engevis</a></li>
+          <li><a href="index.html">Artigos</a></li>
+          <li><a href="../#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
+        <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
+        <p><i class="fas fa-envelope"></i> engevis.engenharia@outlook.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/engevis-engenharia/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/engevis.eng" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="copyright">
+        <p>© 2026 Engevis Engenharia Elétrica e de Energia. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
 
+<!-- ===== SCRIPT PARA CARREGAR O ARTIGO ===== -->
 <script>
-  async function carregarPost() {
+  async function carregarArtigo() {
     const urlParams = new URLSearchParams(window.location.search);
     const slug = urlParams.get('slug');
     
@@ -47,62 +456,65 @@
     }
     
     try {
-      const resposta = await fetch(`https://api.github.com/repos/engevisengenharia/engevisengenharia.github.io/contents/Artigos_e_Publicacoes/posts/${slug}.md`);
-      if (!resposta.ok) throw new Error('Post não encontrado');
+      // 1. Busca o arquivo .md correspondente
+      const resposta = await fetch(`conteudos/${slug}.md`);
+      if (!resposta.ok) throw new Error('Artigo não encontrado');
       
-      const data = await resposta.json();
-      const conteudo = atob(data.content); // GitHub retorna em base64
+      const conteudo = await resposta.text();
       
-      // Extrair front matter e conteúdo
-      const partes = conteudo.split('---');
-      if (partes.length < 3) {
-        document.getElementById('post-content').innerHTML = '<p>Erro ao processar o artigo.</p>';
-        return;
-      }
+      // 2. Processa o markdown básico
+      const linhas = conteudo.split('\n');
+      let titulo = '';
+      let corpo = [];
+      let emTitulo = true;
       
-      const metadadosRaw = partes[1].trim();
-      const metadados = {};
-      metadadosRaw.split('\n').forEach(linha => {
-        const separador = linha.indexOf(':');
-        if (separador > 0) {
-          const chave = linha.substring(0, separador).trim();
-          const valor = linha.substring(separador + 1).trim();
-          metadados[chave] = valor;
+      for (let linha of linhas) {
+        if (emTitulo && linha.startsWith('# ')) {
+          titulo = linha.substring(2);
+          emTitulo = false;
+        } else {
+          corpo.push(linha);
         }
-      });
-      
-      const corpo = partes.slice(2).join('---').trim(); // O resto é o conteúdo
-      
-      // Atualizar título e meta
-      document.getElementById('post-title').textContent = metadados.title || 'Sem título';
-      
-      let metaHtml = '';
-      if (metadados.date) {
-        const data = new Date(metadados.date);
-        metaHtml += `<span><i class="far fa-calendar-alt"></i> ${data.toLocaleDateString('pt-BR')}</span>`;
       }
-      if (metadados.category) {
-        metaHtml += `<span><i class="far fa-folder"></i> ${metadados.category}</span>`;
-      }
-      document.getElementById('post-meta').innerHTML = metaHtml;
       
-      // Converter markdown para HTML (usando uma biblioteca simples)
-      // Se não quiser instalar nada, pode usar o marked.js via CDN
-      // Vou incluir o marked.js para facilitar
-      const marked = window.marked;
-      document.getElementById('post-content').innerHTML = marked.parse(corpo);
+      // 3. Converte quebras de linha para <br> (simples)
+      // Idealmente usaríamos uma biblioteca como marked, mas por enquanto é suficiente
+      const htmlCorpo = corpo.join('\n').replace(/\n/g, '<br>');
+      
+      // 4. Atualiza a página
+      document.getElementById('post-title').textContent = titulo || 'Artigo sem título';
+      
+      // 5. Tenta pegar categoria e data do JSON (opcional)
+      try {
+        const jsonResposta = await fetch('posts.json');
+        const posts = await jsonResposta.json();
+        const post = posts.find(p => p.slug === slug);
+        
+        if (post) {
+          let metaHtml = '';
+          if (post.date) {
+            const data = new Date(post.date);
+            metaHtml += `<span><i class="far fa-calendar-alt"></i> ${data.toLocaleDateString('pt-BR')}</span>`;
+          }
+          if (post.category) {
+            metaHtml += `<span><i class="far fa-folder"></i> ${post.category}</span>`;
+          }
+          document.getElementById('post-meta').innerHTML = metaHtml;
+        }
+      } catch (e) {
+        // Ignora erro se não encontrar no JSON
+      }
+      
+      document.getElementById('post-content').innerHTML = htmlCorpo;
       
     } catch (erro) {
+      console.error('Erro:', erro);
       document.getElementById('post-title').textContent = 'Erro ao carregar';
-      document.getElementById('post-content').innerHTML = '<p>Artigo não encontrado ou erro na leitura.</p>';
+      document.getElementById('post-content').innerHTML = '<p>Artigo não encontrado.</p>';
     }
   }
   
-  // Carregar a biblioteca marked para converter markdown em HTML
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-  script.onload = carregarPost;
-  document.head.appendChild(script);
+  window.addEventListener('load', carregarArtigo);
 </script>
 
 </body>
