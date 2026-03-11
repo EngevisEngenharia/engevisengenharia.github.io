@@ -1,162 +1,186 @@
-# Soluções em Mobilidade Elétrica: Como Sua Empresa Pode Liderar a Revolução dos Carregadores e Postos de Recarga
+# Infraestrutura de Recarga para Veículos Elétricos: Como Funciona e o que Considerar
 
-A mobilidade elétrica deixou de ser uma tendência distante para se tornar uma realidade concreta no Brasil. Com o crescimento exponencial da frota de veículos elétricos (VEs) e híbridos plug-in, surge uma oportunidade de ouro para empresas de elétrica e energia que desejam se posicionar na vanguarda desse mercado. Este artigo apresenta um panorama completo das soluções em carregadores e postos de recarga, mostrando como sua empresa pode oferecer serviços de valor agregado e se tornar referência no setor.
+Com o crescimento acelerado da frota de veículos elétricos no Brasil, uma dúvida comum entre proprietários, síndicos, empresários e incorporadores é: **como funciona, na prática, a instalação de um ponto de recarga?**
 
-## 1. O Cenário de Oportunidades no Brasil
+Diferentemente do abastecimento com combustíveis fósseis, a recarga de um veículo elétrico envolve aspectos técnicos, normativos e de infraestrutura que merecem atenção. Este artigo tem caráter informativo e busca esclarecer os principais pontos sobre o tema, desde os tipos de carregadores até as adequações necessárias em residências, condomínios e espaços comerciais.
 
-O mercado brasileiro de mobilidade elétrica vive um momento de aceleração impressionante. Dados recentes mostram que o país já conta com mais de **16 mil pontos de recarga** públicos e semipúblicos, com um crescimento de 59% apenas nos carregadores rápidos (DC) nos últimos meses [citation:2]. A frota de veículos elétricos plug-in ultrapassou 200 mil unidades, criando uma demanda crescente por infraestrutura de recarga confiável e acessível.
+## 1. O Crescimento da Mobilidade Elétrica no Brasil
 
-Para empresas de elétrica e energia, isso representa um leque de oportunidades:
+O mercado brasileiro de veículos eletrificados tem apresentado expansão consistente. Dados recentes indicam que o país já ultrapassou a marca de **200 mil veículos elétricos e híbridos plug-in** em circulação, com uma rede de recarga pública e semipública que já soma mais de **16 mil pontos instalados** .
 
-- **Mercado residencial:** Instalação de wallboxes em casas e condomínios
-- **Mercado comercial:** Parcerias com shoppings, supermercados, hotéis e restaurantes
-- **Mercado corporativo:** Frotas empresariais e estacionamentos de empresas
-- **Mercado público:** Eletropostos em rodovias e corredores urbanos
+Esse crescimento não se restringe aos grandes centros urbanos. Atualmente, **1.499 municípios brasileiros** já contam com ao menos um ponto de recarga disponível , indicando uma interiorização gradual da infraestrutura.
 
-Segundo a Agência Internacional de Energia (IEA), cerca de **80% das recargas de carros elétricos no mundo são realizadas nas residências** dos proprietários [citation:6]. Isso significa que o mercado residencial é a base sólida sobre a qual sua empresa pode construir uma carteira de clientes de longo prazo.
+## 2. Tipos de Carregadores e Suas Características
 
-## 2. Soluções Completas para Cada Perfil de Cliente
+Entender as diferenças entre os tipos de carregadores é o primeiro passo para planejar adequadamente uma instalação.
 
-Uma empresa preparada para atender a demanda de mobilidade elétrica precisa oferecer soluções customizadas para diferentes perfis de clientes. Conheça as principais oportunidades:
+### 2.1. Classificação por Potência e Velocidade
 
-### 2.1. Soluções Residenciais: A Base do Negócio
+| Categoria | Potência Típica | Tempo de Carga (0-100%) | Aplicação Comum |
+|-----------|-----------------|--------------------------|-----------------|
+| Recarga Lenta | Até 3,7 kW | Mais de 12 horas | Emergencial (tomadas comuns) |
+| Recarga Semirrápida | 7,4 kW a 22 kW | 4 a 8 horas | Residencial, comercial, condomínios |
+| Recarga Rápida (DC) | 50 kW | 30-40 min (até 80%) | Postos públicos, rodovias |
+| Recarga Ultrarrápida (DC) | 150 kW a 350 kW | 10-15 min (até 80%) | Corredores rodoviários, frotas |
 
-Para proprietários de imóveis unifamiliares, a recarga residencial é sinônimo de comodidade e economia. O carregamento noturno permite que o cliente acorde com o veículo pronto para uso, sem precisar se deslocar até postos públicos.
+É importante observar que a maioria dos veículos elétricos passa a maior parte do tempo estacionado – em casa, no trabalho ou em estacionamentos comerciais. Por isso, a recarga semirrápida (corrente alternada) atende à grande maioria das necessidades cotidianas. A recarga rápida em corrente contínua (DC) é mais relevante para viagens de longa distância ou situações que exigem giro rápido do ponto de recarga .
 
-**O que sua empresa pode oferecer:**
+### 2.2. Carregadores Convencionais vs. Carregadores Inteligentes
 
-- **Wallboxes Standard:** Equipamentos fixos para instalação em garagens, ideais para quem busca simplicidade e durabilidade [citation:6]
-- **Carregadores Portáteis:** Soluções versáteis que podem ser transportadas no veículo e utilizadas em diferentes locais [citation:6]
-- **Kits completos de instalação:** Incluindo quadro de distribuição, dispositivos de proteção (DR, DPS, disjuntores) e cabeamento dimensionado conforme normas técnicas
+Uma distinção técnica relevante é entre equipamentos convencionais e os chamados "smart" (inteligentes):
 
-**Diferencial competitivo:** Ofereça uma consultoria pré-instalação para avaliar a infraestrutura elétrica existente e dimensionar corretamente a solução. Isso evita problemas futuros e demonstra profissionalismo.
+- **Carregadores convencionais:** Realizam a recarga de forma contínua enquanto conectados, sem funcionalidades de comunicação ou gestão.
+- **Carregadores inteligentes:** Equipados com conectividade (via protocolo OCPP - Open Charge Point Protocol), permitem monitoramento remoto, controle de acesso, agendamento de recargas e individualização do consumo por usuário .
 
-### 2.2. Condomínios Residenciais: O Desafio da Gestão Coletiva
+Em ambientes com múltiplos usuários, como condomínios e estacionamentos comerciais, os carregadores inteligentes são particularmente úteis por permitirem a gestão adequada do consumo e do rateio de custos.
 
-Em condomínios verticais, a complexidade aumenta. Diferentes moradores podem precisar compartilhar a mesma infraestrutura de garagem, exigindo soluções inteligentes de gestão.
+### 2.3. Conectores e Padrões
 
-**Soluções para condomínios:**
+No Brasil, assim como na Europa, o padrão mais difundido é o **conector Tipo 2 (Mennekes)** , que equipa a maioria dos veículos comercializados no país. Para recarga rápida em corrente contínua, dois padrões competem:
 
-- **Wallboxes com função Smart:** Equipamentos conectados via protocolo OCPP que permitem controle de acesso, monitoramento remoto e individualização do consumo por usuário [citation:6]
-- **Sistemas de rateio de energia:** Possibilidade de cobrar exatamente a energia consumida por cada morador, evitando conflitos e garantindo justiça no rateio
-- **Projetos de infraestrutura coletiva:** Dimensionamento de cargas para atender múltiplos pontos de recarga simultâneos
+- **CCS (Combined Charging System):** Adotado por montadoras europeias e americanas, combina o conector Tipo 2 com contatos adicionais para DC.
+- **CHAdeMO:** Padrão japonês, presente em modelos como Nissan Leaf.
 
-**Importante:** Em cidades como São Paulo, leis municipais já obrigam novos empreendimentos a disponibilizarem infraestrutura de recarga [citation:6]. Condomínios sem essa preparação correm o risco de desvalorização imobiliária.
+A diversidade de padrões torna relevante verificar a compatibilidade entre veículo e estação de recarga antes da instalação ou utilização .
 
-### 2.3. Soluções Empresariais e Comerciais
+## 3. Aspectos Técnicos da Instalação
 
-Empresas de diferentes portes estão descobrindo os benefícios de oferecer recarga para frotas, colaboradores e clientes.
+A instalação de um ponto de recarga envolve componentes e cuidados específicos que diferem de uma instalação elétrica convencional.
 
-**Segmentos atendidos:**
+### 3.1. Componentes Básicos de uma Instalação
 
-| Segmento | Aplicação | Benefícios |
-|----------|-----------|------------|
-| **Frotas corporativas** | Recarga na base da empresa | Redução de custos operacionais, cumprimento de metas ESG |
-| **Shoppings e supermercados** | Estacionamentos com recarga semirrápida | Diferencial competitivo, aumento do tempo de permanência |
-| **Hotéis** | Recarga para hóspedes | Serviço premium, fidelização |
-| **Concessionárias** | Pontos de demonstração e pós-venda | Suporte ao cliente elétrico |
+Uma instalação completa e segura deve contemplar:
 
-**Case de sucesso:** A GreenV, em parceria com a BMW, instalou os primeiros carregadores para veículos elétricos vendidos ao consumidor final no Brasil [citation:5]. Parcerias com montadoras conferem credibilidade e posicionamento de mercado.
+- **Quadro de distribuição dedicado ou compartilhado:** Para abrigar os dispositivos de proteção.
+- **Dispositivo Diferencial Residual (DR):** Essencial para proteção contra choques elétricos, detectando correntes de fuga.
+- **Disjuntor termomagnético:** Dimensionado conforme a potência do carregador, protege o circuito contra sobrecargas e curtos-circuitos.
+- **Protetor de Surtos (DPS):** Recomendado para proteger o equipamento contra sobretensões transitórias, incluindo descargas atmosféricas .
+- **Condutores elétricos:** Dimensionados conforme a distância e a corrente do circuito, respeitando os critérios de queda de tensão e capacidade de condução.
 
-### 2.4. Eletropostos Públicos: A Vitrine da Mobilidade Elétrica
+### 3.2. Normas Técnicas Aplicáveis
 
-Para empresas que desejam atuar em maior escala, os eletropostos públicos representam a oportunidade de criar uma rede de recarga com visibilidade e retorno financeiro.
+No Brasil, duas normas principais orientam as instalações de recarga de veículos elétricos:
 
-**Modelos de negócio:**
+- **ABNT NBR 5410:** Instalações elétricas de baixa tensão – estabelece as condições gerais para qualquer instalação elétrica.
+- **ABNT NBR 16274:** Sistemas de recarga condutiva para veículos elétricos – específica requisitos adicionais para estações de recarga.
 
-- **Operação própria:** A empresa investe e opera os pontos de recarga
-- **Parcerias com estabelecimentos:** O local cede o espaço, a empresa instala e opera, compartilhando receitas
-- **Modelo de cooperação:** A NeoCharge oferece modelos de negócio e cooperação para parceiros que desejam entrar no setor [citation:4]
+O atendimento a essas normas é fundamental para garantir a segurança da instalação e a conformidade com as exigências das concessionárias de energia e do Corpo de Bombeiros.
 
-**Tipos de carregadores para via pública:**
+### 3.3. Avaliação da Infraestrutura Existente
 
-- **Carregadores rápidos (DC 50 kW):** Recarga de 0 a 80% em cerca de 30 minutos, ideais para corredores urbanos
-- **Carregadores ultrarrápidos (até 350 kW):** Recarga em menos de 10 minutos, perfeitos para rodovias [citation:6]
+Antes de qualquer instalação, é necessário avaliar se a infraestrutura elétrica existente suporta a nova carga. Pontos a verificar:
 
-## 3. Serviços de Valor Agregado
+- Capacidade do transformador (em condomínios e edifícios comerciais)
+- Dimensionamento do quadro geral e dos alimentadores
+- Disponibilidade de reserva técnica no padrão de entrada
+- Qualidade do aterramento existente
 
-Para se destacar no mercado, sua empresa precisa ir além da simples venda e instalação de equipamentos. Ofereça um portfólio completo de serviços:
+Em muitos casos, adequações são necessárias, podendo envolver desde a troca de disjuntores até o reforço da entrada de energia ou a contratação de aumento de carga junto à concessionária .
 
-### 3.1. Projeto e Consultoria
-- Análise de viabilidade técnica
-- Dimensionamento de cargas e infraestrutura
-- Projetos elétricos personalizados conforme normas ABNT NBR 5410 e NBR 16274
-- Regularização junto à concessionária de energia
+## 4. Recarga em Diferentes Contextos
 
-### 3.2. Instalação Especializada
-A instalação de carregadores para veículos elétricos exige conhecimento específico. Técnicos precisam dominar:
-- Dimensionamento de condutores e proteções
-- Sistemas de aterramento e proteção contra surtos (DPS)
-- Configuração de redes de comunicação (Wi-Fi, Ethernet, OCPP)
-- Balanceamento de carga dinâmico [citation:1]
+Cada tipo de edificação apresenta características próprias que influenciam o planejamento da infraestrutura de recarga.
 
-### 3.3. Manutenção e Suporte Técnico
-Ofereça contratos de manutenção preventiva e corretiva, garantindo a disponibilidade dos equipamentos para seus clientes. A NeoCharge, por exemplo, inclui manutenção e controle de acesso em seu portfólio de serviços [citation:4].
+### 4.1. Residências Unifamiliares
 
-### 3.4. Gestão e Operação
-Para clientes que desejam monetizar seus pontos de recarga, ofereça soluções de gestão:
-- Plataformas de monitoramento remoto
-- Sistemas de pagamento integrados
-- Relatórios de consumo e análise de dados
+Em casas com garagem, a instalação tende a ser mais simples, pois há espaço no quadro de distribuição e a carga pode ser dimensionada de forma dedicada. A distância entre o quadro e o ponto de recarga influencia o dimensionamento dos cabos, mas raramente impõe limitações significativas.
 
-A WeCharge, por exemplo, oferece um aplicativo que permite localizar eletropostos, verificar disponibilidade em tempo real, iniciar recargas e efetuar pagamentos [citation:9].
+Uma prática comum é utilizar o período noturno para recarga, quando a demanda residencial por outros equipamentos é menor e, em algumas localidades, as tarifas de energia são reduzidas.
 
-### 3.5. Treinamento e Capacitação
-Um diferencial competitivo importante é a capacitação de mão de obra. A NeoCharge desenvolveu um centro de treinamentos com cursos teóricos e práticos para instaladores e empreendedores, suprindo a demanda por profissionais qualificados no setor [citation:4].
+### 4.2. Condomínios Residenciais
 
-## 4. Parcerias Estratégicas e Fornecedores
+Em edifícios multifamiliares, a complexidade aumenta. Existem basicamente três modelos de implantação:
 
-Trabalhar com equipamentos de qualidade e marcas reconhecidas é fundamental para construir credibilidade. Algumas parcerias possíveis:
+**a) Uso exclusivo em vaga privativa**
+Quando a vaga pertence a um único morador (unidade autônoma), é possível instalar um carregador dedicado, com medição individualizada. Os custos são arcados pelo interessado, e a instalação deve respeitar o espaço comum (shafts, eletrocalhas) e as regras condominiais.
 
-- **Schneider Electric:** Linha EVlink, líder mundial com mais de 100 mil pontos de recarga em 50 países [citation:4]
-- **Wallbox:** Tecnologia espanhola com balanceamento de carga integrado e protocolo OCPP [citation:9]
-- **Tesla:** Wall Connector compatível com veículos Tesla e outras marcas [citation:1]
-- **Alfen:** Linha Pro Line com tela personalizável para empresas [citation:1]
+**b) Uso compartilhado em vagas rotativas**
+Neste modelo, instala-se um ou mais carregadores em vagas de uso comum. Sistemas de gestão (com identificação por aplicativo ou cartão) permitem registrar qual usuário utilizou o equipamento e por quanto tempo, viabilizando o rateio justo do consumo.
 
-A EVB, empresa chinesa com escritório no Brasil, também oferece soluções completas com certificações internacionais (UL, CE, TUV) e tecnologia DLB para integração com sistemas fotovoltaicos [citation:10].
+**c) Infraestrutura coletiva**
+Em novos empreendimentos ou retrofit, pode-se implantar infraestrutura completa (eletrodutos, reserva de carga) para atender futuramente múltiplas vagas, mesmo que inicialmente poucos moradores utilizem.
 
-## 5. Cases de Sucesso para Inspirar
+### 4.3. Estabelecimentos Comerciais
 
-### 5.1. NeoCharge: Do Solar à Mobilidade Elétrica
-Nascida como braço da NeoSolar (líder em energia solar fotovoltaica), a NeoCharge aproveitou a sinergia entre os mercados para oferecer soluções integradas. Atua com distribuição de equipamentos, cursos, serviços técnicos e operação compartilhada de estações [citation:4].
+Shoppings, supermercados, hotéis e restaurantes têm optado por oferecer recarga como serviço adicional. Nestes casos, o tempo médio de permanência do cliente (1 a 3 horas) é compatível com carregadores semirrápidos (AC) de 7,4 kW a 22 kW .
 
-### 5.2. GreenV e Montadoras
-A GreenV construiu sua reputação trabalhando lado a lado com grandes montadoras: instalou carregadores para os primeiros BMW i3 e i8 vendidos no Brasil, além de equipamentos em concessionárias Audi e Porsche [citation:5].
+A gestão do acesso pode ser feita por meio de aplicativos, QR Code ou cartões de proximidade, e a cobrança pode ser baseada no tempo de uso ou na energia consumida.
 
-### 5.3. Zletric: A Maior Rede do País
-Com mais de 1.300 estações em 80 cidades e 15 estados, a Zletric se consolidou como a maior rede de recarga do Brasil, oferecendo soluções para residências (Zletric Home), cidades (Zletric Network) e estradas (Zletric Fast) [citation:2].
+### 4.4. Postos Públicos e Rodovias
 
-### 5.4. WeCharge: Tecnologia e Sustentabilidade
-A WeCharge já acumula mais de 270 mil recargas e neutraliza as emissões de CO₂ em parceria com a Carbon Free Brasil, plantando árvores nativas para compensar o impacto ambiental [citation:9].
+Para recarga em vias públicas e rodovias, a demanda é por equipamentos rápidos (DC), que permitem recargas parciais em curto período. Nestes casos, a infraestrutura elétrica é mais complexa, podendo exigir subestações dedicadas e contratos especiais com a concessionária de energia.
 
-## 6. Tendências que Moldarão o Futuro
+## 5. Gestão e Medição de Consumo
 
-### 6.1. Integração com Energia Solar
-A combinação de geração fotovoltaica com carregadores veiculares é uma tendência natural. Sistemas como o DLB (Dynamic Load Balancing) da EVB permitem otimizar o uso da energia solar para recarga de veículos [citation:10].
+Um aspecto frequentemente questionado é **como medir e ratear o consumo de energia** em ambientes compartilhados.
 
-### 6.2. Vehicle-to-Grid (V2G)
-Tecnologia que permite ao veículo elétrico devolver energia à rede, funcionando como bateria de backup ou ajudando a estabilizar o sistema elétrico em horários de pico.
+### 5.1. Medição Individualizada
 
-### 6.3. Carregamento Indutivo
-Sistemas sem fio instalados no piso da garagem eliminam a necessidade de cabos, oferecendo conveniência máxima (embora ainda com eficiência energética inferior).
+Carregadores inteligentes permitem a medição individualizada do consumo por sessão de recarga. Cada vez que um usuário se conecta, o sistema registra a energia consumida (em kWh) e associa àquele usuário ou veículo.
 
-### 6.4. Expansão da Malha de Recarga
-A tendência é que a infraestrutura se torne cada vez mais capilarizada, atingindo municípios de médio e pequeno porte. Em agosto de 2025, 1.499 municípios brasileiros já contavam com ao menos um ponto de recarga [citation:2].
+Esses dados podem ser exportados para sistemas de gestão condominial ou empresarial, permitindo a cobrança exata do consumo, sem rateios subjetivos.
 
-## 7. Conclusão: Sua Empresa como Protagonista da Eletromobilidade
+### 5.2. Rateio em Condomínios
 
-A revolução da mobilidade elétrica está em curso, e as empresas de elétrica e energia têm um papel fundamental a desempenhar. Oferecer soluções completas em carregadores e postos de recarga não é apenas uma oportunidade de negócio — é uma forma de contribuir para um futuro mais sustentável e eficiente.
+É importante destacar que condomínios residenciais são entidades sem fins lucrativos. A legislação permite a cobrança individualizada da energia consumida nas áreas comuns, desde que limitada ao custo efetivo do kWh (sem margem de lucro) .
 
-Para se destacar nesse mercado em expansão, sua empresa precisa:
+### 5.3. Integração com Fatura de Energia
 
-1. **Conhecer profundamente** os diferentes tipos de carregadores e suas aplicações
-2. **Oferecer serviços completos** (projeto, instalação, manutenção, gestão)
-3. **Investir em capacitação técnica** e certificações
-4. **Estabelecer parcerias estratégicas** com fabricantes de qualidade
-5. **Comunicar cases de sucesso** e construir credibilidade
+Algumas soluções mais avançadas permitem integrar a medição dos carregadores diretamente à fatura de energia do condomínio ou da unidade consumidora, simplificando a gestão administrativa.
 
-O mercado está aquecido, a demanda cresce a cada mês e os clientes buscam profissionais confiáveis para guiá-los nessa nova jornada. Posicione sua empresa como referência em mobilidade elétrica e lidere essa transformação.
+## 6. Cuidados com Segurança
+
+A segurança das instalações de recarga merece atenção especial, dado que envolvem potências elevadas e operação por usuários leigos.
+
+### 6.1. Proteção contra Choques Elétricos
+
+Todos os circuitos devem ser protegidos por dispositivos DR (Diferencial Residual) de alta sensibilidade (30 mA), conforme exige a norma NBR 5410 para circuitos de tomadas em áreas molhadas ou externas.
+
+### 6.2. Proteção contra Sobretensões
+
+A instalação de DPS (Dispositivo de Proteção contra Surtos) é altamente recomendada, especialmente em regiões com incidência de descargas atmosféricas ou em instalações alimentadas por rede aérea.
+
+### 6.3. Aterramento Adequado
+
+O sistema de aterramento deve ser dimensionado corretamente e verificado periodicamente, garantindo baixa resistência de terra e caminho seguro para correntes de falta.
+
+### 6.4. Sinalização e Acesso
+
+Em áreas públicas ou semipúblicas, a sinalização adequada e a proteção mecânica dos equipamentos (contra impactos) são importantes para evitar acidentes e danos.
+
+## 7. Tendências e Inovações
+
+O setor de mobilidade elétrica evolui rapidamente, e algumas tendências merecem ser acompanhadas:
+
+### 7.1. Integração com Geração Solar
+
+A combinação de sistemas fotovoltaicos com carregadores veiculares é natural: o excedente de energia gerado durante o dia pode ser utilizado para recarga, otimizando o aproveitamento da energia produzida .
+
+### 7.2. Vehicle-to-Grid (V2G)
+
+Tecnologia que permite ao veículo elétrico não apenas receber energia, mas também devolvê-la à rede, funcionando como armazenamento temporário. Ainda em fase de desenvolvimento comercial, mas com potencial para transformar a relação entre veículos e sistema elétrico.
+
+### 7.3. Carregamento Indutivo
+
+Sistemas sem fio, instalados no piso, eliminam a necessidade de cabos. Atualmente com eficiência energética inferior à recarga condutiva, mas em evolução tecnológica.
+
+### 7.4. Expansão da Malha de Recarga
+
+A tendência é que a infraestrutura de recarga se torne progressivamente mais capilarizada, alcançando municípios de menor porte e consolidando corredores rodoviários eletrificados.
+
+## 8. Considerações Finais
+
+A implantação de infraestrutura de recarga para veículos elétricos envolve conhecimentos específicos de engenharia elétrica, normas técnicas e gestão de energia. Cada contexto – residencial, condominial, comercial ou público – apresenta características próprias que devem ser consideradas no planejamento.
+
+Para quem está avaliando a instalação de um ponto de recarga, algumas recomendações práticas:
+
+- **Contrate profissionais qualificados:** A instalação deve ser executada por profissionais com experiência específica em sistemas de recarga veicular.
+- **Exija projeto elétrico:** Um bom projeto considera não apenas o ponto atual, mas também possíveis expansões futuras.
+- **Verifique a compatibilidade:** Confirme se o equipamento escolhido é compatível com seu veículo e com a infraestrutura existente.
+- **Considere o futuro:** Se possível, dimensione a infraestrutura (eletrodutos, reserva de carga) pensando em ampliações.
+
+A mobilidade elétrica veio para ficar, e a infraestrutura de recarga é parte fundamental dessa transformação. Com planejamento adequado e execução técnica qualificada, é possível garantir recargas seguras, eficientes e adequadas a cada necessidade.
 
 ---
 
-**Pronto para iniciar ou expandir sua atuação em carregadores para veículos elétricos? Entre em contato com nossa equipe e descubra como podemos apoiar seu negócio com soluções personalizadas, treinamento especializado e os melhores fornecedores do mercado.**
+*A **Engevis** atua no setor de engenharia elétrica e energia, e oferece soluções técnicas para infraestrutura de recarga de veículos elétricos. Para esclarecimentos técnicos adicionais, nossa equipe está à disposição.*
