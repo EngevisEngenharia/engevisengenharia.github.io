@@ -1,18 +1,18 @@
 [
   {
-    "title": "Meu primeiro artigo",
-    "date": "2026-03-11",
-    "category": "BIM",
-    "image": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=400&fit=crop",
-    "description": "Resumo do artigo aqui",
-    "slug": "meu-primeiro-artigo"
-  },
-  {
     "title": "Projeto Elétrico Residencial em BIM: Estudo de Caso",
     "date": "2026-03-11",
     "category": "BIM",
     "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
     "description": "Conheça um caso real de aplicação da metodologia BIM em projeto elétrico residencial, com resultados e benefícios.",
     "slug": "projeto-bim-residencial"
+  },
+  {
+    "title": "Carregadores e Postos de Recarga para Veículos Elétricos",
+    "date": "2026-03-11",
+    "category": "Mobilidade Elétrica",
+    "image": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=400&fit=crop",
+    "description": "Entenda os principais tipos de carregadores, infraestrutura necessária e aspectos normativos para instalação de postos de recarga.",
+    "slug": "carregadores-e-postos-de-recarga"
   }
 ]
