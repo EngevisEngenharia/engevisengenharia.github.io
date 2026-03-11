@@ -159,6 +159,8 @@ A combinação de sistemas fotovoltaicos com carregadores veiculares é natural:
 ### 7.2. Vehicle-to-Grid (V2G)
 
 Tecnologia que permite ao veículo elétrico não apenas receber energia, mas também devolvê-la à rede, funcionando como armazenamento temporário. Ainda em fase de desenvolvimento comercial, mas com potencial para transformar a relação entre veículos e sistema elétrico.
+<img width="1024" height="498" alt="image" src="https://github.com/user-attachments/assets/420cff79-8a83-4961-85b6-ad4157ece288" />
+
 
 ### 7.3. Carregamento Indutivo
 
