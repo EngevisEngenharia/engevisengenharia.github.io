@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* ===== VARIÁVEIS E ESTILOS GLOBAIS ===== */
+    /* ===== SEU CSS EXISTENTE (MANTENHA IGUAL) ===== */
     :root {
       --azul-base: #0B1020;
       --azul-tecnico: #1F4FD8;
@@ -516,100 +516,64 @@
   </div>
 </footer>
 
-<!-- ===== SCRIPT PARA CARREGAR OS ARTIGOS ===== -->
+<!-- ===== NOVO SCRIPT: LÊ O JSON E CRIA OS CARDS ===== -->
 <script>
-  // Função principal para carregar os posts
   async function carregarArtigos() {
     const container = document.getElementById('posts-container');
     
     try {
-      // Busca a lista de arquivos na pasta /posts via API do GitHub
-      const resposta = await fetch('https://api.github.com/repos/engevisengenharia/engevisengenharia.github.io/contents/Artigos/post');
+      // 1. Busca o arquivo posts.json (que você já criou)
+      const resposta = await fetch('posts.json');
       
       if (!resposta.ok) {
-        throw new Error('Erro ao acessar o repositório');
+        throw new Error('Arquivo posts.json não encontrado');
       }
       
-      const arquivos = await resposta.json();
+      const posts = await resposta.json();
       
-      // Se não houver arquivos, mostra mensagem
-      if (!arquivos || arquivos.length === 0) {
+      // 2. Verifica se há posts
+      if (!posts || posts.length === 0) {
         container.innerHTML = '<div style="grid-column: 1/-1; text-align: center;">Nenhum artigo publicado ainda.</div>';
         return;
       }
       
-      // Limpa o container
+      // 3. Limpa o container
       container.innerHTML = '';
       
-      // Processa cada arquivo .md
-      for (const arquivo of arquivos) {
-        if (arquivo.name.endsWith('.md')) {
-          // Busca o conteúdo do arquivo
-          const conteudoResposta = await fetch(arquivo.download_url);
-          const conteudo = await conteudoResposta.text();
-          
-          // Extrai os metadados (front matter) do markdown
-          const partes = conteudo.split('---');
-          if (partes.length < 3) continue; // Pula se não tiver front matter
-          
-          const metadadosRaw = partes[1].trim();
-          const metadados = {};
-          
-          // Parse simples das linhas
-          metadadosRaw.split('\n').forEach(linha => {
-            const separador = linha.indexOf(':');
-            if (separador > 0) {
-              const chave = linha.substring(0, separador).trim();
-              const valor = linha.substring(separador + 1).trim().replace(/^["']|["']$/g, ''); // Remove aspas se houver
-              metadados[chave] = valor;
-            }
-          });
-          
-          // Data formatada
-          let dataFormatada = '';
-          if (metadados.date) {
-            const data = new Date(metadados.date);
-            dataFormatada = data.toLocaleDateString('pt-BR');
-          }
-          
-          // Categoria (se não tiver, coloca "Geral")
-          const categoria = metadados.category || 'Geral';
-          
-          // Imagem (se não tiver, usa placeholder)
-          const imagem = metadados.image || 'https://via.placeholder.com/600x400/1F4FD8/FFFFFF?text=Engevis';
-          
-          // Link para o post individual
-          const slug = arquivo.name.replace('.md', '');
-          const link = `post.html?slug=${slug}`;
-          
-          // Cria o card
-          const card = document.createElement('article');
-          card.className = 'blog-card';
-          card.innerHTML = `
-            <img src="${imagem}" alt="${metadados.title || 'Artigo'}">
-            <div class="blog-card-content">
-              <h3>${metadados.title || 'Sem título'}</h3>
-              <div class="blog-card-meta">
-                <span><i class="far fa-calendar-alt"></i> ${dataFormatada}</span>
-                <span><i class="far fa-folder"></i> ${categoria}</span>
-              </div>
-              <p>${metadados.description || ''}</p>
-              <a href="${link}" class="btn-link">Leia mais <i class="fas fa-arrow-right"></i></a>
-            </div>
-          `;
-          
-          container.appendChild(card);
+      // 4. Para cada post, cria um card
+      posts.forEach(post => {
+        // Formata a data
+        let dataFormatada = '';
+        if (post.date) {
+          const data = new Date(post.date);
+          dataFormatada = data.toLocaleDateString('pt-BR');
         }
-      }
-      
-      // Se nenhum card foi adicionado
-      if (container.children.length === 0) {
-        container.innerHTML = '<div style="grid-column: 1/-1; text-align: center;">Nenhum artigo válido encontrado.</div>';
-      }
+        
+        // Define imagem padrão se não houver
+        const imagem = post.image || 'https://via.placeholder.com/600x400/1F4FD8/FFFFFF?text=Engevis';
+        
+        // Cria o card
+        const card = document.createElement('article');
+        card.className = 'blog-card';
+        card.innerHTML = `
+          <img src="${imagem}" alt="${post.title || 'Artigo'}" onerror="this.src='https://via.placeholder.com/600x400/1F4FD8/FFFFFF?text=Engevis'">
+          <div class="blog-card-content">
+            <h3>${post.title || 'Sem título'}</h3>
+            <div class="blog-card-meta">
+              <span><i class="far fa-calendar-alt"></i> ${dataFormatada}</span>
+              <span><i class="far fa-folder"></i> ${post.category || 'Geral'}</span>
+            </div>
+            <p>${post.description || ''}</p>
+            <a href="post.html?slug=${post.slug}" class="btn-link">Leia mais <i class="fas fa-arrow-right"></i></a>
+          </div>
+        `;
+        
+        container.appendChild(card);
+      });
       
     } catch (erro) {
       console.error('Erro:', erro);
-      container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #ff6b6b;">Erro ao carregar publicações. Tente novamente mais tarde.</div>';
+      container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #ff6b6b;">Erro ao carregar publicações. Verifique se o arquivo posts.json existe.</div>';
     }
   }
   
