@@ -1,6 +1,6 @@
 # Gestão Energética na Indústria: O Impacto da Modalidade Tarifária, Energia Reativa e Harmônicas nos Custos de Produção
 
-**Por [Nome do Engenheiro/Consultor]**  
+**Por Cristian Vinicios**  
 *Especialista em Eficiência Energética e Qualidade de Energia Elétrica*
 
 Em minha atuação como consultor de eficiência energética para indústrias de médio e grande porte, um fato sempre se repete: **a maioria dos gestores não sabe exatamente quanto paga de energia elétrica, nem por quê**. A conta de luz chega, o valor é alto, mas os componentes que a compõem – demanda contratada, consumo na ponta, excedente de reativos, distorções harmônicas – permanecem como "caixas-pretas" para grande parte dos times de engenharia e finanças.
@@ -147,6 +147,5 @@ Como consultor, meu papel é justamente ajudar gestores a enxergar esses "gargal
 
 ---
 
-**[Nome do Engenheiro/Consultor]** é engenheiro eletricista, especialista em eficiência energética e qualidade de energia, com mais de [X] anos de experiência em diagnósticos e projetos para indústrias de médio e grande porte. Atua como consultor independente e palestrante sobre gestão energética e inovação no setor elétrico.
 
 *Este artigo tem caráter técnico-informativo e reflete a experiência profissional do autor. Para casos específicos, recomenda-se a contratação de consultoria especializada.*
