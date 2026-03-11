@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: engevisengenharia/engevisengenharia.github.io
+  name: git-gateway
   branch: main
-  site_domain: engevisengenharia.github.io
 
 media_folder: "Artigos_e_Publicacoes/images/uploads"
 public_folder: "/Artigos_e_Publicacoes/images/uploads"
