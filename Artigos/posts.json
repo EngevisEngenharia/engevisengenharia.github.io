@@ -14,5 +14,14 @@
     "image": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=400&fit=crop",
     "description": "Entenda os principais tipos de carregadores, infraestrutura necessária e aspectos normativos para instalação de postos de recarga.",
     "slug": "carregadores-e-postos-de-recarga"
+  },
+  {
+    "title": "Gestão Energética na Indústria: Estratégias para Redução de Custos",
+    "date": "2026-03-11",
+    "category": "Eficiência Enegética",
+    "image": "https://unsplash.com/pt-br/fotografias/pingente-redondo-branco-e-preto-Ass0DusYDk4",
+    "description": "Compreenda como fatores elétricos, como tarifas, energia reativa e harmônicas, influenciam a gestão energética industrial e os custos.",
+    "slug": "gestão-energetica-na-industria"
   }
+
 ]
