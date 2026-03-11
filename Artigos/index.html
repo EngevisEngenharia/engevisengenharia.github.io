@@ -524,7 +524,7 @@
     
     try {
       // Busca a lista de arquivos na pasta /posts via API do GitHub
-      const resposta = await fetch('https://api.github.com/repos/engevisengenharia/engevisengenharia.github.io/contents/Artigos_e_Publicacoes/posts');
+      const resposta = await fetch('https://api.github.com/repos/engevisengenharia/engevisengenharia.github.io/contents/Artigos/posts');
       
       if (!resposta.ok) {
         throw new Error('Erro ao acessar o repositório');
