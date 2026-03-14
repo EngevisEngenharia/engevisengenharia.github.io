@@ -12,9 +12,6 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Biblioteca marked para converter Markdown -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
   <style>
     :root {
       --azul-base: #0B1020;
@@ -22,7 +19,7 @@
       --amarelo: #F2B705;
       --amarelo-escuro: #D6A105;
       --branco: #FFFFFF;
-      --cinza-suave: #9CA3B0;        /* Tom mais escuro e suave para texto */
+      --cinza-suave: #9CA3B0;
       --cinza-escuro: #7A8192;
       --azul-card: #11162b;
       --azul-card-hover: #141a35;
@@ -53,7 +50,7 @@
       color: inherit;
     }
 
-    /* Header */
+    /* ===== HEADER ===== */
     .header {
       position: fixed;
       top: 0;
@@ -89,12 +86,19 @@
       list-style: none;
     }
 
+    .nav-menu > li {
+      position: relative;
+    }
+
     .nav-menu > li > a {
       font-weight: 500;
       font-size: 0.95rem;
       color: var(--branco);
       position: relative;
       padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .nav-menu > li > a::after {
@@ -108,7 +112,8 @@
       transition: width 0.3s ease;
     }
 
-    .nav-menu > li > a:hover::after {
+    .nav-menu > li > a:hover::after,
+    .nav-menu > li > a.active::after {
       width: 100%;
     }
 
@@ -124,25 +129,96 @@
       font-weight: 600 !important;
     }
 
+    .nav-btn:hover {
+      background-color: var(--amarelo-escuro);
+      transform: translateY(-2px);
+    }
+
     .active {
       color: var(--amarelo);
     }
 
-    /* Hero do artigo */
+    /* Dropdown */
+    .dropdown-menu {
+      position: absolute;
+      top: 140%;
+      left: 0;
+      background-color: rgba(11, 16, 32, 0.98);
+      min-width: 280px;
+      padding: 15px 0;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 999;
+      list-style: none;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 0.9rem;
+      color: var(--branco);
+      display: block;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--amarelo);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* ===== HERO DO ARTIGO COM IMAGEM DE CAPA ===== */
     .post-hero {
       position: relative;
-      min-height: 30vh;
+      min-height: 70vh;
       display: flex;
       align-items: center;
       text-align: center;
-      padding: 140px 20px 40px;
+      padding: 140px 20px 100px;
       margin-top: 70px;
-      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.95));
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: var(--azul-base); /* fallback */
+    }
+
+    .post-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgba(11, 16, 32, 1) 0%, rgba(11, 16, 32, 0.7) 50%, rgba(11, 16, 32, 0.4) 100%);
+      z-index: 1;
+    }
+
+    .post-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(180deg, transparent 0%, var(--azul-base) 100%);
+      z-index: 2;
+      pointer-events: none;
     }
 
     .post-hero-content {
+      position: relative;
+      z-index: 3;
       max-width: 900px;
       margin: 0 auto;
+      width: 100%;
     }
 
     .post-hero .hero-title {
@@ -150,6 +226,7 @@
       font-weight: 700;
       margin-bottom: 20px;
       line-height: 1.2;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     }
 
     .post-meta {
@@ -158,6 +235,7 @@
       gap: 20px;
       color: var(--amarelo);
       font-size: 1rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     }
 
     .post-meta i {
@@ -165,11 +243,16 @@
       color: var(--cinza-escuro);
     }
 
-    /* Conteúdo do artigo (estilos para Markdown convertido) */
+    /* ===== CONTEÚDO DO ARTIGO ===== */
     .post-content {
       max-width: 800px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 60px 20px 40px;
+      color: var(--cinza-suave);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      position: relative;
+      z-index: 3;
     }
 
     .post-content h1,
@@ -186,7 +269,7 @@
     .post-content h3 { font-size: 1.4rem; }
 
     .post-content p {
-      color: var(--cinza-suave);      /* Texto mais suave para leitura confortável */
+      color: var(--cinza-suave);
       margin-bottom: 20px;
       line-height: 1.8;
     }
@@ -202,8 +285,12 @@
       margin-bottom: 10px;
     }
 
+    .post-content li::marker {
+      color: var(--amarelo);
+    }
+
     .post-content strong {
-      color: var(--amarelo);           /* Negrito em amarelo, menos agressivo que branco puro */
+      color: var(--amarelo);
       font-weight: 700;
     }
 
@@ -220,6 +307,7 @@
       max-width: 100%;
       border-radius: 8px;
       margin: 30px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     .post-content blockquote {
@@ -230,7 +318,6 @@
       margin: 30px 0;
     }
 
-    /* Estilos para tabelas */
     .post-content table {
       width: 100%;
       border-collapse: collapse;
@@ -261,17 +348,6 @@
       background-color: rgba(242, 183, 5, 0.05);
     }
 
-    /* Melhorias de espaçamento geral */
-    .post-content {
-      line-height: 1.8;
-    }
-
-    .post-content h1:first-child,
-    .post-content h2:first-child,
-    .post-content h3:first-child {
-      margin-top: 0;
-    }
-
     .post-content hr {
       border: none;
       height: 1px;
@@ -300,9 +376,11 @@
     .btn-voltar:hover {
       background-color: var(--amarelo);
       color: var(--azul-base);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(242, 183, 5, 0.3);
     }
 
-    /* Footer */
+    /* ===== FOOTER ===== */
     .footer {
       background-color: var(--azul-escuro);
       padding: 60px 0 0;
@@ -442,7 +520,17 @@
       <ul class="nav-menu">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../sobre.html">A Engevis</a></li>
-        <li><a href="index.html">Artigos</a></li>
+        <li><a href="../portfolio/index.html">Portfólio</a></li>
+        <li><a href="index.html" class="active">Artigos</a></li>
+        <!-- DROPDOWN ATUAÇÃO -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Atuação <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="../projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="../renovaveis.html">Energia Renovável</a></li>
+            <li><a href="../eficiencia.html">Eficiência e Auditoria Energética</a></li>
+          </ul>
+        </li>
         <li><a href="../#contato" class="nav-btn">Contato</a></li>
       </ul>
     </nav>
@@ -450,7 +538,7 @@
 </header>
 
 <!-- ===== HERO DO ARTIGO ===== -->
-<section class="post-hero">
+<section class="post-hero" id="post-hero">
   <div class="container">
     <div class="post-hero-content">
       <h1 class="hero-title" id="post-title">Carregando...</h1>
@@ -508,7 +596,7 @@
   </div>
 </footer>
 
-<!-- ===== SCRIPT PARA CARREGAR O ARTIGO COM MARKDOWN ===== -->
+<!-- ===== SCRIPT OTIMIZADO: CARREGA TUDO DO JSON ===== -->
 <script>
   async function carregarArtigo() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -520,54 +608,46 @@
     }
     
     try {
-      // 1. Busca o arquivo .md correspondente
-      const resposta = await fetch(`conteudos/${slug}.md`);
-      if (!resposta.ok) throw new Error('Artigo não encontrado');
+      // 1. Busca o JSON único (que já contém título, data, categoria, imagem e HTML)
+      const resposta = await fetch('posts.json');
+      const posts = await resposta.json();
       
-      const conteudo = await resposta.text();
+      // 2. Encontra o artigo pelo slug
+      const post = posts.find(p => p.slug === slug);
       
-      // 2. Extrai o título (primeira linha com # ) e o resto do conteúdo
-      const linhas = conteudo.split('\n');
-      let titulo = 'Artigo';
-      let corpoMarkdown = conteudo;
-      
-      if (linhas[0].startsWith('# ')) {
-        titulo = linhas[0].substring(2);
-        corpoMarkdown = linhas.slice(1).join('\n');
+      if (!post) {
+        throw new Error('Artigo não encontrado');
       }
       
-      // 3. Converte Markdown para HTML usando a biblioteca marked
-      const htmlCorpo = marked.parse(corpoMarkdown);
+      // 3. Atualiza título
+      document.getElementById('post-title').textContent = post.title;
       
-      // 4. Atualiza a página
-      document.getElementById('post-title').textContent = titulo;
-      document.getElementById('post-content').innerHTML = htmlCorpo;
+      // 4. Atualiza metadados (data e categoria)
+      let metaHtml = '';
+      if (post.date) {
+        const data = new Date(post.date);
+        metaHtml += `<span><i class="far fa-calendar-alt"></i> ${data.toLocaleDateString('pt-BR')}</span>`;
+      }
+      if (post.category) {
+        metaHtml += `<span><i class="far fa-folder"></i> ${post.category}</span>`;
+      }
+      document.getElementById('post-meta').innerHTML = metaHtml;
       
-      // 5. Tenta pegar categoria e data do JSON
-      try {
-        const jsonResposta = await fetch('posts.json');
-        const posts = await jsonResposta.json();
-        const post = posts.find(p => p.slug === slug);
-        
-        if (post) {
-          let metaHtml = '';
-          if (post.date) {
-            const data = new Date(post.date);
-            metaHtml += `<span><i class="far fa-calendar-alt"></i> ${data.toLocaleDateString('pt-BR')}</span>`;
-          }
-          if (post.category) {
-            metaHtml += `<span><i class="far fa-folder"></i> ${post.category}</span>`;
-          }
-          document.getElementById('post-meta').innerHTML = metaHtml;
-        }
-      } catch (e) {
-        // Ignora erro se não encontrar no JSON
+      // 5. Atualiza o conteúdo HTML (já está pronto!)
+      document.getElementById('post-content').innerHTML = post.content;
+      
+      // 6. Define a imagem de fundo do hero
+      const hero = document.getElementById('post-hero');
+      if (post.image) {
+        hero.style.backgroundImage = `url('${post.image}')`;
+      } else {
+        hero.style.backgroundImage = 'none';
       }
       
     } catch (erro) {
       console.error('Erro:', erro);
       document.getElementById('post-title').textContent = 'Erro ao carregar';
-      document.getElementById('post-content').innerHTML = '<p>Artigo não encontrado.</p>';
+      document.getElementById('post-content').innerHTML = '<p>Artigo não encontrado ou erro na leitura.</p>';
     }
   }
   
