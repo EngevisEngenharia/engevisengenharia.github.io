@@ -100,6 +100,9 @@
       color: var(--branco);
       position: relative;
       padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .nav-menu > li > a::after {
@@ -140,6 +143,47 @@
 
     .active::after {
       width: 100%;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 140%;
+      left: 0;
+      background-color: rgba(11, 16, 32, 0.98);
+      min-width: 280px;
+      padding: 15px 0;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 999;
+      list-style: none;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 0.9rem;
+      color: var(--branco);
+      display: block;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--amarelo);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     /* ===== HERO DA PÁGINA ===== */
@@ -445,6 +489,15 @@
       <ul class="nav-menu">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../sobre.html">A Engevis</a></li>
+        <!-- DROPDOWN ATUAÇÃO -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Atuação <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="../projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="../renovaveis.html">Energia Renovável</a></li>
+            <li><a href="../eficiencia.html">Eficiência e Auditoria Energética</a></li>
+          </ul>
+        </li>
         <li><a href="index.html" class="active">Artigos</a></li>
         <li><a href="../#contato" class="nav-btn">Contato</a></li>
       </ul>
@@ -516,13 +569,12 @@
   </div>
 </footer>
 
-<!-- ===== NOVO SCRIPT: LÊ O JSON E CRIA OS CARDS ===== -->
+<!-- ===== SCRIPT: LÊ O JSON E CRIA OS CARDS ===== -->
 <script>
   async function carregarArtigos() {
     const container = document.getElementById('posts-container');
     
     try {
-      // 1. Busca o arquivo posts.json (que você já criou)
       const resposta = await fetch('posts.json');
       
       if (!resposta.ok) {
@@ -531,28 +583,22 @@
       
       const posts = await resposta.json();
       
-      // 2. Verifica se há posts
       if (!posts || posts.length === 0) {
         container.innerHTML = '<div style="grid-column: 1/-1; text-align: center;">Nenhum artigo publicado ainda.</div>';
         return;
       }
       
-      // 3. Limpa o container
       container.innerHTML = '';
       
-      // 4. Para cada post, cria um card
       posts.forEach(post => {
-        // Formata a data
         let dataFormatada = '';
         if (post.date) {
           const data = new Date(post.date);
           dataFormatada = data.toLocaleDateString('pt-BR');
         }
         
-        // Define imagem padrão se não houver
         const imagem = post.image || 'https://via.placeholder.com/600x400/1F4FD8/FFFFFF?text=Engevis';
         
-        // Cria o card
         const card = document.createElement('article');
         card.className = 'blog-card';
         card.innerHTML = `
@@ -564,7 +610,7 @@
               <span><i class="far fa-folder"></i> ${post.category || 'Geral'}</span>
             </div>
             <p>${post.description || ''}</p>
-            <a href="post.html?slug=${post.slug}" class="btn-link">Leia mais <i class="fas fa-arrow-right"></i></a>
+            <a href="post.html?slug=${encodeURIComponent(post.slug)}" class="btn-link">Leia mais <i class="fas fa-arrow-right"></i></a>
           </div>
         `;
         
@@ -577,7 +623,6 @@
     }
   }
   
-  // Executa quando a página carregar
   window.addEventListener('load', carregarArtigos);
 </script>
 
