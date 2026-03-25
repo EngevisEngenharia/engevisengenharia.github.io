@@ -2,27 +2,21 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Favicon usando a mesma logo -->
-<link rel="icon" href="images/logo.PNG" type="image/png">
-  <title>Projetos e Execução Elétrica | Engevis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-        content="Projetos elétricos executivos com entrega 2D, 3D, memoriais de cálculo e documentação completa para obra, aprovação e operação.">
+  <title>Projetos e Execução Elétrica | Engevis</title>
+  <meta name="description" content="Projetos elétricos executivos com entrega 2D, 3D, memoriais de cálculo e documentação completa para obra, aprovação e operação.">
 
-  <!-- Fonte -->
+  <!-- Favicon -->
+  <link rel="icon" href="../images/logo.PNG" type="image/png">
+
+  <!-- Fontes e ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     /* ==================================================================================
        VARIÁVEIS GLOBAIS E ESTILOS BASE
     ================================================================================== */
-    
-    /* ==============================
-       VARIÁVEIS DE IDENTIDADE
-    ================================ */
     :root {
       --azul-base: #0B1020;
       --azul-tecnico: #1F4FD8;
@@ -36,9 +30,6 @@
       --azul-escuro: #070B1A;
     }
 
-    /* ==============================
-       RESET E BASE
-    ================================ */
     * {
       margin: 0;
       padding: 0;
@@ -80,9 +71,6 @@
       display: block;
     }
 
-    /* ==============================
-       ANIMAÇÕES GLOBAIS
-    ================================ */
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -94,9 +82,7 @@
       }
     }
 
-    /* ==============================
-       HEADER / NAVEGAÇÃO
-    ================================ */
+    /* ============================== COMPONENTES COMPARTILHADOS ============================== */
     .header {
       position: fixed;
       top: 0;
@@ -130,9 +116,6 @@
       transform: scale(1.05);
     }
 
-    /* ==============================
-       MENU PRINCIPAL
-    ================================ */
     .nav-menu {
       display: flex;
       align-items: center;
@@ -153,9 +136,9 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      text-decoration: none;
     }
 
-    /* TRAÇO ANIMADO APENAS NO MENU PRINCIPAL */
     .nav-menu > li > a::after {
       content: '';
       position: absolute;
@@ -175,9 +158,6 @@
       color: var(--amarelo);
     }
 
-    /* ==============================
-       BOTÃO CONTATO
-    ================================ */
     .nav-btn {
       background-color: var(--amarelo);
       color: var(--azul-base) !important;
@@ -195,9 +175,6 @@
       transform: translateY(-2px);
     }
 
-    /* ==============================
-       DROPDOWN (ATUAÇÃO)
-    ================================ */
     .dropdown-menu {
       position: absolute;
       top: 140%;
@@ -224,27 +201,34 @@
       width: 100%;
       font-size: 0.9rem;
       color: var(--branco);
+      display: block;
     }
 
-    .dropdown-menu a::after {
-      display: none !important;
-    }
+@media (max-width: 768px) {
+  .dropdown.active .dropdown-menu {
+    display: block; /* substitui o display:none */
+  }
+}
 
     .dropdown-menu a:hover {
       background-color: rgba(255, 255, 255, 0.05);
       color: var(--amarelo);
     }
 
-    /* Hover desktop */
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
+    /* Mantém o hover para desktop */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-    /* ==============================
-       HAMBURGER
-    ================================ */
+/* Ativa o submenu quando o dropdown tiver a classe .active (usada no clique) */
+.dropdown.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
     .hamburger {
       display: none;
       cursor: pointer;
@@ -261,452 +245,15 @@
       transition: all 0.3s ease;
     }
 
-    /* ==============================
-       HERO - PÁGINAS DE SERVIÇOS
-    ================================ */
-    .servico-hero {
-      position: relative;
-      height: 500px;
-      display: flex;
-      align-items: center;
-      color: var(--branco);
-      text-align: center;
-      background-size: cover;
-      background-position: center;
-      margin-top: 70px;
-    }
-
-    .servico-hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 1;
-    }
-
-    .servico-hero .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .slogan {
-      font-size: 0.9rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .nav-menu > li > a.active {
       color: var(--amarelo);
-      margin-bottom: 15px;
-      font-weight: 600;
-      display: block;
     }
 
-    .hero-title {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      line-height: 1.2;
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto;
-      color: var(--cinza);
-    }
-
-    /* ==============================
-       TIPOS DE PROJETOS - BLOCO AMARELO
-    ================================ */
-    .tipos-projetos {
-      padding: 0;
-      background-color: var(--amarelo);
-    }
-
-    .tipos-grid {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .tipo-item {
-      flex: 1 1 25%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 16px;
-      color: var(--azul-base);
-      font-weight: 600;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-
-    .tipo-item::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 4px;
-      width: 0%;
-      background-color: var(--azul-base);
-      transition: width 0.4s ease;
-    }
-
-    .tipo-item:hover::before {
+    .nav-menu > li > a.active::after {
       width: 100%;
     }
 
-    .tipo-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .tipo-item i {
-      font-size: 2.4rem;
-      margin-bottom: 12px;
-      color: var(--azul-base);
-    }
-
-    .tipo-item h4 {
-      font-size: 1rem;
-      margin: 0;
-      color: var(--azul-base);
-    }
-
-    /* ==============================
-       INTRODUÇÃO
-    ================================ */
-    #introducao {
-      padding: 80px 0;
-      background-color: var(--azul-base);
-    }
-
-    #introducao h2 {
-      font-size: 2.2rem;
-      color: var(--branco);
-      margin-bottom: 25px;
-      position: relative;
-      display: inline-block;
-    }
-
-    #introducao h2::after {
-      content: "";
-      width: 60px;
-      height: 4px;
-      background-color: var(--cinza);
-      display: block;
-      margin-top: 10px;
-      border-radius: 2px;
-    }
-
-    #introducao p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--cinza);
-      margin-bottom: 20px;
-    }
-
-    /* ==============================
-       ENGENHARIA QUE ENTREGAMOS
-    ================================ */
-    .engenharia-entrega {
-      padding: 100px 0;
-      background-color: var(--azul-escuro);
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: "";
-      width: 80px;
-      height: 4px;
-      background-color: var(--amarelo);
-      display: block;
-      margin-top: 15px;
-      border-radius: 2px;
-    }
-
-    .engenharia-descricao {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 60px;
-      max-width: 900px;
-      color: var(--cinza);
-    }
-
-    .engenharia-descricao strong {
-      color: var(--amarelo);
-    }
-
-    /* ITENS COM ÍCONES */
-    .engenharia-itens-lista {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-
-    .engenharia-item-lista {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 25px;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      border-left: 4px solid var(--amarelo);
-      transition: transform 0.3s ease;
-    }
-
-    .engenharia-item-lista:hover {
-      transform: translateY(-5px);
-    }
-
-    .item-icon {
-      font-size: 2rem;
-      color: var(--amarelo);
-      min-width: 40px;
-      text-align: center;
-    }
-
-    .item-texto strong {
-      display: block;
-      font-size: 1.2rem;
-      color: var(--amarelo);
-      margin-bottom: 8px;
-    }
-
-    .item-texto p {
-      color: var(--branco);
-      line-height: 1.6;
-    }
-
-    /* CARDS 2X2 COM IMAGEM */
-    .engenharia-itens-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-    }
-
-    .engenharia-card {
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .engenharia-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    }
-
-    .engenharia-card img {
-      width: 100%;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
-
-    .engenharia-card-texto strong {
-      display: block;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--amarelo);
-      margin-bottom: 8px;
-    }
-
-    .engenharia-card-texto p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin: 0;
-      color: var(--cinza);
-    }
-
-    /* ==============================
-       COMO TRABALHAMOS
-    ================================ */
-    .servicos-detalhados {
-      padding: 100px 0;
-      background-color: var(--azul-base);
-    }
-
-    .servicos-lista {
-      max-width: 1000px;
-      margin: 50px auto 0;
-    }
-
-    .servico-item {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 30px;
-      margin-bottom: 50px;
-      align-items: start;
-    }
-
-    .servico-icon {
-      width: 80px;
-      height: 80px;
-      background: var(--azul-card);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--amarelo);
-    }
-
-    .servico-icon i {
-      font-size: 2.5rem;
-      color: var(--amarelo);
-    }
-
-    .servico-content h3 {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-      color: var(--branco);
-    }
-
-    .servico-content p {
-      color: var(--cinza);
-      line-height: 1.8;
-    }
-
-    /* ==============================
-       DIFERENCIAIS
-    ================================ */
-    .diferenciais-sobre {
-      padding: 100px 0;
-      background-color: var(--azul-escuro);
-    }
-
-    .diferenciais-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
-
-    .diferencial-card {
-      background: var(--azul-card);
-      padding: 40px 30px;
-      border-radius: 8px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .diferencial-card:hover {
-      transform: translateY(-10px);
-      background: var(--azul-card-hover);
-      border-color: var(--amarelo);
-    }
-
-    .diferencial-icon {
-      font-size: 2.8rem;
-      color: var(--amarelo);
-      margin-bottom: 25px;
-    }
-
-    .diferencial-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: var(--branco);
-    }
-
-    .diferencial-card p {
-      color: var(--cinza);
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    /* ==============================
-       CTA FINAL
-    ================================ */
-    .cta-final {
-      padding: 80px 0;
-      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
-                  url("images/cta-bg.jpg") center/cover no-repeat;
-      text-align: center;
-    }
-
-    .cta-quadro {
-      background-color: var(--azul-card);
-      padding: 60px 40px;
-      border-radius: 12px;
-      max-width: 800px;
-      margin: 0 auto;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .cta-title {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: var(--branco);
-    }
-
-    .cta-subtitle {
-      font-size: 1.2rem;
-      color: var(--cinza);
-      margin-bottom: 40px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-    }
-
-    .center-btn {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 16px 40px;
-      background-color: transparent;
-      border: 2px solid var(--amarelo);
-      color: var(--amarelo);
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      border-radius: 4px;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .btn:hover {
-      background-color: var(--amarelo);
-      color: var(--azul-base);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
-    }
-
-    .btn-large {
-      padding: 18px 45px;
-      font-size: 1.1rem;
-    }
-
-    .whatsapp-btn {
-      background-color: #25D366 !important;
-      color: white !important;
-      border: none !important;
-    }
-
-    .whatsapp-btn:hover {
-      background-color: #1ebe5d !important;
-    }
-
-    /* ==============================
-       FOOTER
-    ================================ */
+    /* ============================== FOOTER ============================== */
     .footer {
       width: 100%;
       background-color: var(--azul-escuro);
@@ -866,205 +413,1259 @@
       opacity: 0.8;
     }
 
-    /* ==============================
-       RESPONSIVIDADE
-    ================================ */
-    @media (max-width: 1024px) {
-      .engenharia-itens-cards {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
+    /* ============================== WHATSAPP FIXO ============================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      animation: bounce 2s infinite;
+      z-index: 9999;
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-12px); }
+      60% { transform: translateY(-6px); }
+    }
+
+    /* ============================== PÁGINA INICIAL (genérico) ============================== */
+    .hero {
+      min-height: 100vh;
+      background: url("../images/capa.png") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 140px 20px 80px;
+      margin-top: 70px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .slogan {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--cinza);
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background-color: transparent;
+      border: 2px solid var(--amarelo);
+      color: var(--amarelo);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--amarelo);
+      color: var(--azul-base);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
+    }
+
+    .btn-large {
+      padding: 18px 45px;
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background-color: var(--amarelo);
+      display: block;
+      margin-top: 15px;
+      border-radius: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      max-width: 900px;
+      margin-bottom: 60px;
+      line-height: 1.8;
+    }
+
+    .section-subtitle {
+      color: var(--cinza-escuro);
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      max-width: 700px;
+    }
+
+    .center-btn {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .destaques {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .destaque-item {
+      background-color: var(--azul-card);
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .destaque-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .destaque-item i {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+    }
+
+    .destaque-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .destaque-item p {
+      color: var(--cinza);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .atuacao {
+      background-color: var(--azul-escuro);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background-color: var(--azul-card);
+      padding: 40px 30px;
+      border-radius: 8px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(31, 79, 216, 0.1);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: var(--amarelo);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background-color: var(--azul-card-hover);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .card p {
+      color: var(--cinza);
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .card-link {
+      color: var(--amarelo);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-link:hover {
+      gap: 15px;
+    }
+
+    .transicao-text {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      max-width: 900px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 30px;
+      background-color: rgba(31, 79, 216, 0.1);
+      border-radius: 8px;
+      border: 1px solid rgba(31, 79, 216, 0.2);
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--amarelo);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--cinza);
+      font-weight: 500;
+    }
+
+    .cta {
+      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+                  url("../images/background-cta.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-subtitle {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .contact-item i {
+      font-size: 2rem;
+      color: var(--amarelo);
+    }
+
+    .contact-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: var(--amarelo);
+    }
+
+    .contact-item p {
+      color: var(--branco);
+      font-weight: 500;
+    }
+
+    /* ============================== PÁGINA SOBRE (trechos) ============================== */
+    .sobre-hero {
+      min-height: 70vh;
+      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.85)),
+                  url("../images/Capa-sobre.png") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 140px 20px 80px;
+      margin-top: 70px;
+      position: relative;
+    }
+
+    /* ============================== PÁGINAS DE SERVIÇOS ============================== */
+    .servico-hero {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      color: var(--branco);
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      margin-top: 70px;
+    }
+
+    .servico-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    .servico-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .servico-hero .slogan {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amarelo);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .servico-hero .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .servico-hero .hero-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--cinza);
+    }
+
+    .renovaveis-hero {
+      background-image: url("../images/renovaveis.jpg");
+    }
+
+    /* Faixa amarela - Tipos de Projetos */
+    .tipos-projetos {
+      padding: 0;
+      background-color: var(--amarelo);
+    }
+
+    .tipos-grid {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .tipo-item {
+      flex: 1 1 25%; /* Sempre 4 itens por linha */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+      color: var(--azul-base);
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .tipo-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background-color: var(--azul-base);
+      transition: width 0.4s ease;
+    }
+
+    .tipo-item:hover::before {
+      width: 100%;
+    }
+
+    .tipo-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .tipo-item i {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      color: var(--azul-base);
+    }
+
+    .tipo-item h4 {
+      font-size: 1rem;
+      margin: 0;
+      color: var(--azul-base);
+    }
+
+    /* Responsividade da faixa amarela: mantém 4 itens, apenas reduz tamanhos */
+    @media (max-width: 1023px) and (min-width: 601px) {
       .tipo-item {
-        flex: 1 1 50%;
-        padding: 40px 16px;
+        padding: 30px 12px;
       }
-      
-      .diferenciais-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      .tipo-item i {
+        font-size: 2rem;
+      }
+      .tipo-item h4 {
+        font-size: 0.9rem;
       }
     }
 
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
+    @media (max-width: 600px) {
+      .tipo-item {
+        padding: 20px 8px;
       }
-
-      .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--azul-base);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 40px 0;
-        gap: 30px;
+      .tipo-item i {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
       }
-
-      .nav-menu.active {
-        left: 0;
+      .tipo-item h4 {
+        font-size: 0.85rem;
       }
+    }
 
-      .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
+    #introducao {
+      padding: 80px 0;
+      background-color: var(--azul-base);
+    }
+
+    #introducao .container {
+      max-width: 900px;
+    }
+
+    #introducao h2 {
+      font-size: 2.2rem;
+      color: var(--branco);
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    #introducao h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background-color: var(--cinza);
+      display: block;
+      margin-top: 10px;
+      border-radius: 2px;
+    }
+
+    #introducao p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--cinza);
+      margin-bottom: 20px;
+    }
+
+    .engenharia-entrega {
+      padding: 100px 0;
+      background-color: var(--azul-escuro);
+      color: var(--branco);
+    }
+
+    .engenharia-entrega .slogan {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amarelo);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .engenharia-entrega .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .engenharia-descricao {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      max-width: 900px;
+    }
+
+    .engenharia-descricao strong {
+      color: var(--amarelo);
+    }
+
+    .engenharia-itens {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+      margin-top: 50px;
+    }
+
+    .engenharia-item {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .engenharia-item.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .engenharia-item-visual {
+      flex: 1;
+    }
+
+    .engenharia-item-visual img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .engenharia-item-visual img:hover {
+      transform: scale(1.02);
+    }
+
+    .engenharia-item-texto {
+      flex: 1;
+      color: var(--cinza);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .engenharia-item-texto strong {
+      display: block;
+      color: var(--amarelo);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    /* Seção "Como Trabalhamos" - formato original */
+    .servicos-detalhados {
+      padding: 100px 0;
+      background-color: var(--azul-card);
+    }
+
+    .servicos-lista {
+      max-width: 1000px;
+      margin: 50px auto 0;
+    }
+
+    .servico-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
+      align-items: start;
+    }
+
+    .servico-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--azul-card);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--amarelo);
+    }
+
+    .servico-icon i {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+    }
+
+    .servico-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .servico-content p {
+      color: var(--cinza);
+      line-height: 1.8;
+    }
+
+    /* Responsividade da seção "Como Trabalhamos" */
+    @media (max-width: 1023px) and (min-width: 768px) {
+      .servico-item {
+        grid-template-columns: 80px 1fr;
+        gap: 20px;
       }
-
-      .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+      .servico-icon {
+        width: 70px;
+        height: 70px;
       }
-
-      .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
-
-      .servico-hero {
-        height: 400px;
-        padding: 100px 20px;
-      }
-
-      .hero-title {
+      .servico-icon i {
         font-size: 2rem;
       }
-
-      .section-title {
-        font-size: 2rem;
+      .servico-content h3 {
+        font-size: 1.4rem;
       }
+    }
 
+    @media (max-width: 767px) {
       .servico-item {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 20px;
       }
-
       .servico-icon {
         margin: 0 auto;
       }
+    }
 
-      .engenharia-item-lista {
-        flex-direction: column;
-        text-align: center;
-      }
+    /* Diferenciais */
+    .diferenciais-sobre {
+      padding: 100px 0;
+      background-color: var(--azul-escuro);
+    }
 
-      .item-icon {
-        margin: 0 auto;
-      }
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
 
-      .footer-container {
-        padding: 0 20px;
-      }
+    .diferencial-card {
+      background: var(--azul-card);
+      padding: 40px 30px;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-      .footer-grid {
-        gap: 40px;
+    .diferencial-card:hover {
+      transform: translateY(-10px);
+      background: var(--azul-card-hover);
+      border-color: var(--amarelo);
+    }
+
+    .diferencial-icon {
+      font-size: 2.8rem;
+      color: var(--amarelo);
+      margin-bottom: 25px;
+    }
+
+    .diferencial-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .diferencial-card p {
+      color: var(--cinza);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* Responsividade dos diferenciais */
+    @media (max-width: 1023px) and (min-width: 601px) {
+      .diferenciais-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 480px) {
-      .tipo-item {
-        flex: 1 1 100%;
-        padding: 32px 16px;
-      }
-      
+    @media (max-width: 600px) {
       .diferenciais-grid {
         grid-template-columns: 1fr;
       }
-      
       .diferencial-card {
         padding: 30px 20px;
       }
-      
-      .cta-quadro {
-        padding: 40px 20px;
-      }
-      
-      .cta-title {
-        font-size: 1.8rem;
+      .diferencial-card h3 {
+        font-size: 1.3rem;
       }
     }
+
+    .cta-box {
+      background-color: var(--azul-card);
+      border-radius: 12px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .cta-box .cta-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--branco);
+    }
+
+    .cta-box .cta-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: var(--cinza);
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #25D366;
+      color: var(--branco);
+      font-weight: 600;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
+    }
+
+    .cta .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .cta .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1rem;
+      color: var(--branco);
+    }
+
+    .cta .contact-item i {
+      font-size: 1.8rem;
+      color: var(--amarelo);
+    }
+
+    .cta-final {
+      padding: 80px 0;
+      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+                  url("../images/cta-bg.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .cta-quadro {
+      background-color: var(--azul-card);
+      padding: 60px 40px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-quadro .cta-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--branco);
+    }
+
+    .cta-quadro .cta-subtitle {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: var(--branco);
+      border: none;
+      padding: 18px 45px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Estilo específico para página de projetos elétricos */
+    .pagina-projetos .engenharia-entrega {
+      background-color: var(--azul-escuro);
+      padding: 100px 0;
+    }
+
+    .pagina-projetos .engenharia-itens-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .pagina-projetos .engenharia-item-lista {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid var(--amarelo);
+      transition: transform 0.3s ease;
+    }
+
+    .pagina-projetos .engenharia-item-lista:hover {
+      transform: translateY(-5px);
+    }
+
+    .pagina-projetos .engenharia-item-lista i {
+      font-size: 2rem;
+      color: var(--amarelo);
+      min-width: 40px;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .pagina-projetos .engenharia-item-lista p {
+      color: var(--branco);
+      line-height: 1.6;
+      margin: 0;
+      flex: 1;
+    }
+
+    .pagina-projetos .engenharia-item-lista strong {
+      display: inline;
+      color: var(--amarelo);
+      font-weight: 700;
+    }
+
+    .pagina-projetos .engenharia-itens-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .pagina-projetos .engenharia-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pagina-projetos .engenharia-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .pagina-projetos .engenharia-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .pagina-projetos .engenharia-card-texto strong {
+      display: block;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--amarelo);
+      margin-bottom: 8px;
+    }
+
+    .pagina-projetos .engenharia-card-texto p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0;
+      color: var(--cinza);
+    }
+
+    /* Responsividade dos cards de engenharia (Projeto 2D, Modelagem 3D, etc) */
+    @media (max-width: 1023px) and (min-width: 601px) {
+      .pagina-projetos .engenharia-itens-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pagina-projetos .engenharia-itens-cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .pagina-projetos .engenharia-card {
+        padding: 20px;
+      }
+      .pagina-projetos .engenharia-card-texto strong {
+        font-size: 1.1rem;
+      }
+      .pagina-projetos .engenharia-card-texto p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* MODAL WHATSAPP */
+    .modal-whatsapp {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-whatsapp.mostrar {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-conteudo {
+      background-color: var(--azul-card);
+      max-width: 450px;
+      width: 90%;
+      border-radius: 12px;
+      padding: 30px 20px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(242, 183, 5, 0.2);
+    }
+
+    .modal-fechar {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--cinza);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .modal-fechar:hover {
+      color: var(--amarelo);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .modal-titulo {
+      color: var(--branco);
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .modal-titulo i {
+      color: #25D366;
+      font-size: 1.8rem;
+    }
+
+    .opcoes-whatsapp {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .opcao-contato {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .opcao-contato:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--amarelo);
+      transform: translateY(-2px);
+    }
+
+    .opcao-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--azul-escuro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--amarelo);
+    }
+
+    .opcao-avatar i {
+      font-size: 1.8rem;
+      color: var(--amarelo);
+    }
+
+    .opcao-info {
+      flex: 1;
+    }
+
+    .opcao-nome {
+      color: var(--branco);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .opcao-cargo {
+      color: var(--cinza);
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .opcao-whatsapp i {
+      font-size: 2rem;
+      color: #25D366;
+      transition: transform 0.3s ease;
+    }
+
+    .opcao-contato:hover .opcao-whatsapp i {
+      transform: scale(1.1);
+    }
+
+    /* ============================== RESPONSIVIDADE GERAL ============================== */
+    @media (max-width: 1024px) {
+      .section-title { font-size: 2.2rem; }
+      .hero-title { font-size: 2.8rem; }
+      .cta-title { font-size: 2.4rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.4rem; }
+      .hero-subtitle { font-size: 1.2rem; }
+      section { padding: 70px 0; }
+      .servico-hero .hero-title { font-size: 2.2rem; }
+      .servico-hero .hero-subtitle { font-size: 1rem; }
+      #introducao h2 { font-size: 1.8rem; }
+      .engenharia-entrega .section-title { font-size: 2rem; }
+      .servicos-detalhados .section-title { font-size: 2rem; }
+      .cta-title { font-size: 2rem; }
+      .cta-subtitle { font-size: 1.1rem; }
+      .cta-quadro { padding: 40px 20px; }
+      .footer-container { padding: 0 20px; }
+      .footer-grid { gap: 40px; }
+    }
+
+    @media (max-width: 480px) {
+      body { font-size: 15px; }
+      .hero { padding: 120px 20px 60px; }
+      .hero-title { font-size: 2rem; }
+      .section-title { font-size: 1.8rem; }
+      .btn, .btn-large { width: 100%; text-align: center; }
+      .servico-hero {
+        height: auto;
+        min-height: 350px;
+        padding: 100px 20px 60px;
+      }
+      .servico-hero .hero-title { font-size: 1.8rem; }
+      .servico-hero .hero-subtitle { font-size: 0.95rem; }
+      #introducao { padding: 60px 0; }
+      .engenharia-entrega { padding: 70px 0; }
+      .servicos-detalhados { padding: 70px 0; }
+      .diferenciais-sobre { padding: 70px 0; }
+      .cta-final { padding: 60px 0; }
+      .cta-quadro .cta-title { font-size: 1.8rem; }
+      .whatsapp-btn { width: 100%; max-width: 300px; }
+      .footer-grid { gap: 30px; }
+      .footer-logo { width: 70px; }
+      .footer-slogan { font-size: 0.9rem; }
+      .footer-links h3, .footer-contact h3 { font-size: 1rem; }
+      .footer-contact p { font-size: 0.9rem; }
+      section { padding: 60px 0; }
+    }
+
+    /* Menu mobile */
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--azul-escuro);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 100px 30px 30px;
+        gap: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        list-style: none;
+        margin: 0;
+      }
+      .nav-menu.active { right: 0; }
+      .nav-menu li { width: 100%; }
+      .nav-menu > li > a {
+        font-size: 1.1rem;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 0;
+      }
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0 0 0 20px;
+        min-width: auto;
+        margin-top: 10px;
+        display: none;
+      }
+      .dropdown-menu.active { display: block; }
+      .dropdown-menu a { padding: 8px 0; font-size: 1rem; }
+      .hamburger.active .bar:nth-child(2) { opacity: 0; }
+      .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-  .center-btn {
-    text-align: center;
-  }
-
-  .whatsapp-btn {
-    background-color: #25D366;
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 18px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-  }
-
-  .whatsapp-btn:hover {
-    background-color: #1ebe5d;
-  }
-
-  .whatsapp-btn i {
-    font-size: 22px;
-  }
-</style>
-
 </head>
-
-<body>
+<body class="pagina-projetos">
 
 <!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container">
     <nav class="navbar">
-
-      <!-- LOGO -->
-      <a href="index.html" class="logo-link">
-        <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="logo">
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.PNG" alt="Engevis Engenharia Elétrica" class="logo">
       </a>
-
-      <!-- MENU -->
       <ul class="nav-menu">
-        <li><a href="index.html#hero">Home</a></li>
-        <li><a href="index.html#quem-somos">A Engevis</a></li>
-
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../sobre.html">A Engevis</a></li>
+        <li><a href="../portfolio/">Portfólio</a></li>
+        <li><a href="../Artigos/index.html">Artigos</a></li>
         <li class="dropdown">
-          <a href="index.html#atuacao" class="dropdown-toggle">
-            Atuação <i class="fas fa-chevron-down"></i>
-          </a>
+          <a href="#" class="dropdown-toggle">Atuação <i class="fas fa-chevron-down"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
-            <li><a href="renovaveis.html">Energia Renovável</a></li>
-            <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
+            <li><a href="../projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="../renovaveis.html">Energia Renovável</a></li>
+            <li><a href="../eficiencia.html">Eficiência e Auditoria Energética</a></li>
           </ul>
         </li>
-
         <li><a href="#contato" class="nav-btn">Contato</a></li>
       </ul>
-
-      <!-- HAMBURGER -->
       <button class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-
     </nav>
   </div>
 </header>
 
 <!-- ================= HERO - PROJETOS ELÉTRICOS ================= -->
-<section class="servico-hero" style="background-image: url('images/projetos-eletricos.jpg');">
+<section class="servico-hero" style="background-image: url('../images/projetos-eletricos.jpg');">
   <div class="container">
     <div class="servico-hero-content">
       <span class="slogan">Engenharia Executiva</span>
       <h1 class="hero-title">Projetos e Execução Elétrica</h1>
       <p class="hero-subtitle">
-       Desenvolvemos projetos elétricos completos para residências, 
+        Desenvolvemos projetos elétricos completos para residências, 
         comércios e pequenas indústrias, com foco em eficiência, 
         segurança e precisão técnica. Todos os projetos são entregues com ART, 
         garantindo respaldo profissional e conformidade com as normas de engenharia.
@@ -1122,107 +1723,67 @@
       Garantimos que cada etapa do projeto seja clara, precisa e alinhada às normas técnicas.
     </p>
 
-    <!-- ================= ITENS SIMPLES COM ÍCONES ================= -->
+    <!-- LISTA VERTICAL COM ÍCONES -->
     <div class="engenharia-itens-lista">
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-drafting-compass"></i></div>
-        <div class="item-texto">
-          <strong>Plantas elétricas detalhadas:</strong>
-          <p>Desenhos completos para execução precisa de cada etapa do projeto.</p>
-        </div>
+        <i class="fas fa-drafting-compass"></i>
+        <p><strong>Plantas elétricas detalhadas:</strong> Desenhos completos para execução precisa de cada etapa do projeto.</p>
       </div>
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-project-diagram"></i></div>
-        <div class="item-texto">
-          <strong>Diagramas unifilares e esquemas técnicos:</strong>
-          <p>Representações claras de circuitos e conexões para facilitar a compreensão e execução.</p>
-        </div>
+        <i class="fas fa-project-diagram"></i>
+        <p><strong>Diagramas unifilares e esquemas técnicos:</strong> Representações claras de circuitos e conexões para facilitar a compreensão e execução.</p>
       </div>
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-calculator"></i></div>
-        <div class="item-texto">
-          <strong>Quadro de cargas e dimensionamentos:</strong>
-          <p>Cálculos detalhados para garantir eficiência, segurança e conformidade normativa.</p>
-        </div>
+        <i class="fas fa-calculator"></i>
+        <p><strong>Quadro de cargas e dimensionamentos:</strong> Cálculos detalhados para garantir eficiência, segurança e conformidade normativa.</p>
       </div>
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-file-alt"></i></div>
-        <div class="item-texto">
-          <strong>Memorial descritivo e cálculos técnicos:</strong>
-          <p>Documentação fundamentada para respaldar decisões e assegurar confiabilidade do projeto.</p>
-        </div>
+        <i class="fas fa-file-alt"></i>
+        <p><strong>Memorial descritivo e cálculos técnicos:</strong> Documentação fundamentada para respaldar decisões e assegurar confiabilidade do projeto.</p>
       </div>
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-list-ul"></i></div>
-        <div class="item-texto">
-          <strong>Lista de materiais especificada:</strong>
-          <p>Detalhamento completo de equipamentos e componentes para execução sem dúvidas.</p>
-        </div>
+        <i class="fas fa-list-ul"></i>
+        <p><strong>Lista de materiais especificada:</strong> Detalhamento completo de equipamentos e componentes para execução sem dúvidas.</p>
       </div>
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-file-pdf"></i></div>
-        <div class="item-texto">
-          <strong>Documentação organizada em PDF:</strong>
-          <p>Todos os arquivos necessários entregues de forma clara, estruturada e pronta para uso.</p>
-        </div>
+        <i class="fas fa-file-pdf"></i>
+        <p><strong>Documentação organizada em PDF:</strong> Todos os arquivos necessários entregues de forma clara, estruturada e pronta para uso.</p>
       </div>
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-file-signature"></i></div>
-        <div class="item-texto">
-          <strong>Entrega com ART:</strong>
-          <p>Projetos formalmente respaldados, garantindo conformidade legal e técnica.</p>
-        </div>
+        <i class="fas fa-file-signature"></i>
+        <p><strong>Entrega com ART:</strong> Projetos formalmente respaldados, garantindo conformidade legal e técnica.</p>
       </div>
-
       <div class="engenharia-item-lista">
-        <div class="item-icon"><i class="fas fa-file-code"></i></div>
-        <div class="item-texto">
-          <strong>Arquivos editáveis (DWG):</strong>
-          <p>Disponíveis mediante solicitação, permitindo alterações e compatibilizações adicionais.</p>
-        </div>
+        <i class="fas fa-file-code"></i>
+        <p><strong>Arquivos editáveis (DWG):</strong> Disponíveis mediante solicitação, permitindo alterações e compatibilizações adicionais.</p>
       </div>
-
     </div>
 
-    <!-- ================= CARDS 2X2 COM IMAGEM ACIMA ================= -->
+    <!-- CARDS 2X2 COM IMAGEM -->
     <div class="engenharia-itens-cards">
-      <!-- CARD 1 -->
       <div class="engenharia-card">
-        <img src="images/2d-projeto.jpg" alt="Desenho 2D de projeto elétrico">
+        <img src="../images/2d-projeto.jpg" alt="Desenho 2D de projeto elétrico">
         <div class="engenharia-card-texto">
           <strong>Projeto 2D Executivo:</strong>
           <p>Elaboramos plantas detalhadas, cortes e diagramas unifilares que minimizam erros e agilizam a execução da obra. Cada documento é cuidadosamente desenvolvido para garantir a precisão e facilitar a compreensão por todos os envolvidos no projeto.</p>
         </div>
       </div>
-
-      <!-- CARD 2 -->
       <div class="engenharia-card">
-        <img src="images/gif-projeto.gif" alt="Modelagem 3D de eletrodutos e infraestrutura elétrica">
+        <img src="../images/gif-projeto.gif" alt="Modelagem 3D de eletrodutos e infraestrutura elétrica">
         <div class="engenharia-card-texto">
           <strong>Modelagem 3D Técnica:</strong>
           <p>Criamos modelos tridimensionais detalhados que permitem visualizar eletrodutos e toda infraestrutura elétrica, facilitando a compatibilização com arquitetura e estruturas. Isso ajuda a identificar e resolver conflitos antes da execução, evitando retrabalhos.</p>
         </div>
       </div>
-
-      <!-- CARD 3 -->
       <div class="engenharia-card">
-        <img src="images/memorial.jpg" alt="Memorial de cálculo">
+        <img src="../images/memorial.jpg" alt="Memorial de cálculo">
         <div class="engenharia-card-texto">
           <strong>Memoriais de Cálculo:</strong>
           <p>Apresentamos critérios técnicos, dimensionamentos e verificações de acordo com as normas vigentes, garantindo segurança e eficiência elétrica. Cada memorial é elaborado para fundamentar decisões e assegurar a confiabilidade do sistema.</p>
         </div>
       </div>
-
-      <!-- CARD 4 -->
       <div class="engenharia-card">
-        <img src="images/documentacao.webp" alt="Documentação final do projeto">
+        <img src="../images/documentacao.webp" alt="Documentação final do projeto">
         <div class="engenharia-card-texto">
           <strong>Documentação Final:</strong>
           <p>Fornecemos listas de materiais completas, projetos "as built", ART e toda documentação necessária para aprovação, operação e manutenção. Assim, o projeto chega pronto para uso, sem lacunas ou dúvidas.</p>
@@ -1232,7 +1793,7 @@
   </div>
 </section>
 
-<!-- ================= ESCOPO DE ATUAÇÃO ================= -->
+<!-- ================= ESCOPO DE ATUAÇÃO (COMO TRABALHAMOS) ================= -->
 <section class="servicos-detalhados">
   <div class="container">
     <h2 class="section-title">Como Trabalhamos</h2>
@@ -1245,7 +1806,6 @@
           <p>Analisamos detalhadamente as necessidades do cliente para garantir que o projeto atenda exatamente às expectativas.</p>
         </div>
       </div>
-
       <div class="servico-item">
         <div class="servico-icon"><i class="fas fa-file-invoice-dollar"></i></div>
         <div class="servico-content">
@@ -1253,7 +1813,6 @@
           <p>Apresentamos um escopo completo com valores claros, garantindo total compreensão e segurança na decisão.</p>
         </div>
       </div>
-
       <div class="servico-item">
         <div class="servico-icon"><i class="fas fa-project-diagram"></i></div>
         <div class="servico-content">
@@ -1261,7 +1820,6 @@
           <p>Cada etapa do projeto é conduzida com checklist de qualidade, assegurando eficiência e precisão.</p>
         </div>
       </div>
-
       <div class="servico-item">
         <div class="servico-icon"><i class="fas fa-check-circle"></i></div>
         <div class="servico-content">
@@ -1269,7 +1827,6 @@
           <p>Revisamos todos os detalhes para garantir conformidade com normas e excelência técnica.</p>
         </div>
       </div>
-
       <div class="servico-item">
         <div class="servico-icon"><i class="fas fa-box-open"></i></div>
         <div class="servico-content">
@@ -1277,7 +1834,6 @@
           <p>O projeto é entregue completo, pronto para ser aplicado na obra sem dúvidas ou retrabalhos.</p>
         </div>
       </div>
-
       <div class="servico-item">
         <div class="servico-icon"><i class="fas fa-bolt"></i></div>
         <div class="servico-content">
@@ -1289,7 +1845,7 @@
   </div>
 </section>
 
-<!-- ================= DIFERENCIAIS ================= -->
+<!-- ================= DIFERENCIAIS (POR QUE A ENGEVIS?) ================= -->
 <section class="diferenciais-sobre">
   <div class="container">
     <h2 class="section-title">Por que a Engevis?</h2>
@@ -1329,7 +1885,7 @@
 </section>
 
 <!-- ================= CTA FINAL ================= -->
-<section class="cta-final">
+<section class="cta-final" id="contato">
   <div class="container">
     <div class="cta-quadro">
       <h2 class="cta-title">Seu projeto elétrico precisa funcionar na obra</h2>
@@ -1337,38 +1893,87 @@
         Desenvolvemos engenharia elétrica com foco em execução, segurança e confiabilidade técnica. Entre em contato agora e tire suas dúvidas diretamente com nossa equipe.
       </p>
       <div class="center-btn">
-  <a href="https://wa.me/5535999165674" target="_blank" class="btn btn-large whatsapp-btn">
-    <i class="fa-brands fa-whatsapp"></i>
-    Falar pelo WhatsApp
-  </a>
-</div>
-
+        <a href="#" class="btn btn-large btn-whatsapp abrir-modal-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Falar com nossos Engenheiros
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ================= BOTÃO WHATSAPP FIXO ================= -->
+<a href="#" class="whatsapp-float abrir-modal-whatsapp" aria-label="Abrir opções de WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- ================= MODAL DE SELEÇÃO WHATSAPP ================= -->
+<div class="modal-whatsapp" id="modalWhatsApp">
+  <div class="modal-conteudo">
+    <button class="modal-fechar" id="fecharModal">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <h3 class="modal-titulo">
+      <i class="fab fa-whatsapp"></i>
+      Escolha com quem falar
+    </h3>
+    
+    <div class="opcoes-whatsapp">
+      <a href="https://wa.me/5535999165674" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Vinicios</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia de Energia</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+      
+      <a href="https://wa.me/553597221324" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Rodrigo</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia Elétrica</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="footer-logo">
+        <img src="../images/logo.PNG" alt="Engevis Engenharia Elétrica" class="footer-logo">
         <p class="footer-slogan">Engineering the power behind the future</p>
       </div>
       <div class="footer-links">
         <h3>Links Rápidos</h3>
         <ul>
-          <li><a href="index.html#quem-somos">Quem Somos</a></li>
-          <li><a href="index.html#atuacao">Áreas de Atuação</a></li>
-          <li><a href="index.html#transicao">Transição Energética</a></li>
-          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../sobre.html">A Engevis</a></li>
+          <li><a href="#atuacao">Áreas de Atuação</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
       <div class="footer-contact">
         <h3>Contato</h3>
         <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
         <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
-        <p><i class="fas fa-envelope"></i> engevisengenharia@outlook.com</p>
+        <p><i class="fas fa-phone"></i> (35) 99722-1324</p>
+        <p><i class="fas fa-envelope"></i> engevis.engenharia@outlook.com</p>
       </div>
     </div>
 
@@ -1376,9 +1981,17 @@
 
     <div class="footer-bottom">
       <div class="footer-social">
-        <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/engevis-engenharia/"
+           aria-label="LinkedIn"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/engevis.eng?utm_source=qr&igsh=MW0wOXI0ZjkxNW5rdQ==" 
+           aria-label="Instagram" 
+           target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
       </div>
       <div class="copyright">
         <p>© 2026 Engevis Engenharia Elétrica e de Energia.</p>
@@ -1388,34 +2001,109 @@
   </div>
 </footer>
 
+<!-- ================= SCRIPT UNIFICADO ================= -->
 <script>
-  // Menu hamburger
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
+// Menu Mobile
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-  });
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
 
-  // Fechar menu ao clicar em um link
-  document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
+// Fechar menu ao clicar em um link (exceto o dropdown-toggle)
+document.querySelectorAll('.nav-menu a').forEach(n => {
+  n.addEventListener('click', (e) => {
+    if (!n.classList.contains('dropdown-toggle')) {
       hamburger.classList.remove('active');
       navMenu.classList.remove('active');
+    }
+  });
+});
+
+// Scroll suave para links internos (âncoras)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if(targetId === '#') return;
+    const targetElement = document.querySelector(targetId);
+    if(targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Efeito de destaque no header ao rolar
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  if(window.scrollY > 100) {
+    header.style.backgroundColor = 'rgba(11, 16, 32, 0.98)';
+    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+  } else {
+    header.style.backgroundColor = 'rgba(11, 16, 32, 0.95)';
+    header.style.boxShadow = 'none';
+  }
+});
+
+// Modal WhatsApp
+const botoesAbrirModal = document.querySelectorAll('.abrir-modal-whatsapp');
+const modal = document.getElementById('modalWhatsApp');
+const botaoFechar = document.getElementById('fecharModal');
+
+if (botoesAbrirModal.length > 0 && modal && botaoFechar) {
+  botoesAbrirModal.forEach(botao => {
+    botao.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('mostrar');
     });
   });
 
-  // Dropdown no mobile
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle('active');
+  botaoFechar.addEventListener('click', () => {
+    modal.classList.remove('mostrar');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('mostrar');
+    }
+  });
+}
+
+// Dropdown toggle (para mobile e desktop)
+const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+dropdownToggles.forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault(); // Impede o link de navegar
+    const dropdown = toggle.closest('.dropdown');
+    dropdown.classList.toggle('active');
+    
+    // Gira a seta
+    const icon = toggle.querySelector('i');
+    if (icon) {
+      icon.classList.toggle('fa-chevron-down');
+      icon.classList.toggle('fa-chevron-up');
+    }
+  });
+});
+
+// Fecha o dropdown se clicar fora
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.dropdown')) {
+    document.querySelectorAll('.dropdown.active').forEach(drop => {
+      drop.classList.remove('active');
+      const icon = drop.querySelector('.dropdown-toggle i');
+      if (icon) {
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
       }
     });
-  });
+  }
+});
 </script>
 </body>
 </html>

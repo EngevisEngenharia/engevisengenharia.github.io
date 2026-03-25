@@ -24,33 +24,28 @@
 <header class="header">
   <div class="container">
     <nav class="navbar">
-      <a href="index.html#hero" class="logo-link">
-        <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica e de Energia" class="logo">
+      <!-- Logo apontando para a raiz -->
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.PNG" alt="Engevis Engenharia Elétrica" class="logo">
       </a>
-
       <ul class="nav-menu">
-        <li><a href="index.html#hero">Home</a></li>
-        <li><a href="index.html#quem-somos">A Engevis</a></li>
-
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../sobre.html" >A Engevis</a></li>
+        <li><a href="../portfolio/" >Portfólio</a></li>
+        <li><a href="../Artigos/index.html">Artigos</a></li> <!-- NOVO ITEM -->
         <li class="dropdown">
-          <a href="index.html#atuacao" class="dropdown-toggle active">
-            Atuação <i class="fas fa-chevron-down"></i>
-          </a>
+          <a href="#" class="dropdown-toggle" class="active">Atuação <i class="fas fa-chevron-down"></i></a>
           <ul class="dropdown-menu">
-            <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
-            <li><a href="renovaveis.html">Energia Renovável</a></li>
-            <li><a href="eficiencia.html" class="active">Eficiência Energética</a></li>
+            <li><a href="../projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="../renovaveis.html">Energia Renovável</a></li>
+            <li><a href="../eficiencia.html">Eficiência e Auditoria Energética</a></li>
           </ul>
         </li>
-
-        <li><a href="index.html#contato" class="nav-btn">Contato</a></li>
+        <li><a href="#contato" class="nav-btn">Contato</a></li>
       </ul>
-
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+      <button class="hamburger">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
     </nav>
   </div>
 </header>
@@ -228,84 +223,196 @@
   </div>
 </section>
 
-<!-- ================= CTA FINAL ================= -->
-<section class="cta-final">
+<!-- ================= CTA FINAL (com botão que abre modal) ================= -->
+<section class="cta-final" id="contato">
   <div class="container">
-    <h2 class="cta-title">Otimize seu consumo de energia</h2>
-    <p class="cta-subtitle">
-      Desenvolvemos soluções personalizadas para reduzir custos e aumentar a eficiência energética do seu negócio.
-    </p>
-
-    <div class="center-btn">
-      <a href="contato.html" class="btn btn-large">Solicitar orçamento</a>
+    <div class="cta-quadro">
+      <h2 class="cta-title">Seu projeto elétrico precisa funcionar na obra</h2>
+      <p class="cta-subtitle">
+        Desenvolvemos engenharia elétrica com foco em execução, segurança e confiabilidade técnica. Entre em contato agora e tire suas dúvidas diretamente com nossa equipe.
+      </p>
+      <div class="center-btn">
+        <a href="#" class="btn btn-large btn-whatsapp abrir-modal-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Falar com nossos Engenheiros
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ================= BOTÃO WHATSAPP FIXO ================= -->
+<a href="#" class="whatsapp-float abrir-modal-whatsapp" aria-label="Abrir opções de WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- ================= MODAL DE SELEÇÃO WHATSAPP ================= -->
+<div class="modal-whatsapp" id="modalWhatsApp">
+  <div class="modal-conteudo">
+    <button class="modal-fechar" id="fecharModal">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <h3 class="modal-titulo">
+      <i class="fab fa-whatsapp"></i>
+      Escolha com quem falar
+    </h3>
+    
+    <div class="opcoes-whatsapp">
+      <a href="https://wa.me/5535999165674" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Vinicios</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia de Energia</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+      
+      <a href="https://wa.me/553597221324" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Rodrigo</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia Elétrica</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-grid">
-      <!-- BRAND -->
       <div class="footer-brand">
         <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="footer-logo">
         <p class="footer-slogan">Engineering the power behind the future</p>
       </div>
-
-      <!-- LINKS -->
       <div class="footer-links">
         <h3>Links Rápidos</h3>
         <ul>
-          <li><a href="index.html#quem-somos">Quem Somos</a></li>
-          <li><a href="index.html#atuacao">Áreas de Atuação</a></li>
-          <li><a href="index.html#transicao">Transição Energética</a></li>
-          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">A Engevis</a></li>
+          <li><a href="#atuacao">Áreas de Atuação</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
-
-      <!-- CONTATO -->
       <div class="footer-contact">
         <h3>Contato</h3>
         <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
         <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
-        <p><i class="fas fa-envelope"></i> engevisengenharia@outlook.com</p>
+          <p><i class="fas fa-phone"></i> (35) 99722-1324</p>
+        <p><i class="fas fa-envelope"></i> engevis.engenharia@outlook.com</p>
       </div>
     </div>
 
-    <!-- LINHA SEPARADORA -->
     <div class="footer-divider"></div>
 
-<!-- PARTE INFERIOR -->
-<div class="footer-bottom">
-  <!-- Redes Sociais -->
-  <div class="footer-social">
-    <a href="https://www.linkedin.com/company/engevis-engenharia/" 
-   aria-label="LinkedIn" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  <i class="fab fa-linkedin-in"></i>
-</a>
-
-<a href="https://www.instagram.com/engevis.eng?utm_source=qr&igsh=MW0wOXI0ZjkxNW5rdQ==" 
-   aria-label="Instagram" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  <i class="fab fa-instagram"></i>
-</a>
-
-  </div>
-
-      <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/engevis-engenharia/"
+           aria-label="LinkedIn"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/engevis.eng?utm_source=qr&igsh=MW0wOXI0ZjkxNW5rdQ==" 
+           aria-label="Instagram" 
+           target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+      </div>
       <div class="copyright">
-        <p>© 2026 Engevis Engenharia Elétrica.</p>
+        <p>© 2026 Engevis Engenharia Elétrica e de Energia.</p>
         <span>Todos os direitos reservados.</span>
       </div>
     </div>
-
   </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- ================= SCRIPT UNIFICADO (MENU + MODAL + SCROLL) ================= -->
+<script>
+  // Menu Mobile
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Fechar menu ao clicar em um link
+  document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+  }));
+
+  // Scroll suave para links internos (âncoras)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if(targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if(targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Efeito de destaque no header ao rolar
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if(window.scrollY > 100) {
+      header.style.backgroundColor = 'rgba(11, 16, 32, 0.98)';
+      header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+    } else {
+      header.style.backgroundColor = 'rgba(11, 16, 32, 0.95)';
+      header.style.boxShadow = 'none';
+    }
+  });
+
+  // Modal WhatsApp - com suporte a múltiplos botões (classe .abrir-modal-whatsapp)
+  const botoesAbrirModal = document.querySelectorAll('.abrir-modal-whatsapp');
+  const modal = document.getElementById('modalWhatsApp');
+  const botaoFechar = document.getElementById('fecharModal');
+
+  if (botoesAbrirModal.length > 0 && modal && botaoFechar) {
+    // Abrir modal ao clicar em qualquer botão com a classe
+    botoesAbrirModal.forEach(botao => {
+      botao.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('mostrar');
+      });
+    });
+
+    // Fechar modal
+    botaoFechar.addEventListener('click', () => {
+      modal.classList.remove('mostrar');
+    });
+
+    // Fechar modal ao clicar fora dele
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('mostrar');
+      }
+    });
+  }
+</script>
 </body>
 </html>

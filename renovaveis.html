@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- Favicon usando a mesma logo -->
-<link rel="icon" href="images/logo.PNG" type="image/png">
+  <link rel="icon" href="images/logo.PNG" type="image/png">
   <title>Energia Renovável | Engevis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Implantação de sistemas de energia renovável solar, eólica e biodigestores com eficiência e sustentabilidade.">
@@ -20,50 +20,38 @@
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container">
     <nav class="navbar">
-
-      <!-- LOGO -->
-      <a href="index.html" class="logo-link"> <!-- Alterei para index.html -->
-        <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="logo">
+      <!-- Logo apontando para a raiz -->
+      <a href="../index.html" class="logo-link">
+        <img src="../images/logo.PNG" alt="Engevis Engenharia Elétrica" class="logo">
       </a>
 
-      <!-- MENU -->
-      <ul class="nav-menu">
-        <li>
-          <a href="index.html#hero">Home</a> <!-- Link para a página inicial -->
-        </li>
+      <!-- Botão hambúrguer -->
+      <button class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-        <li>
-          <a href="sobre.html">A Engevis</a> <!-- Link para a página "Sobre" -->
-        </li>
-
-        <!-- DROPDOWN ATUAÇÃO -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle"> <!-- Alterei para # para dropdown -->
-            Atuação <i class="fas fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
-            <li><a href="renovaveis.html">Energia Renovável</a></li>
-            <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../sobre.html">A Engevis</a></li>
+        <li><a href="../portfolio/">Portfólio</a></li>
+        <li><a href="../Artigos/index.html">Artigos</a></li>
+        <!-- DROPDOWN ATUAÇÃO (com IDs para controle mobile) -->
+        <li class="dropdown" id="dropdown-atuacao">
+          <a href="#" class="dropdown-toggle" id="atuacao-link">Atuação <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu" id="dropdown-menu-atuacao">
+            <li><a href="../projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="../renovaveis.html">Energia Renovável</a></li>
+            <li><a href="../eficiencia.html">Eficiência e Auditoria Energética</a></li>
           </ul>
         </li>
-
-        <li>
-          <a href="#contato" class="nav-btn">Contato</a> <!-- Link para a seção de Contato na mesma página -->
-        </li>
+        <li><a href="#contato" class="nav-btn">Contato</a></li>
       </ul>
-
-      <!-- HAMBURGER -->
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-
     </nav>
   </div>
 </header>
@@ -124,8 +112,6 @@
 
     <div class="engenharia-itens">
 
-
-
       <!-- ITEM 1 - Energia Solares -->
       <div class="engenharia-item reverse">
         <div class="engenharia-item-visual">
@@ -162,6 +148,7 @@
     </div>
   </div>
 </section>
+
 <!-- ================= ESCOPO DE ATUAÇÃO ================= -->
 <section class="servicos-detalhados">
   <div class="container">
@@ -169,88 +156,91 @@
 
     <div class="servicos-lista">
 
-<div class="servico-item">
-  <div class="servico-icon">
-    <i class="fas fa-chart-line"></i>
-  </div>
-  <div class="servico-content">
-    <h3>PR Test e Simulaçõe energéticas</h3>
-    <p>
-      Realização de PR Test e simulações energéticas para avaliação
-      do desempenho de sistemas fotovoltaicos, estimativa de geração e
-      identificação de perdas.
-    </p>
-  </div>
-</div>
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="servico-content">
+          <h3>PR Test e Simulações no PVsyst</h3>
+          <p>
+            Realização de PR Test e simulações energéticas no PVsyst para avaliação
+            do desempenho de sistemas fotovoltaicos, estimativa de geração e
+            identificação de perdas.
+          </p>
+        </div>
+      </div>
 
-<div class="servico-item">
-  <div class="servico-icon">
-    <i class="fas fa-search-dollar"></i>
-  </div>
-  <div class="servico-content">
-    <h3>Estudos de Viabilidade Técnico-Econômica</h3>
-    <p>
-      Desenvolvimento de estudos de viabilidade considerando aspectos técnicos,
-      regulatórios e econômicos, com análise de investimentos, custos, riscos e
-      cenários de projeto.
-    </p>
-  </div>
-</div>
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-search-dollar"></i>
+        </div>
+        <div class="servico-content">
+          <h3>Estudos de Viabilidade Técnico-Econômica</h3>
+          <p>
+            Desenvolvimento de estudos de viabilidade considerando aspectos técnicos,
+            regulatórios e econômicos, com análise de investimentos, custos, riscos e
+            cenários de projeto.
+          </p>
+        </div>
+      </div>
 
-<div class="servico-item">
-  <div class="servico-icon">
-    <i class="fas fa-coins"></i>
-  </div>
-  <div class="servico-content">
-    <h3>Análise de Retorno e Payback</h3>
-    <p>
-      Elaboração de estudos financeiros com cálculo de payback, TIR e economia
-      energética projetada, apoiando a tomada de decisão de forma clara e objetiva.
-    </p>
-  </div>
-</div>
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-coins"></i>
+        </div>
+        <div class="servico-content">
+          <h3>Análise de Retorno e Payback</h3>
+          <p>
+            Elaboração de estudos financeiros com cálculo de payback, TIR e economia
+            energética projetada, apoiando a tomada de decisão de forma clara e objetiva.
+          </p>
+        </div>
+      </div>
 
-<div class="servico-item">
-  <div class="servico-icon">
-    <i class="fas fa-solar-panel"></i>
-  </div>
-  <div class="servico-content">
-    <h3>Projetos de Geração de Energia Renovável</h3>
-    <p>
-      Concepção e desenvolvimento de projetos de energia solar fotovoltaica,
-      eólica e outras fontes renováveis para aplicações residenciais,
-      comerciais, industriais e usinas.
-    </p>
-  </div>
-</div>
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-solar-panel"></i>
+        </div>
+        <div class="servico-content">
+          <h3>Projetos de Geração de Energia Renovável</h3>
+          <p>
+            Concepção e desenvolvimento de projetos de energia solar fotovoltaica,
+            eólica e outras fontes renováveis para aplicações residenciais,
+            comerciais, industriais e usinas.
+          </p>
+        </div>
+      </div>
 
-<div class="servico-item">
-  <div class="servico-icon">
-    <i class="fas fa-plug"></i>
-  </div>
-  <div class="servico-content">
-    <h3>Implantação e Integração à Rede</h3>
-    <p>
-      Acompanhamento da implantação, comissionamento e integração elétrica
-      dos sistemas de geração, garantindo segurança, desempenho e conformidade
-      normativa.
-    </p>
-  </div>
-</div>
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-plug"></i>
+        </div>
+        <div class="servico-content">
+          <h3>Implantação e Integração à Rede</h3>
+          <p>
+            Acompanhamento da implantação, comissionamento e integração elétrica
+            dos sistemas de geração, garantindo segurança, desempenho e conformidade
+            normativa.
+          </p>
+        </div>
+      </div>
 
-<div class="servico-item">
-  <div class="servico-icon">
-    <i class="fas fa-file-signature"></i>
+      <div class="servico-item">
+        <div class="servico-icon">
+          <i class="fas fa-file-signature"></i>
+        </div>
+        <div class="servico-content">
+          <h3>Regularização e Aprovações</h3>
+          <p>
+            Gestão da documentação técnica, emissão de ART e condução dos processos
+            de aprovação junto às concessionárias de energia para sistemas de
+            geração distribuída.
+          </p>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="servico-content">
-    <h3>Regularização e Aprovações</h3>
-    <p>
-      Gestão da documentação técnica, emissão de ART e condução dos processos
-      de aprovação junto às concessionárias de energia para sistemas de
-      geração distribuída.
-    </p>
-  </div>
-</div>
 </section>
 
 <!-- ================= DIFERENCIAIS ================= -->
@@ -291,86 +281,239 @@
   </div>
 </section>
 
-<!-- ================= CTA FINAL ================= -->
-<section class="cta-final">
+<!-- ================= CTA FINAL (com botão que abre modal) ================= -->
+<section class="cta-final" id="contato">
   <div class="container">
-    <h2 class="cta-title">Seu projeto elétrico precisa funcionar na obra</h2>
-    <p class="cta-subtitle">
-      Desenvolvemos engenharia elétrica com foco em execução,
-      segurança e confiabilidade técnica.
-    </p>
-
-    <div class="center-btn">
-      <a href="contato.html" class="btn btn-large">Solicitar orçamento</a>
+    <div class="cta-quadro">
+      <h2 class="cta-title">Seu projeto elétrico precisa funcionar na obra</h2>
+      <p class="cta-subtitle">
+        Desenvolvemos engenharia elétrica com foco em execução, segurança e confiabilidade técnica. Entre em contato agora e tire suas dúvidas diretamente com nossa equipe.
+      </p>
+      <div class="center-btn">
+        <a href="#" class="btn btn-large btn-whatsapp abrir-modal-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Falar com nossos Engenheiros
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ================= BOTÃO WHATSAPP FIXO ================= -->
+<a href="#" class="whatsapp-float abrir-modal-whatsapp" aria-label="Abrir opções de WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- ================= MODAL DE SELEÇÃO WHATSAPP ================= -->
+<div class="modal-whatsapp" id="modalWhatsApp">
+  <div class="modal-conteudo">
+    <button class="modal-fechar" id="fecharModal">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <h3 class="modal-titulo">
+      <i class="fab fa-whatsapp"></i>
+      Escolha com quem falar
+    </h3>
+
+    <div class="opcoes-whatsapp">
+      <a href="https://wa.me/5535999165674" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Vinicios</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia de Energia</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+
+      <a href="https://wa.me/553597221324" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Rodrigo</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia Elétrica</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-grid">
-      <!-- BRAND -->
       <div class="footer-brand">
         <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="footer-logo">
         <p class="footer-slogan">Engineering the power behind the future</p>
       </div>
-
-      <!-- LINKS -->
       <div class="footer-links">
         <h3>Links Rápidos</h3>
         <ul>
-          <li><a href="index.html#quem-somos">Quem Somos</a></li>
-          <li><a href="index.html#atuacao">Áreas de Atuação</a></li>
-          <li><a href="index.html#transicao">Transição Energética</a></li>
-          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">A Engevis</a></li>
+          <li><a href="#atuacao">Áreas de Atuação</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
-
-      <!-- CONTATO -->
       <div class="footer-contact">
         <h3>Contato</h3>
         <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
         <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
-        <p><i class="fas fa-envelope"></i> engevisengenharia@outlook.com</p>
+        <p><i class="fas fa-phone"></i> (35) 99722-1324</p>
+        <p><i class="fas fa-envelope"></i> engevis.engenharia@outlook.com</p>
       </div>
     </div>
 
-    <!-- LINHA SEPARADORA -->
     <div class="footer-divider"></div>
 
-    <!-- PARTE INFERIOR -->
     <div class="footer-bottom">
-<!-- Redes Sociais no Cabeçalho -->
-<div class="redes-cabecalho">
-  <a href="https://www.linkedin.com/company/engevis-engenharia/"
-     class="rede-cabecalho"
-     aria-label="LinkedIn"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
-  
-  <a href="https://www.instagram.com/engevis.eng?utm_source=qr&igsh=MW0wOXI0ZjkxNW5rdQ=="
-     class="rede-cabecalho"
-     aria-label="Instagram"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fab fa-instagram"></i>
-  </a>
-</div>
-
-      <!-- Copyright -->
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/engevis-engenharia/"
+           aria-label="LinkedIn"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/engevis.eng?utm_source=qr&igsh=MW0wOXI0ZjkxNW5rdQ==" 
+           aria-label="Instagram" 
+           target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+      </div>
       <div class="copyright">
-        <p>© 2026 Engevis Engenharia Elétrica.</p>
+        <p>© 2026 Engevis Engenharia Elétrica e de Energia.</p>
         <span>Todos os direitos reservados.</span>
       </div>
     </div>
-
   </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- ================= SCRIPT UNIFICADO (MENU + DROPDOWN + MODAL + SCROLL) ================= -->
+<script>
+  (function() {
+    // ===== ELEMENTOS =====
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const atuacaoLink = document.getElementById('atuacao-link');
+    const dropdownMenu = document.getElementById('dropdown-menu-atuacao');
+
+    // ===== MENU HAMBÚRGUER =====
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+
+        // Se o menu fechar, também fecha o dropdown e reseta a seta
+        if (!navMenu.classList.contains('active')) {
+          if (dropdownMenu) dropdownMenu.classList.remove('active');
+          const icon = atuacaoLink?.querySelector('i');
+          if (icon) icon.style.transform = 'rotate(0)';
+        }
+      });
+    }
+
+    // ===== FECHAR MENU AO CLICAR EM LINK (exceto o próprio dropdown) =====
+    document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)').forEach(link => {
+      link.addEventListener('click', function() {
+        if (hamburger) hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (dropdownMenu) dropdownMenu.classList.remove('active');
+        const icon = atuacaoLink?.querySelector('i');
+        if (icon) icon.style.transform = 'rotate(0)';
+      });
+    });
+
+    // ===== DROPDOWN NO MOBILE =====
+    if (atuacaoLink && dropdownMenu) {
+      atuacaoLink.addEventListener('click', function(e) {
+        // Só executa em telas pequenas (<= 768px)
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('active');
+          const icon = this.querySelector('i');
+          if (dropdownMenu.classList.contains('active')) {
+            icon.style.transform = 'rotate(180deg)';
+          } else {
+            icon.style.transform = 'rotate(0)';
+          }
+        }
+      });
+    }
+
+    // ===== FECHAR AO REDIMENSIONAR PARA DESKTOP =====
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        if (navMenu) navMenu.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        if (dropdownMenu) dropdownMenu.classList.remove('active');
+        const icon = atuacaoLink?.querySelector('i');
+        if (icon) icon.style.transform = 'rotate(0)';
+      }
+    });
+
+    // ===== SCROLL SUAVE (ignora o link do dropdown) =====
+    document.querySelectorAll('a[href^="#"]:not(.dropdown-toggle)').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(targetId);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ===== EFEITO HEADER AO ROLAR =====
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 100) {
+        header.style.backgroundColor = 'rgba(11, 16, 32, 0.98)';
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+      } else {
+        header.style.backgroundColor = 'rgba(11, 16, 32, 0.95)';
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // ===== MODAL WHATSAPP =====
+    const botoesAbrirModal = document.querySelectorAll('.abrir-modal-whatsapp');
+    const modal = document.getElementById('modalWhatsApp');
+    const botaoFechar = document.getElementById('fecharModal');
+
+    if (botoesAbrirModal.length > 0 && modal && botaoFechar) {
+      botoesAbrirModal.forEach(botao => {
+        botao.addEventListener('click', (e) => {
+          e.preventDefault();
+          modal.classList.add('mostrar');
+        });
+      });
+      botaoFechar.addEventListener('click', () => {
+        modal.classList.remove('mostrar');
+      });
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('mostrar');
+        }
+      });
+    }
+  })();
+</script>
+
 </body>
 </html>

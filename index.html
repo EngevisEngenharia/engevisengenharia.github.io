@@ -2,11 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-
   <!-- Meta tag de verificação do Google -->
   <meta name="google-site-verification" content="kr5z50TfN8CDLtiFioWrl3X-ZEbr-9ooVU3mpGLz8o8" />
-  <!-- Favicon usando a mesma logo -->
-<link rel="icon" href="images/logo.PNG" type="image/png">
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.PNG" type="image/png">
   <title>Engevis | Engenharia Elétrica e Soluções em Energia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Empresa especializada em engenharia elétrica, projetos, eficiência energética e transição energética.">
@@ -14,189 +13,1081 @@
   <!-- Fonte Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- CSS principal -->
-  <link rel="stylesheet" href="style.css">
-  
   <!-- Ícones Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
 
+  <style>
+    /* ===== VARIÁVEIS E ESTILOS BASE ===== */
+    :root {
+      --azul-base: #0B1020;
+      --azul-tecnico: #1F4FD8;
+      --amarelo: #F2B705;
+      --amarelo-escuro: #D6A105;
+      --branco: #FFFFFF;
+      --cinza: #B0B6C3;
+      --cinza-escuro: #7A8192;
+      --azul-card: #11162b;
+      --azul-card-hover: #141a35;
+      --azul-escuro: #070B1A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--azul-base);
+      color: var(--branco);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===== ANIMAÇÕES GLOBAIS ===== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(11, 16, 32, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(31, 79, 216, 0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* Menu principal - desktop */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu > li > a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--branco);
+      position: relative;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-menu > li > a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--amarelo);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu > li > a:hover::after,
+    .nav-menu > li > a.active::after {
+      width: 100%;
+    }
+
+    .nav-menu > li > a:hover,
+    .nav-menu > li > a.active {
+      color: var(--amarelo);
+    }
+
+    .nav-btn {
+      background-color: var(--amarelo);
+      color: var(--azul-base) !important;
+      padding: 10px 25px !important;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+
+    .nav-btn::after {
+      display: none !important;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--amarelo-escuro);
+      transform: translateY(-2px);
+    }
+
+    /* Dropdown no desktop */
+    .dropdown-menu {
+      position: absolute;
+      top: 140%;
+      left: 0;
+      background-color: rgba(11, 16, 32, 0.98);
+      min-width: 280px;
+      padding: 15px 0;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 999;
+      list-style: none;
+    }
+
+    .dropdown-menu li {
+      width: 100%;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 0.9rem;
+      color: var(--branco);
+      display: block;
+    }
+
+    .dropdown-menu a::after {
+      display: none !important;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--amarelo);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Botão do menu mobile (hambúrguer) */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--branco);
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* Overlay para menu mobile */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+
+    .nav-overlay.active {
+      display: block;
+    }
+
+    /* ===== HERO DA PÁGINA INICIAL ===== */
+    .hero {
+      min-height: 100vh;
+      background: url("images/capa.png") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 140px 20px 80px;
+      margin-top: 70px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .slogan {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--cinza);
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background-color: transparent;
+      border: 2px solid var(--amarelo);
+      color: var(--amarelo);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--amarelo);
+      color: var(--azul-base);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
+    }
+
+    .btn-large {
+      padding: 18px 45px;
+      font-size: 1.1rem;
+    }
+
+    /* ===== SEÇÕES ===== */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background-color: var(--amarelo);
+      display: block;
+      margin-top: 15px;
+      border-radius: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      max-width: 900px;
+      margin-bottom: 60px;
+      line-height: 1.8;
+    }
+
+    .section-subtitle {
+      color: var(--cinza-escuro);
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      max-width: 700px;
+    }
+
+    .center-btn {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* ===== DESTAQUES ===== */
+    .destaques {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .destaque-item {
+      background-color: var(--azul-card);
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .destaque-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .destaque-item i {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+    }
+
+    .destaque-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .destaque-item p {
+      color: var(--cinza);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== ATUAÇÃO ===== */
+    .atuacao {
+      background-color: var(--azul-escuro);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background-color: var(--azul-card);
+      padding: 40px 30px;
+      border-radius: 8px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(31, 79, 216, 0.1);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: var(--amarelo);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background-color: var(--azul-card-hover);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .card p {
+      color: var(--cinza);
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .card-link {
+      color: var(--amarelo);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-link:hover {
+      gap: 15px;
+    }
+
+    /* ===== TRANSIÇÃO ENERGÉTICA ===== */
+    .transicao-text {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      max-width: 900px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+    }
+
+    /* ===== CTA / CONTATO ===== */
+    .cta {
+      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+                  url("images/background-cta.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .cta-box {
+      background-color: var(--azul-card);
+      border-radius: 12px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--branco);
+    }
+
+    .cta-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: var(--cinza);
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #25D366;
+      color: var(--branco);
+      font-weight: 600;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1rem;
+      color: var(--branco);
+    }
+
+    .contact-item i {
+      font-size: 1.8rem;
+      color: var(--amarelo);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background-color: var(--azul-escuro);
+      padding: 60px 0 0;
+      border-top: 1px solid rgba(31, 79, 216, 0.15);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      width: 90px;
+    }
+
+    .footer-slogan {
+      color: var(--cinza);
+      font-style: italic;
+    }
+
+    .footer-links h3,
+    .footer-contact h3 {
+      color: var(--branco);
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--cinza);
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--amarelo);
+      padding-left: 6px;
+    }
+
+    .footer-contact p {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--cinza);
+      margin-bottom: 14px;
+    }
+
+    .footer-contact i {
+      color: var(--amarelo);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--amarelo);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      width: 100%;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .copyright p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+    }
+
+    /* ===== WHATSAPP FIXO E MODAL ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      animation: bounce 2s infinite;
+      z-index: 9999;
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-12px); }
+      60% { transform: translateY(-6px); }
+    }
+
+    .modal-whatsapp {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-whatsapp.mostrar {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-conteudo {
+      background-color: var(--azul-card);
+      max-width: 450px;
+      width: 90%;
+      border-radius: 12px;
+      padding: 30px 20px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(242, 183, 5, 0.2);
+    }
+
+    .modal-fechar {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--cinza);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .modal-fechar:hover {
+      color: var(--amarelo);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .modal-titulo {
+      color: var(--branco);
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .modal-titulo i {
+      color: #25D366;
+      font-size: 1.8rem;
+    }
+
+    .opcoes-whatsapp {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .opcao-contato {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .opcao-contato:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--amarelo);
+      transform: translateY(-2px);
+    }
+
+    .opcao-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--azul-escuro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--amarelo);
+    }
+
+    .opcao-avatar i {
+      font-size: 1.8rem;
+      color: var(--amarelo);
+    }
+
+    .opcao-info {
+      flex: 1;
+    }
+
+    .opcao-nome {
+      color: var(--branco);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .opcao-cargo {
+      color: var(--cinza);
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .opcao-whatsapp i {
+      font-size: 2rem;
+      color: #25D366;
+      transition: transform 0.3s ease;
+    }
+
+    .opcao-contato:hover .opcao-whatsapp i {
+      transform: scale(1.1);
+    }
+
+    /* ===== RESPONSIVIDADE (MENU MOBILE E AJUSTES) ===== */
+    @media (max-width: 768px) {
+      /* Mostra o botão hambúrguer */
+      .menu-toggle {
+        display: block;
+      }
+
+      /* Oculta o menu padrão e o transforma em um painel lateral que vem da DIREITA */
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;  /* <--- DIREITA (conforme solicitado) */
+        width: 280px;
+        height: 100vh;
+        background-color: var(--azul-escuro);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 100px 30px 30px;
+        gap: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+        z-index: 1000;
+      }
+
+      .nav-menu.active {
+        right: 0; /* Quando ativo, encosta na direita */
+      }
+
+      .nav-menu li {
+        width: 100%;
+      }
+
+      .nav-menu > li > a {
+        font-size: 1.1rem;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      /* Ajusta o dropdown para mobile */
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0 0 0 20px;
+        min-width: auto;
+        margin-top: 10px;
+        display: none; /* Inicialmente oculto */
+      }
+
+      .dropdown-menu.active {
+        display: block;
+      }
+
+      .dropdown-menu a {
+        padding: 8px 0;
+        font-size: 1rem;
+      }
+
+      /* Ajustes de tamanho de fonte para mobile */
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .destaques {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .btn-large {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cta-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
 <body>
-<!-- HEADER -->
+
+<!-- Overlay para fechar o menu ao clicar fora -->
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container">
     <nav class="navbar">
-
-      <!-- LOGO -->
-      <a href="#hero" class="logo-link">
+      <!-- Logo (agora da raiz) -->
+      <a href="index.html" class="logo-link">
         <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="logo">
       </a>
 
-      <!-- MENU -->
-      <ul class="nav-menu">
-        <li>
-          <a href="#hero">Home</a>
+      <!-- Botão hambúrguer com ícone (Font Awesome) -->
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="sobre.html">A Engevis</a></li>
+        <li><a href="portfolio/">Portfólio</a></li>
+        <li><a href="Artigos/index.html">Artigos</a></li>
+        
+        <!-- DROPDOWN ATUAÇÃO (com IDs para controle mobile) -->
+        <li class="dropdown" id="dropdown-atuacao">
+          <a href="#" class="dropdown-toggle" id="atuacao-link">Atuação <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu" id="dropdown-menu-atuacao">
+            <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
+            <li><a href="renovaveis.html">Energia Renovável</a></li>
+            <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
+          </ul>
         </li>
-
-        <li>
-          <a href="#quem-somos">A Engevis</a>
-        </li>
-
-        <!-- DROPDOWN ATUAÇÃO -->
-        <li class="dropdown">
-          <a href="#atuacao" class="dropdown-toggle">
-            Atuação <i class="fas fa-chevron-down"></i>
-          </a>
-
-<ul class="dropdown-menu">
-  <li><a href="projetos-eletricos.html">Projetos Elétricos</a></li>
-  <li><a href="renovaveis.html">Energia Renovável</a></li>
-  <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
-</ul>
-
-        </li>
-
-        <li>
-          <a href="#contato" class="nav-btn">Contato</a>
-        </li>
+        
+        <li><a href="#contato" class="nav-btn">Contato</a></li>
       </ul>
-
-      <!-- HAMBURGER -->
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-
     </nav>
   </div>
 </header>
 
-
-  <!-- HERO SECTION -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <!--  removida daqui (agora está no header) -->
-        <div class="slogan">Engineering the power behind the future</div>
-        <h1 class="hero-title">Excelência em Engenharia Elétrica e Soluções Energéticas</h1>
-        <h2 class="hero-subtitle">Projetos e soluções técnicas para sistemas elétricos modernos, eficientes e sustentáveis.</h2>
-        <a href="#contato" class="btn btn-large">Solicitar Orçamento</a>
-      </div>
+<!-- HERO SECTION -->
+<section id="hero" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="slogan">Engineering the power behind the future</div>
+      <h1 class="hero-title">Excelência em Engenharia Elétrica e Soluções Energéticas</h1>
+      <h2 class="hero-subtitle">Projetos e soluções técnicas para sistemas elétricos modernos, eficientes e sustentáveis.</h2>
+      <a href="#contato" class="btn btn-large">Solicitar Orçamento</a>
     </div>
-  </section>
-
-  <!-- QUEM SOMOS -->
-  <section id="quem-somos" class="quem-somos">
-    <div class="container">
-      <h2 class="section-title">Quem somos</h2>
-      <p class="section-intro">
-        A <strong>Engevis</strong> é uma empresa de engenharia elétrica e de energia, 
-        especializada em soluções para sistemas elétricos e energéticos. Desenvolvemos 
-        serviços como projetos elétricos residenciais, prediais e industriais, incluindo baixa e alta tensão, 
-        além de soluções em energia renovável e eficiência energética, atendendo aos segmentos residencial, predial e industrial.
-      </p>
-      
-<div class="destaques">
-  <div class="destaque-item">
-    <i class="fas fa-check-circle"></i>
-    <h3>Conformidade Técnica</h3>
-    <p><h3>Conformidade Normativa</h3>
-<p>Projetos desenvolvidos conforme NBR 5410, NBR 14039, normas de SPDA e requisitos dos órgãos concessionários.</p>
-  </div>
-  
-  <div class="destaque-item">
-    <i class="fas fa-users"></i>
-    <h3>Estrutura Técnica Especializada</h3>
-    <p>Projetos elaborados e assinados por engenheiro habilitado, com foco em segurança, desempenho e viabilidade de execução.</p>
-  </div>
-  
-  <div class="destaque-item">
-    <i class="fas fa-project-diagram"></i>
-    <h3>Atuação por Projeto</h3>
-    <p>Estrutura flexível, com foco em qualidade técnica, rastreabilidade e responsabilidade profissional.</p>
-  </div>
-</div>
-
-      
-      <div class="center-btn">
-        <a href="sobre.html" class="btn">Conheça a Engevis</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ATUAÇÃO -->
-  <section id="atuacao" class="atuacao">
-    <div class="container">
-      <h2 class="section-title">Áreas de Atuação</h2>
-      <p class="section-subtitle">Especialistas em soluções completas para o setor elétrico e energético</p>
-
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3>Projetos Elétricos</h3>
-          <p>Elaboração de projetos elétricos de baixa, média e alta tensão para edificações residenciais, 
-            comerciais e industriais, garantindo conformidade normativa, segurança e viabilidade de execução.</p>
-          <a href="projetos-eletricos.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-sun"></i>
-          </div>
-          <h3>Energia Renovável</h3>
-          <p>Estudos técnicos e projetos conceituais para sistemas de geração renovável, 
-            com foco em viabilidade técnica, análise de integração elétrica e atendimento 
-            às normas aplicáveis.</p>
-          <a href="renovaveis.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>Eficiência Energética</h3>
-          <p>Estudos de carga, análise de consumo e propostas de otimização 
-            energética aplicadas a edificações, com foco em redução de custos operacionais.</p>
-          <a href="eficiencia.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TRANSIÇÃO ENERGÉTICA -->
-  <section id="transicao" class="transicao">
-    <div class="container">
-      <h2 class="section-title">Transição Energética</h2>
-      <p class="transicao-text">
-        Atuamos alinhados à transição energética, desenvolvendo projetos elétricos que viabilizam a
-        integração de fontes renováveis e o uso mais eficiente da energia, com foco em segurança,
-        confiabilidade e desempenho técnico dos sistemas.
-      </p>
-      
-<!--
-<section class="stats">
-  <div class="stat-item">
-    <span class="stat-number">150+</span>
-    <span class="stat-label">Projetos de Energia Limpa</span>
-  </div>
-
-  <div class="stat-item">
-    <span class="stat-number">2.5GW</span>
-    <span class="stat-label">Capacidade Instalada</span>
-  </div>
-
-  <div class="stat-item">
-    <span class="stat-number">40%</span>
-    <span class="stat-label">Redução Média de Custos</span>
   </div>
 </section>
--->
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos" class="quem-somos">
+  <div class="container">
+    <h2 class="section-title">Quem somos</h2>
+    <p class="section-intro">
+      A <strong>Engevis</strong> é uma empresa de engenharia elétrica e de energia, 
+      especializada em soluções para sistemas elétricos e energéticos. Desenvolvemos 
+      serviços como projetos elétricos residenciais, prediais e industriais, incluindo baixa e alta tensão, 
+      além de soluções em energia renovável e eficiência energética, atendendo aos segmentos residencial, predial e industrial.
+    </p>
+    
+    <div class="destaques">
+      <div class="destaque-item">
+        <i class="fas fa-check-circle"></i>
+        <h3>Conformidade Normativa</h3>
+        <p>Projetos desenvolvidos conforme NBR 5410, NBR 14039, normas de SPDA e requisitos dos órgãos concessionários.</p>
+      </div>
+      
+      <div class="destaque-item">
+        <i class="fas fa-users"></i>
+        <h3>Estrutura Técnica Especializada</h3>
+        <p>Projetos elaborados e assinados por engenheiro habilitado, com foco em segurança, desempenho e viabilidade de execução.</p>
+      </div>
+      
+      <div class="destaque-item">
+        <i class="fas fa-project-diagram"></i>
+        <h3>Atuação por Projeto</h3>
+        <p>Estrutura flexível, com foco em qualidade técnica, rastreabilidade e responsabilidade profissional.</p>
+      </div>
     </div>
-  </section> <!-- FECHAMENTO DA SEÇÃO TRANSIÇÃO -->
+    
+    <div class="center-btn">
+      <a href="sobre.html" class="btn">Conheça a Engevis</a>
+    </div>
+  </div>
+</section>
+
+<!-- ATUAÇÃO -->
+<section id="atuacao" class="atuacao">
+  <div class="container">
+    <h2 class="section-title">Áreas de Atuação</h2>
+    <p class="section-subtitle">Especialistas em soluções completas para o setor elétrico e energético</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Projetos Elétricos</h3>
+        <p>Elaboração de projetos elétricos de baixa, média e alta tensão para edificações residenciais, 
+          comerciais e industriais, garantindo conformidade normativa, segurança e viabilidade de execução.</p>
+        <a href="projetos-eletricos.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-sun"></i>
+        </div>
+        <h3>Energia Renovável</h3>
+        <p>Estudos técnicos e projetos conceituais para sistemas de geração renovável, 
+          com foco em viabilidade técnica, análise de integração elétrica e atendimento 
+          às normas aplicáveis.</p>
+        <a href="renovaveis.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Eficiência Energética</h3>
+        <p>Estudos de carga, análise de consumo e propostas de otimização 
+          energética aplicadas a edificações, com foco em redução de custos operacionais.</p>
+        <a href="eficiencia.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSIÇÃO ENERGÉTICA -->
+<section id="transicao" class="transicao">
+  <div class="container">
+    <h2 class="section-title">Transição Energética</h2>
+    <p class="transicao-text">
+      Atuamos alinhados à transição energética, desenvolvendo projetos elétricos que viabilizam a
+      integração de fontes renováveis e o uso mais eficiente da energia, com foco em segurança,
+      confiabilidade e desempenho técnico dos sistemas.
+    </p>
+  </div>
+</section>
 
 <!-- CTA / CONTATO -->
 <section id="contato" class="cta">
@@ -205,8 +1096,8 @@
       <h2 class="cta-title">Fale com nossa equipe técnica</h2>
       <p class="cta-subtitle">Solicite uma avaliação gratuita para seu projeto</p>
 
-      <!-- Botão WhatsApp centralizado -->
-      <a href="https://wa.me/5535999165674" target="_blank" class="btn-whatsapp">
+      <!-- Botão WhatsApp centralizado (ABRE O MODAL) -->
+      <a href="#" class="btn-whatsapp abrir-modal-whatsapp">
         <i class="fab fa-whatsapp"></i> Fale pelo WhatsApp
       </a>
     </div>
@@ -216,12 +1107,18 @@
       <div class="contact-item">
         <i class="fas fa-phone-alt"></i>
         <div>
-          <h3>Telefone</h3>
+          <h3>Vinicios</h3>
           <p>(35) 99916-5674</p>
         </div>
       </div>
 
-      
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <div>
+          <h3>Rodrigo</h3>
+          <p>(35) 99722-1324</p>
+        </div>
+      </div>
 
       <div class="contact-item">
         <i class="fas fa-clock"></i>
@@ -235,14 +1132,12 @@
         <i class="fas fa-envelope"></i>
         <div>
           <h3>E-mail</h3>
-          <p>engevisengenharia@outlook.com</p>
+          <p>engevis.engenharia@outlook.com</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -271,35 +1166,29 @@
         <h3>Contato</h3>
         <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
         <p><i class="fas fa-phone"></i> (35) 99916-5674</p>
+        <p><i class="fas fa-phone"></i> (35) 99722-1324</p>
         <p><i class="fas fa-envelope"></i> engevisengenharia@outlook.com</p>
       </div>
     </div>
 
-    <!-- LINHA SEPARADORA -->
     <div class="footer-divider"></div>
 
-    <!-- PARTE INFERIOR COM REDES SOCIAIS E COPYRIGHT CENTRALIZADO -->
     <div class="footer-bottom">
-<!-- Redes Sociais no Cabeçalho -->
-<div class="redes-cabecalho">
-  <a href="https://www.linkedin.com/company/engevis-engenharia/"
-     class="rede-cabecalho"
-     aria-label="LinkedIn"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
-  
-  <a href="https://www.instagram.com/engevis.eng?utm_source=qr&igsh=MW0wOXI0ZjkxNW5rdQ=="
-     class="rede-cabecalho"
-     aria-label="Instagram"
-     target="_blank"
-     rel="noopener noreferrer">
-    <i class="fab fa-instagram"></i>
-  </a>
-</div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/engevis-engenharia/"
+           aria-label="LinkedIn"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/engevis.eng?utm_source=qr&igsh=MW0wOXI0ZjkxNW5rdQ=="
+           aria-label="Instagram"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
 
-      <!-- Copyright Centralizado -->
       <div class="copyright">
         <p>© 2026 Engevis Engenharia Elétrica e de Energia.</p>
         <span>Todos os direitos reservados.</span>
@@ -309,42 +1198,191 @@
   </div>
 </footer>
 
-
-  <script src="script.js"></script>
-  
-   <!-- BOTÃO WHATSAPP FIXO  -->
-  <a href="https://wa.me/5535999165674"
-   class="whatsapp-float"
-   target="_blank"
-   aria-label="Fale conosco no WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-       alt="WhatsApp">
+<!-- BOTÃO WHATSAPP FIXO (ABRE O MODAL) -->
+<a href="#" class="whatsapp-float abrir-modal-whatsapp" aria-label="Abrir opções de WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
+<!-- MODAL DE SELEÇÃO WHATSAPP -->
+<div class="modal-whatsapp" id="modalWhatsApp">
+  <div class="modal-conteudo">
+    <button class="modal-fechar" id="fecharModal">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <h3 class="modal-titulo">
+      <i class="fab fa-whatsapp"></i>
+      Escolha com quem falar
+    </h3>
+    
+    <div class="opcoes-whatsapp">
+      <a href="https://wa.me/5535999165674" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Vinicios</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia de Energia</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+      
+      <a href="https://wa.me/553597221324" target="_blank" class="opcao-contato">
+        <div class="opcao-avatar">
+          <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="opcao-info">
+          <div class="opcao-nome">Rodrigo</div>
+          <div class="opcao-cargo">Sócio Fundador</div>
+          <div class="opcao-cargo">Engenharia Elétrica</div>
+        </div>
+        <div class="opcao-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript: controle do menu mobile e dropdown -->
+<script>
+  (function() {
+    // Elementos do menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navOverlay = document.getElementById('nav-overlay');
+    const atuacaoLink = document.getElementById('atuacao-link');
+    const dropdownMenu = document.getElementById('dropdown-menu-atuacao');
+
+    // Função para alternar o menu (abrir/fechar)
+    function toggleMenu() {
+      navMenu.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      
+      // Altera o ícone do botão
+      const icon = menuToggle.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        // Se o menu fechar, garante que o dropdown também feche e a seta volte ao normal
+        dropdownMenu.classList.remove('active');
+        const arrow = atuacaoLink?.querySelector('i');
+        if (arrow) arrow.style.transform = 'rotate(0)';
+      }
+    }
+
+    // Abre/fecha ao clicar no botão hambúrguer
+    if (menuToggle && navMenu && navOverlay) {
+      menuToggle.addEventListener('click', toggleMenu);
+      navOverlay.addEventListener('click', toggleMenu);
+    }
+
+    // Fecha o menu ao redimensionar para desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        navMenu.classList.remove('active');
+        navOverlay.classList.remove('active');
+        dropdownMenu.classList.remove('active');
+        const icon = menuToggle?.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+        const arrow = atuacaoLink?.querySelector('i');
+        if (arrow) arrow.style.transform = 'rotate(0)';
+      }
+    });
+
+    // Controle do dropdown "Atuação" apenas em mobile
+    if (atuacaoLink && dropdownMenu) {
+      atuacaoLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dropdownMenu.classList.toggle('active');
+          const icon = this.querySelector('i');
+          if (dropdownMenu.classList.contains('active')) {
+            icon.style.transform = 'rotate(180deg)';
+          } else {
+            icon.style.transform = 'rotate(0)';
+          }
+        }
+      });
+    }
+
+    // Fecha o menu ao clicar em qualquer link do menu (exceto o dropdown toggle)
+    document.querySelectorAll('.nav-menu a:not(#atuacao-link)').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          toggleMenu(); // Reaproveita a função para fechar
+        }
+      });
+    });
+
+    // Scroll suave para âncoras internas
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || this.id === 'atuacao-link') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          if (window.innerWidth <= 768) {
+            // Se o menu estiver aberto, fecha antes de rolar
+            if (navMenu.classList.contains('active')) {
+              toggleMenu();
+            }
+          }
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Efeito de destaque no header ao rolar
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 100) {
+        header.style.backgroundColor = 'rgba(11, 16, 32, 0.98)';
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+      } else {
+        header.style.backgroundColor = 'rgba(11, 16, 32, 0.95)';
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Modal WhatsApp
+    const botoesAbrirModal = document.querySelectorAll('.abrir-modal-whatsapp');
+    const modal = document.getElementById('modalWhatsApp');
+    const botaoFechar = document.getElementById('fecharModal');
+
+    if (botoesAbrirModal.length > 0 && modal && botaoFechar) {
+      botoesAbrirModal.forEach(botao => {
+        botao.addEventListener('click', (e) => {
+          e.preventDefault();
+          modal.classList.add('mostrar');
+        });
+      });
+
+      botaoFechar.addEventListener('click', () => {
+        modal.classList.remove('mostrar');
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('mostrar');
+        }
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
