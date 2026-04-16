@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 
-  <title>Engevis Engenharia | Engenharia de Energia e Elétrica - Itajubá/MG</title>
-  <meta name="description" content="⚡ Projetos Elétricos | ☀️ Energia Solar | 📊 Eficiência Energética | 🏭 Execução Industrial. Atendimento em Itajubá/MG e região. Solicite seu orçamento!">
+  <title>Engevis Engenharia | Eficiência e Qualidade de Energia - Itajubá/MG</title>
+  <meta name="description" content="📊 Eficiência Energética | ⚡ Qualidade de Energia | ☀️ Energia Solar | 🏭 Projetos Elétricos. Atendimento em Itajubá/MG e região. Solicite seu orçamento!">
 
   <!-- Favicon -->
   <link rel="icon" href="https://engevisengenharia.rf.gd/images/logo.PNG" type="image/png">
@@ -18,8 +18,8 @@
   <meta property="og:site_name" content="Engevis Engenharia">
   <meta property="og:url" content="https://engevisengenharia.rf.gd/cartao-digital.html">
 
-  <meta property="og:title" content="Engevis Engenharia | Engenharia de Energia e Elétrica">
-  <meta property="og:description" content="⚡ Projetos Elétricos • ☀️ Energia Solar • 📊 Eficiência Energética • 🏭 Execução Industrial. Sede em Itajubá/MG. WhatsApp (35) 99916-5674">
+  <meta property="og:title" content="Engevis Engenharia | Eficiência e Qualidade de Energia">
+  <meta property="og:description" content="📊 Eficiência Energética • ⚡ Qualidade de Energia • ☀️ Energia Solar • 🏭 Projetos Elétricos. Sede em Itajubá/MG. WhatsApp (35) 99916-5674">
 
   <!-- IMAGEM GRANDE (OBRIGATÓRIO 1200x630) -->
   <meta property="og:image" content="https://engevisengenharia.rf.gd/images/preview-1200x630.jpg">
@@ -27,18 +27,18 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Engevis Engenharia - Engenharia de Energia e Elétrica em Itajubá/MG">
+  <meta property="og:image:alt" content="Engevis Engenharia - Especialistas em Eficiência e Qualidade de Energia">
 
   <!-- ===================== -->
   <!-- TWITTER CARD -->
   <!-- ===================== -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Engevis Engenharia | Engenharia de Energia e Elétrica">
-  <meta name="twitter:description" content="Projetos Elétricos, Energia Solar, Eficiência Energética e Execução Industrial em Itajubá/MG.">
+  <meta name="twitter:title" content="Engevis Engenharia | Eficiência e Qualidade de Energia">
+  <meta name="twitter:description" content="Especialistas em Eficiência Energética, Qualidade de Energia, Energia Solar e Projetos Elétricos em Itajubá/MG.">
   <meta name="twitter:image" content="https://engevisengenharia.rf.gd/images/preview-1200x630.jpg">
 
   <!-- SEO -->
-  <meta name="keywords" content="engenharia elétrica, energia solar, projetos elétricos, eficiência energética, itajubá, minas gerais, eletricista, energia renovável">
+  <meta name="keywords" content="eficiência energética, qualidade de energia, engenharia elétrica, energia solar, projetos elétricos, itajubá, minas gerais, eletricista, energia renovável">
   <meta name="author" content="Engevis Engenharia">
   <meta name="robots" content="index, follow">
 
@@ -66,14 +66,12 @@
     :root {
       --azul-profundo: #0A0F23;
       --azul-corporativo: #0F1A3A;
-      --azul-tecnico: #1F4FD8;
       --ouro-corporativo: #F2B705;
       --ouro-escuro: #D6A105;
       --branco-puro: #FFFFFF;
       --cinza-claro: #E8EAEE;
       --cinza-medio: #A0A8C0;
       --verde-whatsapp: #25D366;
-      --gradiente-engenharia: linear-gradient(135deg, #0A0F23 0%, #0F1A3A 100%);
     }
 
     * {
@@ -103,7 +101,7 @@
     }
 
     /* ==============================
-       BACKGROUND MODERNO E TECNOLÓGICO
+       BACKGROUND SOFISTICADO E DISCRETO
     ================================ */
     body::before {
       content: '';
@@ -113,6 +111,8 @@
       width: 100%;
       height: 100%;
       background: 
+        radial-gradient(circle at 20% 30%, rgba(242, 183, 5, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(15, 26, 58, 0.2) 0%, transparent 50%),
         linear-gradient(135deg, #020b1c 0%, #041430 40%, #020b1c 100%);
       z-index: -3;
     }
@@ -129,15 +129,15 @@
           45deg,
           transparent,
           transparent 40px,
-          rgba(31, 79, 216, 0.03) 40px,
-          rgba(31, 79, 216, 0.03) 80px
+          rgba(242, 183, 5, 0.01) 40px,
+          rgba(242, 183, 5, 0.01) 80px
         ),
         repeating-linear-gradient(
           -45deg,
           transparent,
           transparent 40px,
-          rgba(0, 140, 255, 0.02) 40px,
-          rgba(0, 140, 255, 0.02) 80px
+          rgba(255, 255, 255, 0.01) 40px,
+          rgba(255, 255, 255, 0.01) 80px
         );
       z-index: -2;
       animation: moveDiagonal 120s linear infinite;
@@ -158,30 +158,32 @@
       position: absolute;
       top: -100px;
       right: -100px;
-      width: 400px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
       background: linear-gradient(135deg, 
-        rgba(31, 79, 216, 0.08) 0%,
-        rgba(0, 140, 255, 0.04) 50%,
+        rgba(15, 26, 58, 0.15) 0%,
+        rgba(242, 183, 5, 0.02) 50%,
         transparent 100%);
       transform: rotate(45deg);
-      border-radius: 20px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
       animation: floatForma1 25s ease-in-out infinite;
+      border: 1px solid rgba(242, 183, 5, 0.05);
     }
 
     .forma-2 {
       position: absolute;
       bottom: -150px;
       left: -150px;
-      width: 500px;
-      height: 500px;
+      width: 600px;
+      height: 600px;
       background: linear-gradient(45deg, 
-        rgba(0, 40, 85, 0.06) 0%,
-        rgba(0, 140, 255, 0.03) 50%,
+        rgba(10, 15, 35, 0.15) 0%,
+        rgba(242, 183, 5, 0.02) 50%,
         transparent 100%);
       transform: rotate(-30deg);
-      border-radius: 30px;
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
       animation: floatForma2 30s ease-in-out infinite;
+      border: 1px solid rgba(242, 183, 5, 0.05);
     }
 
     .forma-3 {
@@ -189,14 +191,14 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(15deg);
-      width: 600px;
-      height: 300px;
+      width: 700px;
+      height: 400px;
       background: linear-gradient(90deg, 
         transparent 0%,
-        rgba(31, 79, 216, 0.05) 30%,
-        rgba(0, 140, 255, 0.02) 70%,
+        rgba(242, 183, 5, 0.02) 30%,
+        rgba(15, 26, 58, 0.05) 70%,
         transparent 100%);
-      border-radius: 10px;
+      border-radius: 50% 20% / 10% 40%;
       animation: floatForma3 20s ease-in-out infinite;
     }
 
@@ -228,6 +230,7 @@
       max-width: 440px;
       margin: 0 auto;
       position: relative;
+      z-index: 5;
     }
 
     /* ==============================
@@ -269,7 +272,7 @@
       align-items: center;
       justify-content: center;
       border: 3px solid var(--azul-profundo);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 20px rgba(242, 183, 5, 0.3);
       z-index: 2;
     }
 
@@ -320,6 +323,7 @@
       border-top: 1px solid rgba(242, 183, 5, 0.2);
       border-bottom: 1px solid rgba(242, 183, 5, 0.2);
       line-height: 1.5;
+      background: linear-gradient(90deg, transparent, rgba(242, 183, 5, 0.03), transparent);
     }
 
     .redes-cabecalho {
@@ -339,13 +343,13 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(242, 183, 5, 0.2);
     }
 
     .rede-cabecalho:hover {
       background: var(--ouro-corporativo);
       transform: translateY(-3px) scale(1.1);
-      box-shadow: 0 6px 15px rgba(242, 183, 5, 0.2);
+      box-shadow: 0 0 20px rgba(242, 183, 5, 0.3);
     }
 
     .rede-cabecalho i {
@@ -357,15 +361,18 @@
        CARTAO CORPORATIVO
     ================================ */
     .cartao-corporativo {
-      background: var(--azul-corporativo);
+      background: rgba(15, 26, 58, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-radius: 20px;
       padding: 30px 25px;
       margin-bottom: 25px;
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(242, 183, 5, 0.15);
+      border: 1px solid rgba(242, 183, 5, 0.2);
       box-shadow: 
         0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(242, 183, 5, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -374,7 +381,8 @@
       transform: translateY(-5px);
       box-shadow: 
         0 25px 60px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(242, 183, 5, 0.2),
+        0 0 40px rgba(242, 183, 5, 0.1),
+        0 0 0 1px rgba(242, 183, 5, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
@@ -402,7 +410,7 @@
       background: linear-gradient(
         135deg,
         transparent 0%,
-        rgba(242, 183, 5, 0.03) 50%,
+        rgba(242, 183, 5, 0.02) 50%,
         transparent 100%
       );
       pointer-events: none;
@@ -426,18 +434,30 @@
       align-items: center;
       justify-content: center;
       padding: 18px 12px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(242, 183, 5, 0.15);
       position: relative;
       overflow: hidden;
       z-index: 1;
+      backdrop-filter: blur(5px);
+    }
+
+    .btn-corporativo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent, rgba(242, 183, 5, 0.03), transparent);
+      z-index: -1;
     }
 
     .btn-corporativo:hover {
-      background: rgba(242, 183, 5, 0.15);
+      background: rgba(242, 183, 5, 0.1);
       border-color: var(--ouro-corporativo);
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(242, 183, 5, 0.15);
@@ -464,20 +484,17 @@
 
     .btn-whatsapp {
       background: rgba(37, 211, 102, 0.1);
-      border-color: rgba(37, 211, 102, 0.2);
+      border-color: rgba(37, 211, 102, 0.3);
     }
 
     .btn-whatsapp:hover {
-      background: rgba(37, 211, 102, 0.2);
+      background: rgba(37, 211, 102, 0.15);
       border-color: var(--verde-whatsapp);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
     }
 
     .btn-whatsapp .btn-icone {
       color: var(--verde-whatsapp);
-    }
-
-    .btn-email:hover .btn-icone {
-      color: var(--azul-tecnico);
     }
 
     /* ==============================
@@ -490,6 +507,7 @@
       width: 100%;
       height: 100%;
       background: rgba(10, 15, 35, 0.95);
+      backdrop-filter: blur(10px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -505,13 +523,14 @@
     }
 
     .modal-conteudo {
-      background: var(--azul-corporativo);
+      background: linear-gradient(135deg, rgba(15, 26, 58, 0.95), rgba(10, 15, 35, 0.95));
+      backdrop-filter: blur(20px);
       border-radius: 20px;
       padding: 30px;
       width: 90%;
       max-width: 400px;
-      border: 2px solid var(--ouro-corporativo);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--ouro-corporativo);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(242, 183, 5, 0.15);
       position: relative;
       transform: translateY(20px);
       transition: transform 0.4s ease;
@@ -557,16 +576,16 @@
       display: flex;
       align-items: center;
       padding: 18px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(242, 183, 5, 0.2);
       transition: all 0.3s ease;
       cursor: pointer;
       text-decoration: none;
     }
 
     .opcao-contato:hover {
-      background: rgba(37, 211, 102, 0.15);
+      background: rgba(37, 211, 102, 0.1);
       border-color: var(--verde-whatsapp);
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
@@ -625,11 +644,12 @@
        VITRINE DE PROJETOS
     ================================ */
     .vitrine-projetos {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(5px);
       border-radius: 16px;
       padding: 22px;
       margin: 25px 0;
-      border: 1px solid rgba(242, 183, 5, 0.1);
+      border: 1px solid rgba(242, 183, 5, 0.15);
       position: relative;
       overflow: hidden;
     }
@@ -661,7 +681,7 @@
       background: rgba(0, 0, 0, 0.2);
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(242, 183, 5, 0.1);
       transition: all 0.3s ease;
       cursor: pointer;
       position: relative;
@@ -726,7 +746,7 @@
       gap: 8px;
       width: 100%;
       padding: 12px;
-      background: rgba(242, 183, 5, 0.1);
+      background: rgba(242, 183, 5, 0.08);
       color: var(--ouro-corporativo);
       border: 1px solid rgba(242, 183, 5, 0.2);
       border-radius: 10px;
@@ -757,17 +777,18 @@
       align-items: flex-start;
       margin-bottom: 15px;
       padding: 14px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(5px);
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(242, 183, 5, 0.1);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
 
     .info-linha:hover {
-      background: rgba(242, 183, 5, 0.08);
-      border-color: rgba(242, 183, 5, 0.2);
+      background: rgba(242, 183, 5, 0.05);
+      border-color: rgba(242, 183, 5, 0.3);
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
@@ -856,7 +877,7 @@
       margin-top: 15px;
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(242, 183, 5, 0.2);
+      border: 1px solid rgba(242, 183, 5, 0.3);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       position: relative;
       height: 200px;
@@ -913,11 +934,12 @@
        ESPECIALIZAÇÕES
     ================================ */
     .especializacoes-corporativas {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(5px);
       border-radius: 16px;
       padding: 22px;
       margin: 25px 0;
-      border: 1px solid rgba(242, 183, 5, 0.1);
+      border: 1px solid rgba(242, 183, 5, 0.15);
       position: relative;
       overflow: hidden;
     }
@@ -938,7 +960,7 @@
     }
 
     .chip-corporativo {
-      background: rgba(242, 183, 5, 0.08);
+      background: rgba(242, 183, 5, 0.05);
       color: var(--ouro-corporativo);
       padding: 8px 14px;
       border-radius: 20px;
@@ -1170,7 +1192,7 @@
 </head>
 
 <body>
-  <!-- FUNDO GEOMÉTRICO -->
+  <!-- FUNDO GEOMÉTRICO SOFISTICADO -->
   <div class="fundo-geometrico">
     <div class="forma-1"></div>
     <div class="forma-2"></div>
@@ -1186,7 +1208,7 @@
       
       <h3 class="modal-titulo">
         <i class="fab fa-whatsapp"></i>
-        Escolha com quem falar
+        Fale com a Engevis
       </h3>
       
       <div class="opcoes-whatsapp">
@@ -1203,21 +1225,11 @@
             <i class="fab fa-whatsapp"></i>
           </div>
         </a>
-        
-        <a href="https://wa.me/553597221324" target="_blank" class="opcao-contato">
-          <div class="opcao-avatar">
-            <i class="fas fa-user-cog"></i>
-          </div>
-          <div class="opcao-info">
-            <div class="opcao-nome">Rodrigo</div>
-            <div class="opcao-cargo">Sócio Fundador</div>
-            <div class="opcao-cargo">Engenharia Elétrica</div>
-          </div>
-          <div class="opcao-whatsapp">
-            <i class="fab fa-whatsapp"></i>
-          </div>
-        </a>
       </div>
+      
+      <p style="text-align: center; color: var(--cinza-medio); font-size: 0.8rem; margin-top: 10px;">
+        <i class="fas fa-lock" style="font-size: 0.7rem;"></i> Atendimento personalizado e seguro
+      </p>
     </div>
   </div>
 
@@ -1225,7 +1237,7 @@
     <!-- CABEÇALHO CORPORATIVO -->
     <div class="cabecalho-corporativo">
       <div class="logo-empresa">
-        <img src="images/logo.PNG" alt="Engevis Engenharia">
+        <img src="https://engevisengenharia.rf.gd/images/logo.PNG" alt="Engevis Engenharia">
         <div class="badge-engenharia">
           <i class="fas fa-bolt"></i>
         </div>
@@ -1234,7 +1246,9 @@
       <h1 class="titulo-empresa">Engevis</h1>
       <p class="subtitulo-empresa">Engenharia de Energia e Elétrica</p>
       <div class="slogan-empresa">
+        <i class="fas fa-chart-line" style="margin-right: 8px; color: var(--ouro-corporativo);"></i>
         Engineering the power behind the future
+        <i class="fas fa-wave-square" style="margin-left: 8px; color: var(--ouro-corporativo);"></i>
       </div>
       
       <!-- Redes Sociais no Cabeçalho -->
@@ -1281,18 +1295,28 @@
         </h3>
         
         <div class="projetos-grid">
-          <div class="projeto-card" onclick="window.open('https://engevisengenharia.rf.gd/projetos-eletricos.html', '_blank')">
-            <div class="projeto-imagem" style="background: linear-gradient(135deg, #25D366 0%, #0A0F23 100%);">
-              <i class="fas fa-home"></i>
-              <span class="projeto-badge">Residencial</span>
+          <div class="projeto-card" onclick="window.open('https://engevisengenharia.rf.gd/eficiencia.html', '_blank')">
+            <div class="projeto-imagem" style="background: linear-gradient(135deg, #F2B705 0%, #0A0F23 100%);">
+              <i class="fas fa-chart-line"></i>
+              <span class="projeto-badge">Eficiência</span>
             </div>
             <div class="projeto-conteudo">
-              <h4>Projeto Residencial</h4>
+              <h4>Eficiência Energética</h4>
             </div>
           </div>
           
+          <div class="projeto-card" onclick="window.open('https://engevisengenharia.rf.gd/qualidade-energia.html', '_blank')">
+            <div class="projeto-imagem" style="background: linear-gradient(135deg, #D6A105 0%, #0A0F23 100%);">
+              <i class="fas fa-wave-square"></i>
+              <span class="projeto-badge">Qualidade</span>
+            </div>
+            <div class="projeto-conteudo">
+              <h4>Qualidade de Energia</h4>
+            </div>
+          </div>
+
           <div class="projeto-card" onclick="window.open('https://engevisengenharia.rf.gd/renovaveis.html', '_blank')">
-            <div class="projeto-imagem" style="background: linear-gradient(135deg, #F2B705 0%, #0A0F23 100%);">
+            <div class="projeto-imagem" style="background: linear-gradient(135deg, #25D366 0%, #0A0F23 100%);">
               <i class="fas fa-solar-panel"></i>
               <span class="projeto-badge">Solar</span>
             </div>
@@ -1308,16 +1332,6 @@
             </div>
             <div class="projeto-conteudo">
               <h4>Sistema Elétrico Industrial</h4>
-            </div>
-          </div>
-
-          <div class="projeto-card" onclick="window.open('https://engevisengenharia.rf.gd/eficiencia.html', '_blank')">
-            <div class="projeto-imagem" style="background: linear-gradient(135deg, #FF6B6B 0%, #0A0F23 100%);">
-              <i class="fas fa-chart-line"></i>
-              <span class="projeto-badge">Eficiência</span>
-            </div>
-            <div class="projeto-conteudo">
-              <h4>Auditoria Energética</h4>
             </div>
           </div>
         </div>
@@ -1339,19 +1353,6 @@
             <div class="telefone-com-nome">
               <a href="tel:+5535999165674" class="telefone-numero">+55 35 99916-5674</a>
               <span class="telefone-nome">Vinicios</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="info-linha">
-          <div class="info-icone">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <div class="info-conteudo">
-            <h4>Contato Direto</h4>
-            <div class="telefone-com-nome">
-              <a href="tel:+553597221324" class="telefone-numero">+55 35 9722-1324</a>
-              <span class="telefone-nome">Rodrigo</span>
             </div>
           </div>
         </div>
@@ -1390,22 +1391,29 @@
           </div>
           <div class="info-conteudo">
             <h4>Especialização Principal</h4>
-            <p class="destaque-ouro">Engenharia de Energia e Elétrica</p>
+            <p class="destaque-ouro">Eficiência e Qualidade de Energia</p>
           </div>
         </div>
       </div>
 
+      <!-- ÁREAS DE EXPERTISE COM FOCO EM EFICIÊNCIA E QUALIDADE -->
       <div class="especializacoes-corporativas">
-        <h3 class="especializacoes-titulo">Áreas de Expertise</h3>
+        <h3 class="especializacoes-titulo">
+          <i class="fas fa-chart-line"></i> 
+          Áreas de Expertise 
+          <i class="fas fa-wave-square"></i>
+        </h3>
         <div class="chips-corporativos">
-          <span class="chip-corporativo"><i class="fas fa-drafting-compass"></i> Projetos Elétricos</span>
-          <span class="chip-corporativo"><i class="fas fa-solar-panel"></i> Energia Solar</span>
           <span class="chip-corporativo"><i class="fas fa-chart-line"></i> Eficiência Energética</span>
+          <span class="chip-corporativo"><i class="fas fa-wave-square"></i> Qualidade de Energia</span>
+          <span class="chip-corporativo"><i class="fas fa-solar-panel"></i> Energia Solar</span>
+          <span class="chip-corporativo"><i class="fas fa-drafting-compass"></i> Projetos Elétricos</span>
           <span class="chip-corporativo"><i class="fas fa-industry"></i> Consultoria Industrial</span>
           <span class="chip-corporativo"><i class="fas fa-file-contract"></i> ART & Documentação</span>
           <span class="chip-corporativo"><i class="fas fa-tractor"></i> Agronegócio</span>
           <span class="chip-corporativo"><i class="fas fa-building"></i> Construção Civil</span>
-          <span class="chip-corporativo"><i class="fas fa-lightbulb"></i> Automação</span>
+          <span class="chip-corporativo"><i class="fas fa-microchip"></i> Automação</span>
+          <span class="chip-corporativo"><i class="fas fa-charging-station"></i> Infraestrutura de Recarga</span>
         </div>
       </div>
     </div>
@@ -1415,6 +1423,10 @@
       <div class="direitos-corporativos">
         © 2026 Engevis Engenharia de Energia e Elétrica<br>
         <a href="https://engevisengenharia.rf.gd/" target="_blank">engevisengenharia.rf.gd</a>
+        <br>
+        <span style="font-size: 0.65rem; opacity: 0.6;">
+          <i class="fas fa-leaf"></i> Especialistas em Eficiência e Qualidade de Energia
+        </span>
       </div>
     </div>
   </div>
@@ -1508,7 +1520,7 @@
         engevisMarker.bindPopup(`
           <div style="text-align: center; padding: 10px;">
             <strong style="color: #F2B705; font-size: 16px;">Engevis Engenharia</strong><br>
-            <span style="color: #666; font-size: 12px;">Engenharia de Energia e Elétrica</span><br>
+            <span style="color: #666; font-size: 12px;">Eficiência e Qualidade de Energia</span><br>
             <small style="color: #888;">Sede em Itajubá - MG</small>
           </div>
         `);
